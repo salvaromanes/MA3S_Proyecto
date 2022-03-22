@@ -6,6 +6,8 @@
 		<class>ma3s.fintech.Item3</class>
 		<class>ma3s.fintech.Item4</class>
 		<class>ma3s.fintech.Item5</class>
+		<class>ma3s.fintech.Item6</class>
+
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test"/>
 			<property name="javax.persistence.jdbc.user" value=""/>
