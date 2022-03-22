@@ -19,14 +19,16 @@ public class Referencia extends Cuenta{
     //el resto de datos se extraeran del IBAN de la cuenta.
     public Referencia(){
         super();
-        /*
+    }
+
+    public Referencia(String i){
+        super();
         nombrebanco=i.substring(4, 8);
         sucursal=i.substring(8, 12);
         pais=i.substring(0, 2);
         saldo=0;
         fecha_apertura=new java.util.Date();
         estado="abierta";
-        */
     }
 
     //Devuelve el codigo que hace referencia al nombre del banco
