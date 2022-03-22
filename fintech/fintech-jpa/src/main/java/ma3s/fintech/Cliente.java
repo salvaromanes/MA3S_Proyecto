@@ -20,11 +20,14 @@ public class Cliente{
     private String codigo_postal;
     private String pais;
 
+    public Cliente(){
 
-    public Cliente(String id,String identificacion,String tipo_cliente, Date fecha_alta,Date fecha_baja,String direccion,String ciudad,String codigo_postal,String pais) {
+    }
+
+    public Cliente(String id,String identificacion,String tipo_cliente, Date fecha_alta,Date fecha_baja,String direccion,String ciudad,String codigo_postal,String pais) throws Exception {
         if( id == null || identificacion == null || tipo_cliente == null || direccion == null || ciudad == null
             || codigo_postal == null || pais == null){
-            throw new RuntimeException("Parametros pasados erroneos");
+            throw new Exception("Parametros pasados erroneos");
         }
         this.id = id;
         this.identificacion = identificacion;
@@ -128,16 +131,15 @@ public class Cliente{
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "id='" + id + '\'' +
-                ", identificacion='" + identificacion + '\'' +
-                ", tipo_cliente='" + tipo_cliente + '\'' +
-                ", fecha_alta=" + fecha_alta +
-                ", fecha_baja=" + fecha_baja +
-                ", direccion='" + direccion + '\'' +
-                ", ciudad='" + ciudad + '\'' +
-                ", codigo_postal='" + codigo_postal + '\'' +
-                ", pais='" + pais + '\'' +
-                '}';
+        return "Cliente \n" +
+                "id='" + id + "\n" +
+                ", identificacion='" + identificacion + "\n" +
+                ", tipo_cliente='" + tipo_cliente + "\n" +
+                ", fecha_alta=" + fecha_alta + "\n" +
+                ", fecha_baja=" + fecha_baja + "\n" +
+                ", direccion='" + direccion + "\n" +
+                ", ciudad='" + ciudad + "\n" +
+                ", codigo_postal='" + codigo_postal + "\n" +
+                ", pais='" + pais + "\n";
     }
 }
