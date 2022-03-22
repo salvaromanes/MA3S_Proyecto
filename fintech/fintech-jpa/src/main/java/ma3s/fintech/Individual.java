@@ -7,7 +7,7 @@ import java.util.Date;
 @Entity
 public class Individual extends Cliente{
 
-    @GeneratedValue
+
     private String nombre;
     private String apellido;
     private Date fecha_nacimiento;

@@ -8,7 +8,6 @@ import java.util.Date;
 @Entity
 public class Empresa extends Cliente{
 
-    @GeneratedValue
     private String razon_social;
 
 
