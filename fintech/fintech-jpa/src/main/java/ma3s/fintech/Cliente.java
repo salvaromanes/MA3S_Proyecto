@@ -4,12 +4,16 @@ import org.eclipse.persistence.internal.sessions.DirectCollectionChangeRecord;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 
 @Entity
 public class Cliente{
+    @Id
+    @GeneratedValue
     private String id;
     private String identificacion;
     private String tipo_cliente;
