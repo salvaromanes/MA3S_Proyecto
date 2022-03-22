@@ -123,7 +123,7 @@ public class Cliente{
 
     @Override
     public int hashCode() {
-        return this.id.toUpperCase().hashCode();
+        return this.id.toUpperCase().hashCode() ;
     }
 
     @Override
