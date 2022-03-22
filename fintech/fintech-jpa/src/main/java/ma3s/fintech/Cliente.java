@@ -119,6 +119,8 @@ public class Cliente{
         return res;
     }
 
+
+
     @Override
     public int hashCode() {
         return this.id.toUpperCase().hashCode();
