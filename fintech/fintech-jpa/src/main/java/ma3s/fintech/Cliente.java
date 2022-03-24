@@ -10,8 +10,8 @@ import java.util.Date;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Cliente{
     @Id
+    private Long id;
     @Column(name = "DNI")
-    private String id;
     private String identificacion;
     private String tipo_cliente;
     @Temporal(TemporalType.DATE)
@@ -27,7 +27,7 @@ public class Cliente{
 
     }
 
-    public Cliente(String id,String identificacion,String tipo_cliente, Date fecha_alta,Date fecha_baja,String direccion,String ciudad,String codigo_postal,String pais) throws Exception {
+    public Cliente(Long id,String identificacion,String tipo_cliente, Date fecha_alta,Date fecha_baja,String direccion,String ciudad,String codigo_postal,String pais) throws Exception {
         if( id == null || identificacion == null || tipo_cliente == null || direccion == null || ciudad == null
             || codigo_postal == null || pais == null){
             throw new Exception("Parametros pasados erroneos");
@@ -43,8 +43,12 @@ public class Cliente{
         this.pais = pais;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getIdentificacion() {
@@ -77,10 +81,6 @@ public class Cliente{
 
     public String getPais() {
         return pais;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public void setIdentificacion(String identificacion) {
@@ -120,7 +120,7 @@ public class Cliente{
         boolean res = false;
         if(o instanceof Cliente){
             Cliente aux = (Cliente) o;
-            res = this.id.equalsIgnoreCase(aux.getId());
+            res = this.id.equals(aux.getId());
         }
         return res;
     }
@@ -129,7 +129,7 @@ public class Cliente{
 
     @Override
     public int hashCode() {
-        return this.id.toUpperCase().hashCode() ;
+        return this.id.hashCode() ;
     }
 
     @Override
