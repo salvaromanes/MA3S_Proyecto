@@ -12,7 +12,7 @@ import java.util.Objects;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Cliente{
     @Id
-    @GeneratedValue
+    @Column(name = "DNI")
     private String id;
     private String identificacion;
     private String tipo_cliente;
