@@ -1,12 +1,10 @@
 package ma3s.fintech;
 
-import org.eclipse.persistence.internal.sessions.DirectCollectionChangeRecord;
-import sun.util.resources.Bundles;
+
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Locale;
-import java.util.Objects;
+
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
