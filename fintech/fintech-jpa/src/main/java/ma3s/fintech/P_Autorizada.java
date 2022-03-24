@@ -4,9 +4,9 @@ import javax.persistence.Entity;
 import java.util.Date;
 import java.util.Objects;
 
-
+@Entity
 public class P_Autorizada {
-    private String id;
+    private Long id;
     private String identificacion;
     private String nombre;
     private String apellidos;
@@ -16,11 +16,11 @@ public class P_Autorizada {
     private Date fechainicio;
     private Date fechafin;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -98,7 +98,7 @@ public class P_Autorizada {
 
     @Override
     public int hashCode() {
-        return this.id.toUpperCase().hashCode()+ this.identificacion.toUpperCase().hashCode();
+        return this.id.hashCode()+ this.identificacion.toUpperCase().hashCode();
     }
 
     @Override
