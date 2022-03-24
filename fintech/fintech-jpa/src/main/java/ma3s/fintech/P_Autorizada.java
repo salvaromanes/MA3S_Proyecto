@@ -1,20 +1,29 @@
 package ma3s.fintech;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
 public class P_Autorizada {
+    @Id @GeneratedValue
     private Long id;
+    @Column(unique=true)
     private String identificacion;
     private String nombre;
     private String apellidos;
     private String direccion;
-    private Date fecha_nacimiento;
     private String estado;
+    @Temporal(TemporalType.DATE)
+    private Date fecha_nacimiento;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechainicio;
+    @Temporal(TemporalType.DATE)
     private Date fechafin;
+
+    public P_Autorizada(){
+
+    }
 
     public Long getId() {
         return id;
@@ -98,7 +107,7 @@ public class P_Autorizada {
 
     @Override
     public int hashCode() {
-        return this.id.hashCode()+ this.identificacion.toUpperCase().hashCode();
+        return Objects.hash(id, identificacion);
     }
 
     @Override
