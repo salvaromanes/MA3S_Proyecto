@@ -2,10 +2,7 @@ package ma3s.fintech;
 
 import org.eclipse.persistence.internal.sessions.DirectCollectionChangeRecord;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
@@ -17,7 +14,9 @@ public class Cliente{
     private String id;
     private String identificacion;
     private String tipo_cliente;
+    @Temporal(TemporalType.DATE)
     private Date fecha_alta;
+    @Temporal(TemporalType.DATE)
     private Date fecha_baja;
     private String direccion;
     private String ciudad;
