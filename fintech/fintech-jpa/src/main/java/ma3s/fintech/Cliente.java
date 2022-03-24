@@ -27,22 +27,6 @@ public class Cliente{
 
     }
 
-    public Cliente(Long id,String identificacion,String tipo_cliente, Date fecha_alta,Date fecha_baja,String direccion,String ciudad,String codigo_postal,String pais) throws Exception {
-        if( id == null || identificacion == null || tipo_cliente == null || direccion == null || ciudad == null
-            || codigo_postal == null || pais == null){
-            throw new Exception("Parametros pasados erroneos");
-        }
-        this.id = id;
-        this.identificacion = identificacion;
-        this.tipo_cliente = tipo_cliente;
-        this.fecha_alta = fecha_alta;
-        this.fecha_baja = fecha_baja;
-        this.direccion = direccion;
-        this.ciudad = ciudad;
-        this.codigo_postal = codigo_postal;
-        this.pais = pais;
-    }
-
     public Long getId() {
         return id;
     }

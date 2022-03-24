@@ -16,12 +16,6 @@ public class Empresa extends Cliente{
     }
 
 
-    public Empresa(Long id, String identificacion, String tipo_cliente, Date fecha_alta,
-                   Date fecha_baja, String direccion, String ciudad, String codigo_postal, String pais, String razon_social) throws Exception {
-        super(id, identificacion, tipo_cliente, fecha_alta, fecha_baja, direccion, ciudad, codigo_postal, pais);
-        this.razon_social = razon_social;
-    }
-
     public String getRazon_social() {
         return razon_social;
     }

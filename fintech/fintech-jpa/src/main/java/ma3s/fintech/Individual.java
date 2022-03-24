@@ -20,16 +20,6 @@ public class Individual extends Cliente{
        super();
     }
 
-
-    public Individual
-            (Long id, String identificacion, String tipo_cliente, Date fecha_alta, Date fecha_baja, String direccion, String ciudad,
-             String codigo_postal, String pais, String nombre, String apellido, Date fecha_nacimiento) throws Exception {
-        super(id, identificacion, tipo_cliente, fecha_alta, fecha_baja, direccion, ciudad, codigo_postal, pais);
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fecha_nacimiento = fecha_nacimiento;
-    }
-
     public String getNombre() {
         return nombre;
     }
