@@ -2,6 +2,8 @@ package ma3s.fintech;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -11,12 +13,10 @@ public class Referencia extends Cuenta{
     private String sucursal;
     private String pais;
     private double saldo;
+    @Temporal(TemporalType.DATE)
     private Date fecha_apertura;
     private String estado;
 
-    //Creacion de una referencia a una cueta, dado el IBAN.
-    //Se indicará como fecha de creación la del día en que se haga la llamada al contructor y
-    //el resto de datos se extraeran del IBAN de la cuenta.
     public Referencia(){
         super();
     }
@@ -31,68 +31,56 @@ public class Referencia extends Cuenta{
         estado="abierta";
     }
 
-    //Devuelve el codigo que hace referencia al nombre del banco
     @Column(name = "Nombre_Banco", nullable = false, length = 50)
     public String getNombrebanco() {
         return nombrebanco;
     }
 
-    //Devuelve el codigo que hace referencia a la sucursal del banco
     @Column(name = "Sucursal", nullable = true, length = 50)
     public String getSucursal(){
         return sucursal;
     }
 
-    //Devuelve el saldo de la cuenta
     @Column(name = "Saldo", nullable = false)
     public double getSaldo() {
         return saldo;
     }
 
-    //Devuelve el estado de la cuenta
     @Column(name = "Estado", nullable = true, length = 40)
     public String getEstado() {
         return estado;
     }
 
-    //Devuelve el pais donde esta creada la cuenta
     @Column(name = "Pais", nullable = true, length = 50)
     public String getPais() {
         return pais;
     }
 
-    //Devuelve la fecha de creacion de la cuenta
     @Column(name = "Fecha_Apertura", nullable = true)
     public Date getFecha_apertura() {
         return fecha_apertura;
     }
 
-    //Actualiza el valor del nombre del banco
     public void setNombrebanco(String n) {
         nombrebanco=n;
     }
 
-    //Actualiza el valor del saldo de la cuenta
     public void setSucursal(String s){
         sucursal=s;
     }
 
-    //Actualiza el valor del pais de la cuenta
     public void setPais(String p){
         pais=p;
     }
 
-    //Actualiza el valor del saldo de la cuenta
     public void setSaldo(double s){
         saldo=s;
     }
 
-    //Actualiza el valor de la fecha de apertura de la cuenta
     public void setFecha_apertura(Date f){
         fecha_apertura=f;
     }
 
-    //Actualiza el estado de la cuenta
     public void setEstado(String e){
         estado=e;
     }
@@ -108,7 +96,6 @@ public class Referencia extends Cuenta{
     Fecha de apertura: dd/mm/yyyy
     Estado: XXXXXXX
     */
-    /*
     @Override
     public String toString(){
         String fa, fc;
@@ -120,5 +107,4 @@ public class Referencia extends Cuenta{
                 "\nSaldo: "+getSaldo()+"\nFecha de apertura: "+fa+
                 "\nEstado de la cuenta: "+getEstado();
     }
-    */
 }
