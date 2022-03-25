@@ -11,7 +11,6 @@ import java.util.Date;
 public class Cliente{
     @Id
     private Long id;
-    @Column(name = "DNI")
     private String identificacion;
     private String tipo_cliente;
     @Temporal(TemporalType.DATE)
@@ -20,7 +19,7 @@ public class Cliente{
     private Date fecha_baja;
     private String direccion;
     private String ciudad;
-    private String codigo_postal;
+    private String codigopostal;
     private String pais;
 
     public Cliente(){
@@ -60,7 +59,7 @@ public class Cliente{
     }
 
     public String getCodigo_postal() {
-        return codigo_postal;
+        return codigopostal;
     }
 
     public String getPais() {
@@ -92,7 +91,7 @@ public class Cliente{
     }
 
     public void setCodigo_postal(String codigo_postal) {
-        this.codigo_postal = codigo_postal;
+        this.codigopostal = codigo_postal;
     }
 
     public void setPais(String pais) {
@@ -126,7 +125,7 @@ public class Cliente{
                 ", fecha_baja=" + fecha_baja + "\n" +
                 ", direccion='" + direccion + "\n" +
                 ", ciudad='" + ciudad + "\n" +
-                ", codigo_postal='" + codigo_postal + "\n" +
+                ", codigo_postal='" + codigopostal + "\n" +
                 ", pais='" + pais + "\n";
     }
 }
