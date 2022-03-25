@@ -4,6 +4,7 @@ package ma3s.fintech;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 
 @Entity
@@ -98,21 +99,18 @@ public class Cliente{
         this.pais = pais;
     }
 
+
     @Override
     public boolean equals(Object o) {
-        boolean res = false;
-        if(o instanceof Cliente){
-            Cliente aux = (Cliente) o;
-            res = this.id.equals(aux.getId());
-        }
-        return res;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+        return Objects.equals(id, cliente.id);
     }
-
-
 
     @Override
     public int hashCode() {
-        return this.id.hashCode() ;
+        return Objects.hash(id);
     }
 
     @Override
