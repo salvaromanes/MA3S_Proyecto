@@ -4,10 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class Autorizacion {
+public class Autorizacion implements Serializable {
 
     private String tipo;
 

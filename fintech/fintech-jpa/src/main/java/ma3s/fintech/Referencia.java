@@ -4,11 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
-public class Referencia extends Cuenta{
+public class Referencia extends Cuenta implements Serializable {
     private String nombrebanco;
     private String sucursal;
     private String pais;

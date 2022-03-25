@@ -4,23 +4,27 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Divisa {
+public class Divisa implements Serializable {
     @Id
     private String abreviatura;
     @Column(nullable = false)
     private String nombre;
-    private String simbolo;
+    private Character simbolo;
     @Column(nullable = false)
     private Double cambioEuro;
+
     // Faltan por completar campos
     @OneToMany(mappedBy = "NombreVariableTransaccion")
     private List<Transaccion> transaccionesReceptoras;
     @OneToMany(mappedBy = "NombreVariableTransaccion")
     private List<Transaccion> transaccionesEmisoras;
+
+
     @OneToMany(mappedBy = "NombreVariableReferencia")
     private List<Referencia> cuentasReferencia;
 
@@ -37,7 +41,7 @@ public class Divisa {
         return nombre;
     }
 
-    public String getSimbolo() {
+    public Character getSimbolo() {
         return simbolo;
     }
 
@@ -65,7 +69,7 @@ public class Divisa {
         this.nombre = nombre;
     }
 
-    public void setSimbolo(String simbolo) {
+    public void setSimbolo(Character simbolo) {
         this.simbolo = simbolo;
     }
 

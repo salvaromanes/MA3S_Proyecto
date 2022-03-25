@@ -4,10 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Transaccion {
+public class Transaccion implements Serializable {
     @Id private String id_unico;
     @Temporal(TemporalType.DATE) private Date fechaInstruccion;
     private int cantidad;

@@ -3,13 +3,14 @@ package ma3s.fintech;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Cliente{
+public class Cliente implements Serializable {
     @Id
     private Long id;
     private String identificacion;

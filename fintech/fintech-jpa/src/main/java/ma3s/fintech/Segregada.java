@@ -2,9 +2,10 @@ package ma3s.fintech;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import java.io.Serializable;
 
 @Entity
-public class Segregada extends Fintech{
+public class Segregada extends Fintech implements Serializable {
     private double comision;
 
     public Segregada(){

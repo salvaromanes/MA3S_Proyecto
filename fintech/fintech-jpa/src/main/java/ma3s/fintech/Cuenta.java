@@ -1,10 +1,11 @@
 package ma3s.fintech;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Cuenta {
+public class Cuenta implements Serializable {
     @Id
     private String iban;
     private String swift;

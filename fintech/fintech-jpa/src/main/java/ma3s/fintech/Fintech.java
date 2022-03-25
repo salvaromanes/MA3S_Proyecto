@@ -4,11 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
-public class Fintech extends Cuenta{
+public class Fintech extends Cuenta implements Serializable {
     private String estado;
     @Temporal(TemporalType.DATE)
     private Date fecha_apertura;

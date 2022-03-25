@@ -3,10 +3,11 @@ package ma3s.fintech;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Empresa extends Cliente{
+public class Empresa extends Cliente implements Serializable {
 
     private String razon_social;
 

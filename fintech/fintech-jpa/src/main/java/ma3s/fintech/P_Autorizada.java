@@ -1,11 +1,12 @@
 package ma3s.fintech;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
-public class P_Autorizada {
+public class P_Autorizada implements Serializable {
     @Id @GeneratedValue
     private Long id;
     @Column(unique=true)
