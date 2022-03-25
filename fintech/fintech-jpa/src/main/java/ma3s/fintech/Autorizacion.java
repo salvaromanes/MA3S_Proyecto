@@ -17,20 +17,10 @@ public class Autorizacion implements Serializable {
     @JoinColumn(name = "p_autorizada")
     private P_Autorizada p_autorizada;
 
-    @Override
-    public String toString() {
-        return "Autorizacion{\n" +
-                "tipo=" + tipo +
-                "\np_autorizada=" + p_autorizada +
-                "\nempresa=" + empresa +
-                '}';
-    }
-
     @Id
     @ManyToOne
     @JoinColumn(name = "empresa")
     private Empresa empresa;
-
 
     public Autorizacion(){
 
@@ -71,6 +61,15 @@ public class Autorizacion implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(tipo);
+    }
+
+    @Override
+    public String toString() {
+        return "Autorizacion{\n" +
+                "tipo=" + tipo +
+                "\np_autorizada=" + p_autorizada +
+                "\nempresa=" + empresa +
+                '}';
     }
 
 }

@@ -7,6 +7,7 @@ import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Cuenta implements Serializable {
+
     @Id
     private String iban;
     private String swift;
@@ -21,9 +22,25 @@ public class Cuenta implements Serializable {
         return swift;
     }
 
+    public List<Transaccion> getTransaccionesDestino() {
+        return transaccionesDestino;
+    }
+
+    public List<Transaccion> getTransaccionesOrigen() {
+        return transaccionesOrigen;
+    }
+
     public void setIban(String i){ iban=i; }
 
     public void setSwift(String s){ swift=s; }
+
+    public void setTransaccionesOrigen(List<Transaccion> transaccionesOrigen) {
+        this.transaccionesOrigen = transaccionesOrigen;
+    }
+
+    public void setTransaccionesDestino(List<Transaccion> transaccionesDestino) {
+        this.transaccionesDestino = transaccionesDestino;
+    }
 
     @OneToMany(mappedBy = "cuentaDestino")
     private List<Transaccion> transaccionesDestino;
@@ -51,6 +68,8 @@ public class Cuenta implements Serializable {
         return "Cuenta{\n" +
                 "iban=" + iban +
                 "\nswift=" + swift +
+                "\ntransaccionesDestino=" + transaccionesDestino +
+                "\ntransaccionesOrigen=" + transaccionesOrigen +
                 '}';
     }
 }

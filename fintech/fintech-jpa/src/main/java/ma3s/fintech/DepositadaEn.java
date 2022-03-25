@@ -30,8 +30,24 @@ public class DepositadaEn implements Serializable {
         return saldo;
     }
 
+    public Referencia getReferencia() {
+        return referencia;
+    }
+
+    public Pooled getPooled() {
+        return pooled;
+    }
+
     public void setSaldo(Double saldo) {
         this.saldo = saldo;
+    }
+
+    public void setReferencia(Referencia referencia) {
+        this.referencia = referencia;
+    }
+
+    public void setPooled(Pooled pooled) {
+        this.pooled = pooled;
     }
 
     @Override

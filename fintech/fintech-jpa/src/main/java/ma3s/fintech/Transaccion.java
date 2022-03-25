@@ -7,13 +7,16 @@ import java.util.Date;
 @Entity
 public class Transaccion implements Serializable {
 
-    @Id private String id_unico;
-    @Temporal(TemporalType.DATE) private Date fechaInstruccion;
-    private int cantidad;
-    @Temporal(TemporalType.DATE) private Date fechaEjecucion;
+    @Id
+    private String id_unico;
+    @Temporal(TemporalType.DATE)
+    private Date fechaInstruccion;
+    private Double cantidad;
+    @Temporal(TemporalType.DATE)
+    private Date fechaEjecucion;
     private String tipo;
-    private double comision;
-    private char internacional;
+    private Double comision;
+    private Character internacional;
 
     @ManyToOne
     private Cuenta cuentaDestino;
@@ -78,11 +81,11 @@ public class Transaccion implements Serializable {
 
 
     // Get y Set de CANTIDAD
-    public int getCantidad(){
+    public Double getCantidad(){
         return cantidad;
     }
 
-    public void setCantidad(int cant){
+    public void setCantidad(Double cant){
         cantidad = cant;
     }
 
@@ -108,21 +111,21 @@ public class Transaccion implements Serializable {
 
 
     // Get y Set de COMISION
-    public double getComision(){
+    public Double getComision(){
         return comision;
     }
 
-    public void setComision(double c){
+    public void setComision(Double c){
         comision = c;
     }
 
 
     // Get y Set de INTERNACIONAL
-    public char getInternacional(){
+    public Character getInternacional(){
         return internacional;
     }
 
-    public void setInternacional(char i){
+    public void setInternacional(Character i){
         internacional = i;
     }
 
@@ -159,6 +162,8 @@ public class Transaccion implements Serializable {
         this.divisaReceptor = divisaReceptor;
     }
 
+
+
     // EQUALS, HASHCODE Y TOSTRING
     @Override
     public boolean equals(Object o) {
@@ -186,7 +191,7 @@ public class Transaccion implements Serializable {
                 "\ncomision=" + comision +
                 "\ninternacional=" + internacional +
                 "\ncuentaDestino=" + cuentaDestino +
-                "\ncuentaOrigen=" + cuentaOrigen+
+                "\ncuentaOrigen=" + cuentaOrigen +
                 "\ndivisaEmisor=" + divisaEmisor +
                 "\ndivisaReceptor=" + divisaReceptor +
                 '}';

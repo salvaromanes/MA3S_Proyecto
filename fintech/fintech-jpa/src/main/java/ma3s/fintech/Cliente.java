@@ -16,6 +16,7 @@ public class Cliente implements Serializable {
     private Long id;
     private String identificacion;
     private String tipo_cliente;
+    private String estado;
     @Temporal(TemporalType.DATE)
     private Date fecha_alta;
     @Temporal(TemporalType.DATE)
@@ -48,6 +49,18 @@ public class Cliente implements Serializable {
         return tipo_cliente;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public String getCodigopostal() {
+        return codigopostal;
+    }
+
+    public List<Fintech> getCuentas_fintech() {
+        return cuentas_fintech;
+    }
+
     public Date getFecha_alta() {
         return fecha_alta;
     }
@@ -62,10 +75,6 @@ public class Cliente implements Serializable {
 
     public String getCiudad() {
         return ciudad;
-    }
-
-    public String getCodigo_postal() {
-        return codigopostal;
     }
 
     public String getPais() {
@@ -96,14 +105,21 @@ public class Cliente implements Serializable {
         this.ciudad = ciudad;
     }
 
-    public void setCodigo_postal(String codigo_postal) {
-        this.codigopostal = codigo_postal;
+    public void setCuentas_fintech(List<Fintech> cuentas_fintech) {
+        this.cuentas_fintech = cuentas_fintech;
+    }
+
+    public void setCodigopostal(String codigopostal) {
+        this.codigopostal = codigopostal;
     }
 
     public void setPais(String pais) {
         this.pais = pais;
     }
 
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -124,12 +140,15 @@ public class Cliente implements Serializable {
                 "id=" + id +
                 "\nidentificacion=" + identificacion +
                 "\ntipo_cliente=" + tipo_cliente +
+                "\nestado=" + estado +
                 "\nfecha_alta=" + fecha_alta +
                 "\nfecha_baja=" + fecha_baja +
                 "\ndireccion=" + direccion +
                 "\nciudad=" + ciudad +
                 "\ncodigopostal=" + codigopostal +
                 "\npais=" + pais +
+                "\ncuentas_fintech=" + cuentas_fintech +
                 '}';
     }
+
 }

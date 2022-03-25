@@ -7,6 +7,7 @@ import java.util.Objects;
 
 @Entity
 public class P_Autorizada implements Serializable {
+
     @Id @GeneratedValue
     private Long id;
     @Column(unique=true)
@@ -14,13 +15,15 @@ public class P_Autorizada implements Serializable {
     private String nombre;
     private String apellidos;
     private String direccion;
-    private String estado;
     @Temporal(TemporalType.DATE)
     private Date fecha_nacimiento;
+    private String estado;
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechainicio;
     @Temporal(TemporalType.DATE)
     private Date fechafin;
+    // Requisito adicional RF15
+    private String tipo;
 
     public P_Autorizada(){
 
@@ -98,6 +101,14 @@ public class P_Autorizada implements Serializable {
         this.fechafin = fechafin;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -119,10 +130,11 @@ public class P_Autorizada implements Serializable {
                 "\nnombre=" + nombre +
                 "\napellidos=" + apellidos +
                 "\ndireccion=" + direccion +
-                "\nestado=" + estado +
                 "\nfecha_nacimiento=" + fecha_nacimiento +
+                "\nestado=" + estado +
                 "\nfechainicio=" + fechainicio +
                 "\nfechafin=" + fechafin +
+                "\ntipo=" + tipo +
                 '}';
     }
 }

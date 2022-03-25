@@ -39,6 +39,10 @@ public class Fintech extends Cuenta implements Serializable {
         return clasificacion;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
     public void setEstado(String e){
         estado=e;
     }
@@ -55,6 +59,10 @@ public class Fintech extends Cuenta implements Serializable {
         clasificacion=c;
     }
 
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     @Override
     public String toString() {
         return super.toString() + "Fintech{\n" +
@@ -62,6 +70,7 @@ public class Fintech extends Cuenta implements Serializable {
                 "\nfecha_apertura=" + fecha_apertura +
                 "\nfecha_cierre=" + fecha_cierre +
                 "\nclasificacion=" + clasificacion +
+                "\ncliente=" + cliente +
                 '}';
     }
 }

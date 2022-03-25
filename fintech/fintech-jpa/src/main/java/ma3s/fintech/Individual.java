@@ -45,6 +45,7 @@ public class Individual extends Cliente implements Serializable {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
+
     @Override
     public String toString() {
         return super.toString() + "Individual{\n" +

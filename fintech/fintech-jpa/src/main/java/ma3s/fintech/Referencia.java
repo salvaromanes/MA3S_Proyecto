@@ -92,9 +92,11 @@ public class Referencia extends Cuenta implements Serializable {
         this.segregada = segregada;
     }
 
+
+
     @Override
     public String toString() {
-        return "Referencia{\n" +
+        return super.toString() + "Referencia{\n" +
                 "nombrebanco=" + nombrebanco +
                 "\nsucursal=" + sucursal +
                 "\npais=" + pais +

@@ -12,10 +12,9 @@ public class Empresa extends Cliente implements Serializable {
     private String razon_social;
 
 
-   public Empresa(){
+    public Empresa(){
         super();
     }
-
 
     public String getRazon_social() {
         return razon_social;
