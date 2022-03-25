@@ -21,16 +21,6 @@ public class Referencia extends Cuenta{
         super();
     }
 
-    public Referencia(String i){
-        super();
-        nombrebanco=i.substring(4, 8);
-        sucursal=i.substring(8, 12);
-        pais=i.substring(0, 2);
-        saldo=0;
-        fecha_apertura=new java.util.Date();
-        estado="abierta";
-    }
-
     @Column(name = "Nombre_Banco", nullable = false, length = 50)
     public String getNombrebanco() {
         return nombrebanco;

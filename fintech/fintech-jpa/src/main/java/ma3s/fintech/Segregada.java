@@ -11,11 +11,6 @@ public class Segregada extends Fintech{
         super();
     }
 
-    public Segregada(double c){
-        super();
-        comision=c;
-    }
-
     @Column(name = "Comision", nullable = true)
     public double getComision(){
         return comision;

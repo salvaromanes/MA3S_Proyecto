@@ -11,11 +11,6 @@ public class Cuenta {
 
     public Cuenta(){}
 
-    public Cuenta(String i, String s){
-        iban=i;
-        swift=s;
-    }
-
     public Cuenta(String i){ iban=i; }
 
     @Column(name = "IBAN", nullable = false, length = 32)

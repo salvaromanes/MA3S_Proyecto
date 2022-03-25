@@ -20,13 +20,6 @@ public class Fintech extends Cuenta{
         super();
     }
 
-    public Fintech(String c){
-        super();
-        fecha_apertura=new java.util.Date();
-        fecha_cierre=null;
-        clasificacion=c;
-    }
-
     @Column(name = "Estado", nullable = false, length = 10)
     public String getEstado(){
         return estado;
