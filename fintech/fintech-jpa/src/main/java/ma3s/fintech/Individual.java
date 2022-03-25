@@ -47,9 +47,10 @@ public class Individual extends Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return super.toString() + "Individual \n" +
-                "nombre='" + nombre + "\n" +
-                ", apellido='" + apellido + "\n" +
-                ", fecha_nacimiento=" + fecha_nacimiento;
+        return super.toString() + "Individual{\n" +
+                "nombre=" + nombre +
+                "\napellido=" + apellido +
+                "\nfecha_nacimiento=" + fecha_nacimiento +
+                '}';
     }
 }

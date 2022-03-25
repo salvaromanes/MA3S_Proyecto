@@ -178,17 +178,18 @@ public class Transaccion implements Serializable {
 
     @Override
     public String toString() {
-        return "Transaccion: \n" +
-                "id: " + id_unico + "\n" + "," +
-                "fechaInstruccion:" + fechaInstruccion + "\n" + "," +
-                "cantidad: " + cantidad + "\n" + "," +
-                "fechaEjecucion: " + fechaEjecucion + "\n" + "," +
-                "tipo: " + tipo + "\n" + "," +
-                "comision: " + comision + "\n" + "," +
-                "internacional: " + internacional + "\n" + "," +
-                "cuenta_iban1: " + cuenta_iban1 + "\n" + "," +
-                "cuenta_iban: " + cuenta_iban + "\n" + "," +
-                "divisa_abreviatura1: " + divisa_abreviatura1 + "\n" + "," +
-                "divisa_abreviatura: " + divisa_abreviatura + "\n" ;
+        return "Transaccion{\n" +
+                "id_unico=" + id_unico +
+                "\nfechaInstruccion=" + fechaInstruccion +
+                "\ncantidad=" + cantidad +
+                "\nfechaEjecucion=" + fechaEjecucion +
+                "\ntipo=" + tipo +
+                "\ncomision=" + comision +
+                "\ninternacional=" + internacional +
+                "\ncuenta_iban1=" + cuenta_iban1 +
+                "\ndivisa_abreviatura1=" + divisa_abreviatura1 +
+                "\ndivisa_abreviatura=" + divisa_abreviatura +
+                "\ncuenta_iban=" + cuenta_iban +
+                '}';
     }
 }

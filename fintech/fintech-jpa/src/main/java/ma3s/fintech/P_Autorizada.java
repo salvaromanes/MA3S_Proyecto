@@ -113,16 +113,16 @@ public class P_Autorizada implements Serializable {
 
     @Override
     public String toString() {
-        return "P_Autorizada{" +
-                "id='" + id + '\'' +
-                ", identificacion='" + identificacion + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellidos='" + apellidos + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", fecha_nacimiento=" + fecha_nacimiento +
-                ", estado='" + estado + '\'' +
-                ", fechainicio=" + fechainicio +
-                ", fechafin=" + fechafin +
+        return "P_Autorizada{\n" +
+                "id=" + id +
+                "\nidentificacion=" + identificacion +
+                "\nnombre=" + nombre +
+                "\napellidos=" + apellidos +
+                "\ndireccion=" + direccion +
+                "\nestado=" + estado +
+                "\nfecha_nacimiento=" + fecha_nacimiento +
+                "\nfechainicio=" + fechainicio +
+                "\nfechafin=" + fechafin +
                 '}';
     }
 }

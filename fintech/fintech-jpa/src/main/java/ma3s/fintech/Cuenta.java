@@ -12,14 +12,10 @@ public class Cuenta implements Serializable {
 
     public Cuenta(){}
 
-    public Cuenta(String i){ iban=i; }
-
-    @Column(name = "IBAN", nullable = false, length = 32)
     public String getIban(){
         return iban;
     }
 
-    @Column(name = "SWIFT", nullable = true, length = 11)
     public String getSwift(){
         return swift;
     }
@@ -39,18 +35,17 @@ public class Cuenta implements Serializable {
     }
 
     @Override
+    public String toString() {
+        return "Cuenta{\n" +
+                "iban=" + iban +
+                "\nswift=" + swift +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
         return this.iban.toUpperCase().hashCode() ;
     }
 
 
-    //Permite mostrar por pantalla los datos de la cuenta con el formato siguiente:
-    /*
-    IBAN: XXXXXXXXXXXXX
-    SWIFT: XXXXXXXXXXXXX
-    */
-    @Override
-    public String toString(){
-        return "IBAN: "+getIban()+"\nSWIFT: "+getSwift();
-    }
 }

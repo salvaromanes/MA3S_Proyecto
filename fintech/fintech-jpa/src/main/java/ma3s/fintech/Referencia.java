@@ -15,6 +15,19 @@ public class Referencia extends Cuenta implements Serializable {
     private Date fecha_apertura;
     private String estado;
 
+    @Override
+    public String toString() {
+        return super.toString() + "Referencia{\n" +
+                "nombrebanco=" + nombrebanco +
+                "\nsucursal=" + sucursal +
+                "\npais=" + pais +
+                "\nsaldo=" + saldo +
+                "\nfecha_apertura=" + fecha_apertura +
+                "\nestado=" + estado +
+                "\ndivisa=" + divisa +
+                '}';
+    }
+
     @ManyToOne
     private Divisa divisa;
 
@@ -84,25 +97,4 @@ public class Referencia extends Cuenta implements Serializable {
         this.divisa = divisa;
     }
 
-    //Permite mostrar por pantalla los datos de la cuenta con el formato siguiente:
-    /*
-    IBAN: XXXXXXXXXXXXX
-    Nombre del banco: XXXXXXXXXX
-    Sucursal: XXXXXXX
-    Pais: XX
-    Saldo: XXXXXXXX
-    Fecha de apertura: dd/mm/yyyy
-    Estado: XXXXXXX
-    */
-    @Override
-    public String toString(){
-        String fa, fc;
-        SimpleDateFormat formato=new SimpleDateFormat("dd/MM/yyyy");
-        fa=formato.format(getFecha_apertura());
-
-        return "IBAN: "+super.getIban()+"\nNombre del banco: "+getNombrebanco()+
-                "\nSucursal: "+getSucursal()+"\nPais: "+getPais()+
-                "\nSaldo: "+getSaldo()+"\nFecha de apertura: "+fa+
-                "\nEstado de la cuenta: "+getEstado();
-    }
 }

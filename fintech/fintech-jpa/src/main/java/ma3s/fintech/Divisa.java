@@ -104,14 +104,14 @@ public class Divisa implements Serializable {
 
     @Override
     public String toString() {
-        return "Divisa{" +
-                "abreviatura='" + abreviatura + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", simbolo='" + simbolo + '\'' +
-                ", cambioEuro=" + cambioEuro +
-                ", transaccionesReceptoras=" + transaccionesReceptoras +
-                ", transaccionesEmisoras=" + transaccionesEmisoras +
-                ", cuentasReferencia=" + cuentasReferencia +
+        return "Divisa{\n" +
+                "abreviatura=" + abreviatura +
+                "\nnombre=" + nombre +
+                "\nsimbolo=" + simbolo +
+                "\ncambioEuro=" + cambioEuro +
+                "\ntransaccionesReceptoras=" + transaccionesReceptoras +
+                "\ntransaccionesEmisoras=" + transaccionesEmisoras +
+                "\ncuentasReferencia=" + cuentasReferencia +
                 '}';
     }
 }

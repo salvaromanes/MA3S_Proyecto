@@ -49,8 +49,10 @@ public class DepositadaEn implements Serializable {
 
     @Override
     public String toString() {
-        return "DepositadaEn{" +
+        return "DepositadaEn{\n" +
                 "saldo=" + saldo +
+                "\npooled=" + pooled +
+                "\nreferencia=" + referencia +
                 '}';
     }
 }

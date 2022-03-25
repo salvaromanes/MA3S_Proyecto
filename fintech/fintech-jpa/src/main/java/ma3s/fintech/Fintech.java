@@ -57,21 +57,13 @@ public class Fintech extends Cuenta implements Serializable {
         clasificacion=c;
     }
 
-    //Permite mostrar por pantalla los datos de la cuenta con el formato siguiente:
-    /*
-    IBAN: XXXXXXXXXXXXX
-    Fecha de apertura: dd/mm/yyyy
-    Fecha de cierre: dd/mm/yyyy
-    Clasificacion: XXXXXXX
-    */
     @Override
-    public String toString(){
-        String fa, fc;
-        SimpleDateFormat formato=new SimpleDateFormat("dd/MM/yyyy");
-        fa=formato.format(getFecha_apertura());
-        fc=formato.format(getFecha_cierre());
-
-        return "IBAN: "+super.getIban()+"\nFecha de apertura: "+
-                fa+"\nFecha de cierre: "+fc+"\nClasificacion: "+getClasificacion();
+    public String toString() {
+        return super.toString() + "Fintech{\n" +
+                "estado=" + estado +
+                "\nfecha_apertura=" + fecha_apertura +
+                "\nfecha_cierre=" + fecha_cierre +
+                "\nclasificacion=" + clasificacion +
+                '}';
     }
 }
