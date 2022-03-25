@@ -2,15 +2,44 @@ package ma3s.fintech;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Objects;
 
 @Entity
 public class Autorizacion {
-    @Id
+
     private String tipo;
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "p_autorizada")
+    private P_Autorizada p_autorizada;
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "empresa")
+    private Empresa empresa;
+
 
     public Autorizacion(){
 
+    }
+
+    public P_Autorizada getP_autorizada() {
+        return p_autorizada;
+    }
+
+    public void setP_autorizada(P_Autorizada p_autorizada) {
+        this.p_autorizada = p_autorizada;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 
     public String getTipo() {
