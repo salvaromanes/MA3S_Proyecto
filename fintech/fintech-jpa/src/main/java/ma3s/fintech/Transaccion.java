@@ -30,37 +30,11 @@ public class Transaccion implements Serializable {
     @ManyToOne
     private Divisa divisaReceptor;
 
-    // CONSTRUCTORES
+
     public Transaccion(){ }
 
-    /*
-    public Transaccion(String id_unico, Date fechaInstruccion, int cantidad, Date fechaEjecucion, String tipo,
-                       double comision, char internacional, String cuenta_iban1, String divisa_abreviatura1,
-                       String divisa_abreviatura, String cuenta_iban) throws Exception {
 
-        // lanza excepcion si algun parametro está incompleto
-        if( id_unico == null || fechaInstruccion == null || fechaEjecucion == null || cuenta_iban1 == null
-                || divisa_abreviatura1 == null || divisa_abreviatura == null || cuenta_iban == null){
-            throw new Exception("Parametros pasados erroneos");
-        }
 
-        this.id_unico = id_unico;
-        this.fechaInstruccion = fechaInstruccion;
-        this.cantidad = cantidad;
-        this.fechaEjecucion = fechaEjecucion;
-        this.tipo = tipo;
-        this.comision = comision;
-        this.internacional = internacional;
-        this.cuenta_iban1 = cuenta_iban1;
-        this.divisa_abreviatura1 = divisa_abreviatura1;
-        this.cuenta_iban = cuenta_iban;
-        this.divisa_abreviatura = divisa_abreviatura;
-    }
-    */
-
-    // GETTERS Y SETTERS
-
-    // Get y Set de ID_UNICO
     public String getId_unico(){
         return id_unico;
     }
@@ -70,7 +44,7 @@ public class Transaccion implements Serializable {
     }
 
 
-    // Get y Set de FECHA INSTRUCCION
+
     public Date getFechaInstruccion(){
         return fechaInstruccion;
     }
@@ -80,7 +54,7 @@ public class Transaccion implements Serializable {
     }
 
 
-    // Get y Set de CANTIDAD
+
     public Double getCantidad(){
         return cantidad;
     }
@@ -90,7 +64,7 @@ public class Transaccion implements Serializable {
     }
 
 
-    // Get y Set de FECHA EJECUCION
+
     public Date getFechaEjecucion(){
         return fechaEjecucion;
     }
@@ -100,7 +74,7 @@ public class Transaccion implements Serializable {
     }
 
 
-    // Get y Set de TIPO
+
     public String getTipo(){
         return tipo;
     }
@@ -110,7 +84,7 @@ public class Transaccion implements Serializable {
     }
 
 
-    // Get y Set de COMISION
+
     public Double getComision(){
         return comision;
     }
@@ -120,7 +94,7 @@ public class Transaccion implements Serializable {
     }
 
 
-    // Get y Set de INTERNACIONAL
+
     public Character getInternacional(){
         return internacional;
     }
@@ -164,7 +138,7 @@ public class Transaccion implements Serializable {
 
 
 
-    // EQUALS, HASHCODE Y TOSTRING
+
     @Override
     public boolean equals(Object o) {
         boolean x = false;
