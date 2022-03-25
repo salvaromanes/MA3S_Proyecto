@@ -2,13 +2,24 @@ package ma3s.fintech;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Objects;
 
 @Entity
 public class DepositadaEn {
-    @Id
+
     private Double saldo;
 
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "pooled")
+    private Pooled pooled;
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "referencia")
+    private Referencia referencia;
 
     public DepositadaEn(){
 
