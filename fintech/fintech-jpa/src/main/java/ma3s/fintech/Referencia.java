@@ -2,11 +2,13 @@ package ma3s.fintech;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.security.PrivateKey;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
 public class Referencia extends Cuenta implements Serializable {
+
     private String nombrebanco;
     private String sucursal;
     private String pais;
@@ -15,18 +17,8 @@ public class Referencia extends Cuenta implements Serializable {
     private Date fecha_apertura;
     private String estado;
 
-    @Override
-    public String toString() {
-        return super.toString() + "Referencia{\n" +
-                "nombrebanco=" + nombrebanco +
-                "\nsucursal=" + sucursal +
-                "\npais=" + pais +
-                "\nsaldo=" + saldo +
-                "\nfecha_apertura=" + fecha_apertura +
-                "\nestado=" + estado +
-                "\ndivisa=" + divisa +
-                '}';
-    }
+    @OneToOne
+    private Segregada segregada;
 
     @ManyToOne
     private Divisa divisa;
@@ -35,38 +27,37 @@ public class Referencia extends Cuenta implements Serializable {
         super();
     }
 
-    @Column(name = "Nombre_Banco", nullable = false, length = 50)
+
     public String getNombrebanco() {
         return nombrebanco;
     }
 
-    @Column(name = "Sucursal", nullable = true, length = 50)
     public String getSucursal(){
         return sucursal;
     }
 
-    @Column(name = "Saldo", nullable = false)
     public double getSaldo() {
         return saldo;
     }
 
-    @Column(name = "Estado", nullable = true, length = 40)
     public String getEstado() {
         return estado;
     }
 
-    @Column(name = "Pais", nullable = true, length = 50)
     public String getPais() {
         return pais;
     }
 
-    @Column(name = "Fecha_Apertura", nullable = true)
     public Date getFecha_apertura() {
         return fecha_apertura;
     }
 
     public Divisa getDivisa() {
         return divisa;
+    }
+
+    public Segregada getSegregada() {
+        return segregada;
     }
 
     public void setNombrebanco(String n) {
@@ -95,6 +86,23 @@ public class Referencia extends Cuenta implements Serializable {
 
     public void setDivisa(Divisa divisa) {
         this.divisa = divisa;
+    }
+
+    public void setSegregada(Segregada segregada) {
+        this.segregada = segregada;
+    }
+
+    @Override
+    public String toString() {
+        return "Referencia{\n" +
+                "nombrebanco=" + nombrebanco +
+                "\nsucursal=" + sucursal +
+                "\npais=" + pais +
+                "\nsaldo=" + saldo +
+                "\nfecha_apertura=" + fecha_apertura +
+                "\nestado=" + estado +
+                "\ndivisa=" + divisa +
+                '}';
     }
 
 }

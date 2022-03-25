@@ -5,6 +5,7 @@ package ma3s.fintech;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -23,6 +24,9 @@ public class Cliente implements Serializable {
     private String ciudad;
     private String codigopostal;
     private String pais;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Fintech> cuentas_fintech;
 
     public Cliente(){
 

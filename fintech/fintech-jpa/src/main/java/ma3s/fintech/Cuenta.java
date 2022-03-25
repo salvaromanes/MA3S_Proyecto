@@ -2,6 +2,7 @@ package ma3s.fintech;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -24,6 +25,12 @@ public class Cuenta implements Serializable {
 
     public void setSwift(String s){ swift=s; }
 
+    @OneToMany(mappedBy = "cuentaDestino")
+    private List<Transaccion> transaccionesDestino;
+
+    @OneToMany(mappedBy = "cuentaOrigen")
+    private List<Transaccion> transaccionesOrigen;
+
     @Override
     public boolean equals(Object o) {
         boolean res = false;
@@ -35,17 +42,15 @@ public class Cuenta implements Serializable {
     }
 
     @Override
+    public int hashCode() {
+        return this.iban.toUpperCase().hashCode() ;
+    }
+
+    @Override
     public String toString() {
         return "Cuenta{\n" +
                 "iban=" + iban +
                 "\nswift=" + swift +
                 '}';
     }
-
-    @Override
-    public int hashCode() {
-        return this.iban.toUpperCase().hashCode() ;
-    }
-
-
 }

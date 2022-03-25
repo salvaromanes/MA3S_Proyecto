@@ -1,14 +1,12 @@
 package ma3s.fintech;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 public class Transaccion implements Serializable {
+
     @Id private String id_unico;
     @Temporal(TemporalType.DATE) private Date fechaInstruccion;
     private int cantidad;
@@ -16,14 +14,23 @@ public class Transaccion implements Serializable {
     private String tipo;
     private double comision;
     private char internacional;
-    private String cuenta_iban1;
-    private String divisa_abreviatura1;
-    private String divisa_abreviatura;
-    private String cuenta_iban;
+
+    @ManyToOne
+    private Cuenta cuentaDestino;
+
+    @ManyToOne
+    private Cuenta cuentaOrigen;
+
+    @ManyToOne
+    private Divisa divisaEmisor;
+
+    @ManyToOne
+    private Divisa divisaReceptor;
 
     // CONSTRUCTORES
     public Transaccion(){ }
 
+    /*
     public Transaccion(String id_unico, Date fechaInstruccion, int cantidad, Date fechaEjecucion, String tipo,
                        double comision, char internacional, String cuenta_iban1, String divisa_abreviatura1,
                        String divisa_abreviatura, String cuenta_iban) throws Exception {
@@ -46,7 +53,7 @@ public class Transaccion implements Serializable {
         this.cuenta_iban = cuenta_iban;
         this.divisa_abreviatura = divisa_abreviatura;
     }
-
+    */
 
     // GETTERS Y SETTERS
 
@@ -120,45 +127,37 @@ public class Transaccion implements Serializable {
     }
 
 
-    // Get y Set de CUENTA IBAN 1
-    public String getCuenta_iban1(){
-        return cuenta_iban1;
+    public Cuenta getCuentaDestino() {
+        return cuentaDestino;
     }
 
-    public void setCuenta_iban1(String c){
-        cuenta_iban1 = c;
+    public void setCuentaDestino(Cuenta cuentaDestino) {
+        this.cuentaDestino = cuentaDestino;
     }
 
-
-    // Get y Set de CUENTA IBAN
-    public String getCuenta_iban(){
-        return cuenta_iban;
+    public Cuenta getCuentaOrigen() {
+        return cuentaOrigen;
     }
 
-    public void setCuenta_iban(String c){
-        cuenta_iban = c;
+    public void setCuentaOrigen(Cuenta cuentaOrigen) {
+        this.cuentaOrigen = cuentaOrigen;
     }
 
-
-    // Get y Set de DIVISA ABREVIATURA 1
-    public String getDivisa_abreviatura1(){
-        return divisa_abreviatura1;
+    public Divisa getDivisaEmisor() {
+        return divisaEmisor;
     }
 
-    public void setDivisa_abreviatura1(String d){
-        divisa_abreviatura1 = d;
+    public void setDivisaEmisor(Divisa divisaEmisor) {
+        this.divisaEmisor = divisaEmisor;
     }
 
-
-    // Get y Set de DIVISA ABREVIATURA
-    public String getDivisa_abreviatura(){
-        return divisa_abreviatura;
+    public Divisa getDivisaReceptor() {
+        return divisaReceptor;
     }
 
-    public void setDivisa_abreviatura(String d){
-        divisa_abreviatura = d;
+    public void setDivisaReceptor(Divisa divisaReceptor) {
+        this.divisaReceptor = divisaReceptor;
     }
-
 
     // EQUALS, HASHCODE Y TOSTRING
     @Override
@@ -186,10 +185,10 @@ public class Transaccion implements Serializable {
                 "\ntipo=" + tipo +
                 "\ncomision=" + comision +
                 "\ninternacional=" + internacional +
-                "\ncuenta_iban1=" + cuenta_iban1 +
-                "\ndivisa_abreviatura1=" + divisa_abreviatura1 +
-                "\ndivisa_abreviatura=" + divisa_abreviatura +
-                "\ncuenta_iban=" + cuenta_iban +
+                "\ncuentaDestino=" + cuentaDestino +
+                "\ncuentaOrigen=" + cuentaOrigen+
+                "\ndivisaEmisor=" + divisaEmisor +
+                "\ndivisaReceptor=" + divisaReceptor +
                 '}';
     }
 }

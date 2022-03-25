@@ -19,9 +19,9 @@ public class Divisa implements Serializable {
     private Double cambioEuro;
 
     // Faltan por completar campos
-    @OneToMany(mappedBy = "NombreVariableTransaccion")
+    @OneToMany(mappedBy = "divisaReceptor")
     private List<Transaccion> transaccionesReceptoras;
-    @OneToMany(mappedBy = "NombreVariableTransaccion")
+    @OneToMany(mappedBy = "divisaEmisor")
     private List<Transaccion> transaccionesEmisoras;
 
 

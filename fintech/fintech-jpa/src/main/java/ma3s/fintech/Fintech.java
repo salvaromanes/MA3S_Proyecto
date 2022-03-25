@@ -1,15 +1,14 @@
 package ma3s.fintech;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Fintech extends Cuenta implements Serializable {
+
     private String estado;
     @Temporal(TemporalType.DATE)
     private Date fecha_apertura;
@@ -17,26 +16,25 @@ public class Fintech extends Cuenta implements Serializable {
     private Date fecha_cierre;
     private String clasificacion;
 
+    @ManyToOne
+    private Cliente cliente;
+
     public Fintech(){
         super();
     }
 
-    @Column(name = "Estado", nullable = false, length = 10)
     public String getEstado(){
         return estado;
     }
 
-    @Column(name = "Fecha_Apertura", nullable = false)
     public Date getFecha_apertura(){
         return fecha_apertura;
     }
 
-    @Column(name = "Fecha_Cierre", nullable = true)
     public Date getFecha_cierre(){
         return fecha_cierre;
     }
 
-    @Column(name = "Clasificacion", nullable = true)
     public String getClasificacion(){
         return clasificacion;
     }
