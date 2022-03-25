@@ -25,7 +25,7 @@ public class Divisa implements Serializable {
     private List<Transaccion> transaccionesEmisoras;
 
 
-    @OneToMany(mappedBy = "NombreVariableReferencia")
+    @OneToMany(mappedBy = "divisa")
     private List<Referencia> cuentasReferencia;
 
     // Constructor vacio de la clase

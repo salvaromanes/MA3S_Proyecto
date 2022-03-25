@@ -1,9 +1,6 @@
 package ma3s.fintech;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,6 +14,9 @@ public class Referencia extends Cuenta implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fecha_apertura;
     private String estado;
+
+    @ManyToOne
+    private Divisa divisa;
 
     public Referencia(){
         super();
@@ -52,6 +52,10 @@ public class Referencia extends Cuenta implements Serializable {
         return fecha_apertura;
     }
 
+    public Divisa getDivisa() {
+        return divisa;
+    }
+
     public void setNombrebanco(String n) {
         nombrebanco=n;
     }
@@ -76,6 +80,9 @@ public class Referencia extends Cuenta implements Serializable {
         estado=e;
     }
 
+    public void setDivisa(Divisa divisa) {
+        this.divisa = divisa;
+    }
 
     //Permite mostrar por pantalla los datos de la cuenta con el formato siguiente:
     /*
