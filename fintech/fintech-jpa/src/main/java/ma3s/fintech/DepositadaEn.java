@@ -1,15 +1,13 @@
 package ma3s.fintech;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 public class DepositadaEn implements Serializable {
 
+    @Column(nullable = false)
     private Double saldo;
 
     @Id
