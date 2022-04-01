@@ -10,4 +10,9 @@ public class Pooled extends Fintech implements Serializable {
     }
 
 
+
+    @Override
+    public String toString() {
+        return  "Cuenta Pooled: " + super.toString();
+    }
 }

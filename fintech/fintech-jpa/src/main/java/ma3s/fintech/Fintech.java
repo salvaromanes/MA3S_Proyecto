@@ -8,10 +8,13 @@ import java.util.List;
 
 @Entity
 public class Fintech extends Cuenta implements Serializable {
-
+    @Column(nullable = false)
     private String estado;
+
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fecha_apertura;
+
     @Temporal(TemporalType.DATE)
     private Date fecha_cierre;
     private String clasificacion;
@@ -65,7 +68,7 @@ public class Fintech extends Cuenta implements Serializable {
 
     @Override
     public String toString() {
-        return super.toString() + "Fintech{\n" +
+        return  super.toString() + "Cuenta Fintech{\n" +
                 "estado=" + estado +
                 "\nfecha_apertura=" + fecha_apertura +
                 "\nfecha_cierre=" + fecha_cierre +

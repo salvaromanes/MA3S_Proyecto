@@ -7,7 +7,6 @@ import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Cuenta implements Serializable {
-
     @Id
     private String iban;
     private String swift;
@@ -65,7 +64,7 @@ public class Cuenta implements Serializable {
 
     @Override
     public String toString() {
-        return "Cuenta{\n" +
+        return  "Cuenta{\n" +
                 "iban=" + iban +
                 "\nswift=" + swift +
                 "\ntransaccionesDestino=" + transaccionesDestino +

@@ -8,10 +8,13 @@ import java.util.Date;
 
 @Entity
 public class Referencia extends Cuenta implements Serializable {
-
+    @Column(nullable = false)
     private String nombrebanco;
+
     private String sucursal;
     private String pais;
+
+    @Column(nullable = false)
     private double saldo;
     @Temporal(TemporalType.DATE)
     private Date fecha_apertura;
@@ -92,11 +95,9 @@ public class Referencia extends Cuenta implements Serializable {
         this.segregada = segregada;
     }
 
-
-
     @Override
     public String toString() {
-        return super.toString() + "Referencia{\n" +
+        return  super.toString() + "Referencia{\n" +
                 "nombrebanco=" + nombrebanco +
                 "\nsucursal=" + sucursal +
                 "\npais=" + pais +
@@ -106,5 +107,4 @@ public class Referencia extends Cuenta implements Serializable {
                 "\ndivisa=" + divisa +
                 '}';
     }
-
 }

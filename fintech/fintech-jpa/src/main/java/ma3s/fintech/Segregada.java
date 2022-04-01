@@ -7,7 +7,6 @@ import java.io.Serializable;
 
 @Entity
 public class Segregada extends Fintech implements Serializable {
-
     private Double comision;
 
     @OneToOne(mappedBy = "segregada")
@@ -35,7 +34,7 @@ public class Segregada extends Fintech implements Serializable {
 
     @Override
     public String toString() {
-        return super.toString() + "Segregada{\n" +
+        return  super.toString() + "Cuenta Segregada{\n" +
                 "comision=" + comision +
                 '}';
     }
