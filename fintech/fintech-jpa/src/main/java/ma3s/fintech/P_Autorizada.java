@@ -10,10 +10,13 @@ public class P_Autorizada implements Serializable {
 
     @Id @GeneratedValue
     private Long id;
-    @Column(unique=true)
+    @Column(unique=true, nullable = false)
     private String identificacion;
+    @Column(nullable = false)
     private String nombre;
+    @Column(nullable = false)
     private String apellidos;
+    @Column(nullable = false)
     private String direccion;
     @Temporal(TemporalType.DATE)
     private Date fecha_nacimiento;
