@@ -14,16 +14,24 @@ import java.util.Objects;
 public class Cliente implements Serializable {
     @Id
     private Long id;
+    @Column(nullable = false)
     private String identificacion;
+    @Column(nullable = false)
     private String tipo_cliente;
+    @Column(nullable = false)
     private String estado;
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Date fecha_alta;
     @Temporal(TemporalType.DATE)
     private Date fecha_baja;
+    @Column(nullable = false)
     private String direccion;
+    @Column(nullable = false)
     private String ciudad;
+    @Column(nullable = false)
     private String codigopostal;
+    @Column(nullable = false)
     private String pais;
 
     @OneToMany(mappedBy = "cliente")

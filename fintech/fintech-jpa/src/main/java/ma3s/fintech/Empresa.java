@@ -1,5 +1,6 @@
 package ma3s.fintech;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,6 +10,7 @@ import java.util.Date;
 @Entity
 public class Empresa extends Cliente implements Serializable {
 
+    @Column(nullable = false)
     private String razon_social;
 
 

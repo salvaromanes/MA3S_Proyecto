@@ -1,17 +1,15 @@
 package ma3s.fintech;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 public class Individual extends Cliente implements Serializable {
 
-
+    @Column(nullable = false)
     private String nombre;
+    @Column(nullable = false)
     private String apellido;
     @Temporal(TemporalType.DATE)
     private Date fecha_nacimiento;
