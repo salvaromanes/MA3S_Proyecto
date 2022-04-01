@@ -8,12 +8,16 @@ import java.util.Date;
 public class Transaccion implements Serializable {
 
     @Id
+    @Column(nullable = false)
     private String id_unico;
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Date fechaInstruccion;
+    @Column(nullable = false)
     private Double cantidad;
     @Temporal(TemporalType.DATE)
     private Date fechaEjecucion;
+    @Column(nullable = false)
     private String tipo;
     private Double comision;
     private Character internacional;
