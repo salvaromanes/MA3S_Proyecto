@@ -22,6 +22,8 @@ public class Usuario implements Serializable {
     private String estado;
     @Column(nullable = false)
     private String rol;
+    @Column(nullable = false)
+    private String email;
 
     public Usuario(){
 
