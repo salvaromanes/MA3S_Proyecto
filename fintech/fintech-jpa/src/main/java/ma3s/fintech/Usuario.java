@@ -25,6 +25,14 @@ public class Usuario implements Serializable {
     @Column(nullable = false)
     private String email;
 
+    @OneToOne(mappedBy = "user")
+    @JoinColumn(name = "Id_PAutorizada")
+    P_Autorizada autorizada;
+
+    @OneToOne(mappedBy = "user")
+    @JoinColumn(name = "Id_Cliente")
+    Cliente cliente;
+
     public Usuario(){
 
     }

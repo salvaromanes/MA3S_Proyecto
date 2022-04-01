@@ -29,6 +29,9 @@ public class Cliente implements Serializable {
     @OneToMany(mappedBy = "cliente")
     private List<Fintech> cuentas_fintech;
 
+    @OneToOne
+    Usuario user;
+
     public Cliente(){
 
     }

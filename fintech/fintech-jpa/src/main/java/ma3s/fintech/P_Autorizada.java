@@ -28,6 +28,9 @@ public class P_Autorizada implements Serializable {
     // Requisito adicional RF15
     private String tipo;
 
+    @OneToOne
+    Usuario user;
+
     public P_Autorizada(){
 
     }
