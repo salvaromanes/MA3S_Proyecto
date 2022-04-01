@@ -19,15 +19,15 @@ public class Divisa implements Serializable {
     private Double cambioEuro;
 
     // Faltan por completar campos
-    @OneToMany(mappedBy = "divisaReceptor")
+    /*@OneToMany(mappedBy = "divisaReceptor")
     private List<Transaccion> transaccionesReceptoras;
     @OneToMany(mappedBy = "divisaEmisor")
     private List<Transaccion> transaccionesEmisoras;
+    */
 
-
-    @OneToMany(mappedBy = "divisa")
+    /*@OneToMany(mappedBy = "divisa")
     private List<Referencia> cuentasReferencia;
-
+    */
     // Constructor vacio de la clase
     public Divisa(){
 
@@ -49,17 +49,17 @@ public class Divisa implements Serializable {
         return cambioEuro;
     }
 
-    public List<Transaccion> getTransaccionesReceptoras() {
+    /*public List<Transaccion> getTransaccionesReceptoras() {
         return transaccionesReceptoras;
     }
 
     public List<Transaccion> getTransaccionesEmisoras() {
         return transaccionesEmisoras;
-    }
+    }*/
 
-    public List<Referencia> getCuentasReferencia() {
+    /*public List<Referencia> getCuentasReferencia() {
         return cuentasReferencia;
-    }
+    }*/
 
     public void setAbreviatura(String abreviatura) {
         this.abreviatura = abreviatura;
@@ -77,17 +77,17 @@ public class Divisa implements Serializable {
         this.cambioEuro = cambioEuro;
     }
 
-    public void setTransaccionesReceptoras(List<Transaccion> transaccionesReceptoras) {
+    /*public void setTransaccionesReceptoras(List<Transaccion> transaccionesReceptoras) {
         this.transaccionesReceptoras = transaccionesReceptoras;
     }
 
     public void setTransaccionesEmisoras(List<Transaccion> transaccionesEmisoras) {
         this.transaccionesEmisoras = transaccionesEmisoras;
-    }
+    }*/
 
-    public void setCuentasReferencia(List<Referencia> cuentasReferencia) {
+    /*public void setCuentasReferencia(List<Referencia> cuentasReferencia) {
         this.cuentasReferencia = cuentasReferencia;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -109,9 +109,9 @@ public class Divisa implements Serializable {
                 "\nnombre=" + nombre +
                 "\nsimbolo=" + simbolo +
                 "\ncambioEuro=" + cambioEuro +
-                "\ntransaccionesReceptoras=" + transaccionesReceptoras +
-                "\ntransaccionesEmisoras=" + transaccionesEmisoras +
-                "\ncuentasReferencia=" + cuentasReferencia +
+                /*"\ntransaccionesReceptoras=" + transaccionesReceptoras +
+                "\ntransaccionesEmisoras=" + transaccionesEmisoras +*/
+                /*"\ncuentasReferencia=" + cuentasReferencia +*/
                 '}';
     }
 }

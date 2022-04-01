@@ -14,6 +14,7 @@
 		<class>ma3s.fintech.Referencia</class>
 		<class>ma3s.fintech.Segregada</class>
 		<class>ma3s.fintech.Transaccion</class>
+		<class>ma3s.fintech.Usuario</class>
 
 
 		<properties>

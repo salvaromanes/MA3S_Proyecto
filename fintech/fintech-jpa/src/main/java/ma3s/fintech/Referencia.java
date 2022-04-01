@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.security.PrivateKey;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Referencia extends Cuenta implements Serializable {
@@ -25,6 +26,9 @@ public class Referencia extends Cuenta implements Serializable {
 
     @ManyToOne
     private Divisa divisa;
+
+    @ManyToMany(mappedBy = "referencias")
+    private List<Pooled> cuentas_pooled;
 
     public Referencia(){
         super();

@@ -19,7 +19,7 @@ public class Fintech extends Cuenta implements Serializable {
     private Date fecha_cierre;
     private String clasificacion;
 
-    @ManyToOne
+    @ManyToOne()
     private Cliente cliente;
 
     public Fintech(){
