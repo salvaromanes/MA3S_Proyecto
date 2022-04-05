@@ -1,11 +1,9 @@
 package ma3s.fintech;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Empresa extends Cliente implements Serializable {
@@ -13,6 +11,8 @@ public class Empresa extends Cliente implements Serializable {
     @Column(nullable = false)
     private String razonSocial;
 
+    @OneToMany(mappedBy = "empresaId")
+    private List<Autorizacion> autorizaciones;
 
     public Empresa(){
         super();

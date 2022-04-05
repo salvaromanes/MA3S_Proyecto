@@ -3,6 +3,7 @@ package ma3s.fintech;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -27,6 +28,9 @@ public class Autorizada implements Serializable {
     private Date fechafin;
     // Requisito adicional RF15
     private String tipo;
+
+    @OneToMany(mappedBy = "autorizadaId")
+    private List<Autorizacion> autorizaciones;
 
     @OneToOne
     Usuario user;

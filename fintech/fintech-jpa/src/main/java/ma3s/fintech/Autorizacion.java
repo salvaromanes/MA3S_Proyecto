@@ -9,47 +9,19 @@ import java.util.Objects;
 public class Autorizacion implements Serializable {
 
     @Id
-    private Long AutorizadaId;
+    @ManyToOne
+    private Autorizada autorizadaId;
 
     @Id
-    private Long EmpresaId;
+    @ManyToOne
+    private Empresa empresaId;
 
     @Column(nullable = false)
     private String tipo;
 
-    /*
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "p_autorizada")
-    private Autorizada _autorizada;
-
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "empresa")
-    private Empresa empresa;
-    */
-
     public Autorizacion(){
 
     }
-
-    /*
-    public Autorizada getP_autorizada() {
-        return _autorizada;
-    }
-
-    public void setP_autorizada(Autorizada _autorizada) {
-        this._autorizada = _autorizada;
-    }
-
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
-    */
 
     public String getTipo() {
         return tipo;
@@ -59,30 +31,20 @@ public class Autorizacion implements Serializable {
         this.tipo = tipo;
     }
 
-    /*
-    public Autorizada get_autorizada() {
-        return _autorizada;
+    public Autorizada getAutorizadaId() {
+        return autorizadaId;
     }
 
-    public void set_autorizada(Autorizada _autorizada) {
-        this._autorizada = _autorizada;
-    }
-    */
-
-    public Long getAutorizadaId() {
-        return AutorizadaId;
+    public void setAutorizadaId(Autorizada autorizadaId) {
+        this.autorizadaId = autorizadaId;
     }
 
-    public void setAutorizadaId(Long autorizadaId) {
-        AutorizadaId = autorizadaId;
+    public Empresa getEmpresaId() {
+        return empresaId;
     }
 
-    public Long getEmpresaId() {
-        return EmpresaId;
-    }
-
-    public void setEmpresaId(Long empresaId) {
-        EmpresaId = empresaId;
+    public void setEmpresaId(Empresa empresaId) {
+        this.empresaId = empresaId;
     }
 
     @Override
@@ -108,5 +70,4 @@ public class Autorizacion implements Serializable {
                 */
                 '}';
     }
-
 }
