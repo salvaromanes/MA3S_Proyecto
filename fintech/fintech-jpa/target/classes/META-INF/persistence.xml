@@ -15,7 +15,8 @@
 		<class>ma3s.fintech.Segregada</class>
 		<class>ma3s.fintech.Transaccion</class>
 		<class>ma3s.fintech.Usuario</class>
-
+		<class>ma3s.fintech.DepositadaId</class>
+		<class>ma3s.fintech.AutorizadaId</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test"/>

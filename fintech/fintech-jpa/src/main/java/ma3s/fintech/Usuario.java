@@ -13,8 +13,6 @@ public class Usuario implements Serializable {
     private String contrasena;
     private String estado;
     @Column(nullable = false)
-    private String email;
-    @Column(nullable = false)
     private Boolean esAdmin;
 
     @OneToOne(mappedBy = "user")
@@ -51,14 +49,6 @@ public class Usuario implements Serializable {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Boolean getEsAdmin() {

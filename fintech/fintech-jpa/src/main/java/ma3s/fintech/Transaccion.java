@@ -20,7 +20,7 @@ public class Transaccion implements Serializable {
     @Column(nullable = false)
     private String tipo;
     private Double comision;
-    private Character internacional;
+    private Boolean internacional;
 
     @ManyToOne
     private Cuenta cuentaDestino;
@@ -84,11 +84,11 @@ public class Transaccion implements Serializable {
         comision = c;
     }
 
-    public Character getInternacional(){
+    public Boolean getInternacional(){
         return internacional;
     }
 
-    public void setInternacional(Character i){
+    public void setInternacional(Boolean i){
         internacional = i;
     }
 
