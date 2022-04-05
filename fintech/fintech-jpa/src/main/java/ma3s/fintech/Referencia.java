@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 public class Referencia extends Cuenta implements Serializable {
     @Column(nullable = false)
-    private String nombrebanco;
+    private String nombreBanco;
 
     private String sucursal;
     private String pais;
@@ -33,8 +33,8 @@ public class Referencia extends Cuenta implements Serializable {
     }
 
 
-    public String getNombrebanco() {
-        return nombrebanco;
+    public String getNombreBanco() {
+        return nombreBanco;
     }
 
     public String getSucursal(){
@@ -65,8 +65,8 @@ public class Referencia extends Cuenta implements Serializable {
         return segregada;
     }
 
-    public void setNombrebanco(String n) {
-        nombrebanco=n;
+    public void setNombreBanco(String n) {
+        nombreBanco =n;
     }
 
     public void setSucursal(String s){
@@ -108,11 +108,11 @@ public class Referencia extends Cuenta implements Serializable {
     @Override
     public String toString() {
         return  super.toString() + "Referencia{\n" +
-                "nombrebanco=" + nombrebanco +
+                "nombrebanco=" + nombreBanco +
                 "\nsucursal=" + sucursal +
                 "\npais=" + pais +
                 "\nsaldo=" + saldo +
-                "\nfecha_apertura=" + fechaApertura +
+                "\nfechaApertura=" + fechaApertura +
                 "\nestado=" + estado +
                 "\ndivisa=" + divisa +
                 '}';

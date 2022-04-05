@@ -2,7 +2,6 @@ package ma3s.fintech;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -24,6 +23,14 @@ public class Empresa extends Cliente implements Serializable {
 
     public void setRazonSocial(String razonSocial) {
         this.razonSocial = razonSocial;
+    }
+
+    public List<Autorizacion> getAutorizaciones() {
+        return autorizaciones;
+    }
+
+    public void setAutorizaciones(List<Autorizacion> autorizaciones) {
+        this.autorizaciones = autorizaciones;
     }
 
     @Override

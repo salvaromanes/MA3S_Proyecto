@@ -1,13 +1,10 @@
 package ma3s.fintech;
 
-
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -17,12 +14,12 @@ public class Cliente implements Serializable {
     @Column(nullable = false)
     private String identificacion;
     @Column(nullable = false)
-    private String tipo_cliente;
+    private String tipoCliente;
     @Column(nullable = false)
     private String estado;
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
-    private Date fecha_alta;
+    private Date fechaAlta;
     @Temporal(TemporalType.DATE)
     private Date fechaBaja;
     @Column(nullable = false)
@@ -35,7 +32,7 @@ public class Cliente implements Serializable {
     private String pais;
 
     @OneToMany(mappedBy = "cliente")
-    private List<Fintech> cuentas_fintech;
+    private List<Fintech> cuentasFintech;
 
     @OneToOne
     Usuario user;
@@ -56,8 +53,8 @@ public class Cliente implements Serializable {
         return identificacion;
     }
 
-    public String getTipo_cliente() {
-        return tipo_cliente;
+    public String getTipoCliente() {
+        return tipoCliente;
     }
 
     public String getEstado() {
@@ -68,12 +65,12 @@ public class Cliente implements Serializable {
         return codigopostal;
     }
 
-    public List<Fintech> getCuentas_fintech() {
-        return cuentas_fintech;
+    public List<Fintech> getCuentasFintech() {
+        return cuentasFintech;
     }
 
-    public Date getFecha_alta() {
-        return fecha_alta;
+    public Date getFechaAlta() {
+        return fechaAlta;
     }
 
     public Date getFechaBaja() {
@@ -96,12 +93,12 @@ public class Cliente implements Serializable {
         this.identificacion = identificacion;
     }
 
-    public void setTipo_cliente(String tipo_cliente) {
-        this.tipo_cliente = tipo_cliente;
+    public void setTipoCliente(String tipoCliente) {
+        this.tipoCliente = tipoCliente;
     }
 
-    public void setFecha_alta(Date fecha_alta) {
-        this.fecha_alta = fecha_alta;
+    public void setFechaAlta(Date fecha_alta) {
+        this.fechaAlta = fecha_alta;
     }
 
     public void setFechaBaja(Date fechaBaja) {
@@ -116,8 +113,8 @@ public class Cliente implements Serializable {
         this.ciudad = ciudad;
     }
 
-    public void setCuentas_fintech(List<Fintech> cuentas_fintech) {
-        this.cuentas_fintech = cuentas_fintech;
+    public void setCuentasFintech(List<Fintech> cuentasFintech) {
+        this.cuentasFintech = cuentasFintech;
     }
 
     public void setCodigopostal(String codigopostal) {
@@ -158,15 +155,15 @@ public class Cliente implements Serializable {
         return "Cliente{\n" +
                 "id=" + id +
                 "\nidentificacion=" + identificacion +
-                "\ntipo_cliente=" + tipo_cliente +
+                "\ntipoCliente=" + tipoCliente +
                 "\nestado=" + estado +
-                "\nfecha_alta=" + fecha_alta +
-                "\nfecha_baja=" + fechaBaja +
+                "\nfechaAlta=" + fechaAlta +
+                "\nfechaBaja=" + fechaBaja +
                 "\ndireccion=" + direccion +
                 "\nciudad=" + ciudad +
                 "\ncodigopostal=" + codigopostal +
                 "\npais=" + pais +
-                "\ncuentas_fintech=" + cuentas_fintech +
+                "\ncuentasFintech=" + cuentasFintech +
                 '}';
     }
 

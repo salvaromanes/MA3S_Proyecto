@@ -11,28 +11,18 @@ public class Usuario implements Serializable {
     private String usuario;
     @Column(nullable = false)
     private String contrasena;
-    @Column(nullable = false)
-    private String nombre;
-    @Column(nullable = false)
-    private String apellidos;
-    @Column(nullable = false)
-    private String direccion;
-    @Temporal(TemporalType.DATE)
-    private Date fecha_nacimiento;
     private String estado;
-    @Column(nullable = false)
-    private String rol;
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
     private Boolean esAdmin;
 
     @OneToOne(mappedBy = "user")
-    @JoinColumn(name = "Id_PAutorizada")
-    PAutorizada PAutorizada;
+    @JoinColumn(name = "idPAutorizada")
+    PAutorizada pAutorizada;
 
     @OneToOne(mappedBy = "user")
-    @JoinColumn(name = "Id_Cliente")
+    @JoinColumn(name = "idCliente")
     Cliente cliente;
 
     public Usuario(){
@@ -55,52 +45,12 @@ public class Usuario implements Serializable {
         this.contrasena = contrasena;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public Date getFecha_nacimiento() {
-        return fecha_nacimiento;
-    }
-
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
-    }
-
     public String getEstado() {
         return estado;
     }
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
     }
 
     public String getEmail() {
@@ -120,11 +70,11 @@ public class Usuario implements Serializable {
     }
 
     public PAutorizada getAutorizada() {
-        return PAutorizada;
+        return pAutorizada;
     }
 
-    public void setAutorizada(PAutorizada PAutorizada) {
-        this.PAutorizada = PAutorizada;
+    public void setAutorizada(PAutorizada pAutorizada) {
+        this.pAutorizada = pAutorizada;
     }
 
     public Cliente getCliente() {
@@ -133,6 +83,14 @@ public class Usuario implements Serializable {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public PAutorizada getpAutorizada() {
+        return pAutorizada;
+    }
+
+    public void setpAutorizada(PAutorizada pAutorizada) {
+        this.pAutorizada = pAutorizada;
     }
 
     @Override
@@ -153,12 +111,7 @@ public class Usuario implements Serializable {
         return "Usuario{\n" +
                 "usuario='" + usuario +
                 "\ncontrasena='" + contrasena +
-                "\nnombre='" + nombre +
-                "\napellidos='" + apellidos +
-                "\ndireccion='" + direccion +
-                "\nfecha_nacimiento=" + fecha_nacimiento +
                 "\nestado='" + estado +
-                "\nrol='" + rol +
                 '}';
     }
 }

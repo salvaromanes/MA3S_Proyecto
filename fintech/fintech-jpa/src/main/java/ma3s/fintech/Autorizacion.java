@@ -35,8 +35,8 @@ public class Autorizacion implements Serializable {
         return autorizadaId;
     }
 
-    public void setAutorizadaId(PAutorizada PAutorizadaId) {
-        this.autorizadaId = PAutorizadaId;
+    public void setAutorizadaId(PAutorizada autorizadaId) {
+        this.autorizadaId = autorizadaId;
     }
 
     public Empresa getEmpresaId() {
@@ -64,10 +64,8 @@ public class Autorizacion implements Serializable {
     public String toString() {
         return "Autorizacion{\n" +
                 "tipo=" + tipo +
-                /*
-                "\np_autorizada=" + _autorizada +
-                "\nempresa=" + empresa +
-                */
+                "\npAutorizadaId=" + autorizadaId +
+                "\nempresaId=" + empresaId +
                 '}';
     }
 }

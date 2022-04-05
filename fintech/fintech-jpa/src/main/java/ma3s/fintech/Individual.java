@@ -14,7 +14,6 @@ public class Individual extends Cliente implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
 
-
     public Individual(){
        super();
     }
@@ -39,17 +38,16 @@ public class Individual extends Cliente implements Serializable {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fecha_nacimiento) {
-        this.fechaNacimiento = fecha_nacimiento;
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
-
 
     @Override
     public String toString() {
         return super.toString() + "Individual{\n" +
                 "nombre=" + nombre +
                 "\napellido=" + apellido +
-                "\nfecha_nacimiento=" + fechaNacimiento +
+                "\nfechaNacimiento=" + fechaNacimiento +
                 '}';
     }
 }

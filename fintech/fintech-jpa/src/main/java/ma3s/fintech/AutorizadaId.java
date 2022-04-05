@@ -11,11 +11,11 @@ public class AutorizadaId implements Serializable {
 
     }
 
-    public Long getPersonaAutorizadaId() {
+    public Long getAutorizadaId() {
         return autorizadaId;
     }
 
-    public void setPersonaAutorizadaId(Long personaAutorizadaId) {
+    public void setAutorizadaId(Long personaAutorizadaId) {
         autorizadaId = personaAutorizadaId;
     }
 
@@ -25,14 +25,6 @@ public class AutorizadaId implements Serializable {
 
     public void setEmpresaId(Long empresa) {
         empresaId = empresa;
-    }
-
-    public Long getAutorizadaId() {
-        return autorizadaId;
-    }
-
-    public void setAutorizadaId(Long autorizadaId) {
-        this.autorizadaId = autorizadaId;
     }
 
     @Override
@@ -51,8 +43,8 @@ public class AutorizadaId implements Serializable {
     @Override
     public String toString() {
         return "AutorizadaId{" +
-                "autorizadaId=" + autorizadaId +
-                ", empresaId=" + empresaId +
+                "\npAutorizadaId=" + autorizadaId +
+                "\nempresaId=" + empresaId +
                 '}';
     }
 }

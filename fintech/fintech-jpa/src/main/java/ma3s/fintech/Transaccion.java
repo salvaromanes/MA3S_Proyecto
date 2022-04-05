@@ -34,10 +34,7 @@ public class Transaccion implements Serializable {
     @ManyToOne
     private Divisa divisaReceptor;
 
-
     public Transaccion(){ }
-
-
 
     public String getIdUnico(){
         return idUnico;
@@ -47,8 +44,6 @@ public class Transaccion implements Serializable {
         idUnico = id;
     }
 
-
-
     public Date getFechaInstruccion(){
         return fechaInstruccion;
     }
@@ -56,8 +51,6 @@ public class Transaccion implements Serializable {
     public void setFechaInstruccion(Date fecha){
         fechaInstruccion = fecha;
     }
-
-
 
     public Double getCantidad(){
         return cantidad;
@@ -67,8 +60,6 @@ public class Transaccion implements Serializable {
         cantidad = cant;
     }
 
-
-
     public Date getFechaEjecucion(){
         return fechaEjecucion;
     }
@@ -76,8 +67,6 @@ public class Transaccion implements Serializable {
     public void setFechaEjecucion(Date fecha){
         fechaEjecucion = fecha;
     }
-
-
 
     public String getTipo(){
         return tipo;
@@ -87,8 +76,6 @@ public class Transaccion implements Serializable {
         tipo = tip;
     }
 
-
-
     public Double getComision(){
         return comision;
     }
@@ -97,8 +84,6 @@ public class Transaccion implements Serializable {
         comision = c;
     }
 
-
-
     public Character getInternacional(){
         return internacional;
     }
@@ -106,7 +91,6 @@ public class Transaccion implements Serializable {
     public void setInternacional(Character i){
         internacional = i;
     }
-
 
     public Cuenta getCuentaDestino() {
         return cuentaDestino;
@@ -139,9 +123,6 @@ public class Transaccion implements Serializable {
     public void setDivisaReceptor(Divisa divisaReceptor) {
         this.divisaReceptor = divisaReceptor;
     }
-
-
-
 
     @Override
     public boolean equals(Object o) {

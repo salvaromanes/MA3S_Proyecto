@@ -41,9 +41,9 @@ public class DepositadaId implements Serializable {
 
     @Override
     public String toString() {
-        return "DepositadaId{" +
-                "ibanPooled='" + ibanPooled + '\'' +
-                ", ibanReferencia='" + ibanReferencia + '\'' +
+        return "DepositadaId{\n" +
+                "ibanPooled='" + ibanPooled + '\n' +
+                "ibanReferencia='" + ibanReferencia +
                 '}';
     }
 }

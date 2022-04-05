@@ -23,10 +23,9 @@ public class PAutorizada implements Serializable {
     private Date fechaNacimiento;
     private String estado;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date fechainicio;
+    private Date fechaInicio;
     @Temporal(TemporalType.DATE)
-    private Date fechafin;
-    // Requisito adicional RF15
+    private Date fechaFin;
     private String tipo;
 
     @OneToMany(mappedBy = "autorizadaId")
@@ -83,8 +82,8 @@ public class PAutorizada implements Serializable {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fecha_nacimiento) {
-        this.fechaNacimiento = fecha_nacimiento;
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getEstado() {
@@ -95,20 +94,20 @@ public class PAutorizada implements Serializable {
         this.estado = estado;
     }
 
-    public Date getFechainicio() {
-        return fechainicio;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setFechainicio(Date fechainicio) {
-        this.fechainicio = fechainicio;
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechafin() {
-        return fechafin;
+    public Date getFechaFin() {
+        return fechaFin;
     }
 
-    public void setFechafin(Date fechafin) {
-        this.fechafin = fechafin;
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     public String getTipo() {
@@ -125,6 +124,14 @@ public class PAutorizada implements Serializable {
 
     public void setUser(Usuario user) {
         this.user = user;
+    }
+
+    public List<Autorizacion> getAutorizaciones() {
+        return autorizaciones;
+    }
+
+    public void setAutorizaciones(List<Autorizacion> autorizaciones) {
+        this.autorizaciones = autorizaciones;
     }
 
     @Override
@@ -148,10 +155,10 @@ public class PAutorizada implements Serializable {
                 "\nnombre=" + nombre +
                 "\napellidos=" + apellidos +
                 "\ndireccion=" + direccion +
-                "\nfecha_nacimiento=" + fechaNacimiento +
+                "\nfechaNacimiento=" + fechaNacimiento +
                 "\nestado=" + estado +
-                "\nfechainicio=" + fechainicio +
-                "\nfechafin=" + fechafin +
+                "\nfechaInicio=" + fechaInicio +
+                "\nfechaFin=" + fechaFin +
                 "\ntipo=" + tipo +
                 '}';
     }

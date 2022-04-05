@@ -68,8 +68,8 @@ public class Fintech extends Cuenta implements Serializable {
     public String toString() {
         return  super.toString() + "Cuenta Fintech{\n" +
                 "estado=" + estado +
-                "\nfecha_apertura=" + fechaApertura +
-                "\nfecha_cierre=" + fechaCierre +
+                "\nfechaApertura=" + fechaApertura +
+                "\nfechaCierre=" + fechaCierre +
                 "\nclasificacion=" + clasificacion +
                 "\ncliente=" + cliente +
                 '}';

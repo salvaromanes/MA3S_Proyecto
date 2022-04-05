@@ -47,6 +47,22 @@ public class DepositadaEn implements Serializable {
         this.ibanPooled = pooled;
     }
 
+    public Pooled getIbanPooled() {
+        return ibanPooled;
+    }
+
+    public void setIbanPooled(Pooled ibanPooled) {
+        this.ibanPooled = ibanPooled;
+    }
+
+    public Referencia getIbanReferencia() {
+        return ibanReferencia;
+    }
+
+    public void setIbanReferencia(Referencia ibanReferencia) {
+        this.ibanReferencia = ibanReferencia;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

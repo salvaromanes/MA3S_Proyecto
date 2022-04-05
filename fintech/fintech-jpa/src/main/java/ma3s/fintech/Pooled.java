@@ -32,7 +32,7 @@ public class Pooled extends Fintech implements Serializable {
 
     @Override
     public String toString() {
-        return super.toString() + " Cuenta Pooled{" +
+        return super.toString() + " Cuenta Pooled{\n" +
                 "Saldo=" + Saldo +
                 '}';
     }

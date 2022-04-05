@@ -1,6 +1,5 @@
 package ma3s.fintech;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import java.io.Serializable;
