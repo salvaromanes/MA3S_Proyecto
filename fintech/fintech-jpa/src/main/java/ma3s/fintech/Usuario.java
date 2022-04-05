@@ -24,6 +24,8 @@ public class Usuario implements Serializable {
     private String rol;
     @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
+    private Boolean esAdmin;
 
     @OneToOne(mappedBy = "user")
     @JoinColumn(name = "Id_PAutorizada")
@@ -99,6 +101,38 @@ public class Usuario implements Serializable {
 
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Boolean getEsAdmin() {
+        return esAdmin;
+    }
+
+    public void setEsAdmin(Boolean esAdmin) {
+        this.esAdmin = esAdmin;
+    }
+
+    public Autorizada getAutorizada() {
+        return autorizada;
+    }
+
+    public void setAutorizada(Autorizada autorizada) {
+        this.autorizada = autorizada;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     @Override
