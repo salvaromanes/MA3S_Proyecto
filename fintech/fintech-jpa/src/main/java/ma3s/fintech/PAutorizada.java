@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Autorizada implements Serializable {
+public class PAutorizada implements Serializable {
 
     @Id @GeneratedValue
     private Long id;
@@ -35,7 +35,7 @@ public class Autorizada implements Serializable {
     @OneToOne
     Usuario user;
 
-    public Autorizada(){
+    public PAutorizada(){
 
     }
 
@@ -131,7 +131,7 @@ public class Autorizada implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Autorizada that = (Autorizada) o;
+        PAutorizada that = (PAutorizada) o;
         return id.equals(that.id) && identificacion.equals(that.identificacion);
     }
 

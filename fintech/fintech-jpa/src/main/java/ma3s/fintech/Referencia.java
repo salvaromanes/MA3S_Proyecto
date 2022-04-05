@@ -25,8 +25,8 @@ public class Referencia extends Cuenta implements Serializable {
     @ManyToOne
     private Divisa divisa;
 
-    @ManyToMany(mappedBy = "referencias")
-    private List<Pooled> cuentas_pooled;
+    @OneToMany(mappedBy = "ibanReferencia")
+    private List<DepositadaEn> depositos;
 
     public Referencia(){
         super();
@@ -97,12 +97,12 @@ public class Referencia extends Cuenta implements Serializable {
         this.segregada = segregada;
     }
 
-    public List<Pooled> getCuentas_pooled() {
-        return cuentas_pooled;
+    public List<DepositadaEn> getDepositos() {
+        return depositos;
     }
 
-    public void setCuentas_pooled(List<Pooled> cuentas_pooled) {
-        this.cuentas_pooled = cuentas_pooled;
+    public void setDepositos(List<DepositadaEn> depositos) {
+        this.depositos = depositos;
     }
 
     @Override

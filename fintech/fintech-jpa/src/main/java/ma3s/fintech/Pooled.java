@@ -11,11 +11,8 @@ public class Pooled extends Fintech implements Serializable {
         super();
     }
 
-    @ManyToMany(mappedBy = "cuentas_pooled")
-    @JoinTable(name = "POOLED_REFERENCIA", joinColumns = @JoinColumn(name = "IBAN_POOLED"),inverseJoinColumns = @JoinColumn(name = "IBAN_REFERENCIA") )
-    private List<Referencia> referencias;
-
-
+    @OneToMany(mappedBy = "ibanPooled")
+    private List<DepositadaEn> depositos;
 
     public Double getSaldo() {
         return Saldo;
@@ -25,12 +22,12 @@ public class Pooled extends Fintech implements Serializable {
         Saldo = saldo;
     }
 
-    public List<Referencia> getReferencias() {
-        return referencias;
+    public List<DepositadaEn> getDepositos() {
+        return depositos;
     }
 
-    public void setReferencias(List<Referencia> referencias) {
-        this.referencias = referencias;
+    public void setDepositos(List<DepositadaEn> depositos) {
+        this.depositos = depositos;
     }
 
     @Override

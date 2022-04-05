@@ -10,7 +10,7 @@ public class Autorizacion implements Serializable {
 
     @Id
     @ManyToOne
-    private Autorizada autorizadaId;
+    private PAutorizada autorizadaId;
 
     @Id
     @ManyToOne
@@ -31,12 +31,12 @@ public class Autorizacion implements Serializable {
         this.tipo = tipo;
     }
 
-    public Autorizada getAutorizadaId() {
+    public PAutorizada getAutorizadaId() {
         return autorizadaId;
     }
 
-    public void setAutorizadaId(Autorizada autorizadaId) {
-        this.autorizadaId = autorizadaId;
+    public void setAutorizadaId(PAutorizada PAutorizadaId) {
+        this.autorizadaId = PAutorizadaId;
     }
 
     public Empresa getEmpresaId() {

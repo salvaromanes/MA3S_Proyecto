@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@IdClass(DepositadaId.class)
 public class DepositadaEn implements Serializable {
 
     @Column(nullable = false)
@@ -12,13 +13,11 @@ public class DepositadaEn implements Serializable {
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "pooled")
-    private Pooled pooled;
+    private Pooled ibanPooled;
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "referencia")
-    private Referencia referencia;
+    private Referencia ibanReferencia;
 
     public DepositadaEn(){
 
@@ -29,11 +28,11 @@ public class DepositadaEn implements Serializable {
     }
 
     public Referencia getReferencia() {
-        return referencia;
+        return ibanReferencia;
     }
 
     public Pooled getPooled() {
-        return pooled;
+        return ibanPooled;
     }
 
     public void setSaldo(Double saldo) {
@@ -41,11 +40,11 @@ public class DepositadaEn implements Serializable {
     }
 
     public void setReferencia(Referencia referencia) {
-        this.referencia = referencia;
+        this.ibanReferencia = referencia;
     }
 
     public void setPooled(Pooled pooled) {
-        this.pooled = pooled;
+        this.ibanPooled = pooled;
     }
 
     @Override
@@ -65,8 +64,8 @@ public class DepositadaEn implements Serializable {
     public String toString() {
         return "DepositadaEn{\n" +
                 "saldo=" + saldo +
-                "\npooled=" + pooled +
-                "\nreferencia=" + referencia +
+                "\npooled=" + ibanPooled +
+                "\nreferencia=" + ibanReferencia +
                 '}';
     }
 }

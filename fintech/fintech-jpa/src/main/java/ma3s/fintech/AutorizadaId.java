@@ -1,6 +1,5 @@
 package ma3s.fintech;
 
-import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -24,8 +23,16 @@ public class AutorizadaId implements Serializable {
         return empresaId;
     }
 
-    public void setEmpresaId(Long empresaId) {
-        empresaId = empresaId;
+    public void setEmpresaId(Long empresa) {
+        empresaId = empresa;
+    }
+
+    public Long getAutorizadaId() {
+        return autorizadaId;
+    }
+
+    public void setAutorizadaId(Long autorizadaId) {
+        this.autorizadaId = autorizadaId;
     }
 
     @Override
@@ -39,5 +46,13 @@ public class AutorizadaId implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(autorizadaId, empresaId);
+    }
+
+    @Override
+    public String toString() {
+        return "AutorizadaId{" +
+                "autorizadaId=" + autorizadaId +
+                ", empresaId=" + empresaId +
+                '}';
     }
 }

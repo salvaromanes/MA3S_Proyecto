@@ -29,7 +29,7 @@ public class Usuario implements Serializable {
 
     @OneToOne(mappedBy = "user")
     @JoinColumn(name = "Id_PAutorizada")
-    Autorizada autorizada;
+    PAutorizada PAutorizada;
 
     @OneToOne(mappedBy = "user")
     @JoinColumn(name = "Id_Cliente")
@@ -119,12 +119,12 @@ public class Usuario implements Serializable {
         this.esAdmin = esAdmin;
     }
 
-    public Autorizada getAutorizada() {
-        return autorizada;
+    public PAutorizada getAutorizada() {
+        return PAutorizada;
     }
 
-    public void setAutorizada(Autorizada autorizada) {
-        this.autorizada = autorizada;
+    public void setAutorizada(PAutorizada PAutorizada) {
+        this.PAutorizada = PAutorizada;
     }
 
     public Cliente getCliente() {
