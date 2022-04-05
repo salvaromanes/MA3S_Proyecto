@@ -48,6 +48,14 @@ public class Autorizacion implements Serializable {
         this.tipo = tipo;
     }
 
+    public Autorizada get_autorizada() {
+        return _autorizada;
+    }
+
+    public void set_autorizada(Autorizada _autorizada) {
+        this._autorizada = _autorizada;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

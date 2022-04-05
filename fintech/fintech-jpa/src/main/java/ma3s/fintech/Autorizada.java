@@ -19,7 +19,7 @@ public class Autorizada implements Serializable {
     @Column(nullable = false)
     private String direccion;
     @Temporal(TemporalType.DATE)
-    private Date fecha_nacimiento;
+    private Date fechaNacimiento;
     private String estado;
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechainicio;
@@ -75,12 +75,12 @@ public class Autorizada implements Serializable {
         this.direccion = direccion;
     }
 
-    public Date getFecha_nacimiento() {
-        return fecha_nacimiento;
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public void setFechaNacimiento(Date fecha_nacimiento) {
+        this.fechaNacimiento = fecha_nacimiento;
     }
 
     public String getEstado() {
@@ -115,6 +115,14 @@ public class Autorizada implements Serializable {
         this.tipo = tipo;
     }
 
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -136,7 +144,7 @@ public class Autorizada implements Serializable {
                 "\nnombre=" + nombre +
                 "\napellidos=" + apellidos +
                 "\ndireccion=" + direccion +
-                "\nfecha_nacimiento=" + fecha_nacimiento +
+                "\nfecha_nacimiento=" + fechaNacimiento +
                 "\nestado=" + estado +
                 "\nfechainicio=" + fechainicio +
                 "\nfechafin=" + fechafin +

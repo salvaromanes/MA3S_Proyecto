@@ -97,6 +97,14 @@ public class Referencia extends Cuenta implements Serializable {
         this.segregada = segregada;
     }
 
+    public List<Pooled> getCuentas_pooled() {
+        return cuentas_pooled;
+    }
+
+    public void setCuentas_pooled(List<Pooled> cuentas_pooled) {
+        this.cuentas_pooled = cuentas_pooled;
+    }
+
     @Override
     public String toString() {
         return  super.toString() + "Referencia{\n" +

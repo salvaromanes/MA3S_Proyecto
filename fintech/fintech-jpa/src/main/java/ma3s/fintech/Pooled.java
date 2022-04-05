@@ -25,6 +25,14 @@ public class Pooled extends Fintech implements Serializable {
         Saldo = saldo;
     }
 
+    public List<Referencia> getReferencias() {
+        return referencias;
+    }
+
+    public void setReferencias(List<Referencia> referencias) {
+        this.referencias = referencias;
+    }
+
     @Override
     public String toString() {
         return super.toString() + " Cuenta Pooled{" +
