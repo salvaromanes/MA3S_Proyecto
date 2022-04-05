@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
+@IdClass(AutorizadaId.class)
 public class Autorizada implements Serializable {
 
     @Id @GeneratedValue
@@ -27,6 +28,12 @@ public class Autorizada implements Serializable {
     private Date fechafin;
     // Requisito adicional RF15
     private String tipo;
+
+    @Id
+    private String AutorizadaId;
+
+    @Id
+    private String EmpresaId;
 
     @OneToOne
     Usuario user;
