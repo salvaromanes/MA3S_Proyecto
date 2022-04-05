@@ -5,11 +5,19 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@IdClass(AutorizadaId.class)
 public class Autorizacion implements Serializable {
+
+    @Id
+    private Long AutorizadaId;
+
+    @Id
+    private Long EmpresaId;
 
     @Column(nullable = false)
     private String tipo;
 
+    /*
     @Id
     @ManyToOne
     @JoinColumn(name = "p_autorizada")
@@ -19,11 +27,13 @@ public class Autorizacion implements Serializable {
     @ManyToOne
     @JoinColumn(name = "empresa")
     private Empresa empresa;
+    */
 
     public Autorizacion(){
 
     }
 
+    /*
     public Autorizada getP_autorizada() {
         return _autorizada;
     }
@@ -39,6 +49,7 @@ public class Autorizacion implements Serializable {
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
+    */
 
     public String getTipo() {
         return tipo;
@@ -48,12 +59,30 @@ public class Autorizacion implements Serializable {
         this.tipo = tipo;
     }
 
+    /*
     public Autorizada get_autorizada() {
         return _autorizada;
     }
 
     public void set_autorizada(Autorizada _autorizada) {
         this._autorizada = _autorizada;
+    }
+    */
+
+    public Long getAutorizadaId() {
+        return AutorizadaId;
+    }
+
+    public void setAutorizadaId(Long autorizadaId) {
+        AutorizadaId = autorizadaId;
+    }
+
+    public Long getEmpresaId() {
+        return EmpresaId;
+    }
+
+    public void setEmpresaId(Long empresaId) {
+        EmpresaId = empresaId;
     }
 
     @Override
@@ -73,8 +102,10 @@ public class Autorizacion implements Serializable {
     public String toString() {
         return "Autorizacion{\n" +
                 "tipo=" + tipo +
+                /*
                 "\np_autorizada=" + _autorizada +
                 "\nempresa=" + empresa +
+                */
                 '}';
     }
 
