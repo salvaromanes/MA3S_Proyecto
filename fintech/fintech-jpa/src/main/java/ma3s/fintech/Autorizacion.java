@@ -13,7 +13,7 @@ public class Autorizacion implements Serializable {
     @Id
     @ManyToOne
     @JoinColumn(name = "p_autorizada")
-    private P_Autorizada p_autorizada;
+    private Autorizada _autorizada;
 
     @Id
     @ManyToOne
@@ -24,12 +24,12 @@ public class Autorizacion implements Serializable {
 
     }
 
-    public P_Autorizada getP_autorizada() {
-        return p_autorizada;
+    public Autorizada getP_autorizada() {
+        return _autorizada;
     }
 
-    public void setP_autorizada(P_Autorizada p_autorizada) {
-        this.p_autorizada = p_autorizada;
+    public void setP_autorizada(Autorizada _autorizada) {
+        this._autorizada = _autorizada;
     }
 
     public Empresa getEmpresa() {
@@ -65,7 +65,7 @@ public class Autorizacion implements Serializable {
     public String toString() {
         return "Autorizacion{\n" +
                 "tipo=" + tipo +
-                "\np_autorizada=" + p_autorizada +
+                "\np_autorizada=" + _autorizada +
                 "\nempresa=" + empresa +
                 '}';
     }

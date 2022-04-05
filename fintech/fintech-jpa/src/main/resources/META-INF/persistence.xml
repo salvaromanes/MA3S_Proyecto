@@ -9,7 +9,7 @@
 		<class>ma3s.fintech.Empresa</class>
 		<class>ma3s.fintech.Fintech</class>
 		<class>ma3s.fintech.Individual</class>
-		<class>ma3s.fintech.P_Autorizada</class>
+		<class>ma3s.fintech.Autorizada</class>
 		<class>ma3s.fintech.Pooled</class>
 		<class>ma3s.fintech.Referencia</class>
 		<class>ma3s.fintech.Segregada</class>

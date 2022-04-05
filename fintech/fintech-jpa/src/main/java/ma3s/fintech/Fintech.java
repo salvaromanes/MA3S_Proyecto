@@ -2,9 +2,7 @@ package ma3s.fintech;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Fintech extends Cuenta implements Serializable {
@@ -13,10 +11,10 @@ public class Fintech extends Cuenta implements Serializable {
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_apertura;
+    private Date fechaApertura;
 
     @Temporal(TemporalType.DATE)
-    private Date fecha_cierre;
+    private Date fechaCierre;
     private String clasificacion;
 
     @ManyToOne()
@@ -30,12 +28,12 @@ public class Fintech extends Cuenta implements Serializable {
         return estado;
     }
 
-    public Date getFecha_apertura(){
-        return fecha_apertura;
+    public Date getFechaApertura(){
+        return fechaApertura;
     }
 
-    public Date getFecha_cierre(){
-        return fecha_cierre;
+    public Date getFechaCierre(){
+        return fechaCierre;
     }
 
     public String getClasificacion(){
@@ -50,12 +48,12 @@ public class Fintech extends Cuenta implements Serializable {
         estado=e;
     }
 
-    public void setFecha_apertura(Date f){
-        fecha_apertura=f;
+    public void setFechaApertura(Date f){
+        fechaApertura =f;
     }
 
-    public void setFecha_cierre(Date f){
-        fecha_cierre=f;
+    public void setFechaCierre(Date f){
+        fechaCierre =f;
     }
 
     public void setClasificacion(String c){
@@ -70,8 +68,8 @@ public class Fintech extends Cuenta implements Serializable {
     public String toString() {
         return  super.toString() + "Cuenta Fintech{\n" +
                 "estado=" + estado +
-                "\nfecha_apertura=" + fecha_apertura +
-                "\nfecha_cierre=" + fecha_cierre +
+                "\nfecha_apertura=" + fechaApertura +
+                "\nfecha_cierre=" + fechaCierre +
                 "\nclasificacion=" + clasificacion +
                 "\ncliente=" + cliente +
                 '}';

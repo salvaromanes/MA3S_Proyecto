@@ -27,7 +27,7 @@ public class Usuario implements Serializable {
 
     @OneToOne(mappedBy = "user")
     @JoinColumn(name = "Id_PAutorizada")
-    P_Autorizada autorizada;
+    Autorizada autorizada;
 
     @OneToOne(mappedBy = "user")
     @JoinColumn(name = "Id_Cliente")

@@ -24,7 +24,7 @@ public class Cliente implements Serializable {
     @Column(nullable = false)
     private Date fecha_alta;
     @Temporal(TemporalType.DATE)
-    private Date fecha_baja;
+    private Date fechaBaja;
     @Column(nullable = false)
     private String direccion;
     @Column(nullable = false)
@@ -76,8 +76,8 @@ public class Cliente implements Serializable {
         return fecha_alta;
     }
 
-    public Date getFecha_baja() {
-        return fecha_baja;
+    public Date getFechaBaja() {
+        return fechaBaja;
     }
 
     public String getDireccion() {
@@ -104,8 +104,8 @@ public class Cliente implements Serializable {
         this.fecha_alta = fecha_alta;
     }
 
-    public void setFecha_baja(Date fecha_baja) {
-        this.fecha_baja = fecha_baja;
+    public void setFechaBaja(Date fechaBaja) {
+        this.fechaBaja = fechaBaja;
     }
 
     public void setDireccion(String direccion) {
@@ -153,7 +153,7 @@ public class Cliente implements Serializable {
                 "\ntipo_cliente=" + tipo_cliente +
                 "\nestado=" + estado +
                 "\nfecha_alta=" + fecha_alta +
-                "\nfecha_baja=" + fecha_baja +
+                "\nfecha_baja=" + fechaBaja +
                 "\ndireccion=" + direccion +
                 "\nciudad=" + ciudad +
                 "\ncodigopostal=" + codigopostal +

@@ -9,7 +9,7 @@ public class Transaccion implements Serializable {
 
     @Id
     @Column(nullable = false)
-    private String id_unico;
+    private String idUnico;
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date fechaInstruccion;
@@ -39,12 +39,12 @@ public class Transaccion implements Serializable {
 
 
 
-    public String getId_unico(){
-        return id_unico;
+    public String getIdUnico(){
+        return idUnico;
     }
 
-    public void setId_unico(String id){
-        id_unico = id;
+    public void setIdUnico(String id){
+        idUnico = id;
     }
 
 
@@ -148,20 +148,20 @@ public class Transaccion implements Serializable {
         boolean x = false;
         if(o instanceof Transaccion){
             Transaccion aux = (Transaccion) o;
-            x = this.id_unico.equalsIgnoreCase(aux.getId_unico());
+            x = this.idUnico.equalsIgnoreCase(aux.getIdUnico());
         }
         return x;
     }
 
     @Override
     public int hashCode() {
-        return this.id_unico.toUpperCase().hashCode() ;
+        return this.idUnico.toUpperCase().hashCode() ;
     }
 
     @Override
     public String toString() {
         return "Transaccion{\n" +
-                "id_unico=" + id_unico +
+                "id_unico=" + idUnico +
                 "\nfechaInstruccion=" + fechaInstruccion +
                 "\ncantidad=" + cantidad +
                 "\nfechaEjecucion=" + fechaEjecucion +

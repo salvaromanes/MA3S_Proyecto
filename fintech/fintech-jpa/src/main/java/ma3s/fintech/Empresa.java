@@ -11,25 +11,25 @@ import java.util.Date;
 public class Empresa extends Cliente implements Serializable {
 
     @Column(nullable = false)
-    private String razon_social;
+    private String razonSocial;
 
 
     public Empresa(){
         super();
     }
 
-    public String getRazon_social() {
-        return razon_social;
+    public String getRazonSocial() {
+        return razonSocial;
     }
 
-    public void setRazon_social(String razon_social) {
-        this.razon_social = razon_social;
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
     }
 
     @Override
     public String toString() {
         return super.toString() + "Empresa{\n" +
-                "razon_social=" + razon_social +
+                "razon_social=" + razonSocial +
                 '}';
     }
 }

@@ -2,8 +2,6 @@ package ma3s.fintech;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.security.PrivateKey;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +16,7 @@ public class Referencia extends Cuenta implements Serializable {
     @Column(nullable = false)
     private double saldo;
     @Temporal(TemporalType.DATE)
-    private Date fecha_apertura;
+    private Date fechaApertura;
     private String estado;
 
     @OneToOne
@@ -55,8 +53,8 @@ public class Referencia extends Cuenta implements Serializable {
         return pais;
     }
 
-    public Date getFecha_apertura() {
-        return fecha_apertura;
+    public Date getFechaApertura() {
+        return fechaApertura;
     }
 
     public Divisa getDivisa() {
@@ -83,8 +81,8 @@ public class Referencia extends Cuenta implements Serializable {
         saldo=s;
     }
 
-    public void setFecha_apertura(Date f){
-        fecha_apertura=f;
+    public void setFechaApertura(Date f){
+        fechaApertura =f;
     }
 
     public void setEstado(String e){
@@ -106,7 +104,7 @@ public class Referencia extends Cuenta implements Serializable {
                 "\nsucursal=" + sucursal +
                 "\npais=" + pais +
                 "\nsaldo=" + saldo +
-                "\nfecha_apertura=" + fecha_apertura +
+                "\nfecha_apertura=" + fechaApertura +
                 "\nestado=" + estado +
                 "\ndivisa=" + divisa +
                 '}';

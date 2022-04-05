@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-public class P_Autorizada implements Serializable {
+public class Autorizada implements Serializable {
 
     @Id @GeneratedValue
     private Long id;
@@ -31,7 +31,7 @@ public class P_Autorizada implements Serializable {
     @OneToOne
     Usuario user;
 
-    public P_Autorizada(){
+    public Autorizada(){
 
     }
 
@@ -119,7 +119,7 @@ public class P_Autorizada implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        P_Autorizada that = (P_Autorizada) o;
+        Autorizada that = (Autorizada) o;
         return id.equals(that.id) && identificacion.equals(that.identificacion);
     }
 

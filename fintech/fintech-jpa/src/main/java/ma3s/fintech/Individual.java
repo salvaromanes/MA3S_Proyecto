@@ -12,7 +12,7 @@ public class Individual extends Cliente implements Serializable {
     @Column(nullable = false)
     private String apellido;
     @Temporal(TemporalType.DATE)
-    private Date fecha_nacimiento;
+    private Date fechaNacimiento;
 
 
     public Individual(){
@@ -35,12 +35,12 @@ public class Individual extends Cliente implements Serializable {
         this.apellido = apellido;
     }
 
-    public Date getFecha_nacimiento() {
-        return fecha_nacimiento;
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public void setFechaNacimiento(Date fecha_nacimiento) {
+        this.fechaNacimiento = fecha_nacimiento;
     }
 
 
@@ -49,7 +49,7 @@ public class Individual extends Cliente implements Serializable {
         return super.toString() + "Individual{\n" +
                 "nombre=" + nombre +
                 "\napellido=" + apellido +
-                "\nfecha_nacimiento=" + fecha_nacimiento +
+                "\nfecha_nacimiento=" + fechaNacimiento +
                 '}';
     }
 }
