@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/MA3S.iml" filepath="$PROJECT_DIR$/.idea/MA3S.iml" />
       <module fileurl="file://$PROJECT_DIR$/fintech/fintech.iml" filepath="$PROJECT_DIR$/fintech/fintech.iml" />
       <module fileurl="file://$PROJECT_DIR$/fintech/fintech-ejb/fintech-ejb.iml" filepath="$PROJECT_DIR$/fintech/fintech-ejb/fintech-ejb.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fintech/fintech-ejb2/fintech-ejb2.iml" filepath="$PROJECT_DIR$/fintech/fintech-ejb2/fintech-ejb2.iml" />
       <module fileurl="file://$PROJECT_DIR$/fintech/fintech-jpa/fintech-jpa.iml" filepath="$PROJECT_DIR$/fintech/fintech-jpa/fintech-jpa.iml" />
     </modules>
   </component>

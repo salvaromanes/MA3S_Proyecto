@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="fintech-jpa" />
         <module name="fintech-ejb" />
-        <module name="fintech-ejb2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
