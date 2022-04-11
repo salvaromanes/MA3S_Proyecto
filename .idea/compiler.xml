@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="fintech-jpa" />
+        <module name="fintech-ejb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="fintech" target="1.8" />
+      <module name="fintech-ejb" target="17" />
       <module name="fintech-jpa" target="1.8" />
     </bytecodeTargetLevel>
   </component>

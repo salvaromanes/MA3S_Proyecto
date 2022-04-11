@@ -42,6 +42,7 @@
   <modules>
       
     <module>fintech-jpa</module>
-      
+      <module>fintech-ejb</module>
+
   </modules>
 </project>
