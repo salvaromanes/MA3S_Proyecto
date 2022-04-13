@@ -9,7 +9,7 @@ import ma3s.fintech.excepciones.UsuarioNoEncontradoException;
 
 public interface GestionAccesoPersonal {
 
-    public List<Usuario> obtenerPersonal(String usuario, String contra)
+    public void obtenerPersonal(String usuario)
             throws UsuarioNoEncontradoException, UsuarioIncorrectoException;
 
 }

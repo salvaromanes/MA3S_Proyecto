@@ -15,7 +15,7 @@ public class AccesoPersonal implements GestionAccesoPersonal {
     private EntityManager em;
 
     @Override
-    public List<Usuario> obtenerPersonal(String usuario, String contra)
+    public void obtenerPersonal(String usuario)
         throws  UsuarioNoEncontradoException, UsuarioIncorrectoException{
 
         Usuario user1 = em.find(Usuario.class,usuario);
@@ -26,8 +26,6 @@ public class AccesoPersonal implements GestionAccesoPersonal {
         if(user1.getEsAdmin() == false){
             throw new UsuarioIncorrectoException();
         }
-
-        return (List<Usuario>) user1;
 
     }
 }
