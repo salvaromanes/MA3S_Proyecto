@@ -1,10 +1,7 @@
 package ma3s.fintech;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import ma3s.fintech.excepciones.AccesoException;
-import ma3s.fintech.excepciones.UsuarioExistenteException;
+
 import ma3s.fintech.excepciones.UsuarioIncorrectoException;
 import ma3s.fintech.excepciones.UsuarioNoEncontradoException;
 
@@ -18,19 +15,19 @@ public class AccesoPersonal implements GestionAccesoPersonal {
     private EntityManager em;
 
     @Override
-    public List<Cliente> obtenerPersonal(String usuario, String contra)
+    public List<Usuario> obtenerPersonal(String usuario, String contra)
         throws  UsuarioNoEncontradoException, UsuarioIncorrectoException{
 
-        Cliente cliente = em.find(Cliente.class,usuario);
+        Usuario user1 = em.find(Usuario.class,usuario);
 
-        if(cliente == null){
+        if(user1 == null){
             throw new UsuarioNoEncontradoException();
         }
-       // return new ArrayList<>((Collection<? extends Cliente>) cliente.getUser());
-        if(!cliente.getId().equals(usuario)){
+        if(user1.getEsAdmin() == false){
             throw new UsuarioIncorrectoException();
         }
-        return null;
+
+        return (List<Usuario>) user1;
 
     }
 }

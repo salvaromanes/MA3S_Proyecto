@@ -6,7 +6,6 @@ public class AccesoException  extends  Exception{
 
     }
 
-
     public AccesoException(String message){
         super(message);
     }
