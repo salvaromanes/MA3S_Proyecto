@@ -17,11 +17,11 @@ public class Usuario implements Serializable {
 
     @OneToOne(mappedBy = "user")
     @JoinColumn(name = "idPAutorizada")
-    PAutorizada pAutorizada;
+    private PAutorizada pAutorizada;
 
     @OneToOne(mappedBy = "user")
     @JoinColumn(name = "idCliente")
-    Cliente cliente;
+    private Cliente cliente;
 
     public Usuario(){
 
