@@ -1,8 +1,9 @@
 package ma3s.fintech;
 
-import ma3s.fintech.excepciones.PersonaNoExiste;
+import ma3s.fintech.excepciones.PersonaNoExisteException;
 
 public interface GestionEliminarAutorizados {
-    public void darBaja(Long idAdministrativo, Long idPA) throws PersonaNoExiste;
-    public boolean isPersonaJuridica(Long id, String tipoCliente) throws PersonaNoExiste;
+    void darBaja(Long idAdministrativo, Long idPA) throws PersonaNoExisteException;
+    boolean isClientePersonaJuridica(Long id, String tipoCliente) throws PersonaNoExisteException;
+    boolean isPersonaAutorizada(Long idPA, Long idCliente) throws PersonaNoExisteException;
 }
