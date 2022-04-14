@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="fintech-ejb:ejb">
+    <output-path>$PROJECT_DIR$/fintech/fintech-ejb/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>fintech-ejb</module>
+        <packaging>ejb</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="fintech-ejb-1.0.0-SNAPSHOT.jar">
+      <element id="artifact" artifact-name="fintech-ejb:ejb exploded" />
+    </root>
+  </artifact>
+</component>
