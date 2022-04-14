@@ -1,8 +1,6 @@
 package ma3s.fintech;
 
-import ma3s.fintech.excepciones.CuentaExistenteException;
-import ma3s.fintech.excepciones.CuentaNoExistenteException;
-import ma3s.fintech.excepciones.CuentaNoVacia;
+import ma3s.fintech.excepciones.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,6 +8,16 @@ import javax.persistence.PersistenceContext;
 public class CierreCuenta implements GestionCierreCuenta{
     @PersistenceContext(name="fintech")
     private EntityManager em;
+
+    public void comprobarAdministrador(String usuario) throws UsuarioIncorrectoException, UsuarioNoEncontradoException {
+        Usuario user = em.find(Usuario.class, usuario);
+
+        if(user == null){
+            throw new UsuarioNoEncontradoException();
+        }else if(!user.getEsAdmin()){
+            throw new UsuarioIncorrectoException();
+        }
+    }
 
     public void cerrarCuenta(String iban) throws CuentaNoExistenteException, CuentaNoVacia {
         Cuenta cuenta = em.find(Cuenta.class, iban);
