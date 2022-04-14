@@ -1,17 +1,17 @@
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Fintech.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Referencia.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Transaccion.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\PAutorizada.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Main.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Autorizacion.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Divisa.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Empresa.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\DepositadaEn.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Pooled.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Segregada.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Cuenta.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Individual.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\AutorizadaId.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Usuario.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\DepositadaId.java
-D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Cliente.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\Autorizacion.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\Individual.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\Empresa.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\Transaccion.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\DepositadaId.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\PAutorizada.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\AutorizadaId.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\Divisa.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\DepositadaEn.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\Cuenta.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\Pooled.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\Referencia.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\Cliente.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\Segregada.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\Main.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\Usuario.java
+C:\Users\Adrián\IdeaProjects\MA3S_Proyecto\fintech\fintech-jpa\src\main\java\ma3s\fintech\Fintech.java
