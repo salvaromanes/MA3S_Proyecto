@@ -5,27 +5,25 @@ import ma3s.fintech.excepciones.PersonaNoExisteException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-public class EliminarAutorizados implements GestionEliminarAutorizados{
+public class AccesoAplicacion implements GestionAccesoAplicacion {
     @PersistenceContext(name="fintech") // NO SE QUÉ HABRIA QUE PONER AQUI EN VEZ DE FINTECH
     private EntityManager em;
 
-    // supongo que el administrativo es lo mismo que una persona autorizada
     @Override
-    public void darBaja(Long idAdministrativo, Long idPA) throws PersonaNoExisteException {
-        PAutorizada personaAutorizada = em.find(PAutorizada.class, idPA);
-        PAutorizada administrativo = em.find(PAutorizada.class, idAdministrativo);
-        Autorizacion autorizacion = em.find(Autorizacion.class, idPA);
+    public void accederAplicacion(Long idCliente) throws PersonaNoExisteException {
+        Cliente cliente = em.find(Cliente.class, idCliente);
+        Autorizacion autorizacion = em.find(Autorizacion.class, idCliente);
 
-        if(!personaAutorizada.getId().equals(idPA)){
-            throw new PersonaNoExisteException("La persona autorizada con id " + idPA + " no existe");
-        }else if(!administrativo.getId().equals(idAdministrativo)){
-            throw new PersonaNoExisteException("El administrativo con id " + idAdministrativo + " no existe");
+        if(!cliente.getId().equals(idCliente)) {
+            throw new PersonaNoExisteException("El cliente con id " + idCliente + " no existe");
         }
 
-        if(isPersonaAutorizada(idPA, autorizacion.getEmpresaId().getId())){
-            // esta sentencia está mal pero no sabría como dar la orden al administrativo
-            // para que cambie el estado de la persona autorizada
-            personaAutorizada.setEstado("Baja");
+        // si el cliente no es una persona juridica, si puede acceder a la app
+        if (!isClientePersonaJuridica(cliente.getId(), "persona juridica") &&
+            cliente.getId().equals(idCliente) &&
+            isPersonaAutorizada(cliente.getId(), autorizacion.getEmpresaId().getId())){
+                // ------------- NO HAY CON QUÉ PEDIR EL USUARIO Y CONTRASEÑA A UNA CUENTA
+                // PONER: transacciones, cuentas a las que se tiene acceso, otra info
         }
     }
 
@@ -39,10 +37,7 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
         return cliente.getTipoCliente().equals("persona juridica");
     }
 
-    // ¿la persona autorizada opera con personas juridicas?
-    // la autorizacion debe ser de idPA y idCliente para que dicha persona opere con un cliente
-    // el cual luego se comprobará si es persona autorizada
-
+    // ¿la persona autorizada lleva cuentas de clientes juridicos?
     @Override
     public boolean isPersonaAutorizada(Long idPA, Long idCliente) throws PersonaNoExisteException {
         PAutorizada personaAutorizada = em.find(PAutorizada.class, idPA);
@@ -59,6 +54,4 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
                 autorizacion.getEmpresaId().equals(cliente) &&
                 isClientePersonaJuridica(cliente.getId(), "persona juridica");
     }
-
-
 }
