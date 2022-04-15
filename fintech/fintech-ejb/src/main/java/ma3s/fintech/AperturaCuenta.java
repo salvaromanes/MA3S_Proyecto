@@ -21,6 +21,9 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         }
     }
 
+    // falta hacer el persist en ambas
+
+
     public void abrirCuentaPooled(String iban, String swift) throws CuentaExistenteException{
         Cuenta cuenta = em.find(Cuenta.class, iban);
 
