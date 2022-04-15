@@ -50,7 +50,7 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
         if(!cliente.getId().equals(id)) {
             throw new PersonaNoExisteException("El cliente con id " + id + " no existe");
         }
-        return cliente.getTipoCliente().equals("persona juridica");
+        return cliente.getTipoCliente().equals("Empresa");
     }
 
     // ¿la persona autorizada opera con personas juridicas?
@@ -70,6 +70,6 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
 
         return autorizacion.getAutorizadaId().equals(personaAutorizada) &&
                 autorizacion.getEmpresaId().equals(cliente) &&
-                isClientePersonaJuridica(cliente.getId(), "persona juridica");
+                isClientePersonaJuridica(cliente.getId(), "Empresa");
     }
 }
