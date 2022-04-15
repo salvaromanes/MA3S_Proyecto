@@ -29,7 +29,7 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
         }
     }
 
-    // ¿es el cliente una persona juridica?
+    // ¿Es el cliente una persona jurídica?
     @Override
     public boolean isClientePersonaJuridica(Long id, String tipoCliente) throws PersonaNoExisteException {
         Cliente cliente = em.find(Cliente.class, tipoCliente);
