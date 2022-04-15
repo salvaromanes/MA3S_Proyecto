@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 public class AccesoAplicacion implements GestionAccesoAplicacion {
-    @PersistenceContext(name="fintech") // NO SE QUÉ HABRIA QUE PONER AQUI EN VEZ DE FINTECH
+    @PersistenceContext(name="fintech")
     private EntityManager em;
 
     @Override

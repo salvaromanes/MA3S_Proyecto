@@ -4,29 +4,43 @@ import ma3s.fintech.excepciones.PersonaNoExisteException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Date;
 
 public class EliminarAutorizados implements GestionEliminarAutorizados{
-    @PersistenceContext(name="fintech") // NO SE QUÉ HABRIA QUE PONER AQUI EN VEZ DE FINTECH
+    @PersistenceContext(name="fintech")
     private EntityManager em;
 
-    // supongo que el administrativo es lo mismo que una persona autorizada
     @Override
-    public void darBaja(Long idAdministrativo, Long idPA) throws PersonaNoExisteException {
+    public void darBaja(String usuario, Long idPA) throws PersonaNoExisteException {
         PAutorizada personaAutorizada = em.find(PAutorizada.class, idPA);
-        PAutorizada administrativo = em.find(PAutorizada.class, idAdministrativo);
+        Usuario administrativo = em.find(Usuario.class, usuario);
         Autorizacion autorizacion = em.find(Autorizacion.class, idPA);
+
+        if(!administrativo.getUser().equals(usuario)){
+            throw new PersonaNoExisteException("El administrativo " + administrativo + " no existe");
+        }
 
         if(!personaAutorizada.getId().equals(idPA)){
             throw new PersonaNoExisteException("La persona autorizada con id " + idPA + " no existe");
-        }else if(!administrativo.getId().equals(idAdministrativo)){
-            throw new PersonaNoExisteException("El administrativo con id " + idAdministrativo + " no existe");
         }
 
-        if(isPersonaAutorizada(idPA, autorizacion.getEmpresaId().getId())){
+        if(isAdministrativo(administrativo.getUser()) &&
+                isPersonaAutorizada(idPA, autorizacion.getEmpresaId().getId())){
             // esta sentencia está mal pero no sabría como dar la orden al administrativo
             // para que cambie el estado de la persona autorizada
             personaAutorizada.setEstado("Baja");
+            personaAutorizada.setFechaFin(new Date()); // completa la fecha finc con el dia de hoy
         }
+    }
+
+    // ¿el usuario es administrativo? sirve para poder gestionar las bajas
+    @Override
+    public boolean isAdministrativo(String usuario) throws PersonaNoExisteException {
+        Usuario user = em.find(Usuario.class, usuario);
+        if(!user.getUser().equals(usuario)){
+            throw new PersonaNoExisteException("El usuario " + usuario + " no existe");
+        }
+        return user.getEsAdmin();
     }
 
     // ¿es el cliente una persona juridica?
@@ -42,7 +56,6 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
     // ¿la persona autorizada opera con personas juridicas?
     // la autorizacion debe ser de idPA y idCliente para que dicha persona opere con un cliente
     // el cual luego se comprobará si es persona autorizada
-
     @Override
     public boolean isPersonaAutorizada(Long idPA, Long idCliente) throws PersonaNoExisteException {
         PAutorizada personaAutorizada = em.find(PAutorizada.class, idPA);
@@ -59,6 +72,4 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
                 autorizacion.getEmpresaId().equals(cliente) &&
                 isClientePersonaJuridica(cliente.getId(), "persona juridica");
     }
-
-
 }
