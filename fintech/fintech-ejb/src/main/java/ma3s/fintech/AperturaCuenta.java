@@ -35,6 +35,8 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         pooled.setIban(iban);
         pooled.setSwift(swift);
         pooled.setSaldo(0.0);
+
+        em.persist(pooled);
     }
 
     public void abrirCuentaSegregate(String iban, String swift) throws CuentaExistenteException{
@@ -48,5 +50,7 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         segregate.setIban(iban);
         segregate.setSwift(swift);
         segregate.setComision(0.0);
+
+        em.persist(segregate);
     }
 }
