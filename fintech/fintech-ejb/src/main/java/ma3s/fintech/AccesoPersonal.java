@@ -2,6 +2,7 @@ package ma3s.fintech;
 
 import java.util.List;
 
+import ma3s.fintech.excepciones.ContraseñaIncorrectaException;
 import ma3s.fintech.excepciones.UsuarioIncorrectoException;
 import ma3s.fintech.excepciones.UsuarioNoEncontradoException;
 
@@ -15,8 +16,8 @@ public class AccesoPersonal implements GestionAccesoPersonal {
     private EntityManager em;
 
     @Override
-    public void obtenerPersonal(String usuario)
-        throws  UsuarioNoEncontradoException, UsuarioIncorrectoException{
+    public void obtenerPersonal(String usuario, String password)
+        throws  UsuarioNoEncontradoException, UsuarioIncorrectoException, ContraseñaIncorrectaException {
 
         Usuario user1 = em.find(Usuario.class,usuario);
 
@@ -25,6 +26,10 @@ public class AccesoPersonal implements GestionAccesoPersonal {
         }
         if(user1.getEsAdmin() == false){
             throw new UsuarioIncorrectoException();
+        }
+
+        if(user1.getContrasena().isEmpty() || user1.getContrasena() != password || password == null){
+            throw new ContraseñaIncorrectaException();
         }
 
     }
