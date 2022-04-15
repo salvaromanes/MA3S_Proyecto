@@ -31,20 +31,12 @@ public class DepositadaEn implements Serializable {
         return ibanReferencia;
     }
 
-    public Pooled getPooled() {
-        return ibanPooled;
-    }
-
     public void setSaldo(Double saldo) {
         this.saldo = saldo;
     }
 
     public void setReferencia(Referencia referencia) {
         this.ibanReferencia = referencia;
-    }
-
-    public void setPooled(Pooled pooled) {
-        this.ibanPooled = pooled;
     }
 
     public Pooled getIbanPooled() {

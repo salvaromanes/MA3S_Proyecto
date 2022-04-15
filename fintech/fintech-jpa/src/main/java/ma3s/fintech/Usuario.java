@@ -2,13 +2,12 @@ package ma3s.fintech;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
 public class Usuario implements Serializable {
     @Id
-    private String usuario;
+    private String user;
     @Column(nullable = false)
     private String contrasena;
     private String estado;
@@ -27,12 +26,12 @@ public class Usuario implements Serializable {
 
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getUser() {
+        return user;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUser(String usuario) {
+        this.user = usuario;
     }
 
     public String getContrasena() {
@@ -88,18 +87,18 @@ public class Usuario implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario1 = (Usuario) o;
-        return Objects.equals(usuario, usuario1.usuario);
+        return Objects.equals(user, usuario1.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(usuario);
+        return Objects.hash(user);
     }
 
     @Override
     public String toString() {
         return "Usuario{\n" +
-                "usuario='" + usuario +
+                "usuario='" + user +
                 "\ncontrasena='" + contrasena +
                 "\nestado='" + estado +
                 '}';
