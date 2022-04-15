@@ -3,6 +3,7 @@ package ma3s.fintech;
 import ma3s.fintech.excepciones.CampoVacioException;
 import ma3s.fintech.excepciones.NoEsAdministrativoException;
 import ma3s.fintech.excepciones.NoEsPAutorizadaException;
+import ma3s.fintech.excepciones.PersonaNoExisteException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,8 +15,10 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
     private EntityManager em;
 
     @Override
-    public void modificarIdentificacion(Long id_adm, Long id_aut, String identNew) throws CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
+    public void modificarIdentificacion(Long id_adm, Long id_aut, String identNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
         Usuario administrativo = em.find(Usuario.class, id_adm);
+
+        if(administrativo == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if (administrativo.getEsAdmin() == false){
             throw new NoEsAdministrativoException("El usuario " + id_adm + " no es administrativo.");
@@ -25,6 +28,8 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
         /* Comprobar que la PAutorizada puede operar con cuentas de clientes que son personas jurídicas */
         /* Si no lo es lanzar excepción NoEsPAutorizadaException */
+
+        if(pAutorizada == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if(identNew == null){
             throw new CampoVacioException("El campo (identificación) a actualizar no contiene información.");
@@ -35,8 +40,10 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
     }
 
     @Override
-    public void modificarNombre(Long id_adm, Long id_aut, String nombreNew) throws CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
+    public void modificarNombre(Long id_adm, Long id_aut, String nombreNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
         Usuario administrativo = em.find(Usuario.class, id_adm);
+
+        if(administrativo == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if (administrativo.getEsAdmin() == false){
             throw new NoEsAdministrativoException("El usuario " + id_adm + " no es administrativo.");
@@ -46,6 +53,8 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
         /* Comprobar que la PAutorizada puede operar con cuentas de clientes que son personas jurídicas */
         /* Si no lo es lanzar excepción NoEsPAutorizadaException */
+
+        if(pAutorizada == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if(nombreNew == null){
             throw new CampoVacioException("El campo (nombre) a actualizar no contiene información.");
@@ -57,8 +66,10 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
     }
 
     @Override
-    public void modificarApellidos(Long id_adm, Long id_aut, String apellidosNew) throws CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
+    public void modificarApellidos(Long id_adm, Long id_aut, String apellidosNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
         Usuario administrativo = em.find(Usuario.class, id_adm);
+
+        if(administrativo == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if (administrativo.getEsAdmin() == false){
             throw new NoEsAdministrativoException("El usuario " + id_adm + " no es administrativo.");
@@ -68,6 +79,8 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
         /* Comprobar que la PAutorizada puede operar con cuentas de clientes que son personas jurídicas */
         /* Si no lo es lanzar excepción NoEsPAutorizadaException */
+
+        if(pAutorizada == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if(apellidosNew == null){
             throw new CampoVacioException("El campo (apellidos) a actualizar no contiene información.");
@@ -79,8 +92,10 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
     }
 
     @Override
-    public void modificarDireccion(Long id_adm, Long id_aut, String direccionNew) throws CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
+    public void modificarDireccion(Long id_adm, Long id_aut, String direccionNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
         Usuario administrativo = em.find(Usuario.class, id_adm);
+
+        if(administrativo == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if (administrativo.getEsAdmin() == false){
             throw new NoEsAdministrativoException("El usuario " + id_adm + " no es administrativo.");
@@ -90,6 +105,8 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
         /* Comprobar que la PAutorizada puede operar con cuentas de clientes que son personas jurídicas */
         /* Si no lo es lanzar excepción NoEsPAutorizadaException */
+
+        if(pAutorizada == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if(direccionNew == null){
             throw new CampoVacioException("El campo (dirección) a actualizar no contiene información.");
@@ -101,8 +118,10 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
     }
 
     @Override
-    public void modificarFechaNacimiento(Long id_adm, Long id_aut, Date fechaNacimientoNew) throws CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
+    public void modificarFechaNacimiento(Long id_adm, Long id_aut, Date fechaNacimientoNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
         Usuario administrativo = em.find(Usuario.class, id_adm);
+
+        if(administrativo == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if (administrativo.getEsAdmin() == false){
             throw new NoEsAdministrativoException("El usuario " + id_adm + " no es administrativo.");
@@ -112,6 +131,8 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
         /* Comprobar que la PAutorizada puede operar con cuentas de clientes que son personas jurídicas */
         /* Si no lo es lanzar excepción NoEsPAutorizadaException */
+
+        if(pAutorizada == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if(fechaNacimientoNew == null){
             throw new CampoVacioException("El campo (fecha de nacimiento) a actualizar no contiene información.");
@@ -124,8 +145,10 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
     }
 
     @Override
-    public void modificarFechaInicio(Long id_adm, Long id_aut, Date fechaInicioNew) throws CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
+    public void modificarFechaInicio(Long id_adm, Long id_aut, Date fechaInicioNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
         Usuario administrativo = em.find(Usuario.class, id_adm);
+
+        if(administrativo == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if (administrativo.getEsAdmin() == false){
             throw new NoEsAdministrativoException("El usuario " + id_adm + " no es administrativo.");
@@ -135,6 +158,8 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
         /* Comprobar que la PAutorizada puede operar con cuentas de clientes que son personas jurídicas */
         /* Si no lo es lanzar excepción NoEsPAutorizadaException */
+
+        if(pAutorizada == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if(fechaInicioNew == null){
             throw new CampoVacioException("El campo (fecha de inicio) a actualizar no contiene información.");
@@ -146,8 +171,10 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
     }
 
     @Override
-    public void modificarFechaFin(Long id_adm, Long id_aut, Date fechaFinNew) throws CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
+    public void modificarFechaFin(Long id_adm, Long id_aut, Date fechaFinNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
         Usuario administrativo = em.find(Usuario.class, id_adm);
+
+        if(administrativo == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if (administrativo.getEsAdmin() == false){
             throw new NoEsAdministrativoException("El usuario " + id_adm + " no es administrativo.");
@@ -157,6 +184,8 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
         /* Comprobar que la PAutorizada puede operar con cuentas de clientes que son personas jurídicas */
         /* Si no lo es lanzar excepción NoEsPAutorizadaException */
+
+        if(pAutorizada == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if(fechaFinNew == null){
             throw new CampoVacioException("El campo (fecha de fin) a actualizar no contiene información.");
@@ -168,8 +197,10 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
     }
 
     @Override
-    public void modificarEstado(Long id_adm, Long id_aut, String estadoNew) throws CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
+    public void modificarEstado(Long id_adm, Long id_aut, String estadoNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
         Usuario administrativo = em.find(Usuario.class, id_adm);
+
+        if(administrativo == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if (administrativo.getEsAdmin() == false){
             throw new NoEsAdministrativoException("El usuario " + id_adm + " no es administrativo.");
@@ -179,6 +210,8 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
         /* Comprobar que la PAutorizada puede operar con cuentas de clientes que son personas jurídicas */
         /* Si no lo es lanzar excepción NoEsPAutorizadaException */
+
+        if(pAutorizada == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if(estadoNew == null){
             throw new CampoVacioException("El campo (estado) a actualizar no contiene información.");
@@ -190,8 +223,10 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
     }
 
     @Override
-    public void modificarTipo(Long id_adm, Long id_aut, String tipoNew) throws CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
+    public void modificarTipo(Long id_adm, Long id_aut, String tipoNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException, NoEsPAutorizadaException {
         Usuario administrativo = em.find(Usuario.class, id_adm);
+
+        if(administrativo == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
 
         if (administrativo.getEsAdmin() == false){
             throw new NoEsAdministrativoException("El usuario " + id_adm + " no es administrativo.");
@@ -202,6 +237,8 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
         /* Comprobar que la PAutorizada puede operar con cuentas de clientes que son personas jurídicas */
         /* Si no lo es lanzar excepción NoEsPAutorizadaException */
 
+        if(pAutorizada == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
+
         if(tipoNew == null){
             throw new CampoVacioException("El campo (tipo) a actualizar no contiene información.");
         }
@@ -210,10 +247,5 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
         em.merge(pAutorizada);
 
     }
-
-    /*
-    SE HA CREADO UN MÉTODO PARA CADA DATO QUE PODRIA MODIFICARSE DE UNA PAUTORIZADA
-     */
-
 
 }
