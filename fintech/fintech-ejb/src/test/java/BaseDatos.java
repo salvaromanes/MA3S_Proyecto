@@ -1,10 +1,10 @@
-import ma3s.fintech.Cuenta;
-import ma3s.fintech.Pooled;
-import ma3s.fintech.Segregada;
-import ma3s.fintech.Usuario;
+import ma3s.fintech.*;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import static java.lang.Long.parseLong;
 
 
 public class BaseDatos {
@@ -34,12 +34,22 @@ public class BaseDatos {
         segregada.setIban("123");
         segregada.setSwift("123");
 
+        PAutorizada pAutorizada = new PAutorizada();
+        pAutorizada.setNombre("Salva");
+        pAutorizada.setApellidos("Ortiz");
+        pAutorizada.setIdentificacion("12345678S");
+        pAutorizada.setId(parseLong("1", 1));
+
         for (Usuario u: new Usuario[]{usuario, usuario1}) {
             em.persist(u);
         }
 
         for (Cuenta c: new Cuenta[]{cuenta, pooled, segregada}) {
             em.persist(c);
+        }
+
+        for (PAutorizada pa: new PAutorizada[]{pAutorizada}) {
+            em.persist(pa);
         }
 
         em.getTransaction().commit();
