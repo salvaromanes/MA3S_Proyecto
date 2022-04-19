@@ -11,27 +11,36 @@ public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
     @PersistenceContext(name="FintechEjb")
     private EntityManager em;
 
-    public void autorizarLectura(String nombre, String apellidos, String identificacion) throws UsuarioNoEncontradoException{
-        PAutorizada autorizado = em.find(PAutorizada.class, identificacion);
-        
+    public void autorizarLectura(String nombre, String apellidos, String identificacion, Long id) throws UsuarioNoEncontradoException{
+        PAutorizada autorizado = em.find(PAutorizada.class, id);
+        Autorizacion autorizacion =  em.find(Autorizacion.class, id);
 
         if(autorizado == null){
             throw new UsuarioNoEncontradoException();
         }
 
-        if(autorizado.getNombre() == nombre && autorizado.getApellidos() == apellidos){
-            autorizado.setTipo("Solo lectura");
+        if(autorizacion == null){
+            throw new UsuarioNoEncontradoException();
+        }
+
+        if(autorizado.getNombre() == nombre && autorizado.getApellidos() == apellidos && autorizado.getIdentificacion() == identificacion){
+            autorizacion.setTipo("Solo lectura");
         }
     }
 
-    public void autorizarOperacion(String nombre, String apellidos, String identificacion) throws UsuarioNoEncontradoException{
+    public void autorizarOperacion(String nombre, String apellidos, String identificacion, Long id) throws UsuarioNoEncontradoException{
         PAutorizada autorizado = em.find(PAutorizada.class, identificacion);
+        Autorizacion autorizacion =  em.find(Autorizacion.class, id);
 
         if(autorizado == null){
             throw new UsuarioNoEncontradoException();
         }
 
-        if(autorizado.getNombre() == nombre && autorizado.getApellidos() == apellidos){
+        if(autorizacion == null){
+            throw new UsuarioNoEncontradoException();
+        }
+
+        if(autorizado.getNombre() == nombre && autorizado.getApellidos() == apellidos && autorizado.getIdentificacion() == identificacion){
             autorizado.setTipo("Operacion y lectura");
         }
     }
