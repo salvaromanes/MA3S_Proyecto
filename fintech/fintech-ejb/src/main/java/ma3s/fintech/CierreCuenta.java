@@ -2,11 +2,13 @@ package ma3s.fintech;
 
 import ma3s.fintech.excepciones.*;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+@Stateless
 public class CierreCuenta implements GestionCierreCuenta{
-    @PersistenceContext(name="fintech")
+    @PersistenceContext(name="FintechEjb")
     private EntityManager em;
 
     public void comprobarAdministrador(String usuario) throws UsuarioIncorrectoException, UsuarioNoEncontradoException {
