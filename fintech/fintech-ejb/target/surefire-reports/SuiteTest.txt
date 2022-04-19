@@ -1,14 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: SuiteTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 3.224 sec <<< FAILURE!
-testAperturaCuenta(Fintech)  Time elapsed: 0.01 sec  <<< ERROR!
-javax.naming.NamingException: Lookup failed for 'java:global/classes/ma3s/fintech/AperturaCuenta' in SerialContext[myEnv={java.naming.factory.initial=com.sun.enterprise.naming.impl.SerialInitContextFactory, java.naming.factory.url.pkgs=com.sun.enterprise.naming, java.naming.factory.state=com.sun.corba.ee.impl.presentation.rmi.JNDIStateFactoryImpl} [Root exception is javax.naming.NameNotFoundException: classes]
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 3.37 sec <<< FAILURE!
+testAperturaCuenta(Fintech)  Time elapsed: 0.009 sec  <<< ERROR!
+javax.naming.NamingException: Lookup failed for 'java:classes/AperturaCuenta' in SerialContext[myEnv={java.naming.factory.initial=com.sun.enterprise.naming.impl.SerialInitContextFactory, java.naming.factory.url.pkgs=com.sun.enterprise.naming, java.naming.factory.state=com.sun.corba.ee.impl.presentation.rmi.JNDIStateFactoryImpl} [Root exception is javax.naming.NamingException: Invocation exception: Got null ComponentInvocation ]
 	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:467)
 	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:414)
 	at java.naming/javax.naming.InitialContext.lookup(InitialContext.java:409)
 	at java.naming/javax.naming.InitialContext.lookup(InitialContext.java:409)
-	at Fintech.setup(Fintech.java:21)
+	at Fintech.setup(Fintech.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -53,22 +53,20 @@ javax.naming.NamingException: Lookup failed for 'java:global/classes/ma3s/fintec
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: javax.naming.NameNotFoundException: classes
-	at com.sun.enterprise.naming.impl.TransientContext.resolveContext(TransientContext.java:275)
-	at com.sun.enterprise.naming.impl.TransientContext.lookup(TransientContext.java:183)
-	at com.sun.enterprise.naming.impl.TransientContext.lookup(TransientContext.java:184)
-	at com.sun.enterprise.naming.impl.SerialContextProviderImpl.lookup(SerialContextProviderImpl.java:42)
-	at com.sun.enterprise.naming.impl.LocalSerialContextProviderImpl.lookup(LocalSerialContextProviderImpl.java:90)
-	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:454)
+Caused by: javax.naming.NamingException: Invocation exception: Got null ComponentInvocation 
+	at com.sun.enterprise.naming.impl.GlassfishNamingManagerImpl.getComponentId(GlassfishNamingManagerImpl.java:818)
+	at com.sun.enterprise.naming.impl.GlassfishNamingManagerImpl.lookup(GlassfishNamingManagerImpl.java:690)
+	at com.sun.enterprise.naming.impl.JavaURLContext.lookup(JavaURLContext.java:143)
+	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:447)
 	... 48 more
 
 testCierreCuenta(Fintech)  Time elapsed: 0 sec  <<< ERROR!
-javax.naming.NamingException: Lookup failed for 'java:global/classes/ma3s/fintech/AperturaCuenta' in SerialContext[myEnv={java.naming.factory.initial=com.sun.enterprise.naming.impl.SerialInitContextFactory, java.naming.factory.url.pkgs=com.sun.enterprise.naming, java.naming.factory.state=com.sun.corba.ee.impl.presentation.rmi.JNDIStateFactoryImpl} [Root exception is javax.naming.NameNotFoundException: classes]
+javax.naming.NamingException: Lookup failed for 'java:classes/AperturaCuenta' in SerialContext[myEnv={java.naming.factory.initial=com.sun.enterprise.naming.impl.SerialInitContextFactory, java.naming.factory.url.pkgs=com.sun.enterprise.naming, java.naming.factory.state=com.sun.corba.ee.impl.presentation.rmi.JNDIStateFactoryImpl} [Root exception is javax.naming.NamingException: Invocation exception: Got null ComponentInvocation ]
 	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:467)
 	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:414)
 	at java.naming/javax.naming.InitialContext.lookup(InitialContext.java:409)
 	at java.naming/javax.naming.InitialContext.lookup(InitialContext.java:409)
-	at Fintech.setup(Fintech.java:21)
+	at Fintech.setup(Fintech.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -113,12 +111,10 @@ javax.naming.NamingException: Lookup failed for 'java:global/classes/ma3s/fintec
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: javax.naming.NameNotFoundException: classes
-	at com.sun.enterprise.naming.impl.TransientContext.resolveContext(TransientContext.java:275)
-	at com.sun.enterprise.naming.impl.TransientContext.lookup(TransientContext.java:183)
-	at com.sun.enterprise.naming.impl.TransientContext.lookup(TransientContext.java:184)
-	at com.sun.enterprise.naming.impl.SerialContextProviderImpl.lookup(SerialContextProviderImpl.java:42)
-	at com.sun.enterprise.naming.impl.LocalSerialContextProviderImpl.lookup(LocalSerialContextProviderImpl.java:90)
-	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:454)
+Caused by: javax.naming.NamingException: Invocation exception: Got null ComponentInvocation 
+	at com.sun.enterprise.naming.impl.GlassfishNamingManagerImpl.getComponentId(GlassfishNamingManagerImpl.java:818)
+	at com.sun.enterprise.naming.impl.GlassfishNamingManagerImpl.lookup(GlassfishNamingManagerImpl.java:690)
+	at com.sun.enterprise.naming.impl.JavaURLContext.lookup(JavaURLContext.java:143)
+	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:447)
 	... 48 more
 
