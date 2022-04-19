@@ -8,15 +8,16 @@ import static org.junit.Assert.fail;
 public class Fintech {
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechTest";
 
-    private static final String CUENTA = "java:global/classes/Cuenta";
+    private static final String APERTURA_CUENTA = "java:global/classes/AperturaCuenta";
+    private static final String CIERRE_CUENTA = "java:global/classes/CierreCuenta";
 
     private GestionAperturaCuenta gestionAperturaCuenta;
     private GestionCierreCuenta gestionCierreCuenta;
 
     @Before
     public void setup() throws NamingException {
-        gestionAperturaCuenta = (GestionAperturaCuenta) SuiteTest.ctx.lookup(CUENTA);
-        gestionCierreCuenta = (GestionCierreCuenta) SuiteTest.ctx.lookup(CUENTA);
+        gestionAperturaCuenta = (GestionAperturaCuenta) SuiteTest.ctx.lookup(APERTURA_CUENTA);
+        gestionCierreCuenta = (GestionCierreCuenta) SuiteTest.ctx.lookup(CIERRE_CUENTA);
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
 
