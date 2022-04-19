@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="2" failures="0" name="SuiteTest" time="0.015" errors="2" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="17.0.2+8-LTS-86"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17.0.2\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-ejb"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="ES"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\Desktop\Universidad\INGENIERÍA INFORMÁTICA\Tercer Curso\Segundo Cuatrimestre\Sistemas de información para internet\Proyecto\MA3S\fintech\fintech-ejb"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="java.runtime.version" value="17.0.2+8-LTS-86"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\Salva\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="classworlds.conf" value="C:\Program Files\Maven\apache-maven-3.8.5-bin\apache-maven-3.8.5\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-17.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Android;C:\Windows\System32;C:\MinGW;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk-17.0.2\bin;C:\Program Files\Maven\apache-maven-3.8.5-bin\apache-maven-3.8.5\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\Salva\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\Salva\AppData\Local\Programs\Python\Python39\;C:\Users\Salva\AppData\Local\Microsoft\WindowsApps;C:\Users\Salva\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-17.0.2\bin;;."/>
+    <property name="maven.conf" value="C:\Program Files\Maven\apache-maven-3.8.5-bin\apache-maven-3.8.5/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="61.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="C:\Program Files\Maven\apache-maven-3.8.5-bin\apache-maven-3.8.5\lib\jansi-native"/>
+    <property name="user.home" value="C:\Users\Salva"/>
+    <property name="user.timezone" value="Europe/Madrid"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.specification.version" value="17"/>
+    <property name="user.name" value="Salva"/>
+    <property name="java.class.path" value="C:\Program Files\Maven\apache-maven-3.8.5-bin\apache-maven-3.8.5\boot\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-17.0.2"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="17.0.2"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="sun.stderr.encoding" value="cp850"/>
+    <property name="maven.home" value="C:\Program Files\Maven\apache-maven-3.8.5-bin\apache-maven-3.8.5"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2022-01-18"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.stdout.encoding" value="cp850"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="Fintech" name="testAperturaCuenta" time="0.015">
+    <error message="Lookup failed for &apos;java:global/classes/Cuenta&apos; in SerialContext[myEnv={java.naming.factory.initial=com.sun.enterprise.naming.impl.SerialInitContextFactory, java.naming.factory.url.pkgs=com.sun.enterprise.naming, java.naming.factory.state=com.sun.corba.ee.impl.presentation.rmi.JNDIStateFactoryImpl}" type="javax.naming.NamingException">javax.naming.NamingException: Lookup failed for &apos;java:global/classes/Cuenta&apos; in SerialContext[myEnv={java.naming.factory.initial=com.sun.enterprise.naming.impl.SerialInitContextFactory, java.naming.factory.url.pkgs=com.sun.enterprise.naming, java.naming.factory.state=com.sun.corba.ee.impl.presentation.rmi.JNDIStateFactoryImpl} [Root exception is javax.naming.NameNotFoundException: classes]
+	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:467)
+	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:414)
+	at java.naming/javax.naming.InitialContext.lookup(InitialContext.java:409)
+	at java.naming/javax.naming.InitialContext.lookup(InitialContext.java:409)
+	at Fintech.setup(Fintech.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: javax.naming.NameNotFoundException: classes
+	at com.sun.enterprise.naming.impl.TransientContext.resolveContext(TransientContext.java:275)
+	at com.sun.enterprise.naming.impl.TransientContext.lookup(TransientContext.java:183)
+	at com.sun.enterprise.naming.impl.TransientContext.lookup(TransientContext.java:184)
+	at com.sun.enterprise.naming.impl.SerialContextProviderImpl.lookup(SerialContextProviderImpl.java:42)
+	at com.sun.enterprise.naming.impl.LocalSerialContextProviderImpl.lookup(LocalSerialContextProviderImpl.java:90)
+	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:454)
+	... 48 more
+</error>
+    <system-err>abr 19, 2022 5:55:29 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl getValidFile
+WARNING: EJB6008:Specified or calculated application server instance [C:\Users\Salva\.m2\repository\org\glassfish\main\extras\glassfish-embedded-all\domains\domain1] does not exist.
+abr 19, 2022 5:55:29 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl createContainer
+INFO: [EJBContainerProviderImpl] Using config file location: file:/C:/Users/Salva/AppData/Local/Temp/domain9137072107263895762xml
+abr 19, 2022 5:55:29 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl createContainer
+INFO: [EJBContainerProviderImpl] Using runtime class: class com.sun.enterprise.glassfish.bootstrap.StaticGlassFishRuntime
+abr 19, 2022 5:55:30 P. M. com.sun.enterprise.v3.server.CommonClassLoaderServiceImpl findDerbyClient
+INFO: Cannot find javadb client jar file, derby jdbc driver will not be available by default.
+abr 19, 2022 5:55:30 P. M. org.hibernate.validator.internal.util.Version &lt;clinit&gt;
+INFO: HV000001: Hibernate Validator null
+abr 19, 2022 5:55:30 P. M. org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+INFO: Authorization Service has successfully initialized.
+abr 19, 2022 5:55:31 P. M. com.sun.enterprise.security.ssl.impl.SecuritySupportImpl checkCertificateDates
+SEVERE: The SSL certificate has expired: [
+[
+  Version: V3
+  Subject: CN=localhost, OU=GlassFish, O=Sun Microsystems, L=Santa Clara, ST=California, C=US
+  Signature Algorithm: SHA1withRSA, OID = 1.2.840.113549.1.1.5
+
+  Key:  Sun RSA public key, 1024 bits
+  params: null
+  modulus: 145607243452859689580129548866124791697266876389020072346169573106005067922351621693980274409566977123703120560397141987498630922827852965950283535196583826176478163336993643826795231487853960699742178569310586812871660687609669142799497192378661602695305819033929044820179434366507221428988785371476479913059
+  public exponent: 65537
+  Validity: [From: Tue Jul 07 10:27:35 CEST 2009,
+               To: Fri Jul 05 10:27:35 CEST 2019]
+  Issuer: CN=localhost, OU=GlassFish, O=Sun Microsystems, L=Santa Clara, ST=California, C=US
+  SerialNumber: [    4a5306f7]
+
+Certificate Extensions: 1
+[1]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 8F FB 7A 0A BF 38 54 A6   0D 9D CC 28 F8 7A B2 25  ..z..8T....(.z.%
+0010: F2 F8 A1 99                                        ....
+]
+]
+
+]
+  Algorithm: [SHA1withRSA]
+  Signature:
+0000: 7A 53 96 EE 26 C0 6C 06   A5 68 45 43 49 A8 21 B7  zS..&amp;.l..hECI.!.
+0010: 03 E3 3C 22 97 76 B0 EC   0C F1 11 C9 D7 67 20 CA  ..&lt;&quot;.v.......g .
+0020: E5 0E 29 F8 64 FA C5 5A   FA D9 34 76 39 61 C4 21  ..).d..Z..4v9a.!
+0030: 82 A1 C5 27 D8 B7 B3 1B   6C 95 3B 01 6C C3 15 0F  ...&apos;....l.;.l...
+0040: B4 4D 50 E3 8F E9 CC 96   CC FF 95 2B 61 7C 30 D4  .MP........+a.0.
+0050: B1 00 0F 9E 4C 1B F8 08   DC 4C 30 CC 0E CB FC 92  ....L....L0.....
+0060: B3 C5 D5 F5 01 84 33 40   CA 42 B1 A3 2C 88 89 B9  ......3@.B..,...
+0070: 04 90 F3 2C C5 FA E4 A2   DC 16 17 4A 02 A7 ED 94  ...,.......J....
+
+]
+abr 19, 2022 5:55:31 P. M. com.sun.enterprise.security.ssl.impl.SecuritySupportImpl checkCertificateDates
+SEVERE: The SSL certificate has expired: [
+[
+  Version: V3
+  Subject: CN=localhost, OU=GlassFish, O=Sun Microsystems, L=Santa Clara, ST=California, C=US
+  Signature Algorithm: SHA1withRSA, OID = 1.2.840.113549.1.1.5
+
+  Key:  Sun RSA public key, 1024 bits
+  params: null
+  modulus: 145607243452859689580129548866124791697266876389020072346169573106005067922351621693980274409566977123703120560397141987498630922827852965950283535196583826176478163336993643826795231487853960699742178569310586812871660687609669142799497192378661602695305819033929044820179434366507221428988785371476479913059
+  public exponent: 65537
+  Validity: [From: Tue Jul 07 10:27:35 CEST 2009,
+               To: Fri Jul 05 10:27:35 CEST 2019]
+  Issuer: CN=localhost, OU=GlassFish, O=Sun Microsystems, L=Santa Clara, ST=California, C=US
+  SerialNumber: [    4a5306f7]
+
+Certificate Extensions: 1
+[1]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 8F FB 7A 0A BF 38 54 A6   0D 9D CC 28 F8 7A B2 25  ..z..8T....(.z.%
+0010: F2 F8 A1 99                                        ....
+]
+]
+
+]
+  Algorithm: [SHA1withRSA]
+  Signature:
+0000: 7A 53 96 EE 26 C0 6C 06   A5 68 45 43 49 A8 21 B7  zS..&amp;.l..hECI.!.
+0010: 03 E3 3C 22 97 76 B0 EC   0C F1 11 C9 D7 67 20 CA  ..&lt;&quot;.v.......g .
+0020: E5 0E 29 F8 64 FA C5 5A   FA D9 34 76 39 61 C4 21  ..).d..Z..4v9a.!
+0030: 82 A1 C5 27 D8 B7 B3 1B   6C 95 3B 01 6C C3 15 0F  ...&apos;....l.;.l...
+0040: B4 4D 50 E3 8F E9 CC 96   CC FF 95 2B 61 7C 30 D4  .MP........+a.0.
+0050: B1 00 0F 9E 4C 1B F8 08   DC 4C 30 CC 0E CB FC 92  ....L....L0.....
+0060: B3 C5 D5 F5 01 84 33 40   CA 42 B1 A3 2C 88 89 B9  ......3@.B..,...
+0070: 04 90 F3 2C C5 FA E4 A2   DC 16 17 4A 02 A7 ED 94  ...,.......J....
+
+]
+abr 19, 2022 5:55:31 P. M. com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+INFO: Undefined Product Name - define product and version info in config/branding  0.0.0  (0) startup time : Embedded (590ms), startup services(950ms), total(1.540ms)
+abr 19, 2022 5:55:31 P. M. com.sun.jts.CosTransactions.DefaultTransactionService setServerName
+INFO: JTS5014: Recoverable JTS instance, serverId = [100]
+abr 19, 2022 5:55:31 P. M. org.glassfish.admin.mbeanserver.JMXStartupService$JMXConnectorsStarterThread run
+INFO: JMXStartupService has disabled JMXConnector system
+abr 19, 2022 5:55:31 P. M. com.sun.enterprise.connectors.jms.util.JmsRaUtil getInstalledMqVersion
+WARNING: Check for a new version of MQ installation failed : C:\Users\Salva\AppData\Local\Temp\gfembed14369808724205275798tmp\lib\install\applications\jmsra\..\imqjmsra.rar:C:\Users\Salva\AppData\Local\Temp\gfembed14369808724205275798tmp\lib\install\applications\jmsra\imqjmsra.rar
+abr 19, 2022 5:55:31 P. M. org.glassfish.deployment.common.GenericAnnotationDetector scanArchive
+WARNING: NCLS-DEPLOYMENT-00009
+abr 19, 2022 5:55:31 P. M. org.glassfish.deployment.common.GenericAnnotationDetector scanArchive
+WARNING: NCLS-DEPLOYMENT-00009
+abr 19, 2022 5:55:31 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl skipJar
+INFO: ... skipping entry with a Manifest file with a special attribute: glassfish-embedded-all-5.1.0.jar
+abr 19, 2022 5:55:31 P. M. org.glassfish.deployment.common.GenericAnnotationDetector scanArchive
+WARNING: NCLS-DEPLOYMENT-00009
+abr 19, 2022 5:55:31 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl createEJBContainer
+SEVERE: EJB6005:No EJB modules found
+</system-err>
+  </testcase>
+  <testcase classname="Fintech" name="testCierreCuenta" time="0">
+    <error message="Lookup failed for &apos;java:global/classes/Cuenta&apos; in SerialContext[myEnv={java.naming.factory.initial=com.sun.enterprise.naming.impl.SerialInitContextFactory, java.naming.factory.url.pkgs=com.sun.enterprise.naming, java.naming.factory.state=com.sun.corba.ee.impl.presentation.rmi.JNDIStateFactoryImpl}" type="javax.naming.NamingException">javax.naming.NamingException: Lookup failed for &apos;java:global/classes/Cuenta&apos; in SerialContext[myEnv={java.naming.factory.initial=com.sun.enterprise.naming.impl.SerialInitContextFactory, java.naming.factory.url.pkgs=com.sun.enterprise.naming, java.naming.factory.state=com.sun.corba.ee.impl.presentation.rmi.JNDIStateFactoryImpl} [Root exception is javax.naming.NameNotFoundException: classes]
+	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:467)
+	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:414)
+	at java.naming/javax.naming.InitialContext.lookup(InitialContext.java:409)
+	at java.naming/javax.naming.InitialContext.lookup(InitialContext.java:409)
+	at Fintech.setup(Fintech.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: javax.naming.NameNotFoundException: classes
+	at com.sun.enterprise.naming.impl.TransientContext.resolveContext(TransientContext.java:275)
+	at com.sun.enterprise.naming.impl.TransientContext.lookup(TransientContext.java:183)
+	at com.sun.enterprise.naming.impl.TransientContext.lookup(TransientContext.java:184)
+	at com.sun.enterprise.naming.impl.SerialContextProviderImpl.lookup(SerialContextProviderImpl.java:42)
+	at com.sun.enterprise.naming.impl.LocalSerialContextProviderImpl.lookup(LocalSerialContextProviderImpl.java:90)
+	at com.sun.enterprise.naming.impl.SerialContext.lookup(SerialContext.java:454)
+	... 48 more
+</error>
+  </testcase>
+</testsuite>
