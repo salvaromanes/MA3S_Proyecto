@@ -4,11 +4,13 @@ import ma3s.fintech.excepciones.CuentaExistenteException;
 import ma3s.fintech.excepciones.UsuarioIncorrectoException;
 import ma3s.fintech.excepciones.UsuarioNoEncontradoException;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+@Stateless
 public class AperturaCuenta implements GestionAperturaCuenta{
-    @PersistenceContext(name="fintech")
+    @PersistenceContext(name="FintechEjb")
     private EntityManager em;
 
     public void comprobarAdministrador(String usuario) throws UsuarioIncorrectoException, UsuarioNoEncontradoException{
@@ -20,9 +22,6 @@ public class AperturaCuenta implements GestionAperturaCuenta{
             throw new UsuarioIncorrectoException();
         }
     }
-
-    // falta hacer el persist en ambas
-
 
     public void abrirCuentaPooled(String iban, String swift) throws CuentaExistenteException{
         Cuenta cuenta = em.find(Cuenta.class, iban);

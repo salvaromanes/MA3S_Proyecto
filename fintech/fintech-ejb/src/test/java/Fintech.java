@@ -1,3 +1,4 @@
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import ma3s.fintech.*;
 import ma3s.fintech.excepciones.*;
 import org.junit.Before;
@@ -21,7 +22,7 @@ public class Fintech {
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
 
-    //@Requisito({"RF5"})
+    @Requisitos({"RF5"})
     @Test
     public void testAperturaCuenta(){
         final String nombre = "Salvador";
@@ -72,7 +73,7 @@ public class Fintech {
         }
     }
 
-    //@Requisito({"RF9"})
+    @Requisitos({"RF9"})
     @Test
     public void testCierreCuenta(){
         final String nombre = "Salvador";
