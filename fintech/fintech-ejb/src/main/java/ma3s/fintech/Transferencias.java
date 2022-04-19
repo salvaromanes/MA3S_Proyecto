@@ -16,14 +16,16 @@ public class Transferencias implements GestionTransferencia{
     public void transferenciaClienteAutorizado(Long id, String IBAN_origen, String IBAN_destino, double cantidad) throws PersonaNoExisteException, CuentaExistenteException, ErrorOrigenTransaccionException {
         // Comprobar que el id es una cuenta o persona física o persona
         Empresa empresa = em.find(Empresa.class, id);
-        PAutorizada pAutorizada = em.find(PAutorizada.class, id);
+        Cliente cliente = em.find(Cliente.class, id);
 
-        if (empresa == null && pAutorizada == null) {
+        if (empresa == null && cliente == null) {
             throw new PersonaNoExisteException("No existe el cliente con id: " + id + ".");
         }
 
         // Comprobar que la PAutorizada es sobre persona física
+        if(cliente != null){
 
+        }
 
         // Comprobar que estamos sobre una empresa
         if(empresa != null){
