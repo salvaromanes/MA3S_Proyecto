@@ -2,11 +2,6 @@ import ma3s.fintech.Cuenta;
 import ma3s.fintech.Pooled;
 import ma3s.fintech.Segregada;
 import ma3s.fintech.Usuario;
-
-import java.math.BigDecimal;
-import java.sql.Date;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -23,6 +18,10 @@ public class BaseDatos {
         usuario.setEsAdmin(true);
         usuario.setUser("Salva");
 
+        Usuario usuario1 = new Usuario();
+        usuario1.setEsAdmin(false);
+        usuario1.setUser("MA3S");
+
         Cuenta cuenta = new Cuenta();
         cuenta.setIban("123");
         cuenta.setSwift("123");
@@ -34,6 +33,10 @@ public class BaseDatos {
         Segregada segregada = new Segregada();
         segregada.setIban("123");
         segregada.setSwift("123");
+
+        for (Usuario u: new Usuario[]{usuario, usuario1}) {
+            em.persist(u);
+        }
 
         for (Cuenta c: new Cuenta[]{cuenta, pooled, segregada}) {
             em.persist(c);
