@@ -7,7 +7,6 @@
 		<class>ma3s.fintech.DepositadaEn</class>
 		<class>ma3s.fintech.Divisa</class>
 		<class>ma3s.fintech.Empresa</class>
-		<class>ma3s.fintech.Administrador</class>
 		<class>ma3s.fintech.Individual</class>
 		<class>ma3s.fintech.PAutorizada</class>
 		<class>ma3s.fintech.Pooled</class>
