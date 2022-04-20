@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 public class AltaCliente implements GestionAltaCliente{
-    @PersistenceContext(name = "fintech")
+    @PersistenceContext(name = "FintechEjb")
     private EntityManager em;
 
     public void comprobarAdministrador(String usuario) throws UsuarioNoEncontradoException, UsuarioIncorrectoException {

@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
-    @PersistenceContext(name="fintech")
+    @PersistenceContext(name="FintechEjb")
     private EntityManager em;
 
     @Override

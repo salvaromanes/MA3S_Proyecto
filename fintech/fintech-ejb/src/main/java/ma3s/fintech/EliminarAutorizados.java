@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import java.util.Date;
 
 public class EliminarAutorizados implements GestionEliminarAutorizados{
-    @PersistenceContext(name="fintech")
+    @PersistenceContext(name="FintechEjb")
     private EntityManager em;
 
     @Override

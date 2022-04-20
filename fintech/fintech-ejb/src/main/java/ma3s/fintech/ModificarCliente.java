@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 public class ModificarCliente implements GestionModificarCliente{
-    @PersistenceContext(name="fintech")
+    @PersistenceContext(name="FintechEjb")
     private EntityManager em;
 
 

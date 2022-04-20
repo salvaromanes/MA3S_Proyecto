@@ -12,7 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="fintech" target="1.8" />
-      <module name="fintech-ejb" target="17" />
+      <module name="fintech-ejb" target="1.8" />
       <module name="fintech-ejb2" target="17" />
       <module name="fintech-jpa" target="1.8" />
     </bytecodeTargetLevel>

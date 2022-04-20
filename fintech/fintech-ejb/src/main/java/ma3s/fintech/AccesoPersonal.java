@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 
 public class AccesoPersonal implements GestionAccesoPersonal {
 
-    @PersistenceContext(name="fintech")
+    @PersistenceContext(name="FintechEjb")
     private EntityManager em;
 
     @Override

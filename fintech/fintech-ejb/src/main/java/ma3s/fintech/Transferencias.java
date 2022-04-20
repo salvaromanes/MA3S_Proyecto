@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 
 public class Transferencias implements GestionTransferencia{
 
-    @PersistenceContext(name="fintech")
+    @PersistenceContext(name="FintechEjb")
     private EntityManager em;
 
     @Override
