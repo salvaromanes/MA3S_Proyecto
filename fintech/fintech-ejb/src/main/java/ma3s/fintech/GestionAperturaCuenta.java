@@ -7,6 +7,6 @@ import ma3s.fintech.excepciones.UsuarioNoEncontradoException;
 
 public interface GestionAperturaCuenta {
     public void comprobarAdministrador(String usuario) throws UsuarioNoEncontradoException, UsuarioIncorrectoException;
-    public void abrirCuentaPooled(String iban, String swift) throws CuentaExistenteException;
-    public void abrirCuentaSegregate(String iban, String swift) throws CuentaExistenteException;
+    public void abrirCuentaPooled(String iban, String swift, String usuario) throws CuentaExistenteException, UsuarioNoEncontradoException, UsuarioIncorrectoException;
+    public void abrirCuentaSegregate(String iban, String swift, String usuario) throws CuentaExistenteException, UsuarioNoEncontradoException, UsuarioIncorrectoException;
 }

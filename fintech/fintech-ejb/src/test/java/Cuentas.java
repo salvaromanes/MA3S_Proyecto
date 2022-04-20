@@ -29,16 +29,21 @@ public class Cuentas {
     public void testAperturaCuentaPooled(){
         final String ibanCuenta = "123";
         final String swiftCuenta = "123";
+        final String usuario = "Salva";
 
         Cuenta cuenta = new Cuenta();
         cuenta.setIban(ibanCuenta);
         cuenta.setSwift(swiftCuenta);
 
         try{
-            gestionAperturaCuenta.abrirCuentaPooled(cuenta.getIban(), cuenta.getSwift());
+            gestionAperturaCuenta.abrirCuentaPooled(cuenta.getIban(), cuenta.getSwift(), usuario);
             fail("Debe lanzar una excepcion");
         } catch (CuentaExistenteException e) {
             //ok
+        } catch (UsuarioNoEncontradoException e) {
+            fail("Debe lanzar una excepcion CuentaExistente");
+        } catch (UsuarioIncorrectoException e) {
+            fail("Debe lanzar una excepcion CuentaExistente");
         }
     }
 
@@ -47,16 +52,21 @@ public class Cuentas {
     public void testAperturaCuentaSegregada(){
         final String ibanCuenta = "123";
         final String swiftCuenta = "123";
+        final String usuario = "Salva";
 
         Cuenta cuenta = new Cuenta();
         cuenta.setIban(ibanCuenta);
         cuenta.setSwift(swiftCuenta);
 
         try{
-            gestionAperturaCuenta.abrirCuentaSegregate(cuenta.getIban(), cuenta.getSwift());
+            gestionAperturaCuenta.abrirCuentaSegregate(cuenta.getIban(), cuenta.getSwift(), usuario);
             fail("Debe lanzar una excepcion");
         } catch (CuentaExistenteException e) {
             //ok
+        } catch (UsuarioNoEncontradoException e) {
+            fail("Debe lanzar una excepcion CuentaExistente");
+        } catch (UsuarioIncorrectoException e) {
+            fail("Debe lanzar una excepcion CuentaExistente");
         }
     }
 

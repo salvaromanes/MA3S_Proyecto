@@ -23,8 +23,10 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         }
     }
 
-    public void abrirCuentaPooled(String iban, String swift) throws CuentaExistenteException{
+    public void abrirCuentaPooled(String iban, String swift, String usuario) throws CuentaExistenteException, UsuarioNoEncontradoException, UsuarioIncorrectoException {
         Cuenta cuenta = em.find(Cuenta.class, iban);
+
+        comprobarAdministrador(usuario);
 
         if(cuenta != null){
             throw new CuentaExistenteException("La cuenta con IBAN "+iban+" ya existe.");
@@ -38,8 +40,10 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         em.persist(pooled);
     }
 
-    public void abrirCuentaSegregate(String iban, String swift) throws CuentaExistenteException{
+    public void abrirCuentaSegregate(String iban, String swift, String usuario) throws CuentaExistenteException, UsuarioNoEncontradoException, UsuarioIncorrectoException {
         Cuenta cuenta = em.find(Cuenta.class, iban);
+
+        comprobarAdministrador(usuario);
 
         if(cuenta != null){
             throw new CuentaExistenteException("La cuenta con IBAN "+iban+" ya extiste.");
