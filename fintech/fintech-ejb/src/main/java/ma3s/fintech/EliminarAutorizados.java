@@ -24,13 +24,12 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
             throw new PersonaNoExisteException("La persona autorizada con id " + idPA + " no existe");
         }
 
-        /*
         if(isAdministrativo(administrativo.getUser()) &&
                 isPersonaAutorizada(idPA, autorizacion.getEmpresaId().getId())){
             personaAutorizada.setEstado("Baja");
             personaAutorizada.setFechaFin(new Date()); // completa la fecha fin con el dia de hoy
         }
-         */
+
     }
 
     // ¿el usuario es administrativo? sirve para poder gestionar las bajas
