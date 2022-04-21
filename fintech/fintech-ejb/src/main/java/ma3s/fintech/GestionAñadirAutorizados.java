@@ -9,6 +9,6 @@ import java.util.Date;
 
 public interface GestionAñadirAutorizados {
 
-    public void comprobarAdministrador(String usuario)throws  NoEsPAutorizadaException, PersonaNoExisteException;
+    public void comprobarAdministrador(String usuario)throws  NoEsAdministrativoException, PersonaNoExisteException;
 
 }
