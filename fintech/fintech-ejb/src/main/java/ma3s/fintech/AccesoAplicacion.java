@@ -1,54 +1,36 @@
 package ma3s.fintech;
 
-import ma3s.fintech.excepciones.ContraseñaIncorrectaException;
+import ma3s.fintech.excepciones.AccesoException;
+import ma3s.fintech.excepciones.CuentaExistenteException;
 import ma3s.fintech.excepciones.PersonaNoExisteException;
 import ma3s.fintech.excepciones.UsuarioIncorrectoException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 public class AccesoAplicacion implements GestionAccesoAplicacion {
     @PersistenceContext(name="FintechEjb")
     private EntityManager em;
 
     @Override
-    public void accederAplicacion(Long idCliente, String usuario, String contrasena) throws PersonaNoExisteException, UsuarioIncorrectoException, ContraseñaIncorrectaException {
-        Cliente cliente = em.find(Cliente.class, idCliente);
-        Autorizacion autorizacion = em.find(Autorizacion.class, idCliente);
+    public void accederAplicacion(String usuario) throws PersonaNoExisteException, AccesoException, CuentaExistenteException {
         Usuario user = em.find(Usuario.class, usuario);
-        Cuenta cuenta = em.find(Cuenta.class, cliente.getCuentasFintech());
-        Transaccion transaccionOrigen = em.find(Transaccion.class, cuenta.getTransaccionesOrigen());
-        Transaccion transaccionDestino = em.find(Transaccion.class, cuenta.getTransaccionesDestino());
-        Divisa divisaOrigenEmisor = em.find(Divisa.class, transaccionOrigen.getDivisaEmisor());
-        Divisa divisaOrigenReceptor = em.find(Divisa.class, transaccionOrigen.getDivisaReceptor());
-        Divisa divisaDestinoEmisor = em.find(Divisa.class, transaccionDestino.getDivisaEmisor());
-        Divisa divisaDestinoReceptor = em.find(Divisa.class, transaccionDestino.getDivisaReceptor());
+        Cliente cliente = em.find(Cliente.class, user.getCliente().getId());
+        PAutorizada autorizada = em.find(PAutorizada.class, user.getAutorizada().getId());
 
-        if(!cliente.getId().equals(idCliente)) {
-            throw new PersonaNoExisteException("El cliente con id " + idCliente + " no existe");
+        if(!user.getUser().equals(usuario)){
+            throw new UsuarioIncorrectoException();
         }
 
-        // si el cliente no es una persona juridica, si puede acceder a la app
-        if (!isClientePersonaJuridica(cliente.getId(), "Empresa") &&
-            isPersonaAutorizada(cliente.getId(), autorizacion.getEmpresaId().getId()) &&
-            user.getUser().equals(cliente.user.getUser())){
-                if (!user.getUser().equals(usuario)){
-                    throw new UsuarioIncorrectoException();
-                }
+        List<Fintech> cuentas;
 
-                if(!user.getContrasena().equals(contrasena)){
-                    throw new ContraseñaIncorrectaException();
-                }
-
-                // ¿como poner la siguiente info para que sea visible al usuario?
-                // cuenta : lista de cuentas que tiene el cliente
-                // transaccion : transaccionOrigen y Destino
-                // divisa : los 4 tipos de divisa
-
-                // FALTA AÑADIR REFERENCIA Y DEPOSITADA_EN (no sé como enlazarlo)
-
-
+        if (comprobarCliente(user, cliente)){
+            cuentas = accederAplicacionCliente(user, cliente);
+        }else if (comprobarPA(user, autorizada)){
+            cuentas = accederAplicacionPAutorizada(user, autorizada);
         }
+
     }
 
     // ¿es el cliente una persona juridica?
@@ -61,7 +43,7 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
         return cliente.getTipoCliente().equals("Empresa");
     }
 
-    // ¿la persona autorizada: lleva cuentas de clientes juridicos o es persona fisica?
+    // ¿la persona autorizada: lleva cuentas de clientes juridicos?
     // cliente juridico: Empresa
     // persona fisica: Individual
     @Override
@@ -72,13 +54,71 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
 
         if(!personaAutorizada.getId().equals(idPA)){
             throw new PersonaNoExisteException("La persona autorizada con id " + idPA + " no existe");
-        }else if(!cliente.getId().equals(idCliente)) {
+        }
+
+        if(!cliente.getId().equals(idCliente)) {
             throw new PersonaNoExisteException("El cliente con id " + idCliente + " no existe");
         }
 
         return autorizacion.getAutorizadaId().equals(personaAutorizada) &&
                 autorizacion.getEmpresaId().equals(cliente) &&
-                isClientePersonaJuridica(cliente.getId(), "Empresa") &&
-                isClientePersonaJuridica(cliente.getId(), "Individual");
+                isClientePersonaJuridica(cliente.getId(), "Empresa");
+    }
+
+    // comprobar si el id usuario existe en Cliente y comprobar que sea persona Fisica = Individual
+    private boolean comprobarCliente(Usuario user, Cliente cliente) throws PersonaNoExisteException, AccesoException {
+        if(!user.getUser().equals(cliente.getUser().getUser())){
+            throw new PersonaNoExisteException("el cliente con id " + cliente.getId() + " y usuario " + cliente.getUser() + " no existe");
+        }
+
+        if (!cliente.getTipoCliente().equals("Individual")){
+            throw new AccesoException("El cliente " + cliente.getId() + " no es una persona fisica y no tiene acceso");
+        }
+        return true;
+    }
+
+    // comprobar si el id usuario existe en PAutorizada y si esta autorizado a cuentas de clientes juridicos = empresas
+    private boolean comprobarPA(Usuario user, PAutorizada autorizada) throws PersonaNoExisteException, AccesoException {
+        if(!user.getUser().equals(autorizada.getUser().getUser())){
+            throw new PersonaNoExisteException("la persona autorizada con id " + autorizada.getId() + " y usuario " + autorizada.getUser() + " no existe");
+        }
+
+        if(!isPersonaAutorizada(autorizada.getId(), user.getCliente().getId())){
+            throw new AccesoException("La persona autorizada " + autorizada.getId() + " no tiene acceso a cuentas de clientes juridicos");
+        }
+        return true;
+    }
+
+    // accedo a la aplicacion como Cliente y devuelto la lista de cuentas que tiene
+    private List<Fintech> accederAplicacionCliente(Usuario user, Cliente cliente) throws CuentaExistenteException {
+        List<Fintech> cuentas = cliente.getCuentasFintech();
+
+        // compruebo si el cliente tiene cuentas asociadas
+        if(cuentas.size()==0){
+            throw new CuentaExistenteException();
+        }
+
+        return cuentas;
+    }
+
+    // accedo a la aplicacion como Persona Autorizada
+    private List<Fintech> accederAplicacionPAutorizada(Usuario user, PAutorizada autorizada) throws PersonaNoExisteException, CuentaExistenteException {
+
+        Autorizacion autorizacion = em.find(Autorizacion.class, user.getpAutorizada().getId());
+        Empresa empresa = em.find(Empresa.class, autorizacion.getAutorizadaId());
+        // personas autorizadas que tiene la empresa, estoy buscando por "autorizada"
+        List<Autorizacion> personasAutorizadas = empresa.getAutorizaciones();
+        if(personasAutorizadas.size()==0){
+            throw new PersonaNoExisteException("la empresa no tiene autorizada a la persona con id " + autorizacion.getAutorizadaId());
+        }
+
+        // si la tiene autorizada, vemos en qué cuentas
+        List<Fintech> cuentas = empresa.getCuentasFintech();
+
+        if(cuentas.size()==0){
+            throw new CuentaExistenteException();
+        }
+
+        return cuentas;
     }
 }
