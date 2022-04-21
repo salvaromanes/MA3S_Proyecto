@@ -11,12 +11,12 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
     private EntityManager em;
 
     @Override
-    public void darBaja(String usuario, Long idPA) throws PersonaNoExisteException {
+    public void darBaja(String admin, Long idPA) throws PersonaNoExisteException {
         PAutorizada personaAutorizada = em.find(PAutorizada.class, idPA);
-        Usuario administrativo = em.find(Usuario.class, usuario);
+        Usuario administrativo = em.find(Usuario.class, admin);
         Autorizacion autorizacion = em.find(Autorizacion.class, idPA);
 
-        if(!administrativo.getUser().equals(usuario)){
+        if(!administrativo.getUser().equals(admin)){
             throw new PersonaNoExisteException("El administrativo " + administrativo + " no existe");
         }
 
@@ -24,13 +24,13 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
             throw new PersonaNoExisteException("La persona autorizada con id " + idPA + " no existe");
         }
 
+        /*
         if(isAdministrativo(administrativo.getUser()) &&
                 isPersonaAutorizada(idPA, autorizacion.getEmpresaId().getId())){
-            // esta sentencia está mal pero no sabría como dar la orden al administrativo
-            // para que cambie el estado de la persona autorizada
             personaAutorizada.setEstado("Baja");
-            personaAutorizada.setFechaFin(new Date()); // completa la fecha finc con el dia de hoy
+            personaAutorizada.setFechaFin(new Date()); // completa la fecha fin con el dia de hoy
         }
+         */
     }
 
     // ¿el usuario es administrativo? sirve para poder gestionar las bajas
@@ -64,7 +64,9 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
 
         if(!personaAutorizada.getId().equals(idPA)){
             throw new PersonaNoExisteException("La persona autorizada con id " + idPA + " no existe");
-        }else if(!cliente.getId().equals(idCliente)) {
+        }
+
+        if(!cliente.getId().equals(idCliente)) {
             throw new PersonaNoExisteException("El cliente con id " + idCliente + " no existe");
         }
 
