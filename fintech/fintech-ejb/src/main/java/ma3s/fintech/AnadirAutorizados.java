@@ -29,12 +29,11 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
     }
 
 
-    // hay que ver como añadir la persona a la cuenta de la empresa
-
     @Override
-    public void anadirPAut(PAutorizada autorizada, Empresa empresa) throws NoEsPAutorizadaException, EmpresaNoExistenteException {
+    public void anadirPAut(PAutorizada autorizada, Empresa empresa) throws NoEsPAutorizadaException, EmpresaNoExistenteException,PersonaNoExisteException,EmpresaNoRelacException{
         PAutorizada p = em.find(PAutorizada.class,autorizada);
         Empresa e = em.find(Empresa.class,empresa);
+        Autorizacion a = em.find(Autorizacion.class , autorizada.getId());
 
         if(!p.getUser().equals(autorizada)){
             throw  new NoEsPAutorizadaException("La persona con usuario : " + p.getUser() + " no es persona autorizada");
@@ -43,7 +42,22 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
         if(!e.getId().equals(empresa)) {
             throw  new EmpresaNoExistenteException("La empresa : " + e.getId() + " no se encuentra");
         }
+        if(!a.getAutorizadaId().equals(autorizada.getId())){
+            throw  new PersonaNoExisteException("La persona con id : " + a.getAutorizadaId() + " no existe" );
+        }
+
+        if(!a.getEmpresaId().equals(empresa.getId())){
+            throw new EmpresaNoRelacException("La empresa : " + a.getEmpresaId() + " no esta relacionada con el  usario: " + a.getAutorizadaId());
+        }
+
+        Autorizacion autorizar = new Autorizacion();
+        autorizar.setAutorizadaId(p);
+        autorizar.setEmpresaId(e);
+        autorizar.setTipo("Operacion y lectura");
+        em.persist(autorizar);
+
     }
+
 
 
 }
