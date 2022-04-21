@@ -5,9 +5,11 @@ import ma3s.fintech.excepciones.CuentaExistenteException;
 import ma3s.fintech.excepciones.PersonaNoExisteException;
 import ma3s.fintech.excepciones.UsuarioIncorrectoException;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+@Stateless
 
 public class AccesoAplicacion implements GestionAccesoAplicacion {
     @PersistenceContext(name="FintechEjb")
