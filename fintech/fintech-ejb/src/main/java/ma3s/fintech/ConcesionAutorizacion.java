@@ -12,6 +12,7 @@ public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
     @PersistenceContext(name="FintechEjb")
     private EntityManager em;
 
+    @Override
     public void autorizarLectura(Long idPersona, Empresa empresa) throws UsuarioNoEncontradoException{
         PAutorizada autorizado = em.find(PAutorizada.class, idPersona);
         List<Autorizacion> autorizacion = (List<Autorizacion>) em.find(Autorizacion.class, idPersona);
@@ -49,6 +50,7 @@ public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
         }
     }
 
+    @Override
     public void autorizarOperacion(Long idPersona, Empresa empresa) throws UsuarioNoEncontradoException{
         PAutorizada autorizado = em.find(PAutorizada.class, idPersona);
         List<Autorizacion> autorizacion = (List<Autorizacion>) em.find(Autorizacion.class, idPersona);
