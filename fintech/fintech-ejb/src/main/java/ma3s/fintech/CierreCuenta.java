@@ -34,5 +34,6 @@ public class CierreCuenta implements GestionCierreCuenta{
         }
 
         referencia.setEstado("Cerrado");
+        em.merge(referencia);
     }
 }
