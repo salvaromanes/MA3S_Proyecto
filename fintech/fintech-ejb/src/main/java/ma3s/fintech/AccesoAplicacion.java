@@ -24,7 +24,7 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
         if(!user.getUser().equals(usuario)){
             throw new UsuarioIncorrectoException();
         }
-
+        
         List<Fintech> cuentas;
 
         if (comprobarCliente(user, cliente)){
