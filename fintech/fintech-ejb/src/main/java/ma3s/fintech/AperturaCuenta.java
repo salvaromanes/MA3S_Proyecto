@@ -13,6 +13,7 @@ public class AperturaCuenta implements GestionAperturaCuenta{
     @PersistenceContext(name="FintechEjb")
     private EntityManager em;
 
+    @Override
     public void comprobarAdministrador(String usuario) throws UsuarioIncorrectoException, UsuarioNoEncontradoException{
         Usuario user = em.find(Usuario.class, usuario);
 
@@ -23,6 +24,7 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         }
     }
 
+    @Override
     public void abrirCuentaPooled(String iban, String swift, String usuario) throws CuentaExistenteException, UsuarioNoEncontradoException, UsuarioIncorrectoException {
         Cuenta cuenta = em.find(Cuenta.class, iban);
 
@@ -40,6 +42,7 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         em.persist(pooled);
     }
 
+    @Override
     public void abrirCuentaSegregate(String iban, String swift, String usuario) throws CuentaExistenteException, UsuarioNoEncontradoException, UsuarioIncorrectoException {
         Cuenta cuenta = em.find(Cuenta.class, iban);
 

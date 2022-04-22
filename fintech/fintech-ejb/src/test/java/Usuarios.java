@@ -1,7 +1,6 @@
 import es.uma.informatica.sii.anotaciones.Requisitos;
+import ma3s.fintech.Empresa;
 import ma3s.fintech.GestionConcesionAutorizacion;
-import ma3s.fintech.Usuario;
-import ma3s.fintech.excepciones.UsuarioIncorrectoException;
 import ma3s.fintech.excepciones.UsuarioNoEncontradoException;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,13 +26,13 @@ public class Usuarios {
     @Requisitos({"RF15"})
     @Test
     public void testAutorizarLectura(){
-        final String nombre = "Salvador";
-        final String apellidos = "Ortiz";
-        final String identificacion = "12345678S";
-        final Long id = parseLong("1", 1);
+        final Long idPersona = parseLong("1", 1);
+        final Long idEmpresa = parseLong("1", 1);
+        Empresa empresa = new Empresa();
+        empresa.setId(idEmpresa);
 
         try{
-            gestionConcesionAutorizacion.autorizarLectura(nombre, apellidos, identificacion, id);
+            gestionConcesionAutorizacion.autorizarLectura(idPersona, empresa);
             fail("Debe lanzar una excepcion");
         } catch (UsuarioNoEncontradoException e) {
             //ok
@@ -43,13 +42,13 @@ public class Usuarios {
     @Requisitos({"RF15"})
     @Test
     public void testAutorizarOperacion(){
-        final String nombre = "Salvador";
-        final String apellidos = "Ortiz";
-        final String identificacion = "12345678S";
-        final Long id = parseLong("1", 1);
+        final Long idPersona = parseLong("1", 1);
+        final Long idEmpresa = parseLong("1", 1);
+        Empresa empresa = new Empresa();
+        empresa.setId(idEmpresa);
 
         try{
-            gestionConcesionAutorizacion.autorizarOperacion(nombre, apellidos, identificacion, id);
+            gestionConcesionAutorizacion.autorizarOperacion(idPersona, empresa);
             fail("Debe lanzar una excepcion");
         } catch (UsuarioNoEncontradoException e) {
             //ok

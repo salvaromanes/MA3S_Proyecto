@@ -29,7 +29,7 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
             personaAutorizada.setEstado("Baja");
             personaAutorizada.setFechaFin(new Date()); // completa la fecha fin con el dia de hoy
         }
-
+        em.merge(personaAutorizada);
     }
 
     // ¿el usuario es administrativo? sirve para poder gestionar las bajas
