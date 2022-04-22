@@ -1,6 +1,7 @@
 package ma3s.fintech;
 
 import ma3s.fintech.excepciones.CampoVacioException;
+import ma3s.fintech.excepciones.NoEsAdministrativoException;
 import ma3s.fintech.excepciones.UsuarioIncorrectoException;
 import ma3s.fintech.excepciones.UsuarioNoEncontradoException;
 
@@ -13,13 +14,13 @@ public class AltaCliente implements GestionAltaCliente{
     @PersistenceContext(name = "FintechEjb")
     private EntityManager em;
 
-    public void comprobarAdministrador(String usuario) throws UsuarioNoEncontradoException, UsuarioIncorrectoException {
+    public void comprobarAdministrador(String usuario) throws UsuarioNoEncontradoException, NoEsAdministrativoException {
         Usuario user = em.find(Usuario.class, usuario);
 
         if(user == null){
             throw new UsuarioNoEncontradoException();
         }else if (!user.getEsAdmin()){
-            throw new UsuarioIncorrectoException();
+            throw new NoEsAdministrativoException();
         }
     }
 
