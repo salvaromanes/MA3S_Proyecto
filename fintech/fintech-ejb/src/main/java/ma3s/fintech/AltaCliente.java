@@ -4,9 +4,11 @@ import ma3s.fintech.excepciones.CampoVacioException;
 import ma3s.fintech.excepciones.UsuarioIncorrectoException;
 import ma3s.fintech.excepciones.UsuarioNoEncontradoException;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+@Stateless
 public class AltaCliente implements GestionAltaCliente{
     @PersistenceContext(name = "FintechEjb")
     private EntityManager em;
