@@ -13,13 +13,13 @@ public class BajaCliente implements GestionBajaCliente{
     private EntityManager em;
 
     @Override
-    public void comprobarAdministrador(String usuario) throws UsuarioNoEncontradoException, UsuarioIncorrectoException {
+    public void comprobarAdministrador(String usuario) throws UsuarioNoEncontradoException, NoEsAdministrativoException {
         Usuario user = em.find(Usuario.class, usuario);
 
         if(user == null){
             throw new UsuarioNoEncontradoException();
         }else if(!user.getEsAdmin()){
-            throw new UsuarioIncorrectoException();
+            throw new NoEsAdministrativoException();
         }
     }
 
@@ -35,7 +35,6 @@ public class BajaCliente implements GestionBajaCliente{
         }
 
         List<Fintech> cuentas = cliente.getCuentasFintech();
-        boolean comp = false;
         for (Fintech f : cuentas){
             if(f.getEstado().equals("Abierta"))
                 throw new CuentaAbiertaException("No se puede dar de baja un cliente que tiene una cuenta abierta");

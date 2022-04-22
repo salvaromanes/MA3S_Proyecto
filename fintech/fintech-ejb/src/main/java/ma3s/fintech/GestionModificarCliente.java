@@ -3,7 +3,7 @@ package ma3s.fintech;
 import ma3s.fintech.excepciones.*;
 
 public interface GestionModificarCliente {
-    public void comprobarAdministrador(String usuario) throws UsuarioNoEncontradoException, UsuarioIncorrectoException;
+    public void comprobarAdministrador(String usuario) throws UsuarioNoEncontradoException, NoEsAdministrativoException;
     public void modIdenEmpresa(Long id, String iden) throws CampoVacioException, EmpresaNoExistenteException;
     public void modTipoEmpresa(Long id, String tipo_cliente) throws CampoVacioException, EmpresaNoExistenteException;
     public void modDireccionEmpresa(Long id, String direccion) throws CampoVacioException, EmpresaNoExistenteException;
