@@ -35,7 +35,6 @@ public class BajaCliente implements GestionBajaCliente{
         }
 
         List<Fintech> cuentas = cliente.getCuentasFintech();
-        boolean comp = false;
         for (Fintech f : cuentas){
             if(f.getEstado().equals("Abierta"))
                 throw new CuentaAbiertaException("No se puede dar de baja un cliente que tiene una cuenta abierta");
