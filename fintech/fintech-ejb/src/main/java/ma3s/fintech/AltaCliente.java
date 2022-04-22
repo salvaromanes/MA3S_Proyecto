@@ -22,37 +22,34 @@ public class AltaCliente implements GestionAltaCliente{
     }
 
 
-    public void darAltaEmpresa(Long id, String identificacion, String tipo_cliente, String direccion, String ciudad, String codigoPostal, String pais, String razon_social) throws CampoVacioException {
+    public void darAltaEmpresa(Empresa empresa) throws CampoVacioException {
+        Long id = empresa.getId();
+        String identificacion = empresa.getIdentificacion();
+        String tipo_cliente = empresa.getTipoCliente();
+        String direccion = empresa.getDireccion();
+        String ciudad = empresa.getCiudad();
+        String codigoPostal = empresa.getCodigopostal();
+        String pais = empresa.getPais();
+        String razon_social = empresa.getRazonSocial();
         if(id == null || identificacion == null || tipo_cliente == null || direccion == null || ciudad == null || codigoPostal == null || pais == null || razon_social == null)
             throw new CampoVacioException();
-
-        Empresa empresa = new Empresa();
-        empresa.setId(id);
-        empresa.setIdentificacion(identificacion);
-        empresa.setTipoCliente(tipo_cliente);
-        empresa.setDireccion(direccion);
-        empresa.setCiudad(ciudad);
-        empresa.setCodigopostal(codigoPostal);
-        empresa.setPais(pais);
-        empresa.setRazonSocial(razon_social);
 
         em.persist(empresa);
     }
 
 
-    public void darAltaIndividual(Long id, String identificacion, String tipo_cliente, String direccion, String ciudad, String codigoPostal, String pais, String nombre, String apellido) throws CampoVacioException {
+    public void darAltaIndividual(Individual individual) throws CampoVacioException {
+        Long id = individual.getId();
+        String identificacion = individual.getIdentificacion();
+        String tipo_cliente = individual.getTipoCliente();
+        String direccion = individual.getDireccion();
+        String ciudad = individual.getCiudad();
+        String codigoPostal = individual.getCodigopostal();
+        String pais = individual.getPais();
+        String nombre = individual.getNombre();
+        String apellido = individual.getApellido();
         if(id == null || identificacion == null || tipo_cliente == null || direccion == null || ciudad == null || codigoPostal == null || pais == null || nombre == null || apellido == null)
             throw new CampoVacioException();
-        Individual individual = new Individual();
-        individual.setId(id);
-        individual.setIdentificacion(identificacion);
-        individual.setTipoCliente(tipo_cliente);
-        individual.setDireccion(direccion);
-        individual.setCiudad(ciudad);
-        individual.setCodigopostal(codigoPostal);
-        individual.setPais(pais);
-        individual.setNombre(nombre);
-        individual.setApellido(apellido);
 
         em.persist(individual);
     }
