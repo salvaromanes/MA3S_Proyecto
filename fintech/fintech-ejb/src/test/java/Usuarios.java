@@ -1,8 +1,6 @@
 import es.uma.informatica.sii.anotaciones.Requisitos;
 import ma3s.fintech.Empresa;
 import ma3s.fintech.GestionConcesionAutorizacion;
-import ma3s.fintech.Usuario;
-import ma3s.fintech.excepciones.UsuarioIncorrectoException;
 import ma3s.fintech.excepciones.UsuarioNoEncontradoException;
 import org.junit.Before;
 import org.junit.Test;
