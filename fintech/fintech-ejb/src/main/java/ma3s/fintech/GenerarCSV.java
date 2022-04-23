@@ -33,12 +33,28 @@ public class GenerarCSV implements GestionGenerarCSV{
     }
 
     private void reporteInicial(List<Cliente> lista) {
+        CSVPrinter csvCabecera = new CSVPrinter(stringWriter,
+                CSVFormat.DEFAULT.withHeader("Iban", "Apellidos", "Nombre", "Calle", "Ciudad",
+                        "Codigo Postal", "Pais", "Numero de Identificacion", "Fecha Nacimiento"));
+
         for (Cliente c : lista) {
             List<Fintech> cuentasCliente = c.getCuentasFintech();
             for (Fintech f : cuentasCliente) {
                 Date fechaActual = Date.from(Instant.from(LocalDateTime.now()));
                 if(f.getFechaApertura().compareTo(fechaActual) == 0){
-                    /// meter datos de la lista
+                    PAutorizada pa = c.getUser().getpAutorizada();
+                    csvCabecera.printRecord(
+                            f.getIban(),
+                            pa.getApellidos(),
+                            pa.getNombre(),
+                            c.getDireccion(),
+                            c.getCiudad(),
+                            c.getCodigopostal(),
+                            c.getPais(),
+                            c.getIdentificacion(),
+                            pa.getFechaNacimiento()
+                    );
+
                 }
             }
         }
