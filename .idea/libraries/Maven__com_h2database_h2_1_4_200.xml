@@ -8,8 +8,6 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/h2database/h2/1.4.200/h2-1.4.200-sources.jar!/" />
-      <root url="file://$PROJECT_DIR$/../libreria csv/commons-csv-1.9.0-src/src/main/java" />
-      <root url="file://$PROJECT_DIR$/../libreria csv/commons-csv-1.9.0-src/src/test/java" />
     </SOURCES>
   </library>
 </component>
