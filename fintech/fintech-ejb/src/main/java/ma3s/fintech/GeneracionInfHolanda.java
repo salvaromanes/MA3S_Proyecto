@@ -16,10 +16,22 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
     @Override
     public String CuentasApi(Cuenta cuenta) throws CuentaNoExistenteException {
         Cuenta cuenta_Aux = em.find(Cuenta.class, cuenta);
+        Referencia referencia = em.find(Referencia.class,cuenta.getIban());
         if(!cuenta_Aux.equals(cuenta)){
             throw new CuentaNoExistenteException("La cuenta : " + cuenta_Aux.getIban() +  " no se encuentra" );
         }
-        return ;
+
+        if(!cuenta_Aux.getIban().equals(referencia.getIban())){
+            throw new CuentaNoExistenteException("La cuenta : " + cuenta_Aux.getIban() +  " no se encuentra" );
+        }
+
+        String aux = "{\n \"searchParametres\":{" +
+                "\n \"quesionType\": \"Product,\"" +
+                "\"status\":"+ referencia.getEstado() +",\n" +
+                "\"productNumber\":"+cuenta.getIban() +",\n" + "}}"
+                ;
+
+        return  aux;
     }
 
     @Override
@@ -34,8 +46,9 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
                  "\"endPeriod\":"+ cliente.getFechaBaja() +",\n"+
             "\"name\"{:"+ cliente.getUser() +"},\n" +
                 "\"address\"{:"+
-                "\"Number\":"+ cliente.get +",\n" +
-                cliente.getFechaAlta() +",\n"
+                "\"Number\":"+ cliente.getDireccion() +",\n" +
+                "\"postalCode\":"+ cliente.getCodigopostal() +",\n" +
+                "\"Number\":"+ cliente.getPais() +",\n" + "}}"
                 ;
 
          return  aux;
@@ -48,6 +61,16 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
         if(!autorizada1.equals(autorizada)){
             throw new NoEsPAutorizadaException("La persona  "+  autorizada1.getId() + " no es autorizada" );
         }
+        String aux = "{\n \"searchParametres\":{" +
+                "\n \"quesionType\": \"Customer,\"" +
+                "\"startPeriod\":"+ autorizada.getFechaInicio() +",\n" +
+                "\"endPeriod\":"+ autorizada.getFechaFin() +",\n"+
+                "\"name\"{:"+ autorizada.getUser() +"},\n" +
+                "\"address\"{:"+
+                "\"Number\":"+ autorizada.getDireccion() +",\n"
+                ;
+
+        return  aux;
     }
 
 
