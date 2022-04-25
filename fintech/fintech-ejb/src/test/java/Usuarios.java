@@ -11,7 +11,7 @@ import static java.lang.Long.parseLong;
 import static org.junit.Assert.fail;
 
 public class Usuarios {
-    private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechTest";
+    private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechEjbTest";
 
     private static final String CONCESION_AUTORIZACION = "java:global/classes/ConcesionAutorizacion";
 

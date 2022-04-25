@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: SuiteTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 38.356 sec <<< FAILURE!
-SuiteTest  Time elapsed: 38.353 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 40.654 sec <<< FAILURE!
+SuiteTest  Time elapsed: 40.654 sec  <<< ERROR!
 javax.ejb.EJBException: Failed to deploy EJB modules - see log for details
 	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:125)
 	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)

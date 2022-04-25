@@ -7,7 +7,7 @@ import javax.naming.NamingException;
 import static org.junit.Assert.fail;
 
 public class Administrador {
-    private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechTest";
+    private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechEjbTest";
 
     private static final String APERTURA_CUENTA = "java:global/classes/AperturaCuenta";
     private static final String CIERRE_CUENTA = "java:global/classes/CierreCuenta";
