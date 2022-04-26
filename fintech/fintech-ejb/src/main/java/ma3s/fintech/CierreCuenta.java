@@ -11,8 +11,8 @@ public class CierreCuenta implements GestionCierreCuenta{
     @PersistenceContext(name="FintechEjb")
     private EntityManager em;
 
-    @Override
-    public void comprobarAdministrador(String usuario) throws UsuarioIncorrectoException, UsuarioNoEncontradoException {
+    //@Override
+    private void comprobarAdministrador(String usuario) throws UsuarioIncorrectoException, UsuarioNoEncontradoException {
         Usuario user = em.find(Usuario.class, usuario);
 
         if(user == null){
@@ -23,9 +23,11 @@ public class CierreCuenta implements GestionCierreCuenta{
     }
 
     @Override
-    public void cerrarCuenta(String iban) throws CuentaNoExistenteException, CuentaNoVacia {
+    public void cerrarCuenta(String iban, String usuario) throws CuentaNoExistenteException, CuentaNoVacia, UsuarioNoEncontradoException, UsuarioIncorrectoException {
         Cuenta cuenta = em.find(Cuenta.class, iban);
         Referencia referencia = em.find(Referencia.class, iban);
+
+        comprobarAdministrador(usuario);
 
         if(cuenta == null || referencia == null){
             throw new CuentaNoExistenteException("La cuenta con IBAN "+iban+" no existe.");

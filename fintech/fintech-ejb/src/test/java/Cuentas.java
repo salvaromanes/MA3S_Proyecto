@@ -118,18 +118,23 @@ public class Cuentas {
 
     @Requisitos({"RF9"})
     @Test
-    public void testCierreCuentaNoExistente(){
+    public void testCierreCuentaNoExistente() {
         final String ibanCuenta = "321";
+        final String usuario = "Salva";
 
         Cuenta cuenta = new Cuenta();
         cuenta.setIban(ibanCuenta);
 
-        try{
-            gestionCierreCuenta.cerrarCuenta(cuenta.getIban());
+        try {
+            gestionCierreCuenta.cerrarCuenta(cuenta.getIban(), usuario);
             fail("Debe lanzar una excepcion");
         } catch (CuentaNoExistenteException e) {
             //ok
         } catch (CuentaNoVacia cuentaNoVacia) {
+            fail("Debe lanzar una excepcion CuentaNoExistente");
+        } catch (UsuarioNoEncontradoException e){
+            fail("Debe lanzar una excepcion CuentaNoExistente");
+        } catch (UsuarioIncorrectoException e){
             fail("Debe lanzar una excepcion CuentaNoExistente");
         }
     }
@@ -138,6 +143,7 @@ public class Cuentas {
     @Test
     public void testCierreCuentaNoVacia(){
         final String ibanCuenta1 = "111";
+        final String usuario = "Salva";
 
         Cuenta cuenta1 = new Cuenta();
         cuenta1.setIban(ibanCuenta1);
@@ -147,13 +153,97 @@ public class Cuentas {
         referencia.setSaldo(100);
 
         try{
-            gestionCierreCuenta.cerrarCuenta(cuenta1.getIban());
+            gestionCierreCuenta.cerrarCuenta(cuenta1.getIban(), usuario);
             fail("Debe lanzar una excepcion");
         } catch (CuentaNoExistenteException e) {
             fail("Debe lanzar una excepcion CuentaNoVacia");
         } catch (CuentaNoVacia cuentaNoVacia) {
             //ok
+        } catch (UsuarioNoEncontradoException e) {
+            fail("Debe lanzar una excepcion CuentaNoVacia");
+        } catch (UsuarioIncorrectoException e) {
+            fail("Debe lanzar una excepcion CuentaNoVacia");
         }
     }
 
+    @Requisitos({"RF9"})
+    @Test
+    public void testCierreUsuarioNoEncontrado(){
+        final String ibanCuenta1 = "111";
+        final String usuario = "Salva";
+
+        Cuenta cuenta1 = new Cuenta();
+        cuenta1.setIban(ibanCuenta1);
+
+        Referencia referencia = new Referencia();
+        referencia.setIban(ibanCuenta1);
+        referencia.setSaldo(100);
+
+        try{
+            gestionCierreCuenta.cerrarCuenta(cuenta1.getIban(), usuario);
+            fail("Debe lanzar una excepcion");
+        } catch (CuentaNoExistenteException e) {
+            fail("Debe lanzar una excepcion UsuarioNoEncontrado");
+        } catch (CuentaNoVacia cuentaNoVacia) {
+            fail("Debe lanzar una excepcion UsuarioNoEncontrado");
+        } catch (UsuarioNoEncontradoException e) {
+            //Ok
+        } catch (UsuarioIncorrectoException e) {
+            fail("Debe lanzar una excepcion UsuarioNoEncontrado");
+        }
+    }
+
+    @Requisitos({"RF9"})
+    @Test
+    public void testCierreCuentaUsuarioIncorrecto(){
+        final String ibanCuenta1 = "111";
+        final String usuario = "Salva";
+
+        Cuenta cuenta1 = new Cuenta();
+        cuenta1.setIban(ibanCuenta1);
+
+        Referencia referencia = new Referencia();
+        referencia.setIban(ibanCuenta1);
+        referencia.setSaldo(100);
+
+        try{
+            gestionCierreCuenta.cerrarCuenta(cuenta1.getIban(), usuario);
+            fail("Debe lanzar una excepcion");
+        } catch (CuentaNoExistenteException e) {
+            fail("Debe lanzar una excepcion UsuarioIncorrecto");
+        } catch (CuentaNoVacia cuentaNoVacia) {
+            fail("Debe lanzar una excepcion UsuarioIncorrecto");
+        } catch (UsuarioNoEncontradoException e) {
+            fail("Debe lanzar una excepcion UsuarioIncorrecto");
+        } catch (UsuarioIncorrectoException e) {
+            //Ok
+        }
+    }
+
+    @Requisitos({"RF9"})
+    @Test
+    public void testCierreCuentaOk(){
+        final String ibanCuenta1 = "111";
+        final String usuario = "Salva";
+
+        Cuenta cuenta1 = new Cuenta();
+        cuenta1.setIban(ibanCuenta1);
+
+        Referencia referencia = new Referencia();
+        referencia.setIban(ibanCuenta1);
+        referencia.setSaldo(100);
+
+        try{
+            gestionCierreCuenta.cerrarCuenta(cuenta1.getIban(), usuario);
+            //Ok
+        } catch (CuentaNoExistenteException e) {
+            fail("No debe lanzar una excepcion");
+        } catch (CuentaNoVacia cuentaNoVacia) {
+            fail("No debe lanzar una excepcion");
+        } catch (UsuarioNoEncontradoException e) {
+            fail("No debe lanzar una excepcion");
+        } catch (UsuarioIncorrectoException e) {
+            fail("No debe lanzar una excepcion");
+        }
+    }
 }
