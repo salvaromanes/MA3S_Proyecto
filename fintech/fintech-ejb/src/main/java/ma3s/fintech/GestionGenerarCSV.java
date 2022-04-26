@@ -9,5 +9,4 @@ import java.util.Date;
 
 public interface GestionGenerarCSV {
     void generarCSV(String usuario, String tipoInforme, Date ultimoReporte) throws PersonaNoExisteException, IOException;
-    boolean isAdministrativo(String usuario) throws PersonaNoExisteException;
 }
