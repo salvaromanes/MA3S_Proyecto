@@ -44,7 +44,15 @@ public class BaseDatos {
         Empresa empresa = new Empresa();
         empresa.setIdentificacion("UMA");
 
-        for (Usuario u: new Usuario[]{usuario, usuario1}) {
+        Cliente cliente = new Cliente();
+        cliente.setIdentificacion("987654321A");
+
+        Usuario user = new Usuario();
+        user.setUser("Almu");
+        user.setEsAdmin(true);
+
+
+        for (Usuario u: new Usuario[]{usuario, usuario1, user}) {
             em.persist(u);
         }
 
@@ -53,6 +61,10 @@ public class BaseDatos {
         }
 
         for (PAutorizada pa: new PAutorizada[]{pAutorizada}) {
+            em.persist(pa);
+        }
+
+        for (Cliente pa: new Cliente[]{cliente}) {
             em.persist(pa);
         }
 
