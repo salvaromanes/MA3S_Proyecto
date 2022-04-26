@@ -41,6 +41,9 @@ public class BaseDatos {
         pAutorizada.setIdentificacion("12345678S");
         pAutorizada.setId(parseLong("1", 1));
 
+        Empresa empresa = new Empresa();
+        empresa.setIdentificacion("UMA");
+
         for (Usuario u: new Usuario[]{usuario, usuario1}) {
             em.persist(u);
         }

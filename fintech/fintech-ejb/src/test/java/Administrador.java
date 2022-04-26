@@ -234,6 +234,8 @@ public class Administrador {
     }
 
 
+
+    /*
     @Requisitos({"RF6"})
     @Test
 
@@ -260,7 +262,7 @@ public class Administrador {
     @Test
 
     public void testAdminEncontrado(){
-        final String nombre = "Alvaro";
+        final String nombre = "Salva";
         Usuario user_aux = new Usuario();
         user_aux.setUser(nombre);
 
@@ -277,8 +279,214 @@ public class Administrador {
 
     }
 
+    */
 
 
+
+    @Requisitos({"RF6"})
+    @Test
+
+    public void testAnaPNoEsPersonaA(){
+        final String nombre = "Salva";
+        final  String emp = "123";
+
+        Usuario user_aux = new Usuario();
+        user_aux.setUser(nombre);
+
+        PAutorizada aut = new PAutorizada();
+        aut.setNombre(nombre);
+
+        Empresa empresa = new Empresa();
+        empresa.setIdentificacion(emp);
+
+        try{
+            gestionAnadirAutorizados.anadirPAut
+                    (aut,empresa,user_aux.getUser());
+            fail("Debe lanzar una excepcion");
+        }
+        catch (NoEsPAutorizadaException e){
+            //ok
+        }
+        catch (EmpresaNoExistenteException e){
+            fail("Debe lanzar una excepcion tipo NoEsPersonaAut ");
+        }
+
+        catch (PersonaNoExisteException e){
+            fail("Debe lanzar una excepcion tipo NoEsPersonaAut ");
+        }
+
+        catch (EmpresaNoRelacException e){
+            fail("Debe lanzar una excepcion tipo NoEsPersonaAut ");
+        } catch (NoEsAdministrativoException e) {
+            fail("Debe lanzar una excepcion tipo NoEsPersonaAut ");
+        }
+
+    }
+
+
+
+    @Requisitos({"RF6"})
+    @Test
+
+    public void testAnaPNoEsEmpresa(){
+        final String nombre = "Salva";
+        final  String emp = "123";
+
+        Usuario user_aux = new Usuario();
+        user_aux.setUser(nombre);
+
+        PAutorizada aut = new PAutorizada();
+        aut.setNombre(nombre);
+
+        Empresa empresa = new Empresa();
+        empresa.setIdentificacion(emp);
+
+        try{
+            gestionAnadirAutorizados.anadirPAut
+                    (aut,empresa,user_aux.getUser());
+            fail("Debe lanzar una excepcion");
+        }
+        catch (NoEsPAutorizadaException e){
+            fail("Debe lanzar una excepcion tipo NoEsEmp ");
+        }
+        catch (EmpresaNoExistenteException e){
+            //ok
+        }
+
+        catch (PersonaNoExisteException e){
+            fail("Debe lanzar una excepcion tipo NoEsEmp ");
+        }
+
+        catch (EmpresaNoRelacException e){
+            fail("Debe lanzar una excepcion tipo NoEsEmp ");
+
+        } catch (NoEsAdministrativoException e) {
+            fail("Debe lanzar una excepcion tipo NoEsEmp ");
+        }
+
+    }
+
+
+    @Requisitos({"RF6"})
+    @Test
+
+    public void testAnaPersonaNoExistente(){
+        final String nombre = "Salva";
+        final  String emp = "123";
+
+        Usuario user_aux = new Usuario();
+        user_aux.setUser(nombre);
+
+        PAutorizada aut = new PAutorizada();
+        aut.setNombre(nombre);
+
+        Empresa empresa = new Empresa();
+        empresa.setIdentificacion(emp);
+
+        try{
+            gestionAnadirAutorizados.anadirPAut
+                    (aut,empresa,user_aux.getUser());
+            fail("Debe lanzar una excepcion");
+        }
+        catch (NoEsPAutorizadaException e){
+            fail("Debe lanzar una excepcion tipo NoEsPersona ");
+        }
+        catch (EmpresaNoExistenteException e){
+            fail("Debe lanzar una excepcion tipo NoEsPersona ");
+        }
+
+        catch (PersonaNoExisteException e){
+            //ok
+        }
+
+        catch (EmpresaNoRelacException e){
+            fail("Debe lanzar una excepcion tipo NoEsPersona ");
+
+        } catch (NoEsAdministrativoException e) {
+            fail("Debe lanzar una excepcion tipo NoEsPersona ");
+        }
+
+    }
+
+
+    @Requisitos({"RF6"})
+    @Test
+
+    public void testAnaEmpresaNoRelac(){
+        final String nombre = "Salva";
+        final  String emp = "123";
+
+        Usuario user_aux = new Usuario();
+        user_aux.setUser(nombre);
+
+        PAutorizada aut = new PAutorizada();
+        aut.setNombre(nombre);
+
+        Empresa empresa = new Empresa();
+        empresa.setIdentificacion(emp);
+
+        try{
+            gestionAnadirAutorizados.anadirPAut
+                    (aut,empresa,user_aux.getUser());
+            fail("Debe lanzar una excepcion");
+        }
+        catch (NoEsPAutorizadaException e){
+            fail("Debe lanzar una excepcion tipo EmpresaNoRelac ");
+        }
+        catch (EmpresaNoExistenteException e){
+            fail("Debe lanzar una excepcion tipo EmpresaNoRelac ");
+        }
+
+        catch (PersonaNoExisteException e){
+            fail("Debe lanzar una excepcion tipo EmpresaNoRelac ");
+        }
+
+        catch (EmpresaNoRelacException e){
+            //ok
+        } catch (NoEsAdministrativoException e) {
+            fail("Debe lanzar una excepcion tipo EmpresaNoRelac ");
+        }
+
+    }
+
+    @Requisitos({"RF6"})
+    @Test
+
+    public void testAnaEmpresaCorrecto(){
+        final String nombre = "Salva";
+        final  String emp = "UMA";
+
+        Usuario user_aux = new Usuario();
+        user_aux.setUser(nombre);
+
+        PAutorizada aut = new PAutorizada();
+        aut.setNombre(nombre);
+
+        Empresa empresa = new Empresa();
+        empresa.setIdentificacion(emp);
+
+        try{
+            gestionAnadirAutorizados.anadirPAut
+                    (aut,empresa,user_aux.getUser());
+            //ok
+        }
+        catch (NoEsPAutorizadaException e){
+            fail("No Debe lanzar una excepcion ");
+        }
+        catch (EmpresaNoExistenteException e){
+            fail("No Debe lanzar una excepcion ");
+        }
+
+        catch (PersonaNoExisteException e){
+            fail("No Debe lanzar una excepcion ");
+        }
+        catch (EmpresaNoRelacException e){
+            fail("No Debe lanzar una excepcion ");
+        } catch (NoEsAdministrativoException e) {
+            fail("No Debe lanzar una excepcion ");
+        }
+
+    }
 
 
 }
