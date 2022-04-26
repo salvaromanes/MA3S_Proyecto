@@ -9,6 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Date;
 
+import static java.lang.Long.parseLong;
+
 public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
     @PersistenceContext(name="FintechEjb")
@@ -36,6 +38,101 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
         em.merge(pAutorizada);
     }
 
+    // ---------------------------------------------------------------------
+
+    public void testModifyIdentPAutorizadaAdminNoExist(){
+        final String NOMBRE = "mar";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "ident");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion PersonaNoExisteException");
+        } catch (PersonaNoExisteException){
+            // ok -> all is ok
+        } catch (CampoVacioException){
+            fail("Se ha capturado CampoVacioException y se esperaba PersonaNoExisteException");
+        } catch (NoEsAdministrativoException){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba PersonaNoExisteException");
+        }
+    }
+
+    public void testModifyIdentPAutorizadaNoEsAdministrador(){
+        final String NOMBRE = "MA3S";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "ident");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion NoEsAdministradorException");
+        } catch (PersonaNoExisteException){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba NoEsAdministradorException");
+        } catch (CampoVacioException){
+            fail("Se ha capturado CampoVacioException y se esperaba NoEsAdministradorException");
+        } catch (NoEsAdministrativoException){
+            // ok -> all is ok
+        }
+    }
+
+    public void testModifyIdentPAutorizadaCampoVacio(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), null);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion CampoVacioException");
+        } catch (PersonaNoExisteException){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba CampoVacioException");
+        } catch (CampoVacioException){
+            // ok -> all is ok
+        } catch (NoEsAdministrativoException){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba CampoVacioException");
+        }
+    }
+
+    public void testModifyIdentPAutorizadaValido(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "123");
+            // Si no devuelve nada
+            // ok -> all is ok
+        } catch (PersonaNoExisteException){
+            fail("Se ha capturado PersonaNoExisteException y no se esperaba nada");
+        } catch (CampoVacioException){
+            fail("Se ha capturado CampoVacioException y no se esperaba nada");
+        } catch (NoEsAdministrativoException){
+            fail("Se ha capturado NoEsAdministrativoException y no se esperaba nada");
+        }
+
+        // Faltaría comprobar que se ha modificado
+
+    }
+
+    // ---------------------------------------------------------------------
+
     @Override
     public void modificarNombre(Long id_adm, Long id_aut, String nombreNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException {
         Usuario administrativo = em.find(Usuario.class, id_adm);
@@ -59,6 +156,102 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
     }
 
+    // ---------------------------------------------------------------------
+
+    public void testModifyNamePAutorizadaAdminNoExist(){
+        final String NOMBRE = "mar";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarINombre(user.getUser(), pAut.getId(), "pau");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion PersonaNoExisteException");
+        } catch (PersonaNoExisteException){
+            // ok -> all is ok
+        } catch (CampoVacioException){
+            fail("Se ha capturado CampoVacioException y se esperaba PersonaNoExisteException");
+        } catch (NoEsAdministrativoException){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba PersonaNoExisteException");
+        }
+    }
+
+    public void testModifyNamePAutorizadaNoEsAdministrador(){
+        final String NOMBRE = "MA3S";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "pau");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion NoEsAdministradorException");
+        } catch (PersonaNoExisteException){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba NoEsAdministradorException");
+        } catch (CampoVacioException){
+            fail("Se ha capturado CampoVacioException y se esperaba NoEsAdministradorException");
+        } catch (NoEsAdministrativoException){
+            // ok -> all is ok
+        }
+    }
+
+    public void testModifyNamePAutorizadaCampoVacio(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), null);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion CampoVacioException");
+        } catch (PersonaNoExisteException){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba CampoVacioException");
+        } catch (CampoVacioException){
+            // ok -> all is ok
+        } catch (NoEsAdministrativoException){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba CampoVacioException");
+        }
+    }
+
+    public void testModifyIdentPAutorizadaValido(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), null);
+            // Si no devuelve nada
+            // ok -> all is ok
+        } catch (PersonaNoExisteException){
+            fail("Se ha capturado PersonaNoExisteException y no se esperaba nada");
+        } catch (CampoVacioException){
+            fail("Se ha capturado CampoVacioException y no se esperaba nada");
+        } catch (NoEsAdministrativoException){
+            fail("Se ha capturado NoEsAdministrativoException y no se esperaba nada");
+        }
+
+        // Faltaría comprobar que se ha modificado
+
+    }
+
+    // ---------------------------------------------------------------------
+
+
     @Override
     public void modificarApellidos(Long id_adm, Long id_aut, String apellidosNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException {
         Usuario administrativo = em.find(Usuario.class, id_adm);
@@ -81,6 +274,101 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
         em.merge(pAutorizada);
 
     }
+
+    // ---------------------------------------------------------------------
+
+    public void testModifySurNamePAutorizadaAdminNoExist(){
+        final String NOMBRE = "mar";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarINombre(user.getUser(), pAut.getId(), "pau");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion PersonaNoExisteException");
+        } catch (PersonaNoExisteException){
+            // ok -> all is ok
+        } catch (CampoVacioException){
+            fail("Se ha capturado CampoVacioException y se esperaba PersonaNoExisteException");
+        } catch (NoEsAdministrativoException){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba PersonaNoExisteException");
+        }
+    }
+
+    public void testModifyNamePAutorizadaNoEsAdministrador(){
+        final String NOMBRE = "MA3S";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "pau");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion NoEsAdministradorException");
+        } catch (PersonaNoExisteException){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba NoEsAdministradorException");
+        } catch (CampoVacioException){
+            fail("Se ha capturado CampoVacioException y se esperaba NoEsAdministradorException");
+        } catch (NoEsAdministrativoException){
+            // ok -> all is ok
+        }
+    }
+
+    public void testModifyNamePAutorizadaCampoVacio(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), null);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion CampoVacioException");
+        } catch (PersonaNoExisteException){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba CampoVacioException");
+        } catch (CampoVacioException){
+            // ok -> all is ok
+        } catch (NoEsAdministrativoException){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba CampoVacioException");
+        }
+    }
+
+    public void testModifyIdentPAutorizadaValido(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), null);
+            // Si no devuelve nada
+            // ok -> all is ok
+        } catch (PersonaNoExisteException){
+            fail("Se ha capturado PersonaNoExisteException y no se esperaba nada");
+        } catch (CampoVacioException){
+            fail("Se ha capturado CampoVacioException y no se esperaba nada");
+        } catch (NoEsAdministrativoException){
+            fail("Se ha capturado NoEsAdministrativoException y no se esperaba nada");
+        }
+
+        // Faltaría comprobar que se ha modificado
+
+    }
+
+    // ---------------------------------------------------------------------
 
     @Override
     public void modificarDireccion(Long id_adm, Long id_aut, String direccionNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException {
