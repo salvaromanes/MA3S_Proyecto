@@ -22,6 +22,7 @@ public class BaseDatos {
         Usuario usuario1 = new Usuario();
         usuario1.setEsAdmin(false);
         usuario1.setUser("MA3S");
+        usuario1.setContrasena("ma3s");
 
         Cuenta cuenta = new Cuenta();
         cuenta.setIban("123");
