@@ -9,7 +9,7 @@ import ma3s.fintech.excepciones.EmpresaNoRelacException;
 
 public interface GestionAnadirAutorizados {
 
-    public void comprobarAdministrador(String usuario)throws  NoEsAdministrativoException, PersonaNoExisteException;
+    void comprobarAdministrador(String usuario)throws  NoEsAdministrativoException, PersonaNoExisteException;
 
 
 
