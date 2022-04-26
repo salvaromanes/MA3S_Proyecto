@@ -17,6 +17,7 @@ public class BaseDatos {
         Usuario usuario = new Usuario();
         usuario.setEsAdmin(true);
         usuario.setUser("Salva");
+        usuario.setContrasena("malaga");
 
         Usuario usuario1 = new Usuario();
         usuario1.setEsAdmin(false);
@@ -39,6 +40,9 @@ public class BaseDatos {
         pAutorizada.setApellidos("Ortiz");
         pAutorizada.setIdentificacion("12345678S");
         pAutorizada.setId(parseLong("1", 1));
+
+        Empresa empresa = new Empresa();
+        empresa.setIdentificacion("UMA");
 
         for (Usuario u: new Usuario[]{usuario, usuario1}) {
             em.persist(u);

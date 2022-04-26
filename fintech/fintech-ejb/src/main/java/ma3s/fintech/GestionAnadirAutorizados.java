@@ -11,8 +11,8 @@ public interface GestionAnadirAutorizados {
 
     public void comprobarAdministrador(String usuario)throws  NoEsAdministrativoException, PersonaNoExisteException;
 
-    public void anadirPAut(PAutorizada autorizada, Empresa empresa)  throws  NoEsPAutorizadaException, EmpresaNoExistenteException, PersonaNoExisteException, EmpresaNoRelacException;
 
 
 
+    void anadirPAut(PAutorizada autorizada, Empresa empresa, String usuario) throws NoEsPAutorizadaException, EmpresaNoExistenteException, PersonaNoExisteException, EmpresaNoRelacException, NoEsAdministrativoException;
 }

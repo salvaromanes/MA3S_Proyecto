@@ -3,7 +3,7 @@ import org.junit.Before;
 import javax.naming.NamingException;
 
 public class Transacciones {
-    private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechTest";
+    private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechEjbTest";
 
     @Before
     public void setup() throws NamingException {

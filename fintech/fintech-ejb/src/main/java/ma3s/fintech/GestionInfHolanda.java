@@ -10,12 +10,15 @@ import java.util.List;
 
 public interface GestionInfHolanda {
 
-    public void CuentasApi(Cuenta cuenta)
+    public String CuentasApi(Segregada cuenta)
             throws CuentaNoExistenteException;
 
-    public void ClienteApi(Cliente cliente)  throws  ClienteNoExisteException;
+    public String ClienteApi(Cliente cliente)  throws  ClienteNoExisteException;
 
 
-    public void  PAutorApi(PAutorizada autorizada) throws NoEsPAutorizadaException;
+    public String  PAutorApi(PAutorizada autorizada) throws NoEsPAutorizadaException;
+
+
+
 
 }

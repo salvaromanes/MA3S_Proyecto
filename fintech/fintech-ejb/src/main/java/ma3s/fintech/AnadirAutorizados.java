@@ -5,7 +5,6 @@ import ma3s.fintech.excepciones.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.List;
 
 @Stateless
 
@@ -30,10 +29,12 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
 
 
     @Override
-    public void anadirPAut(PAutorizada autorizada, Empresa empresa) throws NoEsPAutorizadaException, EmpresaNoExistenteException,PersonaNoExisteException,EmpresaNoRelacException{
+    public void anadirPAut(PAutorizada autorizada, Empresa empresa, String usuario) throws NoEsPAutorizadaException, EmpresaNoExistenteException, PersonaNoExisteException, EmpresaNoRelacException, NoEsAdministrativoException {
         PAutorizada p = em.find(PAutorizada.class,autorizada);
         Empresa e = em.find(Empresa.class,empresa);
         Autorizacion a = em.find(Autorizacion.class , autorizada.getId());
+
+        comprobarAdministrador(usuario);
 
         if(!p.getUser().equals(autorizada)){
             throw  new NoEsPAutorizadaException("La persona con usuario : " + p.getUser() + " no es persona autorizada");

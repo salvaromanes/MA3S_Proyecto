@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="SuiteTest" time="38.353" errors="1" skipped="0">
+<testsuite tests="1" failures="0" name="SuiteTest" time="34.918" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="17.0.2+8-LTS-86"/>
@@ -61,7 +61,7 @@
     <property name="sun.stdout.encoding" value="cp850"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="SuiteTest" name="SuiteTest" time="38.353">
+  <testcase classname="SuiteTest" name="SuiteTest" time="34.918">
     <error message="Failed to deploy EJB modules - see log for details" type="javax.ejb.EJBException">javax.ejb.EJBException: Failed to deploy EJB modules - see log for details
 	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:125)
 	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
@@ -95,19 +95,19 @@
     <system-out>JdbcRuntimeExtension,  getAllSystemRAResourcesAndPools = [GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool]
 JdbcRuntimeExtension,  getAllSystemRAResourcesAndPools = [GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool]
 </system-out>
-    <system-err>abr 20, 2022 12:57:11 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl getValidFile
+    <system-err>abr 26, 2022 11:13:00 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl getValidFile
 WARNING: EJB6008:Specified or calculated application server instance [C:\Users\Salva\.m2\repository\org\glassfish\main\extras\glassfish-embedded-all\domains\domain1] does not exist.
-abr 20, 2022 12:57:11 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl createContainer
-INFO: [EJBContainerProviderImpl] Using config file location: file:/C:/Users/Salva/AppData/Local/Temp/domain6171826846479564986xml
-abr 20, 2022 12:57:11 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl createContainer
+abr 26, 2022 11:13:00 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl createContainer
+INFO: [EJBContainerProviderImpl] Using config file location: file:/C:/Users/Salva/AppData/Local/Temp/domain11262538452747555303xml
+abr 26, 2022 11:13:00 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl createContainer
 INFO: [EJBContainerProviderImpl] Using runtime class: class com.sun.enterprise.glassfish.bootstrap.StaticGlassFishRuntime
-abr 20, 2022 12:57:12 P. M. com.sun.enterprise.v3.server.CommonClassLoaderServiceImpl findDerbyClient
+abr 26, 2022 11:13:01 P. M. com.sun.enterprise.v3.server.CommonClassLoaderServiceImpl findDerbyClient
 INFO: Cannot find javadb client jar file, derby jdbc driver will not be available by default.
-abr 20, 2022 12:57:12 P. M. org.hibernate.validator.internal.util.Version &lt;clinit&gt;
+abr 26, 2022 11:13:02 P. M. org.hibernate.validator.internal.util.Version &lt;clinit&gt;
 INFO: HV000001: Hibernate Validator null
-abr 20, 2022 12:57:13 P. M. org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+abr 26, 2022 11:13:02 P. M. org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
 INFO: Authorization Service has successfully initialized.
-abr 20, 2022 12:57:13 P. M. com.sun.enterprise.security.ssl.impl.SecuritySupportImpl checkCertificateDates
+abr 26, 2022 11:13:02 P. M. com.sun.enterprise.security.ssl.impl.SecuritySupportImpl checkCertificateDates
 SEVERE: The SSL certificate has expired: [
 [
   Version: V3
@@ -145,7 +145,7 @@ KeyIdentifier [
 0070: 04 90 F3 2C C5 FA E4 A2   DC 16 17 4A 02 A7 ED 94  ...,.......J....
 
 ]
-abr 20, 2022 12:57:13 P. M. com.sun.enterprise.security.ssl.impl.SecuritySupportImpl checkCertificateDates
+abr 26, 2022 11:13:03 P. M. com.sun.enterprise.security.ssl.impl.SecuritySupportImpl checkCertificateDates
 SEVERE: The SSL certificate has expired: [
 [
   Version: V3
@@ -183,53 +183,55 @@ KeyIdentifier [
 0070: 04 90 F3 2C C5 FA E4 A2   DC 16 17 4A 02 A7 ED 94  ...,.......J....
 
 ]
-abr 20, 2022 12:57:13 P. M. com.sun.enterprise.v3.server.AppServerStartup postStartupJob
-INFO: Undefined Product Name - define product and version info in config/branding  0.0.0  (0) startup time : Embedded (721ms), startup services(1.094ms), total(1.815ms)
-abr 20, 2022 12:57:13 P. M. com.sun.jts.CosTransactions.DefaultTransactionService setServerName
+abr 26, 2022 11:13:03 P. M. com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+INFO: Undefined Product Name - define product and version info in config/branding  0.0.0  (0) startup time : Embedded (806ms), startup services(1.265ms), total(2.071ms)
+abr 26, 2022 11:13:03 P. M. com.sun.jts.CosTransactions.DefaultTransactionService setServerName
 INFO: JTS5014: Recoverable JTS instance, serverId = [100]
-abr 20, 2022 12:57:13 P. M. org.glassfish.admin.mbeanserver.JMXStartupService$JMXConnectorsStarterThread run
+abr 26, 2022 11:13:03 P. M. org.glassfish.admin.mbeanserver.JMXStartupService$JMXConnectorsStarterThread run
 INFO: JMXStartupService has disabled JMXConnector system
-abr 20, 2022 12:57:13 P. M. com.sun.enterprise.connectors.jms.util.JmsRaUtil getInstalledMqVersion
-WARNING: Check for a new version of MQ installation failed : C:\Users\Salva\AppData\Local\Temp\gfembed13032804496978202724tmp\lib\install\applications\jmsra\..\imqjmsra.rar:C:\Users\Salva\AppData\Local\Temp\gfembed13032804496978202724tmp\lib\install\applications\jmsra\imqjmsra.rar
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl skipJar
+abr 26, 2022 11:13:03 P. M. com.sun.enterprise.connectors.jms.util.JmsRaUtil getInstalledMqVersion
+WARNING: Check for a new version of MQ installation failed : C:\Users\Salva\AppData\Local\Temp\gfembed1868755637456760660tmp\lib\install\applications\jmsra\..\imqjmsra.rar:C:\Users\Salva\AppData\Local\Temp\gfembed1868755637456760660tmp\lib\install\applications\jmsra\imqjmsra.rar
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl skipJar
 INFO: ... skipping entry with a Manifest file with a special attribute: glassfish-embedded-all-5.1.0.jar
-abr 20, 2022 12:57:14 P. M. org.glassfish.deployment.common.GenericAnnotationDetector scanArchive
+abr 26, 2022 11:13:04 P. M. org.glassfish.deployment.common.GenericAnnotationDetector scanArchive
 WARNING: NCLS-DEPLOYMENT-00009
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
 INFO: [DeploymentElement] adding EJB module to ScatteredArchive classes
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive ojdbc8-21.5.0.0.jar
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive junit-4.13.jar
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive commonj.sdo-2.1.1.jar
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive h2-1.4.200.jar
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive jakarta.persistence-2.2.3.jar
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive javaee-api-8.0.jar
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive test-classes
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
 INFO: [DeploymentElement] adding library to ScatteredArchive activation-1.1.jar
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive hamcrest-core-1.3.jar
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive eclipselink-2.7.6.jar
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive javax.mail-1.6.0.jar
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFO: [DeploymentElement] adding library to ScatteredArchive h2-1.4.200.jar
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
 INFO: [DeploymentElement] adding library to ScatteredArchive anotaciones-1.0.0.jar
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
 INFO: [DeploymentElement] adding library to ScatteredArchive fintech-jpa-1.0.0-SNAPSHOT.jar
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.EJBContainerImpl deploy
-INFO: [EJBContainerImpl] Deploying app: org.glassfish.embeddable.archive.ScatteredArchive@149ef64a
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.EJBContainerImpl deploy
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFO: [DeploymentElement] adding library to ScatteredArchive jakarta.persistence-2.2.3.jar
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFO: [DeploymentElement] adding library to ScatteredArchive test-classes
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFO: [DeploymentElement] adding library to ScatteredArchive ojdbc8-21.5.0.0.jar
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFO: [DeploymentElement] adding library to ScatteredArchive junit-4.13.jar
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFO: [DeploymentElement] adding library to ScatteredArchive javax.mail-1.6.0.jar
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFO: [DeploymentElement] adding library to ScatteredArchive javaee-api-8.0.jar
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFO: [DeploymentElement] adding library to ScatteredArchive commonj.sdo-2.1.1.jar
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFO: [DeploymentElement] adding library to ScatteredArchive commons-csv-1.9.0.jar
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFO: [DeploymentElement] adding library to ScatteredArchive hamcrest-core-1.3.jar
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFO: [DeploymentElement] adding library to ScatteredArchive eclipselink-2.7.6.jar
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.EJBContainerImpl deploy
+INFO: [EJBContainerImpl] Deploying app: org.glassfish.embeddable.archive.ScatteredArchive@7695184b
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.EJBContainerImpl deploy
 INFO: [EJBContainerImpl] GlassFish status: STARTED
-abr 20, 2022 12:57:14 P. M. org.glassfish.ejb.embedded.EJBContainerImpl deploy
+abr 26, 2022 11:13:04 P. M. org.glassfish.ejb.embedded.EJBContainerImpl deploy
 INFO: [EJBContainerImpl] Deploying as a ScatteredArchive
-abr 20, 2022 12:57:33 P. M. org.glassfish.hk2.classmodel.reflect.Parser$5 on
+abr 26, 2022 11:13:21 P. M. org.glassfish.hk2.classmodel.reflect.Parser$5 on
 SEVERE: Exception while visiting META-INF/versions/10/org/h2/util/NetUtils2.class of size 876
 java.lang.IllegalArgumentException
 	at org.glassfish.hk2.external.org.objectweb.asm.ClassReader.&lt;init&gt;(ClassReader.java:160)
@@ -247,21 +249,21 @@ java.lang.IllegalArgumentException
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-abr 20, 2022 12:57:42 P. M. com.sun.enterprise.security.SecurityLifecycle &lt;init&gt;
+abr 26, 2022 11:13:29 P. M. com.sun.enterprise.security.SecurityLifecycle &lt;init&gt;
 INFO: Java security manager is disabled.
-abr 20, 2022 12:57:42 P. M. com.sun.enterprise.security.SecurityLifecycle onInitialization
+abr 26, 2022 11:13:29 P. M. com.sun.enterprise.security.SecurityLifecycle onInitialization
 INFO: Entering Security Startup Service.
-abr 20, 2022 12:57:42 P. M. com.sun.enterprise.security.PolicyLoader loadPolicy
+abr 26, 2022 11:13:29 P. M. com.sun.enterprise.security.PolicyLoader loadPolicy
 INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
-abr 20, 2022 12:57:42 P. M. com.sun.enterprise.security.auth.realm.Realm doInstantiate
+abr 26, 2022 11:13:29 P. M. com.sun.enterprise.security.auth.realm.Realm doInstantiate
 INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
-abr 20, 2022 12:57:42 P. M. com.sun.enterprise.security.auth.realm.Realm doInstantiate
+abr 26, 2022 11:13:29 P. M. com.sun.enterprise.security.auth.realm.Realm doInstantiate
 INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
-abr 20, 2022 12:57:42 P. M. com.sun.enterprise.security.auth.realm.Realm doInstantiate
+abr 26, 2022 11:13:29 P. M. com.sun.enterprise.security.auth.realm.Realm doInstantiate
 INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
-abr 20, 2022 12:57:42 P. M. com.sun.enterprise.security.SecurityLifecycle onInitialization
+abr 26, 2022 11:13:29 P. M. com.sun.enterprise.security.SecurityLifecycle onInitialization
 INFO: Security Service(s) started successfully.
-abr 20, 2022 12:57:43 P. M. org.glassfish.api.ActionReport failure
+abr 26, 2022 11:13:31 P. M. org.glassfish.api.ActionReport failure
 SEVERE: Exception while invoking class org.glassfish.persistence.jpa.JPADeployer prepare method
 java.lang.RuntimeException: The persistence-context-ref-name [FintechEjb] in module [classes] resolves to a persistence unit called [fintech] which is of type RESOURCE_LOCAL. Only persistence units with transaction type JTA can be used as a container managed entity manager. Please verify your application.
 	at com.sun.enterprise.deployment.BundleDescriptor.findReferencedPUViaEMRef(BundleDescriptor.java:730)
@@ -317,9 +319,9 @@ java.lang.RuntimeException: The persistence-context-ref-name [FintechEjb] in mod
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-abr 20, 2022 12:57:43 P. M. org.glassfish.api.ActionReport failure
+abr 26, 2022 11:13:31 P. M. org.glassfish.api.ActionReport failure
 SEVERE: Exception while preparing the app
-abr 20, 2022 12:57:43 P. M. com.sun.enterprise.v3.server.ApplicationLifecycle deploy
+abr 26, 2022 11:13:31 P. M. com.sun.enterprise.v3.server.ApplicationLifecycle deploy
 SEVERE: Exception during lifecycle processing
 java.lang.RuntimeException: The persistence-context-ref-name [FintechEjb] in module [classes] resolves to a persistence unit called [fintech] which is of type RESOURCE_LOCAL. Only persistence units with transaction type JTA can be used as a container managed entity manager. Please verify your application.
 	at com.sun.enterprise.deployment.BundleDescriptor.findReferencedPUViaEMRef(BundleDescriptor.java:730)
@@ -376,16 +378,16 @@ java.lang.RuntimeException: The persistence-context-ref-name [FintechEjb] in mod
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-abr 20, 2022 12:57:43 P. M. org.glassfish.deployment.admin.DeployCommand execute
+abr 26, 2022 11:13:31 P. M. org.glassfish.deployment.admin.DeployCommand execute
 SEVERE: Exception while preparing the app : The persistence-context-ref-name [FintechEjb] in module [classes] resolves to a persistence unit called [fintech] which is of type RESOURCE_LOCAL. Only persistence units with transaction type JTA can be used as a container managed entity manager. Please verify your application.
-abr 20, 2022 12:57:49 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl createEJBContainer
+abr 26, 2022 11:13:35 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl createEJBContainer
 INFO: [EJBContainerProviderImpl] Cleaning up on failure ...
-abr 20, 2022 12:57:49 P. M. org.glassfish.admin.mbeanserver.JMXStartupService shutdown
+abr 26, 2022 11:13:35 P. M. org.glassfish.admin.mbeanserver.JMXStartupService shutdown
 INFO: JMXStartupService and JMXConnectors have been shut down.
-abr 20, 2022 12:57:49 P. M. com.sun.enterprise.v3.server.AppServerStartup$MasterRunLevelListener onError
+abr 26, 2022 11:13:35 P. M. com.sun.enterprise.v3.server.AppServerStartup$MasterRunLevelListener onError
 WARNING: An error occured when the system was coming down
 MultiException stack 1 of 1
-java.lang.reflect.InaccessibleObjectException: Unable to make field private static javax.naming.spi.InitialContextFactoryBuilder javax.naming.spi.NamingManager.initctx_factory_builder accessible: module java.naming does not &quot;opens javax.naming.spi&quot; to unnamed module @76ccd017
+java.lang.reflect.InaccessibleObjectException: Unable to make field private static javax.naming.spi.InitialContextFactoryBuilder javax.naming.spi.NamingManager.initctx_factory_builder accessible: module java.naming does not &quot;opens javax.naming.spi&quot; to unnamed module @26f0a63f
 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
 	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
@@ -403,7 +405,7 @@ java.lang.reflect.InaccessibleObjectException: Unable to make field private stat
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-abr 20, 2022 12:57:49 P. M. com.sun.enterprise.v3.server.AppServerStartup stop
+abr 26, 2022 11:13:35 P. M. com.sun.enterprise.v3.server.AppServerStartup stop
 INFO: Shutdown procedure finished
 </system-err>
   </testcase>
