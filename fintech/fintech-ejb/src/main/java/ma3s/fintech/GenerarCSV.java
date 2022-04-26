@@ -2,16 +2,12 @@ package ma3s.fintech;
 
 import ma3s.fintech.excepciones.PersonaNoExisteException;
 import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
-import org.apache.commons.csv.CSVRecord;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.io.*;
-import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -52,6 +48,7 @@ public class GenerarCSV implements GestionGenerarCSV{
         for (Cliente c : lista) {
             List<Fintech> cuentasCliente = c.getCuentasFintech();
             for (Fintech f : cuentasCliente) {
+                String ftech = "FINTECH";
                 Calendar fechaActual = Calendar.getInstance();
                 fechaActual.add(Calendar.YEAR, -5);
                 Date fechaHace5 = fechaActual.getTime();
@@ -62,11 +59,7 @@ public class GenerarCSV implements GestionGenerarCSV{
                             comprobarNoNulo(f.getIban()),
                             comprobarNoNulo(pa.getApellidos()),
                             comprobarNoNulo(pa.getNombre()),
-                            comprobarNoNulo(c.getDireccion()),
-                            comprobarNoNulo(c.getCiudad()),
-                            comprobarNoNulo(c.getCodigopostal()),
-                            comprobarNoNulo(c.getPais()),
-                            comprobarNoNulo(c.getIdentificacion()),
+                            ftech,
                             comprobarNoNuloFecha(pa.getFechaNacimiento())
                     );
                 }
@@ -84,6 +77,7 @@ public class GenerarCSV implements GestionGenerarCSV{
         for (Cliente c : lista) {
             List<Fintech> cuentasCliente = c.getCuentasFintech();
             for (Fintech f : cuentasCliente) {
+                String ftech = "FINTECH";
                 Calendar fechaActual = Calendar.getInstance();
                 fechaActual.add(Calendar.YEAR, -5);
                 Date fechaHace5 = fechaActual.getTime();
@@ -95,11 +89,7 @@ public class GenerarCSV implements GestionGenerarCSV{
                             comprobarNoNulo(f.getIban()),
                             comprobarNoNulo(pa.getApellidos()),
                             comprobarNoNulo(pa.getNombre()),
-                            comprobarNoNulo(c.getDireccion()),
-                            comprobarNoNulo(c.getCiudad()),
-                            comprobarNoNulo(c.getCodigopostal()),
-                            comprobarNoNulo(c.getPais()),
-                            comprobarNoNulo(c.getIdentificacion()),
+                            ftech,
                             comprobarNoNuloFecha(pa.getFechaNacimiento())
                     );
                 }
