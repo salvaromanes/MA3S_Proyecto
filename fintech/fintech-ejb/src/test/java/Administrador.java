@@ -111,11 +111,11 @@ public class Administrador {
     @Test
 
     public void testAccesoPersonalAdmNoEncontrado(){
-        final String NOMB = "alv";
-        final String CONT = "123";
+        final String nomb = "alv";
+        final String cont = "123";
         Usuario user1 = new Usuario();
-        user1.setUser(NOMB);
-        user1.setContrasena(CONT);
+        user1.setUser(nomb);
+        user1.setContrasena(cont);
 
         try {
             gestionAccesoPersonal.obtenerPersonal(user1.getUser(), user1.getContrasena());
@@ -136,11 +136,11 @@ public class Administrador {
     @Test
 
     public void testAccesoPersonalAdmNoValido(){
-        final String NOMB = "alv";
-        final String CONT = "123";
+        final String nomb = "alv";
+        final String cont = "123";
         Usuario user1 = new Usuario();
-        user1.setUser(NOMB);
-        user1.setContrasena(CONT);
+        user1.setUser(nomb);
+        user1.setContrasena(cont);
 
         try {
             gestionAccesoPersonal.obtenerPersonal(user1.getUser(), user1.getContrasena());
@@ -163,11 +163,11 @@ public class Administrador {
     @Test
 
     public void testAccesoPersonalAdmContNoValida(){
-        final String NOMB = "alv";
-        final String CONT = "123";
+        final String nomb = "alv";
+        final String cont = "123";
         Usuario user1 = new Usuario();
-        user1.setUser(NOMB);
-        user1.setContrasena(CONT);
+        user1.setUser(nomb);
+        user1.setContrasena(cont);
 
         try {
             gestionAccesoPersonal.obtenerPersonal(user1.getUser(), user1.getContrasena());
@@ -190,11 +190,11 @@ public class Administrador {
     @Test
 
     public void testAccesoPersonalAdmValido(){
-        final String NOMB = "Salva";
-        final String CONT = "malaga";
+        final String nomb = "Salva";
+        final String cont = "malaga";
         Usuario user1 = new Usuario();
-        user1.setUser(NOMB);
-        user1.setContrasena(CONT);
+        user1.setUser(nomb);
+        user1.setContrasena(cont);
 
         try {
             gestionAccesoPersonal.obtenerPersonal(user1.getUser(), user1.getContrasena());
@@ -212,32 +212,28 @@ public class Administrador {
 
 
 
-
-
-    /*
-
-
-    }
     @Requisitos({"RF6"})
     @Test
 
-
-    public void testAdmin(){
-        final String NOMB = "Salva";
+    public void testAdminNoExiste(){
+        final String nombre = "Alvaro";
         Usuario user_aux = new Usuario();
-        user_aux.setUser(NOMB);
+        user_aux.setUser(nombre);
 
         try{
            gestionAnadirAutorizados.comprobarAdministrador(user_aux.getUser());
+           fail("Debe lanzar una excepcion");
         }
         catch (PersonaNoExisteException e){
-            fail("Error al encontrar administrador");
+            //ok
         }
-        catch (NoEsAdministrativoException e)
+        catch (NoEsAdministrativoException e){
+            fail("Debe lanzar una excepcion de PersonaNoExistente");
+        }
 
     }
 
- */
+
 
 
 
