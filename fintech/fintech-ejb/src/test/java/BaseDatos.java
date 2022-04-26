@@ -17,6 +17,7 @@ public class BaseDatos {
         Usuario usuario = new Usuario();
         usuario.setEsAdmin(true);
         usuario.setUser("Salva");
+        usuario.setContrasena("malaga");
 
         Usuario usuario1 = new Usuario();
         usuario1.setEsAdmin(false);
