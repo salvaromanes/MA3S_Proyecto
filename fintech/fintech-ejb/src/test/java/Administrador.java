@@ -7,6 +7,7 @@ import javax.naming.NamingException;
 import java.io.IOException;
 import java.util.Date;
 
+import static java.lang.Long.parseLong;
 import static org.junit.Assert.fail;
 
 public class Administrador {
@@ -17,6 +18,7 @@ public class Administrador {
     private static final String AccesoPersonal = "java:global/classes/AccesoPersonal";
     private static final String AnadirAutorizado = "java:global/classes/AnadirAutorizados";
     private static final String GenerarCSV = "java:global/classes/GenerarCSV";
+    private static final String ModificarPAutorizada = "java:global/classes/GenerarCSV";
 
 
     private GestionAperturaCuenta gestionAperturaCuenta;
@@ -24,6 +26,7 @@ public class Administrador {
     private GestionAccesoPersonal gestionAccesoPersonal;
     private GestionAnadirAutorizados gestionAnadirAutorizados;
     private GestionGenerarCSV gestionGenerarCSV;
+    private GestionModificarPAutorizada gestionModificarPAutorizada;
 
 
     @Before
@@ -33,6 +36,7 @@ public class Administrador {
         gestionAccesoPersonal = (GestionAccesoPersonal) SuiteTest.ctx.lookup(AccesoPersonal);
         gestionAnadirAutorizados = (GestionAnadirAutorizados) SuiteTest.ctx.lookup(AnadirAutorizado);
         gestionGenerarCSV = (GestionGenerarCSV) SuiteTest.ctx.lookup(GenerarCSV);
+        gestionModificarPAutorizada = (GestionModificarPAutorizada) SuiteTest.ctx.lookup(ModificarPAutorizada);
 
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
@@ -381,5 +385,905 @@ public class Administrador {
         }
     }
 
+
+    // ------------------------------------TEST MARIO----------------------------------------
+
+    // Modificacion del campo IDENTIFICACION
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyIdentPAutorizadaAdminNoExist(){
+        final String NOMBRE = "mar";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "ident");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion PersonaNoExisteException");
+        } catch (PersonaNoExisteException e){
+            // ok -> all is ok
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba PersonaNoExisteException");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba PersonaNoExisteException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyIdentPAutorizadaNoEsAdministrador(){
+        final String NOMBRE = "MA3S";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "ident");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion NoEsAdministradorException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba NoEsAdministradorException");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba NoEsAdministradorException");
+        } catch (NoEsAdministrativoException e){
+            // ok -> all is ok
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyIdentPAutorizadaCampoVacio(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), null);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion CampoVacioException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba CampoVacioException");
+        } catch (CampoVacioException e){
+            // ok -> all is ok
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba CampoVacioException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyIdentPAutorizadaValido(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "123");
+            // Si no devuelve nada
+            // ok -> all is ok
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y no se esperaba nada");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y no se esperaba nada");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y no se esperaba nada");
+        }
+
+        // Faltaría comprobar que se ha modificado
+
+    }
+
+    // Modificacion del campo Nombre
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyNamePAutorizadaAdminNoExist(){
+        final String NOMBRE = "mar";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarNombre(user.getUser(), pAut.getId(), "pau");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion PersonaNoExisteException");
+        } catch (PersonaNoExisteException e){
+            // ok -> all is ok
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba PersonaNoExisteException");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba PersonaNoExisteException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyNamePAutorizadaNoEsAdministrador(){
+        final String NOMBRE = "MA3S";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "pau");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion NoEsAdministradorException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba NoEsAdministradorException");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba NoEsAdministradorException");
+        } catch (NoEsAdministrativoException e){
+            // ok -> all is ok
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyNamePAutorizadaCampoVacio(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), null);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion CampoVacioException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba CampoVacioException");
+        } catch (CampoVacioException e){
+            // ok -> all is ok
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba CampoVacioException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyNamePAutorizadaValido(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "Leonardo");
+            // Si no devuelve nada
+            // ok -> all is ok
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y no se esperaba nada");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y no se esperaba nada");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y no se esperaba nada");
+        }
+
+        // Faltaría comprobar que se ha modificado
+
+    }
+
+    // Modificar del campo Apellidos
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifySurNamePAutorizadaAdminNoExist(){
+        final String NOMBRE = "mar";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarNombre(user.getUser(), pAut.getId(), "pau");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion PersonaNoExisteException");
+        } catch (PersonaNoExisteException e){
+            // ok -> all is ok
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba PersonaNoExisteException");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba PersonaNoExisteException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifySurNamePAutorizadaNoEsAdministrador(){
+        final String NOMBRE = "MA3S";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "pau");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion NoEsAdministradorException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba NoEsAdministradorException");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba NoEsAdministradorException");
+        } catch (NoEsAdministrativoException e){
+            // ok -> all is ok
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifySurNamePAutorizadaCampoVacio(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), null);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion CampoVacioException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba CampoVacioException");
+        } catch (CampoVacioException e){
+            // ok -> all is ok
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba CampoVacioException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifySurNamePAutorizadaValido(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "Jirafa");
+            // Si no devuelve nada
+            // ok -> all is ok
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y no se esperaba nada");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y no se esperaba nada");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y no se esperaba nada");
+        }
+
+        // Faltaría comprobar que se ha modificado
+    }
+
+    // Modificacion del campo Direccion
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyAdressPAutorizadaAdminNoExist(){
+        final String NOMBRE = "mar";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarDireccion(user.getUser(), pAut.getId(), "pau");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion PersonaNoExisteException");
+        } catch (PersonaNoExisteException e){
+            // ok -> all is ok
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba PersonaNoExisteException");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba PersonaNoExisteException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyAdressPAutorizadaNoEsAdministrador(){
+        final String NOMBRE = "MA3S";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarDireccion(user.getUser(), pAut.getId(), "pau");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion NoEsAdministradorException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba NoEsAdministradorException");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba NoEsAdministradorException");
+        } catch (NoEsAdministrativoException e){
+            // ok -> all is ok
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyAdressPAutorizadaCampoVacio(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarDireccion(user.getUser(), pAut.getId(), null);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion CampoVacioException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba CampoVacioException");
+        } catch (CampoVacioException e){
+            // ok -> all is ok
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba CampoVacioException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyAdressPAutorizadaValido(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarDireccion(user.getUser(), pAut.getId(), "Calle Hola");
+            // Si no devuelve nada
+            // ok -> all is ok
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y no se esperaba nada");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y no se esperaba nada");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y no se esperaba nada");
+        }
+
+        // Faltaría comprobar que se ha modificado
+    }
+
+    // Modificacion del campo Fecha de Nacimiento
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyFechaNacimientoPAutorizadaAdminNoExist(){
+        final String NOMBRE = "mar";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarFechaNacimiento(user.getUser(), pAut.getId(), date);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion PersonaNoExisteException");
+        } catch (PersonaNoExisteException e){
+            // ok -> all is ok
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba PersonaNoExisteException");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba PersonaNoExisteException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyFechaNacimientoPAutorizadaNoEsAdministrador(){
+        final String NOMBRE = "MA3S";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarFechaNacimiento(user.getUser(), pAut.getId(), date);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion NoEsAdministradorException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba NoEsAdministradorException");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba NoEsAdministradorException");
+        } catch (NoEsAdministrativoException e){
+            // ok -> all is ok
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyFechaNacimientoPAutorizadaCampoVacio(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarFechaNacimiento(user.getUser(), pAut.getId(), date);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion CampoVacioException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba CampoVacioException");
+        } catch (CampoVacioException e){
+            // ok -> all is ok
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba CampoVacioException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyFechaNacimientoPAutorizadaValido(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarFechaNacimiento(user.getUser(), pAut.getId(), date);
+            // Si no devuelve nada
+            // ok -> all is ok
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y no se esperaba nada");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y no se esperaba nada");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y no se esperaba nada");
+        }
+
+        // Faltaría comprobar que se ha modificado
+    }
+
+    // Modificacion del campo Fecha de Inicio
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyFechaInicioPAutorizadaAdminNoExist(){
+        final String NOMBRE = "mar";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarFechaInicio(user.getUser(), pAut.getId(), date);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion PersonaNoExisteException");
+        } catch (PersonaNoExisteException e){
+            // ok -> all is ok
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba PersonaNoExisteException");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba PersonaNoExisteException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyFechaInicioPAutorizadaNoEsAdministrador(){
+        final String NOMBRE = "MA3S";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarFechaInicio(user.getUser(), pAut.getId(), date);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion NoEsAdministradorException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba NoEsAdministradorException");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba NoEsAdministradorException");
+        } catch (NoEsAdministrativoException e){
+            // ok -> all is ok
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyFechaInicioPAutorizadaCampoVacio(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarFechaInicio(user.getUser(), pAut.getId(), date);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion CampoVacioException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba CampoVacioException");
+        } catch (CampoVacioException e){
+            // ok -> all is ok
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba CampoVacioException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyFechaInicioPAutorizadaValido(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarFechaInicio(user.getUser(), pAut.getId(), date);
+            // Si no devuelve nada
+            // ok -> all is ok
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y no se esperaba nada");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y no se esperaba nada");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y no se esperaba nada");
+        }
+
+        // Faltaría comprobar que se ha modificado
+    }
+
+    // Modificacion del campo Fecha de Fin
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyFechaFinPAutorizadaAdminNoExist(){
+        final String NOMBRE = "mar";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarFechaFin(user.getUser(), pAut.getId(), date);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion PersonaNoExisteException");
+        } catch (PersonaNoExisteException e){
+            // ok -> all is ok
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba PersonaNoExisteException");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba PersonaNoExisteException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyFechaFinPAutorizadaNoEsAdministrador(){
+        final String NOMBRE = "MA3S";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarFechaFin(user.getUser(), pAut.getId(), date);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion NoEsAdministradorException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba NoEsAdministradorException");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba NoEsAdministradorException");
+        } catch (NoEsAdministrativoException e){
+            // ok -> all is ok
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyFechaFinPAutorizadaCampoVacio(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarFechaFin(user.getUser(), pAut.getId(), date);
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion CampoVacioException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba CampoVacioException");
+        } catch (CampoVacioException e){
+            // ok -> all is ok
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba CampoVacioException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyFechaFinPAutorizadaValido(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarFechaFin(user.getUser(), pAut.getId(), date);
+            // Si no devuelve nada
+            // ok -> all is ok
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y no se esperaba nada");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y no se esperaba nada");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y no se esperaba nada");
+        }
+
+        // Faltaría comprobar que se ha modificado
+    }
+
+    // Modificacion del campo Estado
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyEstadoPAutorizadaAdminNoExist(){
+        final String NOMBRE = "mar";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarEstado(user.getUser(), pAut.getId(), "activo");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion PersonaNoExisteException");
+        } catch (PersonaNoExisteException e){
+            // ok -> all is ok
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba PersonaNoExisteException");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba PersonaNoExisteException");
+        }catch (EstadoNoValidoException e){
+            fail("Se ha capturado EstadoNoValidoException y se esperaba PersonaNoExisteException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyEstadoPAutorizadaNoEsAdministrador(){
+        final String NOMBRE = "MA3S";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarEstado(user.getUser(), pAut.getId(), "activo");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion NoEsAdministradorException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba NoEsAdministradorException");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y se esperaba NoEsAdministradorException");
+        } catch (NoEsAdministrativoException e){
+            // ok -> all is ok
+        }catch (EstadoNoValidoException e){
+            fail("Se ha capturado EstadoNoValidoException y se esperaba NoEsAdministradorException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyEstadoPAutorizadaCampoVacio(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        Date date = new Date(2022/04/27);
+
+        try {
+            gestionModificarPAutorizada.modificarEstado(user.getUser(), pAut.getId(), "activo");
+            // Si no devuelve nada
+            fail("Debe Lanzar una excepcion CampoVacioException");
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y se esperaba CampoVacioException");
+        } catch (CampoVacioException e){
+            // ok -> all is ok
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y se esperaba CampoVacioException");
+        }catch (EstadoNoValidoException e){
+            fail("Se ha capturado EstadoNoValidoException y se esperaba CampoVacioException");
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+
+    public void testModifyEstadoPAutorizadaEstadoNoValido() {
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarEstado(user.getUser(), pAut.getId(), "patata");
+            // Si no devuelve nada
+            fail("No se ha capturado excepcion y se esperaba EstadoNoValidoException");
+        } catch (PersonaNoExisteException e) {
+            fail("Se ha capturado PersonaNoExisteException y no se esperaba nada");
+        } catch (CampoVacioException e) {
+            fail("Se ha capturado CampoVacioException y no se esperaba nada");
+        } catch (NoEsAdministrativoException e) {
+            fail("Se ha capturado NoEsAdministrativoException y no se esperaba nada");
+        } catch (EstadoNoValidoException e) {
+            // ok
+        }
+    }
+
+    @Requisitos({"RF7"})
+    @Test
+    public void testModifyEstadoPAutorizadaValido(){
+        final String NOMBRE = "Salva";
+
+        Usuario user = new Usuario();
+        user.setUser(NOMBRE);
+
+        PAutorizada pAut = new PAutorizada();
+        pAut.setId(parseLong("1", 1));
+
+        try {
+            gestionModificarPAutorizada.modificarEstado(user.getUser(), pAut.getId(), "activo");
+            // Si no devuelve nada
+            // ok -> all is ok
+        } catch (PersonaNoExisteException e){
+            fail("Se ha capturado PersonaNoExisteException y no se esperaba nada");
+        } catch (CampoVacioException e){
+            fail("Se ha capturado CampoVacioException y no se esperaba nada");
+        } catch (NoEsAdministrativoException e){
+            fail("Se ha capturado NoEsAdministrativoException y no se esperaba nada");
+        }catch (EstadoNoValidoException e){
+            fail("Se ha capturado EstadoNoValidoException y no se esperaba nada");
+        }
+
+        // Faltaría comprobar que se ha modificado
+    }
 
 }
