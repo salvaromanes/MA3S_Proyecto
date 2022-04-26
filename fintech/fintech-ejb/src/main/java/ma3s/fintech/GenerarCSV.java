@@ -156,8 +156,7 @@ public class GenerarCSV implements GestionGenerarCSV{
     }
 
     // ¿el usuario es administrativo? sirve para poder gestionar las bajas
-    @Override
-    public boolean isAdministrativo(String usuario) throws PersonaNoExisteException {
+    private boolean isAdministrativo(String usuario) throws PersonaNoExisteException {
         Usuario user = em.find(Usuario.class, usuario);
         if(!user.getUser().equals(usuario)){
             throw new PersonaNoExisteException("El usuario " + usuario + " no existe");
