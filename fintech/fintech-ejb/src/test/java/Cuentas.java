@@ -70,6 +70,52 @@ public class Cuentas {
         }
     }
 
+    @Requisitos({"RF5"})
+    @Test
+    public void testAperturaCuentaPooledOk(){
+        final String ibanCuenta = "132";
+        final String swiftCuenta = "132";
+        final String usuario = "Salva";
+
+        Cuenta cuenta = new Cuenta();
+        cuenta.setIban(ibanCuenta);
+        cuenta.setSwift(swiftCuenta);
+
+        try{
+            gestionAperturaCuenta.abrirCuentaPooled(cuenta.getIban(), cuenta.getSwift(), usuario);
+            //ok
+        } catch (CuentaExistenteException e) {
+            fail("No debe lanzar una excepcion");
+        } catch (UsuarioNoEncontradoException e) {
+            fail("No debe lanzar una excepcion");
+        } catch (UsuarioIncorrectoException e) {
+            fail("No debe lanzar una excepcion");
+        }
+    }
+
+    @Requisitos({"RF5"})
+    @Test
+    public void testAperturaCuentaSegregadaOk(){
+        final String ibanCuenta = "231";
+        final String swiftCuenta = "231";
+        final String usuario = "Salva";
+
+        Cuenta cuenta = new Cuenta();
+        cuenta.setIban(ibanCuenta);
+        cuenta.setSwift(swiftCuenta);
+
+        try{
+            gestionAperturaCuenta.abrirCuentaSegregate(cuenta.getIban(), cuenta.getSwift(), usuario);
+            //ok
+        } catch (CuentaExistenteException e) {
+            fail("No debe lanzar una excepcion");
+        } catch (UsuarioNoEncontradoException e) {
+            fail("No debe lanzar una excepcion");
+        } catch (UsuarioIncorrectoException e) {
+            fail("No debe lanzar una excepcion");
+        }
+    }
+
     @Requisitos({"RF9"})
     @Test
     public void testCierreCuentaNoExistente(){
@@ -109,4 +155,5 @@ public class Cuentas {
             //ok
         }
     }
+
 }
