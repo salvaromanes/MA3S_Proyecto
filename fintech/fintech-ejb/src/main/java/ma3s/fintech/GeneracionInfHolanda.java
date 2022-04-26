@@ -13,8 +13,9 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
     @PersistenceContext(name="FintechEjb")
     private EntityManager em;
 
+
     @Override
-    public String CuentasApi(Cuenta cuenta) throws CuentaNoExistenteException {
+    public String CuentasApi(Segregada cuenta) throws CuentaNoExistenteException {
         Cuenta cuenta_Aux = em.find(Cuenta.class, cuenta);
         Referencia referencia = em.find(Referencia.class,cuenta.getIban());
         if(!cuenta_Aux.equals(cuenta)){

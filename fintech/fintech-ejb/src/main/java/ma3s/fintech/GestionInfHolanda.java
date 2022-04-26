@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface GestionInfHolanda {
 
-    public String CuentasApi(Cuenta cuenta)
+    public String CuentasApi(Segregada cuenta)
             throws CuentaNoExistenteException;
 
     public String ClienteApi(Cliente cliente)  throws  ClienteNoExisteException;
