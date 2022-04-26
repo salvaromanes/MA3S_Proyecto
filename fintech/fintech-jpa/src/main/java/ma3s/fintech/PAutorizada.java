@@ -26,7 +26,6 @@ public class PAutorizada implements Serializable {
     private Date fechaInicio;
     @Temporal(TemporalType.DATE)
     private Date fechaFin;
-    private String tipo;
 
     @OneToMany(mappedBy = "autorizadaId")
     private List<Autorizacion> autorizaciones;
@@ -110,14 +109,6 @@ public class PAutorizada implements Serializable {
         this.fechaFin = fechaFin;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
     public Usuario getUser() {
         return user;
     }
@@ -159,7 +150,6 @@ public class PAutorizada implements Serializable {
                 "\nestado=" + estado +
                 "\nfechaInicio=" + fechaInicio +
                 "\nfechaFin=" + fechaFin +
-                "\ntipo=" + tipo +
                 '}';
     }
 }

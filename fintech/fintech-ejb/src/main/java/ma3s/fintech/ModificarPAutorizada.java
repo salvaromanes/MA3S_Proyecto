@@ -209,30 +209,4 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
     }
 
-    @Override
-    public void modificarTipo(String id_adm, Long id_aut, String tipoNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException {
-        Usuario administrativo = em.find(Usuario.class, id_adm);
-
-        if(administrativo == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
-
-        if (administrativo.getEsAdmin() == false){
-            throw new NoEsAdministrativoException("El usuario " + id_adm + " no es administrativo.");
-        }
-
-        PAutorizada pAutorizada = em.find(PAutorizada.class, id_aut);
-
-        /* Comprobar que la PAutorizada puede operar con cuentas de clientes que son personas jurídicas */
-        /* Si no lo es lanzar excepción NoEsPAutorizadaException */
-
-        if(pAutorizada == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
-
-        if(tipoNew == null){
-            throw new CampoVacioException("El campo (tipo) a actualizar no contiene información.");
-        }
-
-        pAutorizada.setTipo(tipoNew);
-        em.merge(pAutorizada);
-
-    }
-
 }
