@@ -65,7 +65,7 @@ public class Administrador {
     @Test
 
     public void testAccesoPersonalAdmNoValido() {
-        final String nomb = "alv";
+        final String nomb = "MA3S";
         final String cont = "123";
         Usuario user1 = new Usuario();
         user1.setUser(nomb);
@@ -88,7 +88,7 @@ public class Administrador {
     @Test
 
     public void testAccesoPersonalAdmContNoValida() {
-        final String nomb = "alv";
+        final String nomb = "Salva";
         final String cont = "123";
         Usuario user1 = new Usuario();
         user1.setUser(nomb);
