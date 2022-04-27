@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import java.util.Date;
+
 import static java.lang.Long.parseLong;
 
 
@@ -47,9 +49,28 @@ public class BaseDatos {
 
         Empresa empresa = new Empresa();
         empresa.setIdentificacion("UMA");
+        empresa.setRazonSocial("UMA");
+        empresa.setCiudad("Malaga");
+        empresa.setCodigopostal("29004");
+        empresa.setIdentificacion("Avenia Plutarco");
+        empresa.setEstado("Activo");
+        empresa.setFechaAlta(new Date());
+        empresa.setPais("Espana");
+
 
         Cliente cliente = new Cliente();
         cliente.setIdentificacion("987654321A");
+        cliente.setId(parseLong("223"));
+        cliente.setCiudad("Madrid");
+        cliente.setCodigopostal("28001");
+        cliente.setDireccion("Concha Espina");
+        cliente.setEstado("Activo");
+        cliente.setFechaAlta(new Date());
+        cliente.setPais("Espana");
+        cliente.setTipoCliente("Individual");
+
+
+
 
         Usuario user = new Usuario();
         user.setUser("Almu");
