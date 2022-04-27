@@ -2,17 +2,13 @@ package ma3s.fintech.test;
 
 import ma3s.fintech.Empresa;
 import ma3s.fintech.*;
-import ma3s.fintech.ejb.GestionAltaCliente;
 import ma3s.fintech.ejb.excepciones.*;
 import org.junit.Before;
 import org.junit.Test;
-import java.io.IOException;
 import java.util.Date;
 import es.uma.informatica.sii.anotaciones.Requisitos;
-import static java.lang.Long.parseLong;
 import static org.junit.Assert.fail;
 import javax.naming.NamingException;
-import javax.ws.rs.client.Client;
 
 public class Clientes {
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechEjbTest";
