@@ -7,8 +7,6 @@ import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.Date;
-import java.util.List;
 
 @Stateless
 public class EliminarAutorizados implements GestionEliminarAutorizados{

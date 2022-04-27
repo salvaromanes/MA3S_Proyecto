@@ -2,6 +2,7 @@ package ma3s.fintech.test;
 
 import es.uma.informatica.sii.anotaciones.Requisitos;
 import ma3s.fintech.*;
+import ma3s.fintech.ejb.*;
 import ma3s.fintech.ejb.excepciones.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -333,6 +334,7 @@ public class Administrador {
     }
 
 
+
     @Requisitos({"RF12"})
     @Test
 
@@ -345,18 +347,20 @@ public class Administrador {
 
         try {
             gestionGenerarCSV.generarCSV(user.getUser(), "Individual", d);
+            //ok
         } catch (IOException e) {
-            e.printStackTrace();
+            fail("No Debe lanzar una excepcion ");
         } catch (PersonaNoExisteException e) {
-            e.printStackTrace();
+            fail("No Debe lanzar una excepcion ");
         }
 
         try {
             gestionGenerarCSV.generarCSV(user.getUser(), "Periodico", d);
+            //ok
         } catch (IOException e) {
-            e.printStackTrace();
+            fail("No Debe lanzar una excepcion ");
         } catch (PersonaNoExisteException e) {
-            e.printStackTrace();
+            fail("No Debe lanzar una excepcion ");
         }
 
     }
@@ -374,20 +378,25 @@ public class Administrador {
 
         try {
             gestionGenerarCSV.generarCSV(user.getUser(), "Individual", d);
+            fail("Debe lanzar una excepcion PersonaNoExisteException");
         } catch (IOException e) {
-            e.printStackTrace();
+            fail("Debe lanzar una excepcion PersonaNoExisteException");
         } catch (PersonaNoExisteException e) {
-            e.printStackTrace();
+            fail("Debe lanzar una excepcion");
+            //ok
         }
 
         try {
             gestionGenerarCSV.generarCSV(user.getUser(), "Periodico", d);
+            fail("Debe lanzar una excepcion PersonaNoExisteException");
         } catch (IOException e) {
-            e.printStackTrace();
+            fail("Debe lanzar una excepcion PersonaNoExisteException");
         } catch (PersonaNoExisteException e) {
-            e.printStackTrace();
+            fail("Debe lanzar una excepcion");
+            //ok
         }
     }
+
 
 
     // ------------------------------------TEST MARIO----------------------------------------
