@@ -50,7 +50,7 @@ public class Transferencias implements GestionTransferencia{
         // Ahora tenemos dos camino uno si la cuenta es Pooled y otro si la cuenta es segregada
         Pooled pooled = em.find(Pooled.class, cuentaOri.getIban());
         if(pooled != null){
-            Divisa divisaPooled = pooled.
+//            Divisa divisaPooled = pooled.
         }
 
         // Buscamos si es una segregada

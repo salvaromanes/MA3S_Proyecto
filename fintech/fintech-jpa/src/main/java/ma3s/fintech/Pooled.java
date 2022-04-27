@@ -1,7 +1,5 @@
 package ma3s.fintech;
 
-import com.sun.org.apache.xpath.internal.operations.Div;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
