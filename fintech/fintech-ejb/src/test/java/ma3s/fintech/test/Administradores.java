@@ -17,7 +17,7 @@ public class Administradores {
     private static final String APERTURA_CUENTA = "java:global/classes/AperturaCuenta";
     private static final String CIERRE_CUENTA = "java:global/classes/CierreCuenta";
     private static final String ACCESO_PERSONAL = "java:global/classes/AccesoPersonal";
-    private static final String ANADIR_AUTORIZADOS = "java:global/classe/AnadirAutorizados";
+    private static final String ANADIR_AUTORIZADOS = "java:global/classes/AnadirAutorizados";
     private static final String GENERAR_CSV = "java:global/classes/GenerarCSV";
     private static final String MODIFICAR_PAUTORIZADA = "java:global/classes/ModificarPAutorizada";
     private static final String ELIMINAR_AUTORIZADOS = "java:global/classes/EliminarAutorizados";
