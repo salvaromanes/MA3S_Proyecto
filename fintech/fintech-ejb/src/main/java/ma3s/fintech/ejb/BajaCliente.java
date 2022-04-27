@@ -2,29 +2,18 @@ package ma3s.fintech.ejb;
 
 import ma3s.fintech.Cliente;
 import ma3s.fintech.Fintech;
-import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.excepciones.*;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Date;
 import java.util.List;
 
 @Stateless
 public class BajaCliente implements GestionBajaCliente{
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
-
-    @Override
-    public void comprobarAdministrador(String usuario) throws UsuarioNoEncontradoException, NoEsAdministrativoException {
-        Usuario user = em.find(Usuario.class, usuario);
-
-        if(user == null){
-            throw new UsuarioNoEncontradoException();
-        }else if(!user.getEsAdmin()){
-            throw new NoEsAdministrativoException();
-        }
-    }
 
     @Override
     public void darBajaCliente(Long id) throws CampoVacioException, CuentaAbiertaException, ClienteNoExisteException {
@@ -43,6 +32,7 @@ public class BajaCliente implements GestionBajaCliente{
                 throw new CuentaAbiertaException("No se puede dar de baja un cliente que tiene una cuenta abierta");
         }
         cliente.setEstado("Cerrada");
+        cliente.setFechaBaja(new Date());
         em.merge(cliente);
     }
 }
