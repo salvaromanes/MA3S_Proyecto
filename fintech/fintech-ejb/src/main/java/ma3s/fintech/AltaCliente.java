@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 
 @Stateless
 public class AltaCliente implements GestionAltaCliente{
-    @PersistenceContext(name = "FintechEjb")
+    @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
     public void comprobarAdministrador(String usuario) throws UsuarioNoEncontradoException, NoEsAdministrativoException {

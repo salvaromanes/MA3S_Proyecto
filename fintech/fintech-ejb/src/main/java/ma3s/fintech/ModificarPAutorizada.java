@@ -2,15 +2,17 @@ package ma3s.fintech;
 
 import ma3s.fintech.excepciones.*;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Date;
 
 import static java.lang.Long.parseLong;
 
+@Stateless
 public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
-    @PersistenceContext(name="FintechEjb")
+    @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
     @Override

@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 
 @Stateless
 public class AperturaCuenta implements GestionAperturaCuenta{
-    @PersistenceContext(name="FintechEjb")
+    @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
     //@Override

@@ -2,12 +2,14 @@ package ma3s.fintech;
 
 import ma3s.fintech.excepciones.PersonaNoExisteException;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Date;
 
+@Stateless
 public class EliminarAutorizados implements GestionEliminarAutorizados{
-    @PersistenceContext(name="FintechEjb")
+    @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
     @Override

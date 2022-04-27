@@ -9,7 +9,7 @@ import java.util.List;
 
 @Stateless
 public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
-    @PersistenceContext(name="FintechEjb")
+    @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
     @Override

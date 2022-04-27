@@ -12,7 +12,7 @@ import java.util.List;
 @Stateless
 
 public class AccesoAplicacion implements GestionAccesoAplicacion {
-    @PersistenceContext(name="FintechEjb")
+    @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
     @Override

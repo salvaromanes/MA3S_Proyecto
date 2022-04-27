@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 
 @Stateless
 public class ModificarCliente implements GestionModificarCliente{
-    @PersistenceContext(name="FintechEjb")
+    @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
 

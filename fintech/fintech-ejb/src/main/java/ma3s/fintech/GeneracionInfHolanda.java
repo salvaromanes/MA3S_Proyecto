@@ -2,15 +2,16 @@ package ma3s.fintech;
 
 import ma3s.fintech.excepciones.*;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Stateless
 public class GeneracionInfHolanda implements GestionInfHolanda {
 
-    @PersistenceContext(name="FintechEjb")
+    @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
 

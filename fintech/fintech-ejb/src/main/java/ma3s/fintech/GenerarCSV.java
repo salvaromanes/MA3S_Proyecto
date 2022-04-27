@@ -4,6 +4,7 @@ import ma3s.fintech.excepciones.PersonaNoExisteException;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -13,8 +14,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+@Stateless
 public class GenerarCSV implements GestionGenerarCSV{
-    @PersistenceContext(name="FintechEjb")
+    @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
 

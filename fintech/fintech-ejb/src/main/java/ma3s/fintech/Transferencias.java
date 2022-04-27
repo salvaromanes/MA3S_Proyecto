@@ -3,13 +3,15 @@ package ma3s.fintech;
 import com.sun.jndi.ldap.pool.Pool;
 import ma3s.fintech.excepciones.*;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Date;
 
+@Stateless
 public class Transferencias implements GestionTransferencia{
 
-    @PersistenceContext(name="FintechEjb")
+    @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
     private Transaccion subirTransaccion(String idTransf, Date fechaInstruccion, Double cantidad, String tipo, Double comision, Boolean internacional,

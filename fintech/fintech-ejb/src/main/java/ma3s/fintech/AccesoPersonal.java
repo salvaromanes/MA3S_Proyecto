@@ -6,13 +6,14 @@ import ma3s.fintech.excepciones.ContraseñaIncorrectaException;
 import ma3s.fintech.excepciones.UsuarioIncorrectoException;
 import ma3s.fintech.excepciones.UsuarioNoEncontradoException;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
+@Stateless
 public class AccesoPersonal implements GestionAccesoPersonal {
 
-    @PersistenceContext(name="FintechEjb")
+    @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
     @Override

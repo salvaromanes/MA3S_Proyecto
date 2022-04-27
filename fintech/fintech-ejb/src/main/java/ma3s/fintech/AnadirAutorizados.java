@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 
 public class AnadirAutorizados implements GestionAnadirAutorizados {
-    @PersistenceContext(name="FintechEjb")
+    @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
 
