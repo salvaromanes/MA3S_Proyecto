@@ -68,7 +68,7 @@ public class BaseDatos {
 
         Cliente cliente = new Cliente();
         cliente.setIdentificacion("987654321A");
-        cliente.setId(parseLong("223"));
+        cliente.setId(223L);
         cliente.setCiudad("Madrid");
         cliente.setCodigopostal("28001");
         cliente.setDireccion("Concha Espina");
