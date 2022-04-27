@@ -1,17 +1,17 @@
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Referencia.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Cuenta.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Autorizacion.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\DepositadaId.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Pooled.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Segregada.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Fintech.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Transaccion.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Cliente.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Individual.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Divisa.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Usuario.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\AutorizadaId.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Main.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\DepositadaEn.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\PAutorizada.java
-D:\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Empresa.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Usuario.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\DepositadaEn.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Individual.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Main.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Fintech.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Pooled.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Cuenta.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Cliente.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\PAutorizada.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Referencia.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Autorizacion.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\AutorizadaId.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Segregada.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Divisa.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Transaccion.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\Empresa.java
+C:\Users\Álvaro Salas\Desktop\MA3S\fintech\fintech-jpa\src\main\java\ma3s\fintech\DepositadaId.java

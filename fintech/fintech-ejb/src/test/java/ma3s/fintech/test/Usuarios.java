@@ -22,7 +22,7 @@ public class Usuarios {
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechEjbTest";
 
     private static final String CONCESION_AUTORIZACION = "java:global/classes/ConcesionAutorizacion";
-    private static final String ACCESOAPLICACION = "java:global/classes/EliminarAutorizados";
+    private static final String ACCESOAPLICACION = "java:global/classes/AccesoAplicacion";
 
     private ma3s.fintech.ejb.GestionConcesionAutorizacion gestionConcesionAutorizacion;
     private ma3s.fintech.ejb.GestionAccesoAplicacion gestionAccesoAplicacion;
