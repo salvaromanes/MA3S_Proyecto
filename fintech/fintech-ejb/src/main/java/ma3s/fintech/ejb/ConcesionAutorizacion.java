@@ -52,13 +52,11 @@ public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
     }
 
     @Override
-    public void autorizarOperacion(Long idPersona, Empresa empresa) throws UsuarioNoEncontradoException{
-        PAutorizada autorizado = em.find(PAutorizada.class, idPersona);
-        List<Autorizacion> autorizacion = (List<Autorizacion>) em.find(Autorizacion.class, idPersona);
-
-        if(autorizado == null){
-            throw new UsuarioNoEncontradoException();
-        }
+    public void autorizarOperacion(PAutorizada persona, Empresa empresa) throws UsuarioNoEncontradoException{
+        AutorizadaId autorizadaId = new AutorizadaId();
+        autorizadaId.setIdAutorizado(persona.getId());
+        autorizadaId.setEmpresaId(empresa.getId());
+        List<Autorizacion> autorizacion = (List<Autorizacion>) em.find(Autorizacion.class, autorizadaId);
 
         if(autorizacion == null){
             throw new UsuarioNoEncontradoException();
@@ -78,7 +76,7 @@ public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
         if(!encontrado){
             Autorizacion a = new Autorizacion();
             a.setEmpresaId(empresa);
-            a.setAutorizadaId(autorizado);
+            a.setAutorizadaId(persona);
             a.setTipo("Operacion y lectura");
             em.persist(a);
         }else{
