@@ -17,10 +17,10 @@ public class BajaCliente implements GestionBajaCliente{
 
     @Override
     public void darBajaCliente(Long id) throws CampoVacioException, CuentaAbiertaException, ClienteNoExisteException {
-        Cliente cliente = em.find(Cliente.class, id);
-
         if(id == null)
             throw new CampoVacioException("No se ha introducido un id para el cliente");
+
+        Cliente cliente = em.find(Cliente.class, id);
 
         if (cliente == null){
             throw new ClienteNoExisteException("Cliente no encontrado para el id: " + id);
