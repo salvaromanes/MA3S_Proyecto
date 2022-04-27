@@ -1,8 +1,7 @@
 package ma3s.fintech.ejb;
 
 import ma3s.fintech.*;
-import ma3s.fintech.ejb.excepciones.NoEsPAutorizadaException;
-import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
+import ma3s.fintech.ejb.excepciones.*;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
