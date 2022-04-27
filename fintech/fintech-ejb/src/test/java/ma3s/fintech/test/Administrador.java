@@ -24,7 +24,7 @@ public class Administrador {
     private static final String ModificarPAutorizada = "java:global/classes/ModificarPAutorizada";
 
 
-    private GestionAperturaCuenta gestionAperturaCuenta;
+    private ma3s.fintech.ejb.GestionAperturaCuenta gestionAperturaCuenta;
     private GestionCierreCuenta gestionCierreCuenta;
     private GestionAccesoPersonal gestionAccesoPersonal;
     private GestionAnadirAutorizados gestionAnadirAutorizados;
