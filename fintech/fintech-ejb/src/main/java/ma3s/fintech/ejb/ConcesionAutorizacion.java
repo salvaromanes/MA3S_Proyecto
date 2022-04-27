@@ -1,6 +1,7 @@
 package ma3s.fintech.ejb;
 
 import ma3s.fintech.Autorizacion;
+import ma3s.fintech.AutorizadaId;
 import ma3s.fintech.Empresa;
 import ma3s.fintech.PAutorizada;
 import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
@@ -15,13 +16,11 @@ public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
     private EntityManager em;
 
     @Override
-    public void autorizarLectura(Long idPersona, Empresa empresa) throws UsuarioNoEncontradoException{
-        PAutorizada autorizado = em.find(PAutorizada.class, idPersona);
-        List<Autorizacion> autorizacion = (List<Autorizacion>) em.find(Autorizacion.class, idPersona);
-
-        if(autorizado == null){
-            throw new UsuarioNoEncontradoException();
-        }
+    public void autorizarLectura(PAutorizada persona, Empresa empresa) throws UsuarioNoEncontradoException{
+        AutorizadaId autorizadaId = new AutorizadaId();
+        autorizadaId.setIdAutorizado(persona.getId());
+        autorizadaId.setEmpresaId(empresa.getId());
+        List<Autorizacion> autorizacion = (List<Autorizacion>) em.find(Autorizacion.class, autorizadaId);
 
         if(autorizacion == null){
             throw new UsuarioNoEncontradoException();
@@ -41,7 +40,7 @@ public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
         if(!encontrado){
             Autorizacion a = new Autorizacion();
             a.setEmpresaId(empresa);
-            a.setAutorizadaId(autorizado);
+            a.setAutorizadaId(persona);
             a.setTipo("Solo lectura");
             em.persist(a);
         }else{

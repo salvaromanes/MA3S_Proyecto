@@ -39,11 +39,13 @@ public class Usuarios {
     public void testAutorizarLectura(){
         final Long idPersona = parseLong("111");
         final Long idEmpresa = parseLong("1111");
+        PAutorizada pAutorizada = new PAutorizada();
+        pAutorizada.setId(idPersona);
         Empresa empresa = new Empresa();
         empresa.setId(idEmpresa);
 
         try{
-            gestionConcesionAutorizacion.autorizarLectura(idPersona, empresa);
+            gestionConcesionAutorizacion.autorizarLectura(pAutorizada, empresa);
             fail("Debe lanzar una excepcion");
         } catch (UsuarioNoEncontradoException e) {
             //ok
@@ -71,11 +73,13 @@ public class Usuarios {
     public void testAutorizarLecturaOk(){
         final Long idPersona = parseLong("1");
         final Long idEmpresa = parseLong("1");
+        PAutorizada pAutorizada = new PAutorizada();
+        pAutorizada.setId(idPersona);
         Empresa empresa = new Empresa();
         empresa.setId(idEmpresa);
 
         try{
-            gestionConcesionAutorizacion.autorizarLectura(idPersona, empresa);
+            gestionConcesionAutorizacion.autorizarLectura(pAutorizada, empresa);
             //ok
         } catch (UsuarioNoEncontradoException e) {
             fail("No debe lanzar una excepcion");
