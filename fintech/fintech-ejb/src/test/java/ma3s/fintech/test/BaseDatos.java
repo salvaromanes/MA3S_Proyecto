@@ -29,16 +29,16 @@ public class BaseDatos {
         usuario1.setContrasena("ma3s");
 
         Cuenta cuenta = new Cuenta();
-        cuenta.setIban("123");
-        cuenta.setSwift("123");
+        cuenta.setIban("123456789012345");
+        cuenta.setSwift("123846");
 
         Pooled pooled = new Pooled();
-        pooled.setIban("123");
-        pooled.setSwift("123");
+        pooled.setIban("12345678");
+        pooled.setSwift("12384");
 
         Segregada segregada = new Segregada();
-        segregada.setIban("123");
-        segregada.setSwift("123");
+        segregada.setIban("12315");
+        segregada.setSwift("12323");
 
         PAutorizada pAutorizada = new PAutorizada();
         pAutorizada.setNombre("Salva");
