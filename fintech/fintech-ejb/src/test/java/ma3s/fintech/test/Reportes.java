@@ -27,7 +27,7 @@ public class Reportes {
     @Before
     public void setup() throws NamingException {
 
-        gestionInfHolanda = (GestionInfHolanda) SuiteTest.ctx.lookup(CuentasApi);
+        gestionInfHolanda = (ma3s.fintech.ejb.GestionInfHolanda) SuiteTest.ctx.lookup(CuentasApi);
 
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
