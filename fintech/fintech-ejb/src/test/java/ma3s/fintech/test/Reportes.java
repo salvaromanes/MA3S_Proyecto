@@ -16,7 +16,7 @@ public class Reportes {
 
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechEjbTest";
 
-    private static final String CuentasApi = "java:global/classes/GeneracionInfHolanda";
+    private static final String CUENTASAPI = "java:global/classes/GeneracionInfHolanda";
 
 
 
@@ -27,7 +27,7 @@ public class Reportes {
     @Before
     public void setup() throws NamingException {
 
-        gestionInfHolanda = (ma3s.fintech.ejb.GestionInfHolanda) SuiteTest.ctx.lookup(CuentasApi);
+        gestionInfHolanda = (ma3s.fintech.ejb.GestionInfHolanda) SuiteTest.ctx.lookup(CUENTASAPI);
 
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
@@ -128,12 +128,13 @@ public class Reportes {
 
     public void testPAutoError(){
         final String nombre = "Juan";
+        String aux = "";
 
         PAutorizada autorizada = new PAutorizada();
         autorizada.setNombre(nombre);
 
         try {
-            gestionInfHolanda.PAutorApi(autorizada);
+            aux = gestionInfHolanda.PAutorApi(autorizada);
             fail("Debe lanzar una excepcion");
         }catch (NoEsPAutorizadaException e) {
             //ok
@@ -147,12 +148,13 @@ public class Reportes {
 
     public void testPAuto(){
         final String nombre = "Salva";
+        String aux = "";
 
         PAutorizada autorizada = new PAutorizada();
         autorizada.setNombre(nombre);
 
         try {
-            gestionInfHolanda.PAutorApi(autorizada);
+            aux = gestionInfHolanda.PAutorApi(autorizada);
             //ok
         }catch (NoEsPAutorizadaException e) {
             fail("Debe lanzar una excepcion");
