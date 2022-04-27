@@ -3,7 +3,12 @@ package ma3s.fintech.test;
 import es.uma.informatica.sii.anotaciones.Requisitos;
 import ma3s.fintech.Cliente;
 import ma3s.fintech.Empresa;
+import ma3s.fintech.PAutorizada;
+import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.GestionConcesionAutorizacion;
+import ma3s.fintech.ejb.excepciones.AccesoException;
+import ma3s.fintech.ejb.excepciones.CuentaNoExistenteException;
+import ma3s.fintech.ejb.excepciones.NoEsPAutorizadaException;
 import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,15 +22,15 @@ public class Usuarios {
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechEjbTest";
 
     private static final String CONCESION_AUTORIZACION = "java:global/classes/ConcesionAutorizacion";
-    private static final String eliminarAutorizados = "java:global/classes/EliminarAutorizados";
+    private static final String ACCESOAPLICACION = "java:global/classes/EliminarAutorizados";
 
     private ma3s.fintech.ejb.GestionConcesionAutorizacion gestionConcesionAutorizacion;
-    private ma3s.fintech.ejb.GestionEliminarAutorizados gestionEliminarAutorizados;
+    private ma3s.fintech.ejb.GestionAccesoAplicacion gestionAccesoAplicacion;
 
     @Before
     public void setup() throws NamingException {
         gestionConcesionAutorizacion = (ma3s.fintech.ejb.GestionConcesionAutorizacion) SuiteTest.ctx.lookup(CONCESION_AUTORIZACION);
-        gestionEliminarAutorizados = (ma3s.fintech.ejb.GestionEliminarAutorizados) SuiteTest.ctx.lookup(eliminarAutorizados);
+        gestionAccesoAplicacion = (ma3s.fintech.ejb.GestionAccesoAplicacion) SuiteTest.ctx.lookup(ACCESOAPLICACION);
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
 
@@ -60,17 +65,66 @@ public class Usuarios {
             //ok
         }
     }
-/*
+
+    /*
     @Requisitos({"RF10"})
     @Test
-    public void testDarBaja(){
-        Cliente cliente = new Cliente();
+    public void testAccederAplicacion(){
+        Usuario user = new Usuario();
+        user.setUser("Almu");
+        user.setContrasena("1234");
+
 
         try{
+            gestionAccesoAplicacion.accederAplicacion(user.getUser(), user.getContrasena());
+            //ok
+        } catch (CuentaNoExistenteException e) {
+            fail("No Debe lanzar una excepcion ");
+        } catch (NoEsPAutorizadaException e) {
+            fail("No Debe lanzar una excepcion ");
+        } catch (AccesoException e) {
+            fail("No Debe lanzar una excepcion ");
+        }
+    }
 
-        } catch ( ) {
+    @Requisitos({"RF10"})
+    @Test
+    public void testAccederAplicacionErrorUsuario(){
+        Usuario user = new Usuario();
+        user.setUser("almudena");
+        user.setContrasena("1234");
+
+        try{
+            gestionAccesoAplicacion.accederAplicacion(user.getUser(), user.getContrasena());
+            fail("Debe lanzar una excepcion");
+        } catch (CuentaNoExistenteException e) {
+            fail("Debe lanzar una excepcion AccesoException");
+        } catch (NoEsPAutorizadaException e) {
+            fail("Debe lanzar una excepcion AccesoException");
+        } catch (AccesoException e) {
             //ok
         }
     }
-  */
+
+    @Requisitos({"RF10"})
+    @Test
+    public void testAccederAplicacionErrorUsuario(){
+        Usuario user = new Usuario();
+        user.setUser("almudena");
+        user.setContrasena("1234");
+
+        try{
+            gestionAccesoAplicacion.accederAplicacion(user.getUser(), user.getContrasena());
+            fail("Debe lanzar una excepcion");
+        } catch (CuentaNoExistenteException e) {
+            fail("Debe lanzar una excepcion AccesoException");
+        } catch (NoEsPAutorizadaException e) {
+            fail("Debe lanzar una excepcion AccesoException");
+        } catch (AccesoException e) {
+            //ok
+        }
+    }
+
+     */
+
 }

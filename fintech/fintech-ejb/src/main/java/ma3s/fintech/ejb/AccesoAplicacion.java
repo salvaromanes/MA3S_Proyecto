@@ -28,7 +28,9 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
         if(cliente == null) {
             throw new AccesoException("el cliente no existe, no puede acceder");
         // el cliente si existe, pero la PA no
-        }else if(cliente != null && pA == null){
+        }
+
+        else if(cliente != null && pA == null){
             cuentas = cliente.getCuentasFintech();
 
             if(cuentas.size()==0){
