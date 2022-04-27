@@ -9,6 +9,6 @@ public interface GestionTransferencia {
 
     public void transferenciaCliente(Transaccion transaccion, Long id) throws PersonaNoExisteException, CampoVacioException, ErrorOrigenTransaccionException, SaldoNoSuficiente;
 
-    public void transeferenciaAutorizado(Long id, Long idEmpresa, Transaccion transaccion) throws PersonaNoExisteException, ErrorOrigenTransaccionException, CampoVacioException, SaldoNoSuficiente
+    public void transeferenciaAutorizado(Long id, Long idEmpresa, Transaccion transaccion) throws PersonaNoExisteException, ErrorOrigenTransaccionException, CampoVacioException, SaldoNoSuficiente;
 
 }
