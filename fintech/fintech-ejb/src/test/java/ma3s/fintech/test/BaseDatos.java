@@ -45,6 +45,9 @@ public class BaseDatos {
         Segregada segregada = new Segregada();
         segregada.setIban("12315");
         segregada.setSwift("12323");
+        segregada.setEstado("Activa");
+        segregada.setFechaApertura(new Date());
+
 
         PAutorizada pAutorizada = new PAutorizada();
         pAutorizada.setNombre("Salva");
