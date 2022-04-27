@@ -13,20 +13,13 @@ import static org.junit.Assert.fail;
 
 public class Reportes {
 
-
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechEjbTest";
-
     private static final String CUENTASAPI = "java:global/classes/GeneracionInfHolanda";
-
-
 
     private ma3s.fintech.ejb.GestionInfHolanda gestionInfHolanda;
 
-
-
     @Before
     public void setup() throws NamingException {
-
         gestionInfHolanda = (ma3s.fintech.ejb.GestionInfHolanda) SuiteTest.ctx.lookup(CUENTASAPI);
 
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
@@ -40,7 +33,6 @@ public class Reportes {
         final String iban = "1233223";
         //final String ref_iban = "8732";
 
-
         Segregada seg = new Segregada();
         seg.setIban(iban);
 
@@ -49,13 +41,12 @@ public class Reportes {
 
         try {
             gestionInfHolanda.CuentasApi(seg);
-            fail("Debe lanzar una excepcion");
+            fail("Debe lanzar una excepcion CuentaNoExistenteException");
         }catch (CuentaNoExistenteException e) {
             //ok
         }
 
     }
-
 
     @Requisitos({"RF11"})
     @Test
@@ -74,12 +65,10 @@ public class Reportes {
             gestionInfHolanda.CuentasApi(seg);
             //ok
         }catch (CuentaNoExistenteException e) {
-            fail("Debe lanzar una excepcion");
+            fail("No Debe lanzar una excepcion");
         }
 
     }
-
-
 
     @Requisitos({"RF11"})
     @Test
@@ -92,14 +81,11 @@ public class Reportes {
 
         try {
             gestionInfHolanda.ClienteApi(c1);
-            fail("Debe lanzar una excepcion");
+            fail("Debe lanzar una excepcion ClienteNoExisteException");
         }catch (ClienteNoExisteException e) {
             //ok
         }
-
     }
-
-
 
     @Requisitos({"RF11"})
     @Test
@@ -114,14 +100,9 @@ public class Reportes {
             gestionInfHolanda.ClienteApi(c1);
             //ok
         }catch (ClienteNoExisteException e) {
-            fail("Debe lanzar una excepcion");        }
-
+            fail("No Debe lanzar una excepcion");
+        }
     }
-
-
-
-
-
 
     @Requisitos({"RF11"})
     @Test
@@ -135,13 +116,11 @@ public class Reportes {
 
         try {
             aux = gestionInfHolanda.PAutorApi(autorizada);
-            fail("Debe lanzar una excepcion");
+            fail("Debe lanzar una excepcion NoEsPAutorizadaException");
         }catch (NoEsPAutorizadaException e) {
             //ok
         }
-
     }
-
 
     @Requisitos({"RF11"})
     @Test
@@ -157,7 +136,7 @@ public class Reportes {
             aux = gestionInfHolanda.PAutorApi(autorizada);
             //ok
         }catch (NoEsPAutorizadaException e) {
-            fail("Debe lanzar una excepcion");
+            fail("No Debe lanzar una excepcion");
         }
 
     }
