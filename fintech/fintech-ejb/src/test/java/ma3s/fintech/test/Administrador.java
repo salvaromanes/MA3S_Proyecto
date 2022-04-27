@@ -403,7 +403,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "ident");
@@ -428,7 +428,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "ident");
@@ -453,7 +453,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), null);
@@ -478,7 +478,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "123");
@@ -508,7 +508,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarNombre(user.getUser(), pAut.getId(), "pau");
@@ -533,7 +533,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarNombre(user.getUser(), pAut.getId(), "pau");
@@ -558,7 +558,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarNombre(user.getUser(), pAut.getId(), null);
@@ -583,7 +583,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarNombre(user.getUser(), pAut.getId(), "Leonardo");
@@ -613,7 +613,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarApellidos(user.getUser(), pAut.getId(), "pau");
@@ -638,7 +638,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarApellidos(user.getUser(), pAut.getId(), "pau");
@@ -663,7 +663,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarApellidos(user.getUser(), pAut.getId(), null);
@@ -688,7 +688,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarApellidos(user.getUser(), pAut.getId(), "Jirafa");
@@ -717,7 +717,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarDireccion(user.getUser(), pAut.getId(), "pau");
@@ -742,7 +742,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarDireccion(user.getUser(), pAut.getId(), "pau");
@@ -767,7 +767,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarDireccion(user.getUser(), pAut.getId(), null);
@@ -792,7 +792,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarDireccion(user.getUser(), pAut.getId(), "Calle Hola");
@@ -821,7 +821,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -848,7 +848,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -875,7 +875,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -902,7 +902,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -933,7 +933,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -960,7 +960,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -987,7 +987,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -1014,7 +1014,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -1045,7 +1045,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -1072,7 +1072,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -1099,7 +1099,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -1126,7 +1126,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -1157,7 +1157,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -1186,7 +1186,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -1215,7 +1215,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         Date date = new Date(2022/04/27);
 
@@ -1244,7 +1244,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarEstado(user.getUser(), pAut.getId(), "patata");
@@ -1270,7 +1270,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1", 1));
+        pAut.setId(parseLong("1"));
 
         try {
             gestionModificarPAutorizada.modificarEstado(user.getUser(), pAut.getId(), "activo");
