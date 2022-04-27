@@ -1,7 +1,5 @@
 package ma3s.fintech;
 
-import java.util.List;
-
 import ma3s.fintech.excepciones.ContraseñaIncorrectaException;
 import ma3s.fintech.excepciones.UsuarioIncorrectoException;
 import ma3s.fintech.excepciones.UsuarioNoEncontradoException;
@@ -12,7 +10,6 @@ import javax.persistence.PersistenceContext;
 
 @Stateless
 public class AccesoPersonal implements GestionAccesoPersonal {
-
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 

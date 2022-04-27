@@ -18,7 +18,7 @@ public class Administrador {
     private static final String AccesoPersonal = "java:global/classes/AccesoPersonal";
     private static final String AnadirAutorizado = "java:global/classes/AnadirAutorizados";
     private static final String GenerarCSV = "java:global/classes/GenerarCSV";
-    private static final String ModificarPAutorizada = "java:global/classes/GenerarCSV";
+    private static final String ModificarPAutorizada = "java:global/classes/ModificarPAutorizada";
 
 
     private GestionAperturaCuenta gestionAperturaCuenta;

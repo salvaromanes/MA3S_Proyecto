@@ -1,7 +1,6 @@
 package ma3s.fintech;
 
 import ma3s.fintech.excepciones.*;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
