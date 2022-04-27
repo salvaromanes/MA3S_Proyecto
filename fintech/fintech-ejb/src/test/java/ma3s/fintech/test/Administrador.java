@@ -2,12 +2,10 @@ package ma3s.fintech.test;
 
 import es.uma.informatica.sii.anotaciones.Requisitos;
 import ma3s.fintech.*;
-import ma3s.fintech.ejb.*;
 import ma3s.fintech.ejb.excepciones.*;
 import org.junit.Before;
 import org.junit.Test;
 import javax.naming.NamingException;
-import java.io.IOException;
 import java.util.Date;
 
 import static java.lang.Long.parseLong;
