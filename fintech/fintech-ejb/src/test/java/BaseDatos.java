@@ -50,6 +50,7 @@ public class BaseDatos {
 
         Usuario user = new Usuario();
         user.setUser("Almu");
+        user.setContrasena("1234");
         user.setEsAdmin(true);
 
 
