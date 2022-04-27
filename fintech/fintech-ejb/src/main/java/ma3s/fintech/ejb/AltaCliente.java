@@ -20,6 +20,8 @@ public class AltaCliente implements GestionAltaCliente{
 
     @Override
     public void darAltaEmpresa(Empresa empresa) throws CampoVacioException, ClienteYaExistenteException {
+        if(empresa == null)
+            throw new CampoVacioException();
         String identificacion = empresa.getIdentificacion();
         String tipo_cliente = empresa.getTipoCliente();
         String estado = empresa.getEstado();
@@ -50,6 +52,8 @@ public class AltaCliente implements GestionAltaCliente{
 
     @Override
     public void darAltaIndividual(Individual individual) throws CampoVacioException, ClienteYaExistenteException {
+        if(individual == null)
+            throw new CampoVacioException();
         String identificacion = individual.getIdentificacion();
         String tipo_cliente = individual.getTipoCliente();
         String estado = individual.getEstado();
