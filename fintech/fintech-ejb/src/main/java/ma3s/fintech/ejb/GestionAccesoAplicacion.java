@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface GestionAccesoAplicacion {
 
-    List<Fintech> accederAplicacion(String usuario, String contrasena) throws AccesoException;
+    List<Fintech> accederAplicacion(String usuario, String contrasena) throws AccesoException, PersonaNoExisteException;
 }
