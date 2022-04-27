@@ -17,7 +17,7 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
     public void accederAplicacion(String usuario, String contrasena) throws AccesoException, CuentaNoExistenteException, NoEsPAutorizadaException {
         Usuario user = em.find(Usuario.class, usuario);
         Cliente cliente = em.find(Cliente.class, user.getCliente().getId());
-        PAutorizada pa = em.find(PAutorizada.class, user.getAutorizada().getId());
+        PAutorizada pA = em.find(PAutorizada.class, user.getAutorizada().getId());
         List<Fintech> cuentas;
 
         if(user == null){
@@ -28,7 +28,7 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
         if(cliente == null) {
             throw new AccesoException("el cliente no existe, no puede acceder");
         // el cliente si existe, pero la PA no
-        }else if(cliente != null && pa == null){
+        }else if(cliente != null && pA == null){
             cuentas = cliente.getCuentasFintech();
 
             if(cuentas.size()==0){
@@ -37,10 +37,10 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
         }
 
         // el PA no existe
-        if(pa == null) {
+        if(pA == null) {
             throw new AccesoException("la persona autorizada no existe, no puede acceder");
         // el PA si existe, pero el cliente no
-        }else if(pa != null && cliente == null){
+        }else if(pA != null && cliente == null){
             Autorizacion autorizacion = em.find(Autorizacion.class, user.getpAutorizada().getId());
             Empresa empresa = em.find(Empresa.class, autorizacion.getAutorizadaId());
 
