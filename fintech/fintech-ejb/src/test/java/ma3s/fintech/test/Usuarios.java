@@ -6,10 +6,7 @@ import ma3s.fintech.Empresa;
 import ma3s.fintech.PAutorizada;
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.GestionConcesionAutorizacion;
-import ma3s.fintech.ejb.excepciones.AccesoException;
-import ma3s.fintech.ejb.excepciones.CuentaNoExistenteException;
-import ma3s.fintech.ejb.excepciones.NoEsPAutorizadaException;
-import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
+import ma3s.fintech.ejb.excepciones.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -118,6 +115,8 @@ public class Usuarios {
             //ok
         } catch (AccesoException e) {
             fail("No Debe lanzar una excepcion ");
+        } catch (PersonaNoExisteException e) {
+            e.printStackTrace();
         }
     }
 
@@ -133,6 +132,8 @@ public class Usuarios {
             fail("Debe lanzar una excepcion");
         } catch (AccesoException e) {
             //ok
+        } catch (PersonaNoExisteException e) {
+            e.printStackTrace();
         }
     }
 
