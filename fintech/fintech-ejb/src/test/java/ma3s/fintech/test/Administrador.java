@@ -25,11 +25,11 @@ public class Administrador {
 
 
     private ma3s.fintech.ejb.GestionAperturaCuenta gestionAperturaCuenta;
-    private GestionCierreCuenta gestionCierreCuenta;
-    private GestionAccesoPersonal gestionAccesoPersonal;
-    private GestionAnadirAutorizados gestionAnadirAutorizados;
-    private GestionGenerarCSV gestionGenerarCSV;
-    private GestionModificarPAutorizada gestionModificarPAutorizada;
+    private ma3s.fintech.ejb.GestionCierreCuenta gestionCierreCuenta;
+    private ma3s.fintech.ejb.GestionAccesoPersonal gestionAccesoPersonal;
+    private ma3s.fintech.ejb.GestionAnadirAutorizados gestionAnadirAutorizados;
+    private ma3s.fintech.ejb.GestionGenerarCSV gestionGenerarCSV;
+    private ma3s.fintech.ejb.GestionModificarPAutorizada gestionModificarPAutorizada;
 
 
     @Before

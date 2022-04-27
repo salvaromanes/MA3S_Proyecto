@@ -17,7 +17,7 @@ public class Usuarios {
 
     private static final String CONCESION_AUTORIZACION = "java:global/classes/ConcesionAutorizacion";
 
-    private GestionConcesionAutorizacion gestionConcesionAutorizacion;
+    private ma3s.fintech.ejb.GestionConcesionAutorizacion gestionConcesionAutorizacion;
 
     @Before
     public void setup() throws NamingException {

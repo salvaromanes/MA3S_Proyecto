@@ -18,8 +18,8 @@ public class Cuentas {
     private static final String APERTURA_CUENTA = "java:global/classes/AperturaCuenta";
     private static final String CIERRE_CUENTA = "java:global/classes/CierreCuenta";
 
-    private GestionAperturaCuenta gestionAperturaCuenta;
-    private GestionCierreCuenta gestionCierreCuenta;
+    private ma3s.fintech.ejb.GestionAperturaCuenta gestionAperturaCuenta;
+    private ma3s.fintech.ejb.GestionCierreCuenta gestionCierreCuenta;
 
     @Before
     public void setup() throws NamingException {
