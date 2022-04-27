@@ -87,6 +87,16 @@ public class BaseDatos {
         user.setEsAdmin(true);
 
 
+        Referencia referencia = new Referencia();
+        referencia.setIban("123221");
+        referencia.setEstado("Activa");
+        referencia.setFechaApertura(new Date());
+        referencia.setNombreBanco("Unicaja");
+        referencia.setPais("Espana");
+        referencia.setSaldo(85000);
+        referencia.setSucursal("Unicaja-Huelin");
+
+
         for (Usuario u: new Usuario[]{usuario, usuario1, user}) {
             em.persist(u);
         }
