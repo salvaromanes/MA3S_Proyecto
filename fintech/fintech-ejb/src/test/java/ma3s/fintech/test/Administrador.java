@@ -2,6 +2,7 @@ package ma3s.fintech.test;
 
 import es.uma.informatica.sii.anotaciones.Requisitos;
 import ma3s.fintech.*;
+import ma3s.fintech.ejb.*;
 import ma3s.fintech.ejb.excepciones.*;
 import org.junit.Before;
 import org.junit.Test;
