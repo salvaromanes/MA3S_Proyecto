@@ -1302,6 +1302,8 @@ public class Administrador {
         user.setUser("Almu");
 
         PAutorizada pA = new PAutorizada();
+        pA.setNombre("Salva");
+        pA.setIdentificacion("12345678S");
         pA.setId(parseLong("1"));
 
         Empresa empresa = new Empresa();
@@ -1325,6 +1327,8 @@ public class Administrador {
         user.setUser("Almudena");
 
         PAutorizada pA = new PAutorizada();
+        pA.setNombre("Salva");
+        pA.setIdentificacion("12345678S");
         pA.setId(parseLong("1"));
 
         Empresa empresa = new Empresa();
@@ -1345,10 +1349,11 @@ public class Administrador {
 
     public void testDarBajaErrorNoEsPAutorizada(){
         Usuario user = new Usuario();
-        user.setUser("Almudena");
+        user.setUser("Almu");
 
         PAutorizada pA = new PAutorizada();
-        pA.setId(parseLong("1"));
+        pA.setNombre("Salvador");
+        pA.setId(1234L);
 
         Empresa empresa = new Empresa();
         empresa.setIdentificacion("UMA");
