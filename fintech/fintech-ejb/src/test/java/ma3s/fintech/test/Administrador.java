@@ -35,13 +35,13 @@ public class Administrador {
 
     @Before
     public void setup() throws NamingException {
-        gestionAperturaCuenta = (GestionAperturaCuenta) SuiteTest.ctx.lookup(APERTURA_CUENTA);
+        gestionAperturaCuenta = (ma3s.fintech.ejb.GestionAperturaCuenta) SuiteTest.ctx.lookup(APERTURA_CUENTA);
         gestionCierreCuenta = (ma3s.fintech.ejb.GestionCierreCuenta) SuiteTest.ctx.lookup(CIERRE_CUENTA);
         gestionAccesoPersonal = (ma3s.fintech.ejb.GestionAccesoPersonal) SuiteTest.ctx.lookup(ACCESOPERSONAL);
         gestionAnadirAutorizados = (ma3s.fintech.ejb.GestionAnadirAutorizados) SuiteTest.ctx.lookup(ANADIRAUTORIZADOS);
         gestionGenerarCSV = (ma3s.fintech.ejb.GestionGenerarCSV) SuiteTest.ctx.lookup(GENERARCSV);
         gestionModificarPAutorizada = (ma3s.fintech.ejb.GestionModificarPAutorizada) SuiteTest.ctx.lookup(MODIFICARPAUTORIZADA);
-        gestionEliminarAutorizados = (ma3s.fintech.ejb.EliminarAutorizados) SuiteTest.ctx.lookup(ELIMINAR_AUTORIZADOS);
+        gestionEliminarAutorizados = (EliminarAutorizados) SuiteTest.ctx.lookup(ELIMINAR_AUTORIZADOS);
 
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
