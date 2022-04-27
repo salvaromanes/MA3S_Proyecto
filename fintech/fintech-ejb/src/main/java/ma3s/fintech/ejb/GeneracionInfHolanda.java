@@ -42,11 +42,13 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
 
     @Override
     public String ClienteApi(Cliente cliente) throws ClienteNoExisteException {
-         Cliente cliente1 = em.find(Cliente.class, cliente);
+         Cliente cliente1 = em.find(Cliente.class, cliente.getId());
+
          if(!cliente1.equals(cliente)){
              throw  new ClienteNoExisteException("El cliente : " + cliente1.getId() + " no existe");
          }
-        String aux = "{\n \"searchParametres\":{" +
+
+         String aux = "{\n \"searchParametres\":{" +
                  "\n \"quesionType\": \"Customer,\"" +
                  "\"startPeriod\":"+ cliente.getFechaAlta() +",\n" +
                  "\"endPeriod\":"+ cliente.getFechaBaja() +",\n"+
