@@ -20,7 +20,7 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
     public String CuentasApi(Segregada cuenta) throws CuentaNoExistenteException {
         Segregada cuenta_Aux = em.find(Segregada.class, cuenta);
         Referencia referencia = em.find(Referencia.class, cuenta.getIban());
-        if(!cuenta_Aux.equals(cuenta)){
+        if(cuenta_Aux.getIban() !=  cuenta.getIban()){
             throw new CuentaNoExistenteException("La cuenta : " + cuenta_Aux.getIban() +  " no se encuentra" );
         }
 
