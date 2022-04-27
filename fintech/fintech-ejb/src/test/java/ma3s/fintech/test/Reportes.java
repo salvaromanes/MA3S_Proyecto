@@ -48,7 +48,7 @@ public class Reportes {
         ref.setIban(ref_iban);
 
         try {
-            gestionInfHolanda.CuentasApi(seg);
+            gestionInfHolanda.CuentasApi(seg,ref);
             fail("Debe lanzar una excepcion");
         }catch (CuentaNoExistenteException e) {
             //ok
@@ -71,7 +71,7 @@ public class Reportes {
         Referencia ref = new Referencia();
         ref.setIban(ref_iban);
         try {
-            gestionInfHolanda.CuentasApi(seg);
+            gestionInfHolanda.CuentasApi(seg,ref);
             //ok
         }catch (CuentaNoExistenteException e) {
             fail("Debe lanzar una excepcion");

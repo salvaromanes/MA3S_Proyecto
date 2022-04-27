@@ -17,10 +17,12 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
     private EntityManager em;
 
 
+
+
     @Override
-    public String CuentasApi(Segregada cuenta) throws CuentaNoExistenteException {
+    public String CuentasApi(Segregada cuenta, Referencia referencia) throws CuentaNoExistenteException {
         Segregada cuenta_Aux = em.find(Segregada.class, cuenta);
-        Referencia referencia = em.find(Referencia.class,cuenta.getIban());
+        Referencia ref = em.find(Referencia.class,referencia.getIban());
         if(!cuenta_Aux.equals(cuenta)){
             throw new CuentaNoExistenteException("La cuenta : " + cuenta_Aux.getIban() +  " no se encuentra" );
         }
