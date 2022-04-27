@@ -533,7 +533,7 @@ public class Administrador {
         pAut.setId(parseLong("1", 1));
 
         try {
-            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "pau");
+            gestionModificarPAutorizada.modificarNombre(user.getUser(), pAut.getId(), "pau");
             // Si no devuelve nada
             fail("Debe Lanzar una excepcion NoEsAdministradorException");
         } catch (PersonaNoExisteException e){
@@ -558,7 +558,7 @@ public class Administrador {
         pAut.setId(parseLong("1", 1));
 
         try {
-            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), null);
+            gestionModificarPAutorizada.modificarNombre(user.getUser(), pAut.getId(), null);
             // Si no devuelve nada
             fail("Debe Lanzar una excepcion CampoVacioException");
         } catch (PersonaNoExisteException e){
@@ -583,7 +583,7 @@ public class Administrador {
         pAut.setId(parseLong("1", 1));
 
         try {
-            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "Leonardo");
+            gestionModificarPAutorizada.modificarNombre(user.getUser(), pAut.getId(), "Leonardo");
             // Si no devuelve nada
             // ok -> all is ok
         } catch (PersonaNoExisteException e){
@@ -613,7 +613,7 @@ public class Administrador {
         pAut.setId(parseLong("1", 1));
 
         try {
-            gestionModificarPAutorizada.modificarNombre(user.getUser(), pAut.getId(), "pau");
+            gestionModificarPAutorizada.modificarApellidos(user.getUser(), pAut.getId(), "pau");
             // Si no devuelve nada
             fail("Debe Lanzar una excepcion PersonaNoExisteException");
         } catch (PersonaNoExisteException e){
@@ -638,7 +638,7 @@ public class Administrador {
         pAut.setId(parseLong("1", 1));
 
         try {
-            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "pau");
+            gestionModificarPAutorizada.modificarApellidos(user.getUser(), pAut.getId(), "pau");
             // Si no devuelve nada
             fail("Debe Lanzar una excepcion NoEsAdministradorException");
         } catch (PersonaNoExisteException e){
@@ -663,7 +663,7 @@ public class Administrador {
         pAut.setId(parseLong("1", 1));
 
         try {
-            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), null);
+            gestionModificarPAutorizada.modificarApellidos(user.getUser(), pAut.getId(), null);
             // Si no devuelve nada
             fail("Debe Lanzar una excepcion CampoVacioException");
         } catch (PersonaNoExisteException e){
@@ -688,7 +688,7 @@ public class Administrador {
         pAut.setId(parseLong("1", 1));
 
         try {
-            gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "Jirafa");
+            gestionModificarPAutorizada.modificarApellidos(user.getUser(), pAut.getId(), "Jirafa");
             // Si no devuelve nada
             // ok -> all is ok
         } catch (PersonaNoExisteException e){

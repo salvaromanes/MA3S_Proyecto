@@ -22,6 +22,4 @@ public interface GestionModificarPAutorizada {
     public void modificarFechaFin(String id_adm, Long id_aut, Date fechaFinNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException;
 
     public void modificarEstado(String id_adm, Long id_aut, String estadoNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException, EstadoNoValidoException;
-
-    public void modificarTipo(String id_adm, Long id_aut, String tipoNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException;
 }
