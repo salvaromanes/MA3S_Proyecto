@@ -16,6 +16,8 @@ public class ModificarCliente implements GestionModificarCliente{
     //Modificacion Empresa
     @Override
     public void modDireccionEmpresa(Long id, String direccion) throws CampoVacioException, EmpresaNoExistenteException {
+        if(id == null)
+            throw new CampoVacioException();
         Empresa empresa = em.find(Empresa.class, id);
 
         if(empresa == null)
@@ -30,6 +32,8 @@ public class ModificarCliente implements GestionModificarCliente{
 
     @Override
     public void modCiudadEmpresa(Long id, String ciudad) throws CampoVacioException, EmpresaNoExistenteException {
+        if(id == null)
+            throw new CampoVacioException();
         Empresa empresa = em.find(Empresa.class, id);
 
         if(empresa == null)
@@ -44,6 +48,8 @@ public class ModificarCliente implements GestionModificarCliente{
 
     @Override
     public void modCodigoPostalEmpresa(Long id, String codigoPostal) throws CampoVacioException, EmpresaNoExistenteException {
+        if(id == null)
+            throw new CampoVacioException();
         Empresa empresa = em.find(Empresa.class, id);
 
         if(empresa == null)
@@ -58,6 +64,8 @@ public class ModificarCliente implements GestionModificarCliente{
 
     @Override
     public void modPaisEmpresa(Long id, String pais) throws CampoVacioException, EmpresaNoExistenteException {
+        if(id == null)
+            throw new CampoVacioException();
         Empresa empresa = em.find(Empresa.class, id);
 
         if(empresa == null)
@@ -72,6 +80,8 @@ public class ModificarCliente implements GestionModificarCliente{
 
     @Override
     public void modRazonSocialEmpresa(Long id, String razon_social) throws CampoVacioException, EmpresaNoExistenteException {
+        if(id == null)
+            throw new CampoVacioException();
         Empresa empresa = em.find(Empresa.class, id);
 
         if(empresa == null)
@@ -87,6 +97,8 @@ public class ModificarCliente implements GestionModificarCliente{
     //Modificaciones Individual
     @Override
     public void modDireccionIndividual(Long id, String direccion) throws CampoVacioException, IndividualNoExistenteException {
+        if(id == null)
+            throw new CampoVacioException();
         Individual individual = em.find(Individual.class, id);
 
         if (individual == null){
@@ -103,6 +115,8 @@ public class ModificarCliente implements GestionModificarCliente{
 
     @Override
     public void modCiudadIndividual(Long id, String ciudad) throws CampoVacioException, IndividualNoExistenteException {
+        if(id == null)
+            throw new CampoVacioException();
         Individual individual = em.find(Individual.class, id);
 
         if (individual == null){
@@ -119,6 +133,8 @@ public class ModificarCliente implements GestionModificarCliente{
 
     @Override
     public void modCodigoPostalIndividual(Long id, String codigoPostal) throws CampoVacioException, IndividualNoExistenteException {
+        if(id == null)
+            throw new CampoVacioException();
         Individual individual = em.find(Individual.class, id);
 
         if (individual == null){
@@ -135,6 +151,8 @@ public class ModificarCliente implements GestionModificarCliente{
 
     @Override
     public void modPaisIndividual(Long id, String pais) throws CampoVacioException, IndividualNoExistenteException {
+        if(id == null)
+            throw new CampoVacioException();
         Individual individual = em.find(Individual.class, id);
 
         if (individual == null){
@@ -151,6 +169,8 @@ public class ModificarCliente implements GestionModificarCliente{
 
     @Override
     public void modNombreIndividual(Long id, String nombre) throws CampoVacioException, IndividualNoExistenteException {
+        if(id == null)
+            throw new CampoVacioException();
         Individual individual = em.find(Individual.class, id);
 
         if (individual == null){
@@ -167,6 +187,8 @@ public class ModificarCliente implements GestionModificarCliente{
 
     @Override
     public void modApellidoIndividual(Long id, String apellido) throws CampoVacioException, IndividualNoExistenteException {
+        if(id == null)
+            throw new CampoVacioException();
         Individual individual = em.find(Individual.class, id);
 
         if (individual == null){
@@ -183,6 +205,8 @@ public class ModificarCliente implements GestionModificarCliente{
 
     @Override
     public void modFechaNacimientoIndividual(Long id, Date fecha_nacimiento) throws CampoVacioException, IndividualNoExistenteException {
+        if(id == null)
+            throw new CampoVacioException();
         Individual individual = em.find(Individual.class, id);
 
         if (individual == null){

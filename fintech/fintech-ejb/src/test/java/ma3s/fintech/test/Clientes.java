@@ -38,6 +38,7 @@ public class Clientes {
 
     public void testDarAltaEmpresa(){
         Empresa nuevaEmpresa = new Empresa();
+        nuevaEmpresa.setId(new Long("81"));
         nuevaEmpresa.setIdentificacion("ES458");
         nuevaEmpresa.setTipoCliente("Jurídico");
         nuevaEmpresa.setEstado("Abierta");
@@ -84,6 +85,7 @@ public class Clientes {
 
     public void testDarAltaEmpresaClienteYaExistente(){
         Empresa nuevaEmpresa = new Empresa();
+        nuevaEmpresa.setId(new Long(83));
         nuevaEmpresa.setIdentificacion("ES450");
         nuevaEmpresa.setTipoCliente("Jurídico");
         nuevaEmpresa.setEstado("Abierta");
@@ -110,6 +112,7 @@ public class Clientes {
     @Test
     public void testDarAltaIndividual(){
         Individual individual = new Individual();
+        individual.setId(new Long(82));
         individual.setIdentificacion("MAN45");
         individual.setTipoCliente("Personal");
         individual.setEstado("Abierto");
@@ -157,6 +160,7 @@ public class Clientes {
     @Test
     public void testDarAltaIndividualClienteYaExistente(){
         Individual individual = new Individual();
+        individual.setId(new Long(80));
         individual.setIdentificacion("MAN40");
         individual.setTipoCliente("Personal");
         individual.setEstado("Abierto");
