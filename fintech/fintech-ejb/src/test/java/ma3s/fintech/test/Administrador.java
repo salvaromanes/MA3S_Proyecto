@@ -404,7 +404,7 @@ public class Administrador {
         user.setUser(NOMBRE);
 
         PAutorizada pAut = new PAutorizada();
-        pAut.setId(parseLong("1"));
+        pAut.setId(parseLong("2"));
 
         try {
             gestionModificarPAutorizada.modificarIdentificacion(user.getUser(), pAut.getId(), "ident");
