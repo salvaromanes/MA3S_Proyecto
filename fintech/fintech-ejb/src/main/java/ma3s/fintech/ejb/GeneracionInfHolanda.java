@@ -44,6 +44,10 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
     public String ClienteApi(Cliente cliente) throws ClienteNoExisteException {
          Cliente cliente1 = em.find(Cliente.class, cliente.getId());
 
+         if(cliente1 == null){
+             throw new ClienteNoExisteException();
+         }
+
          if(!cliente1.equals(cliente)){
              throw  new ClienteNoExisteException("El cliente : " + cliente1.getId() + " no existe");
          }
@@ -66,9 +70,15 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
     @Override
     public String PAutorApi(PAutorizada autorizada) throws NoEsPAutorizadaException {
         PAutorizada autorizada1 = em.find(PAutorizada.class, autorizada.getId());
+
+        if(autorizada1 == null){
+            throw new NoEsPAutorizadaException();
+        }
+
         if(!autorizada1.getId().equals(autorizada.getId())){
             throw new NoEsPAutorizadaException("La persona  "+  autorizada1.getId() + " no es autorizada" );
         }
+
         String aux = "{\n \"searchParametres\":{" +
                 "\n \"quesionType\": \"Customer,\"" +
                 "\"startPeriod\":"+ autorizada.getFechaInicio() +",\n" +

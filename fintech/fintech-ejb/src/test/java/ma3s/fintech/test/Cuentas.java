@@ -54,16 +54,12 @@ public class Cuentas {
     @Requisitos({"RF5"})
     @Test
     public void testAperturaCuentaSegregada(){
-        final String ibanCuenta = "123";
-        final String swiftCuenta = "123";
+        final String ibanCuenta = "12315";
+        final String swiftCuenta = "12323";
         final String usuario = "Salva";
 
-        Cuenta cuenta = new Cuenta();
-        cuenta.setIban(ibanCuenta);
-        cuenta.setSwift(swiftCuenta);
-
         try{
-            gestionAperturaCuenta.abrirCuentaSegregate(cuenta.getIban(), cuenta.getSwift(), usuario);
+            gestionAperturaCuenta.abrirCuentaSegregate(ibanCuenta, swiftCuenta, usuario);
             fail("Debe lanzar una excepcion");
         } catch (CuentaExistenteException e) {
             //ok
@@ -100,16 +96,12 @@ public class Cuentas {
     @Requisitos({"RF5"})
     @Test
     public void testAperturaCuentaSegregadaOk(){
-        final String ibanCuenta = "231";
-        final String swiftCuenta = "231";
+        final String ibanCuenta = "9999";
+        final String swiftCuenta = "8888";
         final String usuario = "Salva";
 
-        Cuenta cuenta = new Cuenta();
-        cuenta.setIban(ibanCuenta);
-        cuenta.setSwift(swiftCuenta);
-
         try{
-            gestionAperturaCuenta.abrirCuentaSegregate(cuenta.getIban(), cuenta.getSwift(), usuario);
+            gestionAperturaCuenta.abrirCuentaSegregate(ibanCuenta, swiftCuenta, usuario);
             //ok
         } catch (CuentaExistenteException e) {
             fail("No debe lanzar una excepcion");

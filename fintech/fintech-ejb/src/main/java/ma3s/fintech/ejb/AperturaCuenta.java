@@ -41,6 +41,7 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         Pooled pooled = new Pooled();
         pooled.setIban(iban);
         pooled.setSwift(swift);
+        pooled.setEstado("Abierta");
         pooled.setSaldo(0.0);
 
         em.persist(pooled);
@@ -59,6 +60,7 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         Segregada segregate = new Segregada();
         segregate.setIban(iban);
         segregate.setSwift(swift);
+        segregate.setEstado("Abierta");
         segregate.setComision(0.0);
 
         em.persist(segregate);
