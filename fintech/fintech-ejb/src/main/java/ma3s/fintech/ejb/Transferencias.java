@@ -34,7 +34,7 @@ public class Transferencias implements GestionTransferencia{
     @Override
     public void transferenciaCliente(Transaccion transaccion, Long id) throws PersonaNoExisteException, CampoVacioException, ErrorOrigenTransaccionException, SaldoNoSuficiente {
         // Vamos a comprobar que el usuario (id) es un cliente
-        Cliente cliente= em.find(Cliente.class, id);
+        Cliente cliente = em.find(Cliente.class, id);
         if(cliente == null) throw new PersonaNoExisteException("El cliente no existe");
 
 
