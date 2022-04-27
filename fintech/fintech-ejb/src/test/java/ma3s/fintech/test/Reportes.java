@@ -20,7 +20,7 @@ public class Reportes {
 
 
 
-    private ma3s.fintech.ejb.GestionInfHolanda gestionInfHolanda;
+    private GestionInfHolanda gestionInfHolanda;
 
 
 
