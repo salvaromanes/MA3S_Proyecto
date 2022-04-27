@@ -38,7 +38,7 @@ D:\Desktop\MA3S\fintech\fintech-ejb\src\main\java\ma3s\fintech\AltaCliente.java
 D:\Desktop\MA3S\fintech\fintech-ejb\src\main\java\ma3s\fintech\GestionAnadirAutorizados.java
 D:\Desktop\MA3S\fintech\fintech-ejb\src\main\java\ma3s\fintech\excepciones\EstadoNoValidoException.java
 D:\Desktop\MA3S\fintech\fintech-ejb\src\main\java\ma3s\fintech\excepciones\ClienteNoExisteException.java
-D:\Desktop\MA3S\fintech\fintech-ejb\src\main\java\ma3s\fintech\excepciones\ContraseñaIncorrectaException.java
+D:\Desktop\MA3S\fintech\fintech-ejb\src\main\java\ma3s\fintech\excepciones\ContraseÃ±aIncorrectaException.java
 D:\Desktop\MA3S\fintech\fintech-ejb\src\main\java\ma3s\fintech\excepciones\CuentaAbiertaException.java
 D:\Desktop\MA3S\fintech\fintech-ejb\src\main\java\ma3s\fintech\excepciones\EmpresaNoRelacException.java
 D:\Desktop\MA3S\fintech\fintech-ejb\src\main\java\ma3s\fintech\GenerarCSV.java

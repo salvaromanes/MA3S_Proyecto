@@ -13,7 +13,7 @@ public class Reportes {
 
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechEjbTest";
 
-    private static final String CuentasApi = "java:global/classes/GenereacionInfHolanda";
+    private static final String CuentasApi = "java:global/classes/GeneracionInfHolanda";
 
 
 
