@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import javax.naming.NamingException;
 
+import static java.lang.Long.parseLong;
 import static org.junit.Assert.fail;
 
 public class Reportes {
@@ -109,9 +110,11 @@ public class Reportes {
 
     public void testPAutoError(){
         final String nombre = "Juan";
+        final Long id = parseLong("12");
         String aux = "";
 
         PAutorizada autorizada = new PAutorizada();
+        autorizada.setId(id);
         autorizada.setNombre(nombre);
 
         try {
