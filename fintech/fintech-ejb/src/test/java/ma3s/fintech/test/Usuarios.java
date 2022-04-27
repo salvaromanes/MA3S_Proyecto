@@ -66,7 +66,7 @@ public class Usuarios {
         }
     }
 
-    /*
+
     @Requisitos({"RF10"})
     @Test
     public void testAccederAplicacion(){
@@ -74,14 +74,9 @@ public class Usuarios {
         user.setUser("Almu");
         user.setContrasena("1234");
 
-
         try{
             gestionAccesoAplicacion.accederAplicacion(user.getUser(), user.getContrasena());
             //ok
-        } catch (CuentaNoExistenteException e) {
-            fail("No Debe lanzar una excepcion ");
-        } catch (NoEsPAutorizadaException e) {
-            fail("No Debe lanzar una excepcion ");
         } catch (AccesoException e) {
             fail("No Debe lanzar una excepcion ");
         }
@@ -97,34 +92,9 @@ public class Usuarios {
         try{
             gestionAccesoAplicacion.accederAplicacion(user.getUser(), user.getContrasena());
             fail("Debe lanzar una excepcion");
-        } catch (CuentaNoExistenteException e) {
-            fail("Debe lanzar una excepcion AccesoException");
-        } catch (NoEsPAutorizadaException e) {
-            fail("Debe lanzar una excepcion AccesoException");
         } catch (AccesoException e) {
             //ok
         }
     }
-
-    @Requisitos({"RF10"})
-    @Test
-    public void testAccederAplicacionErrorUsuario(){
-        Usuario user = new Usuario();
-        user.setUser("almudena");
-        user.setContrasena("1234");
-
-        try{
-            gestionAccesoAplicacion.accederAplicacion(user.getUser(), user.getContrasena());
-            fail("Debe lanzar una excepcion");
-        } catch (CuentaNoExistenteException e) {
-            fail("Debe lanzar una excepcion AccesoException");
-        } catch (NoEsPAutorizadaException e) {
-            fail("Debe lanzar una excepcion AccesoException");
-        } catch (AccesoException e) {
-            //ok
-        }
-    }
-
-     */
 
 }

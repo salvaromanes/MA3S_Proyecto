@@ -22,7 +22,7 @@ public class Administrador {
     private static final String AnadirAutorizado = "java:global/classes/AnadirAutorizados";
     private static final String GenerarCSV = "java:global/classes/GenerarCSV";
     private static final String ModificarPAutorizada = "java:global/classes/ModificarPAutorizada";
-
+    private static final String ELIMINAR_AUTORIZADOS = "java:global/classes/EliminarAutorizasos";
 
     private ma3s.fintech.ejb.GestionAperturaCuenta gestionAperturaCuenta;
     private ma3s.fintech.ejb.GestionCierreCuenta gestionCierreCuenta;
@@ -30,6 +30,7 @@ public class Administrador {
     private ma3s.fintech.ejb.GestionAnadirAutorizados gestionAnadirAutorizados;
     private ma3s.fintech.ejb.GestionGenerarCSV gestionGenerarCSV;
     private ma3s.fintech.ejb.GestionModificarPAutorizada gestionModificarPAutorizada;
+    private ma3s.fintech.ejb.GestionEliminarAutorizados gestionEliminarAutorizados;
 
 
     @Before
@@ -40,6 +41,7 @@ public class Administrador {
         gestionAnadirAutorizados = (ma3s.fintech.ejb.GestionAnadirAutorizados) SuiteTest.ctx.lookup(AnadirAutorizado);
         gestionGenerarCSV = (ma3s.fintech.ejb.GestionGenerarCSV) SuiteTest.ctx.lookup(GenerarCSV);
         gestionModificarPAutorizada = (ma3s.fintech.ejb.GestionModificarPAutorizada) SuiteTest.ctx.lookup(ModificarPAutorizada);
+        gestionEliminarAutorizados = (ma3s.fintech.ejb.EliminarAutorizados) SuiteTest.ctx.lookup(ELIMINAR_AUTORIZADOS);
 
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
