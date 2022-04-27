@@ -14,20 +14,28 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
     private EntityManager em;
 
     @Override
-    public List<Fintech> accederAplicacion(String usuario, String contrasena) throws AccesoException{
+    public List<Fintech> accederAplicacion(String usuario, String contrasena) throws AccesoException, PersonaNoExisteException {
         Usuario user = em.find(Usuario.class, usuario);
 
         if(user == null){
             throw new UsuarioIncorrectoException();
         }
 
-        Cliente cliente = em.find(Cliente.class, user.getCliente().getId());
-        PAutorizada pA = em.find(PAutorizada.class, user.getAutorizada().getId());
-        List<Fintech> cuentas = null;
-
         if(!contrasena.equals(user.getContrasena())){
             throw new ContraseñaIncorrectaException();
         }
+
+        if(user.getCliente() == null){
+            throw new PersonaNoExisteException("el cliente no existe");
+        }
+        Cliente cliente = em.find(Cliente.class, user.getCliente().getId());
+
+        if(user.getpAutorizada() == null){
+            throw new PersonaNoExisteException("la persona autorizada no existe");
+        }
+        PAutorizada pA = em.find(PAutorizada.class, user.getAutorizada().getId());
+
+        List<Fintech> cuentas = null;
 
         if (cliente != null){
             cuentas = cliente.getCuentasFintech();
