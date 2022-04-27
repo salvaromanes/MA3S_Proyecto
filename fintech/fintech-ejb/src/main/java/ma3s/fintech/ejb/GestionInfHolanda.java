@@ -11,7 +11,7 @@ import ma3s.fintech.ejb.excepciones.NoEsPAutorizadaException;
 
 public interface GestionInfHolanda {
 
-    public String CuentasApi(Segregada cuenta, Referencia referencia)
+    public String CuentasApi(Segregada cuenta)
             throws CuentaNoExistenteException;
 
     public String ClienteApi(Cliente cliente)  throws  ClienteNoExisteException;

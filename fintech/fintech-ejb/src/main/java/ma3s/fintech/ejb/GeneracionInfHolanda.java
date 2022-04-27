@@ -16,9 +16,30 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
+    @Override
+    public String CuentasApi(Segregada cuenta) throws CuentaNoExistenteException {
+        Segregada cuenta_Aux = em.find(Segregada.class, cuenta);
+        Referencia referencia = em.find(Referencia.class, cuenta.getIban());
+        if(!cuenta_Aux.equals(cuenta)){
+            throw new CuentaNoExistenteException("La cuenta : " + cuenta_Aux.getIban() +  " no se encuentra" );
+        }
+
+      //  if(!cuenta_Aux.getIban().equals(referencia.getIban())){
+        //    throw new CuentaNoExistenteException("La cuenta : " + cuenta_Aux.getIban() +  " no se encuentra" );
+        //}
+
+        String aux = "{\n \"searchParametres\":{" +
+                "\n \"quesionType\": \"Product,\"" +
+                "\"status\":"+ referencia.getEstado() +",\n" +
+                "\"productNumber\":"+cuenta.getIban() +",\n" + "}}"
+                ;
+
+        return  aux;
+
+    }
 
 
-
+/*
     @Override
     public String CuentasApi(Segregada cuenta, Referencia referencia) throws CuentaNoExistenteException {
         Segregada cuenta_Aux = em.find(Segregada.class, cuenta);
@@ -39,6 +60,8 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
 
         return  aux;
     }
+
+    */
 
     @Override
     public String ClienteApi(Cliente cliente) throws ClienteNoExisteException {

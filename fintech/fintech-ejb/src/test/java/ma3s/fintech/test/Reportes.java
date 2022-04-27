@@ -38,17 +38,17 @@ public class Reportes {
 
     public void testGestionInfNoValido(){
         final String iban = "1233223";
-        final String ref_iban = "8732";
+        //final String ref_iban = "8732";
 
 
         Segregada seg = new Segregada();
         seg.setIban(iban);
 
-        Referencia ref = new Referencia();
-        ref.setIban(ref_iban);
+        //Referencia ref = new Referencia();
+        //ref.setIban(ref_iban);
 
         try {
-            gestionInfHolanda.CuentasApi(seg,ref);
+            gestionInfHolanda.CuentasApi(seg);
             fail("Debe lanzar una excepcion");
         }catch (CuentaNoExistenteException e) {
             //ok
@@ -62,16 +62,16 @@ public class Reportes {
 
     public void testGestionInfValido(){
         final String iban = "8732";
-        final String ref_iban = "8732";
+        //final String ref_iban = "8732";
 
 
         Segregada seg = new Segregada();
         seg.setIban(iban);
 
-        Referencia ref = new Referencia();
-        ref.setIban(ref_iban);
+      //  Referencia ref = new Referencia();
+       // ref.setIban(ref_iban);
         try {
-            gestionInfHolanda.CuentasApi(seg,ref);
+            gestionInfHolanda.CuentasApi(seg);
             //ok
         }catch (CuentaNoExistenteException e) {
             fail("Debe lanzar una excepcion");
