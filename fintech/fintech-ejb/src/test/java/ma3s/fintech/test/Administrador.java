@@ -1293,4 +1293,73 @@ public class Administrador {
 
     // ----------------------------------------------------------------------------------------------------------
 
+
+    @Requisitos({"RF8"})
+    @Test
+
+    public void testDarBaja(){
+        Usuario user = new Usuario();
+        user.setUser("Almu");
+
+        PAutorizada pA = new PAutorizada();
+        pA.setId(parseLong("1"));
+
+        Empresa empresa = new Empresa();
+        empresa.setIdentificacion("UMA");
+
+        try{
+            gestionEliminarAutorizados.darBaja(user.getUser(), pA.getId(), empresa.getId());
+            //ok
+        } catch (PersonaNoExisteException e) {
+            fail("No Debe lanzar una excepcion ");
+        } catch (NoEsPAutorizadaException e) {
+            fail("No Debe lanzar una excepcion ");
+        }
+    }
+
+    @Requisitos({"RF8"})
+    @Test
+
+    public void testDarBajaErrorPersonaNoExiste(){
+        Usuario user = new Usuario();
+        user.setUser("Almudena");
+
+        PAutorizada pA = new PAutorizada();
+        pA.setId(parseLong("1"));
+
+        Empresa empresa = new Empresa();
+        empresa.setIdentificacion("UMA");
+
+        try{
+            gestionEliminarAutorizados.darBaja(user.getUser(), pA.getId(), empresa.getId());
+            fail("Debe lanzar una excepcion PersonaNoExisteException");
+        } catch (PersonaNoExisteException e) {
+            //ok
+        } catch (NoEsPAutorizadaException e) {
+            fail("Debe lanzar una excepcion PersonaNoExisteException");
+        }
+    }
+
+    @Requisitos({"RF8"})
+    @Test
+
+    public void testDarBajaErrorNoEsPAutorizada(){
+        Usuario user = new Usuario();
+        user.setUser("Almudena");
+
+        PAutorizada pA = new PAutorizada();
+        pA.setId(parseLong("1"));
+
+        Empresa empresa = new Empresa();
+        empresa.setIdentificacion("UMA");
+
+        try{
+            gestionEliminarAutorizados.darBaja(user.getUser(), pA.getId(), empresa.getId());
+            fail("Debe lanzar una excepcion NoEsPAutorizadaException");
+        } catch (PersonaNoExisteException e) {
+            fail("Debe lanzar una excepcion NoEsPAutorizadaException");
+        } catch (NoEsPAutorizadaException e) {
+            //ok
+        }
+    }
 }
