@@ -14,16 +14,12 @@ import static org.junit.Assert.fail;
 public class Administradores {
     private static final String UNIDAD_PERSISTENCIA_PRUEBAS = "FintechEjbTest";
 
-    private static final String APERTURA_CUENTA = "java:global/classes/AperturaCuenta";
-    private static final String CIERRE_CUENTA = "java:global/classes/CierreCuenta";
     private static final String ACCESO_PERSONAL = "java:global/classes/AccesoPersonal";
     private static final String ANADIR_AUTORIZADOS = "java:global/classes/AnadirAutorizados";
     private static final String GENERAR_CSV = "java:global/classes/GenerarCSV";
     private static final String MODIFICAR_PAUTORIZADA = "java:global/classes/ModificarPAutorizada";
     private static final String ELIMINAR_AUTORIZADOS = "java:global/classes/EliminarAutorizados";
 
-    private ma3s.fintech.ejb.GestionAperturaCuenta gestionAperturaCuenta;
-    private ma3s.fintech.ejb.GestionCierreCuenta gestionCierreCuenta;
     private ma3s.fintech.ejb.GestionAccesoPersonal gestionAccesoPersonal;
     private ma3s.fintech.ejb.GestionAnadirAutorizados gestionAnadirAutorizados;
     private ma3s.fintech.ejb.GestionGenerarCSV gestionGenerarCSV;
@@ -32,8 +28,6 @@ public class Administradores {
 
     @Before
     public void setup() throws NamingException {
-        gestionAperturaCuenta = (ma3s.fintech.ejb.GestionAperturaCuenta) SuiteTest.ctx.lookup(APERTURA_CUENTA);
-        gestionCierreCuenta = (ma3s.fintech.ejb.GestionCierreCuenta) SuiteTest.ctx.lookup(CIERRE_CUENTA);
         gestionAccesoPersonal = (ma3s.fintech.ejb.GestionAccesoPersonal) SuiteTest.ctx.lookup(ACCESO_PERSONAL);
         gestionAnadirAutorizados = (ma3s.fintech.ejb.GestionAnadirAutorizados) SuiteTest.ctx.lookup(ANADIR_AUTORIZADOS);
         gestionGenerarCSV = (ma3s.fintech.ejb.GestionGenerarCSV) SuiteTest.ctx.lookup(GENERAR_CSV);
