@@ -2,7 +2,7 @@ package ma3s.fintech.test;
 
 import es.uma.informatica.sii.anotaciones.Requisitos;
 import ma3s.fintech.*;
-import ma3s.fintech.ejb.GestionEliminarAutorizados;
+import ma3s.fintech.ejb.*;
 import ma3s.fintech.ejb.excepciones.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,7 +35,7 @@ public class Administrador {
 
     @Before
     public void setup() throws NamingException {
-        gestionAperturaCuenta = (ma3s.fintech.ejb.GestionAperturaCuenta) SuiteTest.ctx.lookup(APERTURA_CUENTA);
+        gestionAperturaCuenta = (GestionAperturaCuenta) SuiteTest.ctx.lookup(APERTURA_CUENTA);
         gestionCierreCuenta = (ma3s.fintech.ejb.GestionCierreCuenta) SuiteTest.ctx.lookup(CIERRE_CUENTA);
         gestionAccesoPersonal = (ma3s.fintech.ejb.GestionAccesoPersonal) SuiteTest.ctx.lookup(ACCESOPERSONAL);
         gestionAnadirAutorizados = (ma3s.fintech.ejb.GestionAnadirAutorizados) SuiteTest.ctx.lookup(ANADIRAUTORIZADOS);
