@@ -16,13 +16,14 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
     @Override
     public List<Fintech> accederAplicacion(String usuario, String contrasena) throws AccesoException{
         Usuario user = em.find(Usuario.class, usuario);
-        Cliente cliente = em.find(Cliente.class, user.getCliente().getId());
-        PAutorizada pA = em.find(PAutorizada.class, user.getAutorizada().getId());
-        List<Fintech> cuentas = null;
 
         if(user == null){
             throw new UsuarioIncorrectoException();
         }
+
+        Cliente cliente = em.find(Cliente.class, user.getCliente().getId());
+        PAutorizada pA = em.find(PAutorizada.class, user.getAutorizada().getId());
+        List<Fintech> cuentas = null;
 
         if(!contrasena.equals(user.getContrasena())){
             throw new ContraseñaIncorrectaException();
