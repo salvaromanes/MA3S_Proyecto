@@ -1,5 +1,7 @@
 package ma3s.fintech;
 
+import com.sun.org.apache.xpath.internal.operations.Div;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -10,6 +12,9 @@ public class Pooled extends Fintech implements Serializable {
     public Pooled(){
         super();
     }
+
+    @ManyToOne()
+    private Divisa divisa;
 
     @OneToMany(mappedBy = "ibanPooled")
     private List<DepositadaEn> depositos;
@@ -28,6 +33,14 @@ public class Pooled extends Fintech implements Serializable {
 
     public void setDepositos(List<DepositadaEn> depositos) {
         this.depositos = depositos;
+    }
+
+    public Divisa getDivisa() {
+        return divisa;
+    }
+
+    public void setDivisa(Divisa divisa) {
+        this.divisa = divisa;
     }
 
     @Override

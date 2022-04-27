@@ -3,7 +3,9 @@ package ma3s.fintech;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +17,9 @@ public class Divisa implements Serializable {
     private Character simbolo;
     @Column(nullable = false)
     private Double cambioEuro;
+
+    @OneToMany(mappedBy = "divisa")
+    private List<Pooled> cuentasPooled;
 
     public Divisa(){
 
@@ -50,6 +55,14 @@ public class Divisa implements Serializable {
 
     public void setCambioEuro(Double cambioEuro) {
         this.cambioEuro = cambioEuro;
+    }
+
+    public List<Pooled> getCuentasPooled() {
+        return cuentasPooled;
+    }
+
+    public void setCuentasPooled(List<Pooled> cuentasPooled) {
+        this.cuentasPooled = cuentasPooled;
     }
 
     @Override
