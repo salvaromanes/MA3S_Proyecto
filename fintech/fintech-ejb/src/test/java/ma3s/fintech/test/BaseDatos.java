@@ -32,9 +32,15 @@ public class BaseDatos {
         cuenta.setIban("123456789012345");
         cuenta.setSwift("123846");
 
+
+
         Pooled pooled = new Pooled();
         pooled.setIban("12345678");
         pooled.setSwift("12384");
+        pooled.setEstado("Activo");
+        pooled.setFechaApertura(new Date());
+
+
 
         Segregada segregada = new Segregada();
         segregada.setIban("12315");
