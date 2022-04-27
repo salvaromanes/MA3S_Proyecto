@@ -13,9 +13,9 @@ import javax.naming.NamingException;
 public class Clientes {
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechEjbTest";
 
-    private static final String ALTA_CLIENTE = "java:global/classes/AperturaCuenta";
-    private static final String BAJA_CLIENTE = "java:global/classes/AperturaCuenta";
-    private static final String MODIFICAR_CLIENTE = "java:global/classes/AperturaCuenta";
+    private static final String ALTA_CLIENTE = "java:global/classes/AltaCliente";
+    private static final String BAJA_CLIENTE = "java:global/classes/BajaCliente";
+    private static final String MODIFICAR_CLIENTE = "java:global/classes/ModificarCliente";
 
     private ma3s.fintech.ejb.GestionAltaCliente gestionAltaCliente;
     private ma3s.fintech.ejb.GestionBajaCliente gestionBajaCliente;
