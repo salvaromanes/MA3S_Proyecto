@@ -4,8 +4,5 @@ import ma3s.fintech.ejb.excepciones.*;
 
 public interface GestionAccesoAplicacion {
 
-    void accederAplicacion(String usuario) throws PersonaNoExisteException, AccesoException, CuentaExistenteException;
-    boolean isClientePersonaJuridica(Long id, String tipoCliente) throws PersonaNoExisteException;
-    boolean isPersonaAutorizada(Long idPA, Long idCliente) throws PersonaNoExisteException;
-
+    void accederAplicacion(String usuario, String contrasena) throws AccesoException, CuentaNoExistenteException, NoEsPAutorizadaException;
 }
