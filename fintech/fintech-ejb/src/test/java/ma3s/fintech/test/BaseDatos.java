@@ -43,6 +43,7 @@ public class BaseDatos {
         pAutorizada.setApellidos("Ortiz");
         pAutorizada.setIdentificacion("12345678S");
         pAutorizada.setId(parseLong("1"));
+        pAutorizada.setDireccion("Romanes");
 
         Empresa empresa = new Empresa();
         empresa.setIdentificacion("UMA");
