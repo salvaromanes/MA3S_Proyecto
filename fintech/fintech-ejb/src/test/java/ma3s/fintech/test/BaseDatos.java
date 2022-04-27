@@ -65,6 +65,7 @@ public class BaseDatos {
         empresa.setEstado("Activo");
         empresa.setFechaAlta(new Date());
         empresa.setPais("Espana");
+        empresa.setId(parseLong("1"));
 
 
         Cliente cliente = new Cliente();

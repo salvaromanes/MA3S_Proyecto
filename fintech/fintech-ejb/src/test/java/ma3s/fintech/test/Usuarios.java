@@ -37,8 +37,8 @@ public class Usuarios {
     @Requisitos({"RF15"})
     @Test
     public void testAutorizarLectura(){
-        final Long idPersona = parseLong("1");
-        final Long idEmpresa = parseLong("1");
+        final Long idPersona = parseLong("111");
+        final Long idEmpresa = parseLong("1111");
         Empresa empresa = new Empresa();
         empresa.setId(idEmpresa);
 
@@ -53,8 +53,8 @@ public class Usuarios {
     @Requisitos({"RF15"})
     @Test
     public void testAutorizarOperacion(){
-        final Long idPersona = parseLong("1");
-        final Long idEmpresa = parseLong("1");
+        final Long idPersona = parseLong("111");
+        final Long idEmpresa = parseLong("111");
         Empresa empresa = new Empresa();
         empresa.setId(idEmpresa);
 
@@ -66,6 +66,37 @@ public class Usuarios {
         }
     }
 
+    @Requisitos({"RF15"})
+    @Test
+    public void testAutorizarLecturaOk(){
+        final Long idPersona = parseLong("1");
+        final Long idEmpresa = parseLong("1");
+        Empresa empresa = new Empresa();
+        empresa.setId(idEmpresa);
+
+        try{
+            gestionConcesionAutorizacion.autorizarLectura(idPersona, empresa);
+            //ok
+        } catch (UsuarioNoEncontradoException e) {
+            fail("No debe lanzar una excepcion");
+        }
+    }
+
+    @Requisitos({"RF15"})
+    @Test
+    public void testAutorizarOperacioOk(){
+        final Long idPersona = parseLong("1");
+        final Long idEmpresa = parseLong("1");
+        Empresa empresa = new Empresa();
+        empresa.setId(idEmpresa);
+
+        try{
+            gestionConcesionAutorizacion.autorizarOperacion(idPersona, empresa);
+            //ok
+        } catch (UsuarioNoEncontradoException e) {
+            fail("No debe lanzar una excepcion");
+        }
+    }
 
     @Requisitos({"RF10"})
     @Test
