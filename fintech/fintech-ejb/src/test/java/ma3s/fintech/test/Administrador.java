@@ -30,7 +30,7 @@ public class Administrador {
     private ma3s.fintech.ejb.GestionAnadirAutorizados gestionAnadirAutorizados;
     private ma3s.fintech.ejb.GestionGenerarCSV gestionGenerarCSV;
     private ma3s.fintech.ejb.GestionModificarPAutorizada gestionModificarPAutorizada;
-    private GestionEliminarAutorizados gestionEliminarAutorizados;
+    private ma3s.fintech.ejb.GestionEliminarAutorizados gestionEliminarAutorizados;
 
 
     @Before
@@ -41,7 +41,7 @@ public class Administrador {
         gestionAnadirAutorizados = (ma3s.fintech.ejb.GestionAnadirAutorizados) SuiteTest.ctx.lookup(ANADIRAUTORIZADOS);
         gestionGenerarCSV = (ma3s.fintech.ejb.GestionGenerarCSV) SuiteTest.ctx.lookup(GENERARCSV);
         gestionModificarPAutorizada = (ma3s.fintech.ejb.GestionModificarPAutorizada) SuiteTest.ctx.lookup(MODIFICARPAUTORIZADA);
-        gestionEliminarAutorizados = (EliminarAutorizados) SuiteTest.ctx.lookup(ELIMINAR_AUTORIZADOS);
+        gestionEliminarAutorizados = (ma3s.fintech.ejb.EliminarAutorizados) SuiteTest.ctx.lookup(ELIMINAR_AUTORIZADOS);
 
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
