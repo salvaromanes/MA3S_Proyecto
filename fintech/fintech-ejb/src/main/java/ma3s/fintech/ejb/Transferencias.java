@@ -29,6 +29,85 @@ public class Transferencias implements GestionTransferencia{
         return transaccion;
     }
 
+
+    public void transferenciaCliente(Transaccion transaccion, Long id) throws PersonaNoExisteException, CampoVacioException, ErrorOrigenTransaccionException, SaldoNoSuficiente {
+        // Vamos a comprobar que el usuario (id) es un cliente
+        Cliente cliente= em.find(Cliente.class, id);
+        if(cliente == null){
+            throw new PersonaNoExisteException("El cliente no existe");
+        }
+
+        // Comprobamos que los campos de la Transferencia nullable = false, no lo sean
+        if ( transaccion.getIdUnico() == null || transaccion.getFechaInstruccion() == null
+                || transaccion.getCantidad() == null || transaccion.getTipo() == null){
+            throw new CampoVacioException("El objeto transaccion tiene algún campo no null a nulo.");
+        }
+
+        // Comprobamos que el usuario tiene acceso sobre la cuenta origen
+        Cuenta cuentaOri = transaccion.getCuentaOrigen();
+        if(!cliente.getCuentasFintech().contains(cuentaOri)) throw new ErrorOrigenTransaccionException("La cuenta de origen no pertenece a este usuario.");
+
+        // Ahora tenemos dos camino uno si la cuenta es Pooled y otro si la cuenta es segregada
+        Pooled pooled = em.find(Pooled.class, cuentaOri.getIban());
+        if(pooled != null){
+//            Divisa divisaPooled = pooled.
+        }
+
+        // Buscamos si es una segregada
+        Segregada segregada = em.find(Segregada.class, cuentaOri.getIban());
+        if(segregada != null){
+            // Obtenemos la cuenta de referencia de la cuenta segregada
+            Referencia referencia = segregada.getReferencia();
+            Double comision = segregada.getComision();
+
+            // Cogemos las divisas
+            Divisa divisaOri = transaccion.getDivisaEmisor(); // Divisa de la cuenta Externa a Fintech
+            Divisa divisaRecep = referencia.getDivisa();      // Divisa de la cuenta Fintech
+
+
+
+            // Si la cantidad es menor que 0 es un cargo, en otro caso es un ingreso
+            if(transaccion.getCantidad() < 0){
+                Double cargo = transaccion.getCantidad();
+                // ¿Las divisas son las mismas?
+                if(divisaRecep.equals(divisaOri)){
+                    cargo = cargo * (1 + comision);
+                }else{
+                    cargo = cargo * divisaRecep.getCambioEuro() / divisaOri.getCambioEuro();
+                    cargo = cargo * (1 + comision);
+                }
+
+                if(referencia.getSaldo() < Math.abs(cargo)) throw new SaldoNoSuficiente("La cuenta de referencia no tiene suficiente saldo");
+
+                referencia.setSaldo(referencia.getSaldo() - cargo);
+                em.merge(referencia);
+                transaccion.setFechaEjecucion(new Date());
+                transaccion.setComision(segregada.getComision());
+                em.persist(transaccion);
+            // Es un ingreso
+            }else {
+                Double ingreso = transaccion.getCantidad();
+                // ¿Las divisas son las mismas?
+                if (divisaRecep.equals(divisaOri)) {
+                    ingreso = ingreso * (1 - comision);
+                } else {
+                    ingreso = ingreso * divisaRecep.getCambioEuro() / divisaOri.getCambioEuro();
+                    ingreso = ingreso * (1 - comision);
+                }
+
+                referencia.setSaldo(referencia.getSaldo() + ingreso);
+                em.merge(referencia);
+                transaccion.setFechaEjecucion(new Date());
+                transaccion.setComision(segregada.getComision());
+                em.persist(transaccion);
+            }
+        }
+
+
+
+    }
+
+
     @Override
     public void transferenciaCliente(Long id, String idTransaccion, String IBAN_origen, String IBAN_destino, double cantidad, String divisaOrigen, Date fechaInstruccion)
     throws PersonaNoExisteException, CuentaExistenteException, ErrorOrigenTransaccionException, TransaccionYaExistente, SaldoNoSuficiente {
