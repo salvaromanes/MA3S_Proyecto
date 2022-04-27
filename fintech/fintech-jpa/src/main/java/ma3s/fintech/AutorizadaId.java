@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class AutorizadaId implements Serializable {
-    private Long idAutorizado;
+    private Long autorizadaId;
     private Long empresaId;
 
     public AutorizadaId() {
@@ -12,11 +12,11 @@ public class AutorizadaId implements Serializable {
     }
 
     public Long getIdAutorizado() {
-        return idAutorizado;
+        return autorizadaId;
     }
 
     public void setIdAutorizado(Long personaAutorizadaId) {
-        idAutorizado = personaAutorizadaId;
+        autorizadaId = personaAutorizadaId;
     }
 
     public Long getEmpresaId() {
@@ -32,18 +32,18 @@ public class AutorizadaId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AutorizadaId that = (AutorizadaId) o;
-        return idAutorizado.equals(that.idAutorizado) && empresaId.equals(that.empresaId);
+        return autorizadaId.equals(that.autorizadaId) && empresaId.equals(that.empresaId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idAutorizado, empresaId);
+        return Objects.hash(autorizadaId, empresaId);
     }
 
     @Override
     public String toString() {
         return "AutorizadaId{" +
-                "\npAutorizadaId=" + idAutorizado +
+                "\npAutorizadaId=" + autorizadaId +
                 "\nempresaId=" + empresaId +
                 '}';
     }
