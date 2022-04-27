@@ -14,6 +14,7 @@ public class Transferencias implements GestionTransferencia{
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
+    /*
     private Transaccion subirTransaccion(String idTransf, Date fechaInstruccion, Double cantidad, String tipo, Double comision, Boolean internacional,
                                          Cuenta cuentaOri, Cuenta cuentaDest, Divisa divisaOri, Divisa divisaDest){
         Transaccion transaccion = new Transaccion();
@@ -28,14 +29,14 @@ public class Transferencias implements GestionTransferencia{
 
         return transaccion;
     }
+    */
 
-
+    @Override
     public void transferenciaCliente(Transaccion transaccion, Long id) throws PersonaNoExisteException, CampoVacioException, ErrorOrigenTransaccionException, SaldoNoSuficiente {
         // Vamos a comprobar que el usuario (id) es un cliente
-        Cliente cliente= em.find(Cliente.class, id);
-        if(cliente == null){
-            throw new PersonaNoExisteException("El cliente no existe");
-        }
+        Cliente cliente = em.find(Cliente.class, id);
+        if(cliente == null) throw new PersonaNoExisteException("El cliente no existe");
+
 
         // Comprobamos que los campos de la Transferencia nullable = false, no lo sean
         if ( transaccion.getIdUnico() == null || transaccion.getFechaInstruccion() == null
@@ -62,8 +63,39 @@ public class Transferencias implements GestionTransferencia{
                 }
             }
 
-            Referencia referencia = pooled.getDepositos().get(i).getReferencia();
+            if(!encontrado) throw new ErrorOrigenTransaccionException("La cuenta pooled no tiene cuenta de referencia para esa divisa.");
 
+            Referencia referencia = pooled.getDepositos().get(i).getReferencia();
+            Divisa divisaOri = pooled.getDivisa();
+            Divisa divisaRecep = referencia.getDivisa();
+
+            // Si la cantidad es menor que 0 es un cargo, en otro caso es un ingreso
+            if(transaccion.getCantidad() < 0){
+                Double cargo = transaccion.getCantidad();
+                // ¿Las divisas son las mismas?
+                if(!divisaRecep.equals(divisaOri)){
+                    cargo = cargo * divisaRecep.getCambioEuro() / divisaOri.getCambioEuro();
+                }
+
+                if(referencia.getSaldo() < Math.abs(cargo)) throw new SaldoNoSuficiente("La cuenta de referencia no tiene suficiente saldo");
+
+                referencia.setSaldo(referencia.getSaldo() - cargo);
+                em.merge(referencia);
+                transaccion.setFechaEjecucion(new Date());
+                em.persist(transaccion);
+                // Es un ingreso
+            }else {
+                Double ingreso = transaccion.getCantidad();
+                // ¿Las divisas son las mismas?
+                if (!divisaRecep.equals(divisaOri)) {
+                    ingreso = ingreso * divisaRecep.getCambioEuro() / divisaOri.getCambioEuro();
+                }
+
+                referencia.setSaldo(referencia.getSaldo() + ingreso);
+                em.merge(referencia);
+                transaccion.setFechaEjecucion(new Date());
+                em.persist(transaccion);
+            }
 
 
         }
@@ -78,8 +110,6 @@ public class Transferencias implements GestionTransferencia{
             // Cogemos las divisas
             Divisa divisaOri = transaccion.getDivisaEmisor(); // Divisa de la cuenta Externa a Fintech
             Divisa divisaRecep = referencia.getDivisa();      // Divisa de la cuenta Fintech
-
-
 
             // Si la cantidad es menor que 0 es un cargo, en otro caso es un ingreso
             if(transaccion.getCantidad() < 0){
@@ -122,7 +152,148 @@ public class Transferencias implements GestionTransferencia{
 
     }
 
+    @Override
+    public void transeferenciaAutorizado(Long id, Long idEmpresa, Transaccion transaccion) throws PersonaNoExisteException, ErrorOrigenTransaccionException, CampoVacioException, SaldoNoSuficiente {
+        // Comprobar que la PAutorizada existe
+        PAutorizada pAutorizada = em.find(PAutorizada.class, id);
+        if(pAutorizada == null) throw new PersonaNoExisteException("La persona autorizada con id: " + id + " no existe.");
 
+        // Comprobar que la empresa existe
+        Empresa empresa = em.find(Empresa.class, idEmpresa);
+        if(empresa == null) throw new PersonaNoExisteException("La empresa con id: " + id + " no existe.");
+
+        // Comprobamos que los campos de la Transferencia nullable = false, no lo sean
+        if ( transaccion.getIdUnico() == null || transaccion.getFechaInstruccion() == null
+                || transaccion.getCantidad() == null || transaccion.getTipo() == null){
+            throw new CampoVacioException("El objeto transaccion tiene algún campo no null a nulo.");
+        }
+
+        // Comprobar que esta persona autorizada tiene autorizacion en la empresa
+        /*AutorizadaId autorizadaID = new AutorizadaId();
+        autorizadaID.setIdAutorizado(id);
+        autorizadaID.setEmpresaId(idEmpresa);
+        Autorizacion autorizacion = em.find(Autorizacion.class, autorizadaID);*/
+
+        boolean encontrado = false;
+        int i = 0;
+        while (i < pAutorizada.getAutorizaciones().size() && !encontrado){
+            if(pAutorizada.getAutorizaciones().get(i).getEmpresaId().equals(empresa)) {
+                encontrado = true;
+            }else{
+                i++;
+            }
+        }
+
+        if(!encontrado) throw new PersonaNoExisteException("La PAutorizada no tiene autorización sobre la empresa");
+
+        Cuenta cuentaOri = transaccion.getCuentaOrigen();
+        if(!empresa.getCuentasFintech().contains(cuentaOri)) throw new ErrorOrigenTransaccionException("La empresa no tiene ninguna cuenta Fintech con ese IBAN");
+
+        // Ahora tenemos dos camino uno si la cuenta es Pooled y otro si la cuenta es segregada
+        Pooled pooled = em.find(Pooled.class, cuentaOri.getIban());
+        if(pooled != null){
+            Divisa divisaPooled = pooled.getDivisa();
+
+            int n = 0;
+            boolean enc = false;
+            while (n < pooled.getDepositos().size() && !enc ){
+                if(pooled.getDepositos().get(i).getReferencia().getDivisa().equals(divisaPooled)){
+                    encontrado = true;
+                }else{
+                    n++;
+                }
+            }
+
+            if(!encontrado) throw new ErrorOrigenTransaccionException("La cuenta pooled no tiene cuenta de referencia para esa divisa.");
+
+            Referencia referencia = pooled.getDepositos().get(i).getReferencia();
+            Divisa divisaOri = pooled.getDivisa();
+            Divisa divisaRecep = referencia.getDivisa();
+
+            // Si la cantidad es menor que 0 es un cargo, en otro caso es un ingreso
+            if(transaccion.getCantidad() < 0){
+                Double cargo = transaccion.getCantidad();
+                // ¿Las divisas son las mismas?
+                if(!divisaRecep.equals(divisaOri)){
+                    cargo = cargo * divisaRecep.getCambioEuro() / divisaOri.getCambioEuro();
+                }
+
+                if(referencia.getSaldo() < Math.abs(cargo)) throw new SaldoNoSuficiente("La cuenta de referencia no tiene suficiente saldo");
+
+                referencia.setSaldo(referencia.getSaldo() - cargo);
+                em.merge(referencia);
+                transaccion.setFechaEjecucion(new Date());
+                em.persist(transaccion);
+                // Es un ingreso
+            }else {
+                Double ingreso = transaccion.getCantidad();
+                // ¿Las divisas son las mismas?
+                if (!divisaRecep.equals(divisaOri)) {
+                    ingreso = ingreso * divisaRecep.getCambioEuro() / divisaOri.getCambioEuro();
+                }
+
+                referencia.setSaldo(referencia.getSaldo() + ingreso);
+                em.merge(referencia);
+                transaccion.setFechaEjecucion(new Date());
+                em.persist(transaccion);
+            }
+
+
+        }
+
+        // Buscamos si es una segregada
+        Segregada segregada = em.find(Segregada.class, cuentaOri.getIban());
+        if(segregada != null){
+            // Obtenemos la cuenta de referencia de la cuenta segregada
+            Referencia referencia = segregada.getReferencia();
+            Double comision = segregada.getComision();
+
+            // Cogemos las divisas
+            Divisa divisaOri = transaccion.getDivisaEmisor(); // Divisa de la cuenta Externa a Fintech
+            Divisa divisaRecep = referencia.getDivisa();      // Divisa de la cuenta Fintech
+
+            // Si la cantidad es menor que 0 es un cargo, en otro caso es un ingreso
+            if(transaccion.getCantidad() < 0){
+                Double cargo = transaccion.getCantidad();
+                // ¿Las divisas son las mismas?
+                if(divisaRecep.equals(divisaOri)){
+                    cargo = cargo * (1 + comision);
+                }else{
+                    cargo = cargo * divisaRecep.getCambioEuro() / divisaOri.getCambioEuro();
+                    cargo = cargo * (1 + comision);
+                }
+
+                if(referencia.getSaldo() < Math.abs(cargo)) throw new SaldoNoSuficiente("La cuenta de referencia no tiene suficiente saldo");
+
+                referencia.setSaldo(referencia.getSaldo() - cargo);
+                em.merge(referencia);
+                transaccion.setFechaEjecucion(new Date());
+                transaccion.setComision(segregada.getComision());
+                em.persist(transaccion);
+                // Es un ingreso
+            }else {
+                Double ingreso = transaccion.getCantidad();
+                // ¿Las divisas son las mismas?
+                if (divisaRecep.equals(divisaOri)) {
+                    ingreso = ingreso * (1 - comision);
+                } else {
+                    ingreso = ingreso * divisaRecep.getCambioEuro() / divisaOri.getCambioEuro();
+                    ingreso = ingreso * (1 - comision);
+                }
+
+                referencia.setSaldo(referencia.getSaldo() + ingreso);
+                em.merge(referencia);
+                transaccion.setFechaEjecucion(new Date());
+                transaccion.setComision(segregada.getComision());
+                em.persist(transaccion);
+            }
+        }
+
+
+
+    }
+
+    /*
     @Override
     public void transferenciaCliente(Long id, String idTransaccion, String IBAN_origen, String IBAN_destino, double cantidad, String divisaOrigen, Date fechaInstruccion)
     throws PersonaNoExisteException, CuentaExistenteException, ErrorOrigenTransaccionException, TransaccionYaExistente, SaldoNoSuficiente {
@@ -203,7 +374,9 @@ public class Transferencias implements GestionTransferencia{
 
     }
 
+    */
 
+    /*
     @Override
     public void transferenciaAutorizado(Long id, String idTransaccion, String IBAN_origen, String IBAN_destino, double cantidad, String divisaOrigen, Long idEmpresa,
                                         Date fechaInstruccion)
@@ -284,7 +457,6 @@ public class Transferencias implements GestionTransferencia{
         Transaccion trans = subirTransaccion(idTransaccion, fechaInstruccion, cantidad, null, segregada.getComision(), false, cuenta,
                 null, divisaOri, divisaDest);
         em.persist(trans);
-
     }
-
+    */
 }

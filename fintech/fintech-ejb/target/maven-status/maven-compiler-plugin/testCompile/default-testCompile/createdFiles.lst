@@ -1,7 +1,8 @@
-Reportes.class
-Transacciones.class
-Administrador.class
-BaseDatos.class
-SuiteTest.class
-Cuentas.class
-Usuarios.class
+ma3s\fintech\test\Reportes.class
+ma3s\fintech\test\Cuentas.class
+ma3s\fintech\test\Clientes.class
+ma3s\fintech\test\SuiteTest.class
+ma3s\fintech\test\Administrador.class
+ma3s\fintech\test\Transacciones.class
+ma3s\fintech\test\BaseDatos.class
+ma3s\fintech\test\Usuarios.class
