@@ -2,6 +2,7 @@ package ma3s.fintech.test;
 
 import es.uma.informatica.sii.anotaciones.Requisitos;
 import ma3s.fintech.*;
+import ma3s.fintech.ejb.GestionEliminarAutorizados;
 import ma3s.fintech.ejb.excepciones.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +30,7 @@ public class Administrador {
     private ma3s.fintech.ejb.GestionAnadirAutorizados gestionAnadirAutorizados;
     private ma3s.fintech.ejb.GestionGenerarCSV gestionGenerarCSV;
     private ma3s.fintech.ejb.GestionModificarPAutorizada gestionModificarPAutorizada;
-    private ma3s.fintech.ejb.GestionEliminarAutorizados gestionEliminarAutorizados;
+    private GestionEliminarAutorizados gestionEliminarAutorizados;
 
 
     @Before
