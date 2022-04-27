@@ -40,7 +40,7 @@ public class BaseDatos {
         pAutorizada.setNombre("Salva");
         pAutorizada.setApellidos("Ortiz");
         pAutorizada.setIdentificacion("12345678S");
-        pAutorizada.setId(parseLong("1", 1));
+        pAutorizada.setId(parseLong("1"));
 
         Empresa empresa = new Empresa();
         empresa.setIdentificacion("UMA");
