@@ -18,15 +18,17 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
 
     @Override
     public String CuentasApi(Segregada cuenta) throws CuentaNoExistenteException {
-        Segregada cuenta_Aux = em.find(Segregada.class, cuenta);
+        Segregada cuenta_Aux = em.find(Segregada.class, cuenta.getIban());
+
+        if(cuenta_Aux == null){
+            throw new CuentaNoExistenteException();
+        }
+
         Referencia referencia = em.find(Referencia.class, cuenta.getIban());
-        if(cuenta_Aux.getIban() !=  cuenta.getIban()){
-            throw new CuentaNoExistenteException("La cuenta : " + cuenta_Aux.getIban() +  " no se encuentra" );
-        }
 
-      //  if(!cuenta_Aux.getIban().equals(referencia.getIban())){
-        //    throw new CuentaNoExistenteException("La cuenta : " + cuenta_Aux.getIban() +  " no se encuentra" );
-        //}
+        if(referencia == null){
+            throw new CuentaNoExistenteException();
+        }
 
         String aux = "{\n \"searchParametres\":{" +
                 "\n \"quesionType\": \"Product,\"" +
@@ -37,39 +39,16 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
         return  aux;
 
     }
-
-
-/*
-    @Override
-    public String CuentasApi(Segregada cuenta, Referencia referencia) throws CuentaNoExistenteException {
-        Segregada cuenta_Aux = em.find(Segregada.class, cuenta);
-        Referencia ref = em.find(Referencia.class,referencia.getIban());
-        if(!cuenta_Aux.equals(cuenta)){
-            throw new CuentaNoExistenteException("La cuenta : " + cuenta_Aux.getIban() +  " no se encuentra" );
-        }
-
-        if(!cuenta_Aux.getIban().equals(referencia.getIban())){
-            throw new CuentaNoExistenteException("La cuenta : " + cuenta_Aux.getIban() +  " no se encuentra" );
-        }
-
-        String aux = "{\n \"searchParametres\":{" +
-                "\n \"quesionType\": \"Product,\"" +
-                "\"status\":"+ referencia.getEstado() +",\n" +
-                "\"productNumber\":"+cuenta.getIban() +",\n" + "}}"
-                ;
-
-        return  aux;
-    }
-
-    */
 
     @Override
     public String ClienteApi(Cliente cliente) throws ClienteNoExisteException {
-         Cliente cliente1 = em.find(Cliente.class, cliente);
+         Cliente cliente1 = em.find(Cliente.class, cliente.getId());
+
          if(!cliente1.equals(cliente)){
              throw  new ClienteNoExisteException("El cliente : " + cliente1.getId() + " no existe");
          }
-        String aux = "{\n \"searchParametres\":{" +
+
+         String aux = "{\n \"searchParametres\":{" +
                  "\n \"quesionType\": \"Customer,\"" +
                  "\"startPeriod\":"+ cliente.getFechaAlta() +",\n" +
                  "\"endPeriod\":"+ cliente.getFechaBaja() +",\n"+

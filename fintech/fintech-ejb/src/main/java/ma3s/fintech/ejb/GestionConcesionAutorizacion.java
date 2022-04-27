@@ -6,5 +6,5 @@ import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
 
 public interface GestionConcesionAutorizacion {
     public void autorizarLectura(PAutorizada persona, Empresa empresa) throws UsuarioNoEncontradoException;
-    public void autorizarOperacion(Long idPersona, Empresa empresa) throws UsuarioNoEncontradoException;
+    public void autorizarOperacion(PAutorizada persona, Empresa empresa) throws UsuarioNoEncontradoException;
 }
