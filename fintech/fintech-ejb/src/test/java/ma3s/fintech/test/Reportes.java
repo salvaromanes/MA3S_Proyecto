@@ -16,7 +16,7 @@ public class Reportes {
 
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechEjbTest";
 
-    private static final String CuentasApi = "java:global/classes/GeneracionInfHolanda";
+    private static final String CUENTASAPI = "java:global/classes/GeneracionInfHolanda";
 
 
 
@@ -27,7 +27,7 @@ public class Reportes {
     @Before
     public void setup() throws NamingException {
 
-        gestionInfHolanda = (ma3s.fintech.ejb.GestionInfHolanda) SuiteTest.ctx.lookup(CuentasApi);
+        gestionInfHolanda = (ma3s.fintech.ejb.GestionInfHolanda) SuiteTest.ctx.lookup(CUENTASAPI);
 
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }

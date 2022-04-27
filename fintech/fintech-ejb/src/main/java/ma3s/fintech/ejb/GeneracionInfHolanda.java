@@ -86,8 +86,8 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
 
     @Override
     public String PAutorApi(PAutorizada autorizada) throws NoEsPAutorizadaException {
-        PAutorizada autorizada1 = em.find(PAutorizada.class,autorizada);
-        if(!autorizada1.equals(autorizada)){
+        PAutorizada autorizada1 = em.find(PAutorizada.class, autorizada.getId());
+        if(!autorizada1.getId().equals(autorizada.getId())){
             throw new NoEsPAutorizadaException("La persona  "+  autorizada1.getId() + " no es autorizada" );
         }
         String aux = "{\n \"searchParametres\":{" +
