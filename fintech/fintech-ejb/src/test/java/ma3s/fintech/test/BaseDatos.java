@@ -131,6 +131,9 @@ public class BaseDatos {
         referencia.setSaldo(85000);
         referencia.setSucursal("Unicaja-Huelin");
 
+        segregada.setReferencia(referencia);
+
+
         Referencia referencia2 = new Referencia();
         referencia2.setIban("190599");
         referencia2.setEstado("Activa");
