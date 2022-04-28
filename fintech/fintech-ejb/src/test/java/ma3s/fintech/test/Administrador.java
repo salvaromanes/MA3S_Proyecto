@@ -325,7 +325,7 @@ public class Administrador {
         Date d = new Date(2022 / 03 / 10);
 
         Usuario user = new Usuario();
-        user.setUser("AlmudenaUser");
+        user.setUser("Almu");
         user.setEsAdmin(true);
 
         try {
@@ -352,7 +352,7 @@ public class Administrador {
     @Requisitos({"RF12"})
     @Test
 
-    public void testGenerarCSVfallo() {
+    public void testGenerarCSVfalloIndividual() {
         Date d = new Date(2022 / 03 / 10);
 
         Usuario user = new Usuario();
@@ -365,17 +365,27 @@ public class Administrador {
         } catch (IOException e) {
             fail("Debe lanzar una excepcion PersonaNoExisteException " + e.getMessage());
         } catch (PersonaNoExisteException e) {
-            fail("Debe lanzar una excepcion " + e.getMessage());
             //ok
         }
+    }
+
+
+    @Requisitos({"RF12"})
+    @Test
+
+    public void testGenerarCSVfallo() {
+        Date d = new Date(2022 / 03 / 10);
+
+        Usuario user = new Usuario();
+        user.setUser("AlmudenaUser");
+        user.setEsAdmin(false);
 
         try {
             gestionGenerarCSV.generarCSV(user.getUser(), "Periodico", d);
-            fail("Debe lanzar una excepcion ");
+            fail("Debe lanzar una excepcion");
         } catch (IOException e) {
-            fail("Debe lanzar una excepcion " + e.getMessage());
+            fail("Debe lanzar una excepcion PersonaNoExisteException " + e.getMessage());
         } catch (PersonaNoExisteException e) {
-            fail("Debe lanzar una excepcion " + e.getMessage());
             //ok
         }
     }
