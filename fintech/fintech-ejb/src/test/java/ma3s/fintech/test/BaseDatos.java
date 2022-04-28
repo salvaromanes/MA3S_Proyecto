@@ -55,11 +55,11 @@ public class BaseDatos {
         pAutorizada.setDireccion("Romanes");
 
         PAutorizada pAutorizada2 = new PAutorizada();
-        pAutorizada.setId(parseLong("2"));
-        pAutorizada.setIdentificacion("999654111A");
-        pAutorizada.setNombre("Almudena");
-        pAutorizada.setApellidos("Balmont");
-        pAutorizada.setDireccion("Burgos");
+        pAutorizada2.setId(parseLong("2"));
+        pAutorizada2.setIdentificacion("999654111A");
+        pAutorizada2.setNombre("Almudena");
+        pAutorizada2.setApellidos("Balmont");
+        pAutorizada2.setDireccion("Burgos");
 
 
 

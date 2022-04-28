@@ -48,7 +48,7 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
         }
 
         if(!autorizacion.getAutorizadaId().getId().equals(pA.getId()) && !autorizacion.getEmpresaId().getId().equals(empresa.getId())){
-            throw new NoEsPAutorizadaException("no es pa error");
+            throw new NoEsPAutorizadaException("no hay autorizacion error");
         }
 
         em.remove(autorizacion);
