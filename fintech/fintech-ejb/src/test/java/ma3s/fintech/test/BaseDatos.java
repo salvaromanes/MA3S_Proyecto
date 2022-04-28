@@ -122,6 +122,15 @@ public class BaseDatos {
         referencia.setSaldo(85000);
         referencia.setSucursal("Unicaja-Huelin");
 
+        Referencia referencia2 = new Referencia();
+        referencia2.setIban("123456789012345");
+        referencia2.setEstado("Activa");
+        referencia2.setFechaApertura(new Date());
+        referencia2.setNombreBanco("Unicaja");
+        referencia2.setPais("Espana");
+        referencia2.setSaldo(0);
+        referencia2.setSucursal("Unicaja-Teatinos");
+
         //--------Datos para pruebas de los tests de clientes
 
         //--DarAltaEmpresa

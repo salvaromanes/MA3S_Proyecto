@@ -212,20 +212,20 @@ public class Cuentas {
     @Requisitos({"RF9"})
     @Test
     public void testCierreCuentaOk(){
-        final String ibanCuenta1 = "123221";
+        final String ibanCuenta1 = "123456789012345";
         final String usuario = "Salva";
 
         try{
             gestionCierreCuenta.cerrarCuenta(ibanCuenta1, usuario);
             //Ok
         } catch (CuentaNoExistenteException e) {
-            fail("No debe lanzar una excepcion");
+            fail("No debe lanzar una excepcion 1");
         } catch (CuentaNoVacia cuentaNoVacia) {
-            fail("No debe lanzar una excepcion");
+            fail("No debe lanzar una excepcion 2");
         } catch (UsuarioNoEncontradoException e) {
-            fail("No debe lanzar una excepcion");
+            fail("No debe lanzar una excepcion 3");
         } catch (UsuarioIncorrectoException e) {
-            fail("No debe lanzar una excepcion");
+            fail("No debe lanzar una excepcion 4");
         }
     }
 }
