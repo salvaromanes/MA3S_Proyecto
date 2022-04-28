@@ -309,15 +309,15 @@ public class Administrador {
                     (aut, empresa, user_aux.getUser());
             //ok
         } catch (NoEsPAutorizadaException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("NoEsPAutorizadaException ");
         } catch (EmpresaNoExistenteException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("EmpresaNoExistenteException ");
         } catch (PersonaNoExisteException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("PersonaNoExisteException ");
         } catch (EmpresaNoRelacException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("EmpresaNoRelacException ");
         } catch (NoEsAdministrativoException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("NoEsAdministrativoException ");
         }
     }
 
