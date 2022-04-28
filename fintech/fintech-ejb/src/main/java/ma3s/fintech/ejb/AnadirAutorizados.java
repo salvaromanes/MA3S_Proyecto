@@ -67,7 +67,7 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
             throw  new NoEsPAutorizadaException("La persona con usuario : " + p.getUser() + " no es persona autorizada");
         }
 
-        if(!e.getId().equals(empresa)) {
+        if(!e.getId().equals(empresa.getId())) {
             throw  new EmpresaNoExistenteException("La empresa : " + e.getId() + " no se encuentra");
         }
         if(!a.getAutorizadaId().equals(autorizada.getId())){
