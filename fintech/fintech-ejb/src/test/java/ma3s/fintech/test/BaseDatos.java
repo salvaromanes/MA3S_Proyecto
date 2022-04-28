@@ -112,6 +112,7 @@ public class BaseDatos {
         user.setContrasena("1234");
         user.setEsAdmin(true);
 
+        //---------DATOS PARA PRUEBAS DE LOS TEST DE CUENTAS
 
         Referencia referencia = new Referencia();
         referencia.setIban("123221");
