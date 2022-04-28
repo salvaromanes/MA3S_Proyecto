@@ -43,14 +43,14 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
 
 
         if(p == null){
-            throw  new NoEsPAutorizadaException("La persona con usuario : " + p.getUser() + " no es persona autorizada");
+            throw  new NoEsPAutorizadaException("La persona no es persona autorizada");
         }
 
 
         Empresa e = em.find(Empresa.class,empresa.getId());
 
         if(e == null){
-            throw  new EmpresaNoExistenteException("La empresa : " + e.getId() + " no se encuentra");
+            throw  new EmpresaNoExistenteException("La empresa  no se encuentra");
         }
 
         AutorizadaId aux = new AutorizadaId();
