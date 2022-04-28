@@ -63,7 +63,7 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
 
         comprobarAdministrador(usuario);
 
-        if(!p.getUser().equals(autorizada)){
+        if(!p.getId().equals(autorizada.getId())){
             throw  new NoEsPAutorizadaException("La persona con usuario : " + p.getUser() + " no es persona autorizada");
         }
 
