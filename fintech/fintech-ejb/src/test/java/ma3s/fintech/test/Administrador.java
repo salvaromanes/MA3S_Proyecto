@@ -136,16 +136,20 @@ public class Administrador {
 
     public void testAnaPNoEsPersonaA() {
         final String nombre = "Salva";
+        final Long id = parseLong("1");
         final String emp = "123";
+        final Long idEmpre = parseLong("25");
 
         Usuario user_aux = new Usuario();
         user_aux.setUser(nombre);
 
         PAutorizada aut = new PAutorizada();
         aut.setNombre(nombre);
+        aut.setId(id);
 
         Empresa empresa = new Empresa();
         empresa.setIdentificacion(emp);
+        empresa.setId(idEmpre);
 
         try {
             gestionAnadirAutorizados.anadirPAut
@@ -171,16 +175,20 @@ public class Administrador {
 
     public void testAnaPNoEsEmpresa() {
         final String nombre = "Salva";
+        final Long id = parseLong("1");
         final String emp = "123";
+        final Long idEmpre = parseLong("25");
 
         Usuario user_aux = new Usuario();
         user_aux.setUser(nombre);
 
         PAutorizada aut = new PAutorizada();
         aut.setNombre(nombre);
+        aut.setId(id);
 
         Empresa empresa = new Empresa();
         empresa.setIdentificacion(emp);
+        empresa.setId(idEmpre);
 
         try {
             gestionAnadirAutorizados.anadirPAut
@@ -207,16 +215,20 @@ public class Administrador {
 
     public void testAnaPersonaNoExistente() {
         final String nombre = "Salva";
+        final Long id = parseLong("1");
         final String emp = "123";
+        final Long idEmpre = parseLong("25");
 
         Usuario user_aux = new Usuario();
         user_aux.setUser(nombre);
 
         PAutorizada aut = new PAutorizada();
         aut.setNombre(nombre);
+        aut.setId(id);
 
         Empresa empresa = new Empresa();
         empresa.setIdentificacion(emp);
+        empresa.setId(idEmpre);
 
         try {
             gestionAnadirAutorizados.anadirPAut
@@ -243,16 +255,20 @@ public class Administrador {
 
     public void testAnaEmpresaNoRelac() {
         final String nombre = "Salva";
+        final Long id = parseLong("1");
         final String emp = "123";
+        final Long idEmpre = parseLong("25");
 
         Usuario user_aux = new Usuario();
         user_aux.setUser(nombre);
 
         PAutorizada aut = new PAutorizada();
         aut.setNombre(nombre);
+        aut.setId(id);
 
         Empresa empresa = new Empresa();
         empresa.setIdentificacion(emp);
+        empresa.setId(idEmpre);
 
         try {
             gestionAnadirAutorizados.anadirPAut
@@ -277,16 +293,20 @@ public class Administrador {
 
     public void testAnaEmpresaCorrecto() {
         final String nombre = "Salva";
+        final Long id = parseLong("1");
         final String emp = "UMA";
+        final Long idEmpre = parseLong("1");
 
         Usuario user_aux = new Usuario();
         user_aux.setUser(nombre);
 
         PAutorizada aut = new PAutorizada();
         aut.setNombre(nombre);
+        aut.setId(id);
 
         Empresa empresa = new Empresa();
         empresa.setIdentificacion(emp);
+        empresa.setId(idEmpre);
 
         try {
             gestionAnadirAutorizados.anadirPAut
