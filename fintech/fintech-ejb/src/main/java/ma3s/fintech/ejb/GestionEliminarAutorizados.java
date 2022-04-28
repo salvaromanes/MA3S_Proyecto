@@ -7,7 +7,7 @@ import ma3s.fintech.ejb.excepciones.NoEsPAutorizadaException;
 import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
 
 public interface GestionEliminarAutorizados {
-    void darBaja(String usuario, PAutorizada pa, Empresa empresa) throws PersonaNoExisteException, NoEsPAutorizadaException, EmpresaNoExistenteException;
+    void darBaja(String usuario, Long pa, Empresa empresa) throws PersonaNoExisteException, NoEsPAutorizadaException, EmpresaNoExistenteException;
 
 
 }

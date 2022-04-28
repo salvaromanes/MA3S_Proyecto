@@ -13,14 +13,14 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
     private EntityManager em;
 
     @Override
-    public void darBaja(String usuario, PAutorizada idPA, Empresa idEmpresa) throws PersonaNoExisteException, NoEsPAutorizadaException, EmpresaNoExistenteException {
+    public void darBaja(String usuario, Long idPA, Empresa idEmpresa) throws PersonaNoExisteException, NoEsPAutorizadaException, EmpresaNoExistenteException {
 
         if(idPA == null){
-            throw new PersonaNoExisteException();
+            throw new PersonaNoExisteException("no es persona autorizada");
         }
 
         if(idEmpresa == null){
-            throw new PersonaNoExisteException();
+            throw new PersonaNoExisteException("no es empresa");
         }
 
         Empresa empresa = em.find(Empresa.class, idEmpresa.getId());
@@ -28,7 +28,7 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
             throw new EmpresaNoExistenteException();
         }
 
-        PAutorizada pA = em.find(PAutorizada.class, idPA.getId());
+        PAutorizada pA = em.find(PAutorizada.class, idPA);
         if(pA == null){
             throw new PersonaNoExisteException("La persona autorizada no existe");
         }

@@ -43,14 +43,14 @@ public class Autorizados {
         empresa.setIdentificacion("UMA");
 
         try{
-            gestionEliminarAutorizados.darBaja(user.getUser(), pA, empresa);
+            gestionEliminarAutorizados.darBaja(user.getUser(), pA.getId(), empresa);
             //ok
         } catch (PersonaNoExisteException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("No Debe lanzar una excepcion " + e.getMessage());
         } catch (NoEsPAutorizadaException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("No Debe lanzar una excepcion " + e.getMessage());
         } catch (EmpresaNoExistenteException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("No Debe lanzar una excepcion " + e.getMessage());
         }
     }
 
@@ -72,14 +72,14 @@ public class Autorizados {
         empresa.setId(parseLong("1"));
 
         try{
-            gestionEliminarAutorizados.darBaja(user.getUser(), pA, empresa);
+            gestionEliminarAutorizados.darBaja(user.getUser(), pA.getId(), empresa);
             fail("Debe lanzar una excepcion PersonaNoExisteException");
         } catch (PersonaNoExisteException e) {
             //ok
         } catch (NoEsPAutorizadaException e) {
-            fail("Debe lanzar una excepcion PersonaNoExisteException");
+            fail("Debe lanzar una excepcion PersonaNoExisteException"  + e.getMessage());
         } catch (EmpresaNoExistenteException e) {
-            fail("Debe lanzar una excepcion PersonaNoExisteException");
+            fail("Debe lanzar una excepcion PersonaNoExisteException" + e.getMessage());
         }
     }
 
@@ -89,25 +89,23 @@ public class Autorizados {
     public void testDarBajaErrorNoEsPAutorizada(){
         Usuario user = new Usuario();
         user.setUser("Almu");
-        user.setContrasena("Almu");
+        user.setContrasena("1234");
 
-        PAutorizada pA = new PAutorizada();
-        pA.setNombre("Salvador");
-        pA.setId(1234L);
+        Long id = parseLong("222");
 
         Empresa empresa = new Empresa();
         empresa.setIdentificacion("UMA");
         empresa.setId(parseLong("1"));
 
         try{
-            gestionEliminarAutorizados.darBaja(user.getUser(), pA, empresa);
+            gestionEliminarAutorizados.darBaja(user.getUser(), id, empresa);
             fail("Debe lanzar una excepcion NoEsPAutorizadaException");
         } catch (PersonaNoExisteException e) {
-            fail("Debe lanzar una excepcion NoEsPAutorizadaException");
+            fail("Debe lanzar una excepcion NoEsPAutorizadaException" + e.getMessage());
         } catch (NoEsPAutorizadaException e) {
             //ok
         } catch (EmpresaNoExistenteException e) {
-            fail("Debe lanzar una excepcion NoEsPAutorizadaException");
+            fail("Debe lanzar una excepcion NoEsPAutorizadaException" + e.getMessage());
         }
     }
 }
