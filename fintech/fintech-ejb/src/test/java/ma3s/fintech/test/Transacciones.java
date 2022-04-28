@@ -91,7 +91,7 @@ public class Transacciones {
         trans.setTipo("NULO");
 
         try{
-            gestionTransferencia.transferenciaCliente(trans, 223L);
+            gestionTransferencia.transferenciaAutorizado (parseLong("1"), parseLong("1"), trans);
             fail("No se han capturado errores y se esperaba ErrorOrigenTransaccionException");
         } catch (SaldoNoSuficiente saldoNoSuficiente) {
             fail("Se ha capturado saldoNoSuficiente y se esperaba ErrorOrigenTransaccionException");

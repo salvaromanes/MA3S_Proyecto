@@ -153,7 +153,7 @@ public class Transferencias implements GestionTransferencia{
     }
 
     @Override
-    public void transeferenciaAutorizado(Long id, Long idEmpresa, Transaccion transaccion) throws PersonaNoExisteException, ErrorOrigenTransaccionException, CampoVacioException, SaldoNoSuficiente {
+    public void transferenciaAutorizado(Long id, Long idEmpresa, Transaccion transaccion) throws PersonaNoExisteException, ErrorOrigenTransaccionException, CampoVacioException, SaldoNoSuficiente {
         // Comprobar que la PAutorizada existe
         PAutorizada pAutorizada = em.find(PAutorizada.class, id);
         if(pAutorizada == null) throw new PersonaNoExisteException("La persona autorizada con id: " + id + " no existe.");

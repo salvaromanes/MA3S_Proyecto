@@ -7,8 +7,6 @@ import java.util.Date;
 
 public interface GestionModificarPAutorizada {
 
-    public void modificarIdentificacion(String id_adm, Long id_aut, String identNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException;
-
     public void modificarNombre(String id_adm, Long id_aut, String nombreNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException;
 
     public void modificarApellidos(String id_adm, Long id_aut, String apellidosNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException;

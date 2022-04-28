@@ -14,27 +14,6 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
-    @Override
-    public void modificarIdentificacion(String id_adm, Long id_aut, String identNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException {
-        Usuario administrativo = em.find(Usuario.class, id_adm);
-
-        if(administrativo == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
-
-        if (administrativo.getEsAdmin() == false){
-            throw new NoEsAdministrativoException("El usuario " + id_adm + " no es administrativo.");
-        }
-
-        PAutorizada pAutorizada = em.find(PAutorizada.class, id_aut);
-
-        if(pAutorizada == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
-
-        if(identNew == null){
-            throw new CampoVacioException("El campo (identificación) a actualizar no contiene información.");
-        }
-
-        pAutorizada.setIdentificacion(identNew);
-        em.merge(pAutorizada);
-    }
 
     @Override
     public void modificarNombre(String id_adm, Long id_aut, String nombreNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException {
