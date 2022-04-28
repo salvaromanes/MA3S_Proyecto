@@ -21,7 +21,7 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
             throw new PersonaNoExisteException();
         }
 
-        if(!us1.equals(usuario)){
+        if(!us1.getUser().equals(usuario)){
             throw new PersonaNoExisteException("La persona : " + us1.getUser() + " no se encuentra");
         }
 

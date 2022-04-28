@@ -293,8 +293,6 @@ public class Administrador {
         final String emp = "UMA";
         final Long idEmpre = parseLong("1");
 
-        Usuario user_aux = new Usuario();
-        user_aux.setUser(nombre);
 
         PAutorizada aut = new PAutorizada();
         aut.setNombre(nombre);
@@ -306,18 +304,18 @@ public class Administrador {
 
         try {
             gestionAnadirAutorizados.anadirPAut
-                    (aut, empresa, user_aux.getUser());
+                    (aut, empresa, nombre);
             //ok
         } catch (NoEsPAutorizadaException e) {
-            fail("NoEsPAutorizadaException ");
+            fail("NoEsPAutorizadaException "+ e.getMessage());
         } catch (EmpresaNoExistenteException e) {
-            fail("EmpresaNoExistenteException ");
+            fail("EmpresaNoExistenteException "+ e.getMessage());
         } catch (PersonaNoExisteException e) {
-            fail("PersonaNoExisteException ");
-        } catch (EmpresaNoRelacException e) {
-            fail("EmpresaNoRelacException ");
+            fail("PersonaNoExisteException " + e.getMessage());
+        } catch (EmpresaNoRelacException e ) {
+            fail("EmpresaNoRelacException "+ e.getMessage());
         } catch (NoEsAdministrativoException e) {
-            fail("NoEsAdministrativoException ");
+            fail("NoEsAdministrativoException "+ e.getMessage());
         }
     }
 
