@@ -61,6 +61,9 @@ public class Reportes {
 
         Referencia ref = new Referencia();
         ref.setIban(ref_iban);
+
+        seg.setReferencia(ref);
+
        try {
             gestionInfHolanda.CuentasApi(seg);
             //ok

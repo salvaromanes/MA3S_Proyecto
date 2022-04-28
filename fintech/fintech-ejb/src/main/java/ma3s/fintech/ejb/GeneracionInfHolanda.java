@@ -23,7 +23,7 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
             throw new CuentaNoExistenteException();
         }
 
-        Referencia referencia = em.find(Referencia.class, cuenta.getIban());
+        Referencia referencia = em.find(Referencia.class, cuenta_Aux.getReferencia().getIban());
 
         if(referencia == null){
             throw new CuentaNoExistenteException();
