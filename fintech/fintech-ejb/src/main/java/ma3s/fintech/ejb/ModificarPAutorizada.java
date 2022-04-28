@@ -38,7 +38,6 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
 
     }
 
-
     @Override
     public void modificarApellidos(String id_adm, Long id_aut, String apellidosNew) throws PersonaNoExisteException, CampoVacioException, NoEsAdministrativoException {
         Usuario administrativo = em.find(Usuario.class, id_adm);

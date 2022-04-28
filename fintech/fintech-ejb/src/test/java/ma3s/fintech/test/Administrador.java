@@ -313,13 +313,7 @@ public class Administrador {
         }
     }
 
-
-
-
-
-
     // ------------------------------------TEST MARIO----------------------------------------
-
 
     // Modificacion del campo Nombre
 
