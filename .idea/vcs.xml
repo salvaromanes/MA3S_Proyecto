@@ -2,7 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/anotaciones-sii" vcs="" />
-    <mapping directory="$PROJECT_DIR$/fintech/anotaciones-sii" vcs="" />
   </component>
 </project>

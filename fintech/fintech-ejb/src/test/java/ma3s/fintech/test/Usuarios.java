@@ -122,9 +122,9 @@ public class Usuarios {
             gestionAccesoAplicacion.accederAplicacion(user.getUser(), user.getContrasena());
             //ok
         } catch (AccesoException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("No Debe lanzar una excepcion, lanza AccesoException");
         } catch (PersonaNoExisteException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("No Debe lanzar una excepcion, lanza PersonaNoExisteException");
         }
     }
 
