@@ -131,27 +131,6 @@ public class Administrador {
         }
     }
 
-
-    @Requisitos({"RF6"})
-    @Test
-
-    public void testAdminNoExiste() {
-        final String nombre = "Alvaro";
-        Usuario user_aux = new Usuario();
-        user_aux.setUser(nombre);
-
-        try {
-            gestionAnadirAutorizados.comprobarAdministrador(user_aux.getUser());
-            fail("Debe lanzar una excepcion");
-        } catch (PersonaNoExisteException e) {
-            //ok
-        } catch (NoEsAdministrativoException e) {
-            fail("Debe lanzar una excepcion de PersonaNoExistente");
-        }
-
-    }
-
-
     @Requisitos({"RF6"})
     @Test
 
