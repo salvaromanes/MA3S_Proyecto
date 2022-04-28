@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -207,7 +208,7 @@ public class BaseDatos {
         cliente3.setCodigopostal("4562");
         cliente3.setPais("Spain");
 
-        //Error Cuenta abierta
+        //----Error Cuenta abierta
         Cliente cliente4 = new Cliente();
         cliente4.setId(new Long(450));
         cliente4.setIdentificacion("ES450");
@@ -220,12 +221,22 @@ public class BaseDatos {
         cliente4.setPais("Spain");
 
         //Relacion con cuenta
+        Fintech cuentaAbierta = new Fintech();
+        cuentaAbierta.setEstado("Abierta");
+        cuentaAbierta.setFechaApertura(new Date());
+        cuentaAbierta.setIban("ES986542");
+        cuentaAbierta.setSwift("ES986542");
+        cuentaAbierta.setCliente(cliente4);
+
+        //List<Fintech> listaCuentas = new ArrayList<>();
+        //listaCuentas.add(cuentaAbierta);
+        //cliente4.setCuentasFintech(listaCuentas);
 
         for (Usuario u: new Usuario[]{usuario, usuario1, user}) {
             em.persist(u);
         }
 
-        for (Cuenta c: new Cuenta[]{cuenta, pooled, segregada}) {
+        for (Cuenta c: new Cuenta[]{cuenta, pooled, segregada, cuentaAbierta}) {
             em.persist(c);
         }
 
