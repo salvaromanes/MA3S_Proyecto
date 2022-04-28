@@ -60,11 +60,11 @@ public class Autorizados {
     public void testDarBajaErrorPersonaNoExiste(){
         Usuario user = new Usuario();
         user.setUser("Almudena");
+        user.setContrasena("Almu");
 
         PAutorizada pA = new PAutorizada();
         pA.setNombre("Salva");
         pA.setIdentificacion("12345678S");
-        pA.setId(parseLong("1"));
         pA.setId(parseLong("1"));
 
         Empresa empresa = new Empresa();
@@ -89,6 +89,7 @@ public class Autorizados {
     public void testDarBajaErrorNoEsPAutorizada(){
         Usuario user = new Usuario();
         user.setUser("Almu");
+        user.setContrasena("Almu");
 
         PAutorizada pA = new PAutorizada();
         pA.setNombre("Salvador");
@@ -96,6 +97,7 @@ public class Autorizados {
 
         Empresa empresa = new Empresa();
         empresa.setIdentificacion("UMA");
+        empresa.setId(parseLong("1"));
 
         try{
             gestionEliminarAutorizados.darBaja(user.getUser(), pA, empresa);
