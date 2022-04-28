@@ -30,7 +30,7 @@ public class GenerarCSV implements GestionGenerarCSV{
         Usuario user = em.find(Usuario.class, usuario);
 
         if(user == null){
-            throw new PersonaNoExisteException();
+            throw new PersonaNoExisteException("usuario no encontrado");
         }
 
         Query query = em.createQuery("select c from Cliente c");

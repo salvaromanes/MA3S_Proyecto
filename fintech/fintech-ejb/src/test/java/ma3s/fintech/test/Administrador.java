@@ -332,18 +332,18 @@ public class Administrador {
             gestionGenerarCSV.generarCSV(user.getUser(), "Individual", d);
             //ok
         } catch (IOException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("No Debe lanzar una excepcion " + e.getMessage());
         } catch (PersonaNoExisteException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("No Debe lanzar una excepcion "  + e.getMessage());
         }
 
         try {
             gestionGenerarCSV.generarCSV(user.getUser(), "Periodico", d);
             //ok
         } catch (IOException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("No Debe lanzar una excepcion "  + e.getMessage());
         } catch (PersonaNoExisteException e) {
-            fail("No Debe lanzar una excepcion ");
+            fail("No Debe lanzar una excepcion "  + e.getMessage());
         }
 
     }
@@ -361,21 +361,21 @@ public class Administrador {
 
         try {
             gestionGenerarCSV.generarCSV(user.getUser(), "Individual", d);
-            fail("Debe lanzar una excepcion PersonaNoExisteException");
-        } catch (IOException e) {
-            fail("Debe lanzar una excepcion PersonaNoExisteException");
-        } catch (PersonaNoExisteException e) {
             fail("Debe lanzar una excepcion");
+        } catch (IOException e) {
+            fail("Debe lanzar una excepcion PersonaNoExisteException " + e.getMessage());
+        } catch (PersonaNoExisteException e) {
+            fail("Debe lanzar una excepcion " + e.getMessage());
             //ok
         }
 
         try {
             gestionGenerarCSV.generarCSV(user.getUser(), "Periodico", d);
-            fail("Debe lanzar una excepcion PersonaNoExisteException");
+            fail("Debe lanzar una excepcion ");
         } catch (IOException e) {
-            fail("Debe lanzar una excepcion PersonaNoExisteException");
+            fail("Debe lanzar una excepcion " + e.getMessage());
         } catch (PersonaNoExisteException e) {
-            fail("Debe lanzar una excepcion");
+            fail("Debe lanzar una excepcion " + e.getMessage());
             //ok
         }
     }
