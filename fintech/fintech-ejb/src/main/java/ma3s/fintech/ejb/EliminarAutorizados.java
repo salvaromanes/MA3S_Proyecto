@@ -25,7 +25,7 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
 
         Empresa empresa = em.find(Empresa.class, idEmpresa);
         if(empresa == null){
-            throw new EmpresaNoExistenteException();
+            throw new EmpresaNoExistenteException("empresa error");
         }
 
         PAutorizada pA = em.find(PAutorizada.class, idPA);
@@ -48,7 +48,7 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
         }
 
         if(!autorizacion.getAutorizadaId().getId().equals(pA.getId()) && !autorizacion.getEmpresaId().getId().equals(empresa.getId())){
-            throw new NoEsPAutorizadaException();
+            throw new NoEsPAutorizadaException("no es pa error");
         }
 
         em.remove(autorizacion);

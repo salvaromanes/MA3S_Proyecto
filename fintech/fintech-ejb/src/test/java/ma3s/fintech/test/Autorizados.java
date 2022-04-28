@@ -30,7 +30,7 @@ public class Autorizados {
     public void testDarBaja(){
         Usuario user = new Usuario();
         user.setUser("Almu");
-        user.setContrasena("Almu");
+        user.setContrasena("1234");
 
         PAutorizada pA = new PAutorizada();
         pA.setId(parseLong("256"));
