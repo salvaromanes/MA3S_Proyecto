@@ -68,7 +68,7 @@ public class Reportes {
             gestionInfHolanda.CuentasApi(seg);
             //ok
        }catch (CuentaNoExistenteException e) {
-           fail("No Debe lanzar una excepcion");
+           fail("No Debe lanzar una excepcion" + e.getMessage());
        }
 
     }

@@ -20,13 +20,13 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
         Segregada cuenta_Aux = em.find(Segregada.class, cuenta.getIban());
 
         if(cuenta_Aux == null){
-            throw new CuentaNoExistenteException();
+            throw new CuentaNoExistenteException("Error en la segregada");
         }
 
         Referencia referencia = em.find(Referencia.class, cuenta_Aux.getReferencia().getIban());
 
         if(referencia == null){
-            throw new CuentaNoExistenteException();
+            throw new CuentaNoExistenteException("Error en la ref");
         }
 
         String aux = "{\n \"searchParametres\":{" +
