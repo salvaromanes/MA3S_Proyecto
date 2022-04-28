@@ -5,6 +5,7 @@ import ma3s.fintech.Fintech;
 import ma3s.fintech.PAutorizada;
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
+import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -27,6 +28,11 @@ public class GenerarCSV implements GestionGenerarCSV{
     @Override
     public void generarCSV(String usuario, String tipoInforme, Date ultimoReporte) throws PersonaNoExisteException, IOException {
         Usuario user = em.find(Usuario.class, usuario);
+
+        if(user == null){
+            throw new PersonaNoExisteException();
+        }
+
         Query query = em.createQuery("select c from Cliente c");
         List<Cliente> listaClientes = query.getResultList();
 
