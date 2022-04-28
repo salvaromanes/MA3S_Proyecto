@@ -43,8 +43,8 @@ public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
         int i = 0;
         boolean encontrado = false;
         while(i < max && !encontrado){
-            if(autorizacion.get(i).getEmpresaId().equals(empresa) &&
-               autorizacion.get(i).getAutorizadaId().equals(pAutorizada.getId())){
+            if(autorizacion.get(i).getEmpresaId().equals(emp) &&
+                    autorizacion.get(i).getAutorizadaId().equals(pAutorizada)){
                 encontrado = true;
             }else{
                 i++;
@@ -90,8 +90,8 @@ public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
         int i = 0;
         boolean encontrado = false;
         while(i < max && !encontrado){
-            if(autorizacion.get(i).getEmpresaId().equals(empresa) &&
-                    autorizacion.get(i).getAutorizadaId().equals(pAutorizada.getId())){
+            if(autorizacion.get(i).getEmpresaId().equals(emp) &&
+                    autorizacion.get(i).getAutorizadaId().equals(pAutorizada)){
                 encontrado = true;
             }else{
                 i++;
