@@ -27,13 +27,18 @@ public class CierreCuenta implements GestionCierreCuenta{
 
     @Override
     public void cerrarCuenta(String iban, String usuario) throws CuentaNoExistenteException, CuentaNoVacia, UsuarioNoEncontradoException, UsuarioIncorrectoException {
-        Cuenta cuenta = em.find(Cuenta.class, iban);
-        Referencia referencia = em.find(Referencia.class, iban);
-
         comprobarAdministrador(usuario);
 
-        if(cuenta == null || referencia == null){
-            throw new CuentaNoExistenteException("La cuenta con IBAN "+iban+" no existe.");
+        Cuenta cuenta = em.find(Cuenta.class, iban);
+
+        if(cuenta == null){
+            throw new CuentaNoExistenteException();
+        }
+
+        Referencia referencia = em.find(Referencia.class, iban);
+
+        if(referencia == null){
+            throw new CuentaNoExistenteException();
         }
 
         if(referencia.getSaldo() != 0){
