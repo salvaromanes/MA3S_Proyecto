@@ -140,7 +140,8 @@ public class Administrador {
         user_aux.setUser(null);
 
         PAutorizada aut = new PAutorizada();
-
+        aut.setNombre("Alvaro");
+        aut.setId(parseLong("44893"));
 
         Empresa empresa = new Empresa();
 
