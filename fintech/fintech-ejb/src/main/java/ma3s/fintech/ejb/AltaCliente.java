@@ -22,6 +22,7 @@ public class AltaCliente implements GestionAltaCliente{
     public void darAltaEmpresa(Empresa empresa) throws CampoVacioException, ClienteYaExistenteException {
         if(empresa == null)
             throw new CampoVacioException();
+        Long id = empresa.getId();
         String identificacion = empresa.getIdentificacion();
         String tipo_cliente = empresa.getTipoCliente();
         String estado = empresa.getEstado();
@@ -31,7 +32,7 @@ public class AltaCliente implements GestionAltaCliente{
         String codigoPostal = empresa.getCodigopostal();
         String pais = empresa.getPais();
         String razon_social = empresa.getRazonSocial();
-        if(identificacion == null || tipo_cliente == null
+        if(id == null  || identificacion == null || tipo_cliente == null
                 || estado == null || fecha_alta == null
                 || direccion == null || ciudad == null
                 || codigoPostal == null || pais == null
@@ -54,6 +55,7 @@ public class AltaCliente implements GestionAltaCliente{
     public void darAltaIndividual(Individual individual) throws CampoVacioException, ClienteYaExistenteException {
         if(individual == null)
             throw new CampoVacioException();
+        Long id = individual.getId();
         String identificacion = individual.getIdentificacion();
         String tipo_cliente = individual.getTipoCliente();
         String estado = individual.getEstado();
@@ -64,7 +66,7 @@ public class AltaCliente implements GestionAltaCliente{
         String pais = individual.getPais();
         String nombre = individual.getNombre();
         String apellido = individual.getApellido();
-        if(identificacion == null || tipo_cliente == null
+        if( id == null || identificacion == null || tipo_cliente == null
                 || estado == null || fecha_alta == null
                 || direccion == null || ciudad == null
                 || codigoPostal == null || pais == null

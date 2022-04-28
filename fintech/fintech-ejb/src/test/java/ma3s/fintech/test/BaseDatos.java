@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import java.util.Date;
+import java.util.List;
 
 import static java.lang.Long.parseLong;
 
@@ -111,6 +112,87 @@ public class BaseDatos {
         referencia.setSaldo(85000);
         referencia.setSucursal("Unicaja-Huelin");
 
+        //--------Datos para pruebas de los tests de clientes
+
+        //--DarAltaEmpresa
+        Cliente cliente2 = new Cliente();
+        cliente2.setId(new Long(83));
+        cliente2.setIdentificacion("ES83");
+        cliente2.setTipoCliente("Jurídico");
+        cliente2.setEstado("Abierta");
+        cliente2.setFechaAlta(new Date());
+        cliente2.setDireccion("Bulevaur");
+        cliente2.setCiudad("Málaga");
+        cliente2.setCodigopostal("4562");
+        cliente2.setPais("Spain");
+
+        //--DarAltaIndividual
+        Individual individual = new Individual();
+        individual.setId(new Long(80));
+        individual.setIdentificacion("MAN45");
+        individual.setTipoCliente("Personal");
+        individual.setEstado("Abierto");
+        individual.setFechaAlta(new Date());
+        individual.setDireccion("Bulevaur");
+        individual.setCiudad("Málaga");
+        individual.setCodigopostal("4562");
+        individual.setPais("Spain");
+        individual.setNombre("MANOLO");
+        individual.setApellido("García");
+
+        //--Modificar Empresa
+        Empresa nuevaEmpresa = new Empresa();
+        nuevaEmpresa.setId(new Long(20));
+        nuevaEmpresa.setIdentificacion("ES20");
+        nuevaEmpresa.setTipoCliente("Jurídico");
+        nuevaEmpresa.setEstado("Abierta");
+        nuevaEmpresa.setFechaAlta(new Date());
+        nuevaEmpresa.setDireccion("Bulevaur");
+        nuevaEmpresa.setCiudad("Málaga");
+        nuevaEmpresa.setCodigopostal("4562");
+        nuevaEmpresa.setPais("Spain");
+        nuevaEmpresa.setRazonSocial("ES4558");
+
+        //--Modificar Cliente
+        Individual individual2 = new Individual();
+        individual2.setId(new Long(30));
+        individual2.setIdentificacion("MAN45");
+        individual2.setTipoCliente("Personal");
+        individual2.setEstado("Abierto");
+        individual2.setFechaAlta(new Date());
+        individual2.setDireccion("Bulevaur");
+        individual2.setCiudad("Málaga");
+        individual2.setCodigopostal("4562");
+        individual2.setPais("Spain");
+        individual2.setNombre("MANOLO");
+        individual2.setApellido("García");
+
+        //--Dar Baja Cliente
+        //Sin errores
+        Cliente cliente3 = new Cliente();
+        cliente3.setId(new Long(40));
+        cliente3.setIdentificacion("ES40");
+        cliente3.setTipoCliente("Jurídico");
+        cliente3.setEstado("Abierta");
+        cliente3.setFechaAlta(new Date());
+        cliente3.setDireccion("Bulevaur");
+        cliente3.setCiudad("Málaga");
+        cliente3.setCodigopostal("4562");
+        cliente3.setPais("Spain");
+
+        //Error Cuenta abierta
+        Cliente cliente4 = new Cliente();
+        cliente4.setId(new Long(450));
+        cliente4.setIdentificacion("ES450");
+        cliente4.setTipoCliente("Jurídico");
+        cliente4.setEstado("Abierta");
+        cliente4.setFechaAlta(new Date());
+        cliente4.setDireccion("Bulevaur");
+        cliente4.setCiudad("Málaga");
+        cliente4.setCodigopostal("4562");
+        cliente4.setPais("Spain");
+
+        //Relacion con cuenta
 
         for (Usuario u: new Usuario[]{usuario, usuario1, user}) {
             em.persist(u);
@@ -124,8 +206,24 @@ public class BaseDatos {
             em.persist(pa);
         }
 
-        for (Cliente pa: new Cliente[]{cliente}) {
+        for (Cliente pa: new Cliente[]{cliente, cliente2, cliente3, cliente4}) {
             em.persist(pa);
+        }
+
+        for (Empresa emp : new Empresa[]{empresa, nuevaEmpresa, empresa2}){
+            em.persist(emp);
+        }
+
+        for (Individual ind : new Individual[]{individual, individual2}){
+            em.persist(ind);
+        }
+
+        for (Referencia ref : new Referencia[]{referencia}){
+            em.persist(ref);
+        }
+
+        for (Autorizacion au : new Autorizacion[]{autorizacion}){
+            em.persist(au);
         }
 
         em.getTransaction().commit();
