@@ -50,7 +50,6 @@ public class AltaCliente implements GestionAltaCliente{
         em.persist(empresa);
     }
 
-
     @Override
     public void darAltaIndividual(Individual individual) throws CampoVacioException, ClienteYaExistenteException {
         if(individual == null)

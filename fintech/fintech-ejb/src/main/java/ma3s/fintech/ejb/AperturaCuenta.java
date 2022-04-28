@@ -18,7 +18,6 @@ public class AperturaCuenta implements GestionAperturaCuenta{
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
-    //@Override
     private void comprobarAdministrador(String usuario) throws UsuarioIncorrectoException, UsuarioNoEncontradoException{
         Usuario user = em.find(Usuario.class, usuario);
 

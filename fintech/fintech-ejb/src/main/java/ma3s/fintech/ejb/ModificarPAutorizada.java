@@ -9,11 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Date;
 
-import static java.lang.Long.parseLong;
-
 @Stateless
 public class ModificarPAutorizada implements GestionModificarPAutorizada{
-
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
