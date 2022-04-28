@@ -53,6 +53,7 @@ public class BaseDatos {
         pAutorizada.setNombre("Salva");
         pAutorizada.setApellidos("Ortiz");
         pAutorizada.setDireccion("Romanes");
+        pAutorizada.setUser(usuario);
 
 
 
