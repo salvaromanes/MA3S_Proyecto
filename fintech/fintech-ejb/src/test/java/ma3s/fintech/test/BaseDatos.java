@@ -56,28 +56,32 @@ public class BaseDatos {
 
 
         Empresa empresa = new Empresa();
+        empresa.setId(parseLong("1"));
         empresa.setIdentificacion("UMA");
-        empresa.setRazonSocial("UMA");
-        empresa.setCiudad("Malaga");
-        empresa.setCodigopostal("29004");
-        empresa.setIdentificacion("Avenia Plutarco");
+        empresa.setTipoCliente("Jurídico");
         empresa.setEstado("Activo");
         empresa.setFechaAlta(new Date());
+        empresa.setDireccion("Bulevaur");
+        empresa.setCiudad("Malaga");
+        empresa.setCodigopostal("29004");
         empresa.setPais("Espana");
-        empresa.setId(parseLong("1"));
+        empresa.setRazonSocial("UMA");
+
 
 
 
         Empresa empresa2 = new Empresa();
+        empresa2.setId(parseLong("2"));
         empresa2.setIdentificacion("UCAM");
-        empresa2.setRazonSocial("UCAM");
-        empresa2.setCiudad("Murcia");
-        empresa2.setCodigopostal("29845");
-        empresa2.setIdentificacion("avenida de Murcia");
+        empresa2.setTipoCliente("Jurídico");
         empresa2.setEstado("Activo");
         empresa2.setFechaAlta(new Date());
+        empresa2.setDireccion("Bulevaur");
+        empresa2.setCiudad("Murcia");
+        empresa2.setCodigopostal("29845");
         empresa2.setPais("Espana");
-        empresa2.setId(parseLong("2"));
+        empresa2.setRazonSocial("UCAM");
+
 
         Autorizacion autorizacion = new Autorizacion();
         autorizacion.setAutorizadaId(pAutorizada);
