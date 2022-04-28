@@ -307,15 +307,15 @@ public class Administrador {
                     (aut, empresa, nombre);
             //ok
         } catch (NoEsPAutorizadaException e) {
-            fail("NoEsPAutorizadaException ");
+            fail("NoEsPAutorizadaException "+ e.getMessage());
         } catch (EmpresaNoExistenteException e) {
-            fail("EmpresaNoExistenteException ");
+            fail("EmpresaNoExistenteException "+ e.getMessage());
         } catch (PersonaNoExisteException e) {
             fail("PersonaNoExisteException " + e.getMessage());
-        } catch (EmpresaNoRelacException e) {
-            fail("EmpresaNoRelacException ");
+        } catch (EmpresaNoRelacException e ) {
+            fail("EmpresaNoRelacException "+ e.getMessage());
         } catch (NoEsAdministrativoException e) {
-            fail("NoEsAdministrativoException ");
+            fail("NoEsAdministrativoException "+ e.getMessage());
         }
     }
 
