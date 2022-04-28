@@ -58,7 +58,7 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
 
         Autorizacion a = em.find(Autorizacion.class , aux);
 
-        if(a == null){
+        if(a != null){
             throw new NoEsPAutorizadaException();
         }
 
