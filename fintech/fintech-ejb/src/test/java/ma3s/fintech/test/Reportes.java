@@ -70,7 +70,7 @@ public class Reportes {
 
         seg.setReferencia(ref);
         ref.setSegregada(seg);
-        //
+
        try {
             gestionInfHolanda.CuentasApi(seg);
             //ok
