@@ -14,7 +14,7 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
     private EntityManager em;
 
     @Override
-    public List<Fintech> accederAplicacion(String usuario, String contrasena) throws AccesoException, PersonaNoExisteException {
+    public void accederAplicacion(String usuario, String contrasena) throws AccesoException {
         Usuario user = em.find(Usuario.class, usuario);
 
         if(user == null){
@@ -24,26 +24,33 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
         if(!contrasena.equals(user.getContrasena())){
             throw new ContraseñaIncorrectaException();
         }
+/*
+        List<Fintech> cuentas = null;
 
         if(user.getCliente() == null){
             throw new PersonaNoExisteException("el cliente no existe");
+        }else{
+            Cliente cliente = em.find(Cliente.class, user.getCliente().getId());
+            if(cliente == null){
+                throw new PersonaNoExisteException("el cliente no existe");
+            }
+            cuentas = cliente.getCuentasFintech();
         }
-        Cliente cliente = em.find(Cliente.class, user.getCliente().getId());
 
         if(user.getpAutorizada() == null){
             throw new PersonaNoExisteException("la persona autorizada no existe");
-        }
-        PAutorizada pA = em.find(PAutorizada.class, user.getAutorizada().getId());
-
-        List<Fintech> cuentas = null;
-
-        if (cliente != null){
-            cuentas = cliente.getCuentasFintech();
-        }else if(pA != null){
+        }else{
+            PAutorizada pA = em.find(PAutorizada.class, user.getAutorizada().getId());
             Autorizacion autorizacion = em.find(Autorizacion.class, pA.getId());
             Empresa empresa = em.find(Empresa.class, autorizacion.getAutorizadaId());
+            if(pA == null){
+                throw new PersonaNoExisteException("la persona autorizada no existe");
+            }
             cuentas = empresa.getCuentasFintech();
         }
+
         return cuentas;
+
+ */
     }
 }
