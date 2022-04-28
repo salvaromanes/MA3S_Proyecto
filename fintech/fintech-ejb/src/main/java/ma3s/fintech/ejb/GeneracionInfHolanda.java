@@ -23,15 +23,16 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
             throw new CuentaNoExistenteException("Error en la segregada");
         }
 
-        Referencia referencia = em.find(Referencia.class, cuenta_Aux.getReferencia().getIban());
 
-        if(referencia == null){
+        // Referencia referencia = em.find(Referencia.class, cuenta_Aux.getReferencia().getIban());
+
+        if(cuenta_Aux.getReferencia() == null){
             throw new CuentaNoExistenteException("Error en la ref");
         }
 
         String aux = "{\n \"searchParametres\":{" +
                 "\n \"quesionType\": \"Product,\"" +
-                "\"status\":"+ referencia.getEstado() +",\n" +
+                "\"status\":"+ cuenta_Aux.getReferencia().getEstado() +",\n" +
                 "\"productNumber\":"+cuenta.getIban() +",\n" + "}}"
                 ;
 
