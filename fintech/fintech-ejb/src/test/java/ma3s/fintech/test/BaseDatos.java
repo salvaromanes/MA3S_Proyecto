@@ -47,6 +47,12 @@ public class BaseDatos {
         segregada.setSwift("12323");
 
 
+        Segregada segregada2 = new Segregada();
+        segregada2.setEstado("Activa");
+        segregada2.setFechaApertura(new Date());
+        segregada2.setIban("36456");
+        segregada2.setSwift("253452323");
+
 
         PAutorizada pAutorizada = new PAutorizada();
         pAutorizada.setId(parseLong("1"));
@@ -131,7 +137,7 @@ public class BaseDatos {
         referencia.setSaldo(85000);
         referencia.setSucursal("Unicaja-Huelin");
 
-        segregada.setReferencia(referencia);
+        segregada2.setReferencia(referencia);
 
 
         Referencia referencia2 = new Referencia();
@@ -266,6 +272,11 @@ public class BaseDatos {
         for (Autorizacion au : new Autorizacion[]{autorizacion}){
             em.persist(au);
         }
+
+        for (Segregada seg : new Segregada[]{segregada2}){
+            em.persist(seg);
+        }
+
 
         em.getTransaction().commit();
 
