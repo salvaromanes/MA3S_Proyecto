@@ -187,7 +187,7 @@ public class Administrador {
 
         try {
             gestionAnadirAutorizados.anadirPAut
-                    (aut, empresa, user_aux.getUser());
+                    (aut, empresa, nombre);
             fail("Debe lanzar una excepcion");
         } catch (NoEsPAutorizadaException e) {
             fail("Debe lanzar una excepcion tipo NoEsEmp ");
@@ -211,11 +211,9 @@ public class Administrador {
     public void testAnaPersonaNoExistente() {
         final String nombre = "Salva";
         final Long id = parseLong("1");
-        final String emp = "123";
-        final Long idEmpre = parseLong("25");
+        final String emp = "UCAM";
+        final Long idEmpre = parseLong("2");
 
-        Usuario user_aux = new Usuario();
-        user_aux.setUser(nombre);
 
         PAutorizada aut = new PAutorizada();
         aut.setNombre(nombre);
@@ -227,7 +225,7 @@ public class Administrador {
 
         try {
             gestionAnadirAutorizados.anadirPAut
-                    (aut, empresa, user_aux.getUser());
+                    (aut, empresa, "Adrian");
             fail("Debe lanzar una excepcion");
         } catch (NoEsPAutorizadaException e) {
             fail("Debe lanzar una excepcion tipo NoEsPersona ");
@@ -251,8 +249,8 @@ public class Administrador {
     public void testAnaEmpresaNoRelac() {
         final String nombre = "Salva";
         final Long id = parseLong("1");
-        final String emp = "UCAM";
-        final Long idEmpre = parseLong("2");
+        final String emp = "UMA";
+        final Long idEmpre = parseLong("1");
 
         Usuario user_aux = new Usuario();
         user_aux.setUser(nombre);
@@ -267,7 +265,7 @@ public class Administrador {
 
         try {
             gestionAnadirAutorizados.anadirPAut
-                    (aut, empresa, user_aux.getUser());
+                    (aut, empresa, nombre);
             fail("Debe lanzar una excepcion");
         } catch (NoEsPAutorizadaException e) {
             fail("Debe lanzar una excepcion tipo EmpresaNoRelac ");

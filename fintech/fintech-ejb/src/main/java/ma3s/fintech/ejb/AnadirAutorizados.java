@@ -60,7 +60,7 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
         Autorizacion a = em.find(Autorizacion.class , aux);
 
         if(a != null){
-            throw new NoEsPAutorizadaException( "La persona autorizada ya tiene autorizacion");
+            throw new EmpresaNoRelacException( "La persona autorizada ya tiene autorizacion");
         }
 
         comprobarAdministrador(usuario);
