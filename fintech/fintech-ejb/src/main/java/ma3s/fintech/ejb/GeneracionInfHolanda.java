@@ -12,7 +12,6 @@ import javax.persistence.PersistenceContext;
 
 @Stateless
 public class GeneracionInfHolanda implements GestionInfHolanda {
-
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
@@ -90,9 +89,4 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
 
         return  aux;
     }
-
-
-
-
-
 }

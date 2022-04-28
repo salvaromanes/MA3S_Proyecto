@@ -8,11 +8,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-
 public class AnadirAutorizados implements GestionAnadirAutorizados {
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
-
 
     private void comprobarAdministrador(String usuario) throws NoEsAdministrativoException, PersonaNoExisteException {
         Usuario us1 = em.find(Usuario.class,usuario);
@@ -30,7 +28,6 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
         }
 
     }
-
 
     @Override
     public void anadirPAut(PAutorizada autorizada, Empresa empresa, String usuario) throws NoEsPAutorizadaException, EmpresaNoExistenteException, PersonaNoExisteException, EmpresaNoRelacException, NoEsAdministrativoException {
@@ -72,7 +69,4 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
         em.persist(autorizar);
 
     }
-
-
-
 }

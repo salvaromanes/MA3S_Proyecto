@@ -6,9 +6,8 @@ import ma3s.fintech.ejb.excepciones.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.List;
-@Stateless
 
+@Stateless
 public class AccesoAplicacion implements GestionAccesoAplicacion {
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;

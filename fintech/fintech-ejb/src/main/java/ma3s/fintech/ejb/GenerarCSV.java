@@ -5,7 +5,6 @@ import ma3s.fintech.Fintech;
 import ma3s.fintech.PAutorizada;
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
-import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
