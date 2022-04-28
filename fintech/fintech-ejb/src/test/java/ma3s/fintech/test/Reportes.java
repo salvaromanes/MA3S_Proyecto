@@ -31,21 +31,21 @@ public class Reportes {
     @Test
 
     public void testGestionInfNoValido(){
-//        final String iban = "1233223";
-//        //final String ref_iban = "8732";
-//
-//        Segregada seg = new Segregada();
-//        seg.setIban(iban);
-//
-//        //Referencia ref = new Referencia();
-//        //ref.setIban(ref_iban);
-//
-//        try {
-//            gestionInfHolanda.CuentasApi(seg);
-//            fail("Debe lanzar una excepcion CuentaNoExistenteException");
-//        }catch (CuentaNoExistenteException e) {
-//            //ok
-//        }
+      final String iban = "123456789012345";
+      //final String ref_iban = "8732";
+
+        Segregada seg = new Segregada();
+        seg.setIban(iban);
+
+        Referencia ref = new Referencia();
+        ref.setIban(null);
+
+        try {
+            gestionInfHolanda.CuentasApi(seg);
+            fail("Debe lanzar una excepcion CuentaNoExistenteException");
+        }catch (CuentaNoExistenteException e) {
+            //ok
+        }
 
     }
 
