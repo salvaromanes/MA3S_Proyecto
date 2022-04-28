@@ -39,7 +39,7 @@ public class Autorizados {
         pA.setId(parseLong("1"));
 
         Empresa empresa = new Empresa();
-        empresa.setId(parseLong("124"));
+        empresa.setId(parseLong("1"));
         empresa.setIdentificacion("UMA");
 
         try{
