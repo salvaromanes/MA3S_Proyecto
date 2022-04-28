@@ -58,7 +58,7 @@ public class Autorizados {
     @Test
 
     public void testDarBajaErrorPersonaNoExiste(){
-        Long id = parseLong("1");
+        Long id = parseLong("444");
         Long idEmpresa = parseLong("1");
 
         try{
@@ -81,7 +81,7 @@ public class Autorizados {
         user.setUser("Almu");
         user.setContrasena("1234");
 
-        Long id = parseLong("222");
+        Long id = parseLong("2");
 
         Empresa empresa = new Empresa();
         empresa.setIdentificacion("UMA");

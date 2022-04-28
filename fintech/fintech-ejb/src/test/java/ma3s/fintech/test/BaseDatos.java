@@ -54,6 +54,13 @@ public class BaseDatos {
         pAutorizada.setApellidos("Ortiz");
         pAutorizada.setDireccion("Romanes");
 
+        PAutorizada pAutorizada2 = new PAutorizada();
+        pAutorizada.setId(parseLong("2"));
+        pAutorizada.setIdentificacion("987654321A");
+        pAutorizada.setNombre("Almudena");
+        pAutorizada.setApellidos("Balmont");
+        pAutorizada.setDireccion("Burgos");
+
 
 
 
@@ -222,7 +229,7 @@ public class BaseDatos {
             em.persist(c);
         }
 
-        for (PAutorizada pa: new PAutorizada[]{pAutorizada}) {
+        for (PAutorizada pa: new PAutorizada[]{pAutorizada, pAutorizada2}) {
             em.persist(pa);
         }
 
