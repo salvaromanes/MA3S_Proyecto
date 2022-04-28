@@ -252,7 +252,7 @@ public class Administrador {
     public void testAnaEmpresaNoRelac() {
         final String nombre = "Salva";
         final Long id = parseLong("1");
-        final String emp = "123";
+        final String emp = "UCAM";
         final Long idEmpre = parseLong("2");
 
         Usuario user_aux = new Usuario();
