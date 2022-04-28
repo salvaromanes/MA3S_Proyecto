@@ -55,9 +55,10 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
         AutorizadaId aux = new AutorizadaId();
         aux.setEmpresaId(e.getId());
         aux.setIdAutorizado(p.getId());
+
         Autorizacion a = em.find(Autorizacion.class , aux);
 
-        if(a == null){
+        if(a != null){
             throw new NoEsPAutorizadaException();
         }
 
@@ -70,11 +71,11 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
         if(!e.getId().equals(empresa.getId())) {
             throw  new EmpresaNoExistenteException("La empresa : " + e.getId() + " no se encuentra");
         }
-        if(!a.getAutorizadaId().equals(autorizada.getId())){
+        if(!a.getAutorizadaId().getId().equals(autorizada.getId())){
             throw  new PersonaNoExisteException("La persona con id : " + a.getAutorizadaId() + " no existe" );
         }
 
-        if(!a.getEmpresaId().equals(empresa.getId())){
+        if(!a.getEmpresaId().getId().equals(empresa.getId())){
             throw new EmpresaNoRelacException("La empresa : " + a.getEmpresaId() + " no esta relacionada con el  usario: " + a.getAutorizadaId());
         }
 
