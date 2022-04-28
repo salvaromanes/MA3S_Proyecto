@@ -290,8 +290,8 @@ public class Administrador {
     public void testAnaEmpresaCorrecto() {
         final String nombre = "Salva";
         final Long id = parseLong("1");
-        final String emp = "UMA";
-        final Long idEmpre = parseLong("1");
+        final String emp = "UCAM";
+        final Long idEmpre = parseLong("2");
 
 
         PAutorizada aut = new PAutorizada();
