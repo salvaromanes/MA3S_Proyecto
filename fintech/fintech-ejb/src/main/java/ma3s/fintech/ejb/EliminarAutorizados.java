@@ -23,12 +23,12 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
             throw new PersonaNoExisteException();
         }
 
-        Empresa empresa = em.find(Empresa.class, idEmpresa);
+        Empresa empresa = em.find(Empresa.class, idEmpresa.getId());
         if(empresa == null){
             throw new EmpresaNoExistenteException();
         }
 
-        PAutorizada pA = em.find(PAutorizada.class, idPA);
+        PAutorizada pA = em.find(PAutorizada.class, idPA.getId());
         if(pA == null){
             throw new PersonaNoExisteException("La persona autorizada no existe");
         }
