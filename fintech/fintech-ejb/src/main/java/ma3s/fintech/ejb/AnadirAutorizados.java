@@ -1,9 +1,6 @@
 package ma3s.fintech.ejb;
 
-import ma3s.fintech.Autorizacion;
-import ma3s.fintech.Empresa;
-import ma3s.fintech.PAutorizada;
-import ma3s.fintech.Usuario;
+import ma3s.fintech.*;
 import ma3s.fintech.ejb.excepciones.*;
 
 import javax.ejb.Stateless;
@@ -54,7 +51,10 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
             throw new EmpresaNoExistenteException();
         }
 
-        Autorizacion a = em.find(Autorizacion.class , autorizada.getId());
+        AutorizadaId aux = new AutorizadaId();
+        aux.setEmpresaId(e.getId());
+        aux.setIdAutorizado(p.getId());
+        Autorizacion a = em.find(Autorizacion.class , aux);
 
         if(a == null){
             throw new NoEsPAutorizadaException();
