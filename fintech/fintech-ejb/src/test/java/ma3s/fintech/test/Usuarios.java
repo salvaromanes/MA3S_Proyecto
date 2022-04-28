@@ -137,26 +137,26 @@ public class Usuarios {
 
         try{
             gestionAccesoAplicacion.accederAplicacion(user.getUser(), user.getContrasena());
-            fail("Debe lanzar una excepcion AccesoException");
+            fail("Debe lanzar una excepcion AccesoException, lanza desde try");
         } catch (AccesoException e) {
             //ok
         } catch (PersonaNoExisteException e) {
-            fail("Debe lanzar una excepcion AccesoException");
+            fail("Debe lanzar una excepcion AccesoException, lanza desde PersonaNoExisteException");
         }
     }
 
     @Requisitos({"RF10"})
     @Test
     public void testAccederAplicacionErrorPersona(){
-        Usuario user = new Usuario();
-        user.setUser("almudena");
-        user.setContrasena("1234");
+        Usuario usuario = new Usuario();
+        usuario.setUser("almudena");
+        usuario.setContrasena("1234");
 
         try{
-            gestionAccesoAplicacion.accederAplicacion(user.getUser(), user.getContrasena());
-            fail("Debe lanzar una excepcion PersonaNoExisteException");
+            gestionAccesoAplicacion.accederAplicacion(usuario.getUser(), usuario.getContrasena());
+            fail("Debe lanzar una excepcion PersonaNoExisteException, lanza desde try");
         } catch (AccesoException e) {
-            fail("Debe lanzar una excepcion PersonaNoExisteException");
+            fail("Debe lanzar una excepcion PersonaNoExisteException, lanza desde AccesoException");
         } catch (PersonaNoExisteException e) {
             //ok
         }
