@@ -219,7 +219,7 @@ public class Cuentas {
             gestionCierreCuenta.cerrarCuenta(ibanCuenta1, usuario);
             //Ok
         } catch (CuentaNoExistenteException e) {
-            fail("No debe lanzar una excepcion 1");
+            fail("No debe lanzar una excepcion 1 "+e.getMessage());
         } catch (CuentaNoVacia cuentaNoVacia) {
             fail("No debe lanzar una excepcion 2");
         } catch (UsuarioNoEncontradoException e) {

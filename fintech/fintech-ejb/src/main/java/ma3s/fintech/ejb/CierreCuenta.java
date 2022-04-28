@@ -32,13 +32,13 @@ public class CierreCuenta implements GestionCierreCuenta{
         Cuenta cuenta = em.find(Cuenta.class, iban);
 
         if(cuenta == null){
-            throw new CuentaNoExistenteException();
+            throw new CuentaNoExistenteException("Cuenta no existe");
         }
 
         Referencia referencia = em.find(Referencia.class, iban);
 
         if(referencia == null){
-            throw new CuentaNoExistenteException();
+            throw new CuentaNoExistenteException("Ref no existe");
         }
 
         if(referencia.getSaldo() != 0){
