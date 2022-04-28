@@ -212,7 +212,7 @@ public class Cuentas {
     @Requisitos({"RF9"})
     @Test
     public void testCierreCuentaOk(){
-        final String ibanCuenta1 = "123221";
+        final String ibanCuenta1 = "123456789012345";
         final String usuario = "Salva";
 
         try{
