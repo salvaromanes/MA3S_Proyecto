@@ -113,7 +113,7 @@ public class Clientes {
     public void testDarAltaIndividual(){
         Individual individual = new Individual();
         individual.setId(new Long(82));
-        individual.setIdentificacion("MAN45");
+        individual.setIdentificacion("MAN82");
         individual.setTipoCliente("Personal");
         individual.setEstado("Abierto");
         individual.setFechaAlta(new Date());
@@ -160,8 +160,8 @@ public class Clientes {
     @Test
     public void testDarAltaIndividualClienteYaExistente(){
         Individual individual = new Individual();
-        individual.setId(new Long(80));
-        individual.setIdentificacion("MAN40");
+        individual.setId(new Long(85));
+        individual.setIdentificacion("MAN45");
         individual.setTipoCliente("Personal");
         individual.setEstado("Abierto");
         individual.setFechaAlta(new Date());
@@ -174,6 +174,7 @@ public class Clientes {
 
         try {
             gestionAltaCliente.darAltaIndividual(individual);
+            fail("Debe lanzar una excepcion");
         }catch (CampoVacioException e){
             fail("Lanzó excepción al insertar");
         }catch (ClienteYaExistenteException e){
@@ -663,8 +664,9 @@ public class Clientes {
         Long id = null;
         try{
             gestionBajaCliente.darBajaCliente(id);
+            fail("Debe lanzar excepcion");
         }catch (CuentaAbiertaException| ClienteNoExisteException e){
-            fail("No debe lanzar excepción");
+            fail("Debe lanzar campovacio excepcion");
         }catch (CampoVacioException e){
 
         }
@@ -675,8 +677,11 @@ public class Clientes {
     public void testDarBajaClienteCuentaAbierta(){
         try{
             gestionBajaCliente.darBajaCliente(new Long(450));
-        }catch (CampoVacioException|CuentaAbiertaException| ClienteNoExisteException e){
+            fail("Debe lanzar excepcion");
+        }catch (CampoVacioException| ClienteNoExisteException e){
             fail("No debe lanzar excepción");
+        }catch (CuentaAbiertaException e){
+
         }
     }
 
@@ -685,6 +690,7 @@ public class Clientes {
     public void testDarBajaClienteClienteNoExiste(){
         try{
             gestionBajaCliente.darBajaCliente(new Long(400));
+            fail("Debe lanzar excepcion");
         }catch (CampoVacioException|CuentaAbiertaException e){
             fail("No debe lanzar excepción");
         }catch (ClienteNoExisteException e){
