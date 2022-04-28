@@ -56,7 +56,7 @@ public class BaseDatos {
 
         PAutorizada pAutorizada2 = new PAutorizada();
         pAutorizada.setId(parseLong("2"));
-        pAutorizada.setIdentificacion("987654321A");
+        pAutorizada.setIdentificacion("999654111A");
         pAutorizada.setNombre("Almudena");
         pAutorizada.setApellidos("Balmont");
         pAutorizada.setDireccion("Burgos");
