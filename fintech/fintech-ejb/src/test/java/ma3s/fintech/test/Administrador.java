@@ -253,7 +253,7 @@ public class Administrador {
         final String nombre = "Salva";
         final Long id = parseLong("1");
         final String emp = "123";
-        final Long idEmpre = parseLong("25");
+        final Long idEmpre = parseLong("2");
 
         Usuario user_aux = new Usuario();
         user_aux.setUser(nombre);

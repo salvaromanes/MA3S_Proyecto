@@ -65,6 +65,19 @@ public class BaseDatos {
         empresa.setPais("Espana");
         empresa.setId(parseLong("1"));
 
+
+
+        Empresa empresa2 = new Empresa();
+        empresa2.setIdentificacion("UCAM");
+        empresa2.setRazonSocial("UCAM");
+        empresa2.setCiudad("Murcia");
+        empresa2.setCodigopostal("29845");
+        empresa2.setIdentificacion("avenida de Murcia");
+        empresa2.setEstado("Activo");
+        empresa2.setFechaAlta(new Date());
+        empresa2.setPais("Espana");
+        empresa2.setId(parseLong("2"));
+
         Autorizacion autorizacion = new Autorizacion();
         autorizacion.setAutorizadaId(pAutorizada);
         autorizacion.setEmpresaId(empresa);
