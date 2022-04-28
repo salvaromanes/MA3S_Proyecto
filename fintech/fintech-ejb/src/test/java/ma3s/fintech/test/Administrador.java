@@ -137,14 +137,15 @@ public class Administrador {
     public void testAnaPNoEsPersonaA() {
 
         Usuario user_aux = new Usuario();
-        user_aux.setUser(null);
+        user_aux.setUser("Juan");
 
         PAutorizada aut = new PAutorizada();
         aut.setNombre("Alvaro");
         aut.setId(parseLong("44893"));
 
         Empresa empresa = new Empresa();
-
+        empresa.setIdentificacion("UMA");
+        empresa.setId(parseLong("1"));
 
         try {
             gestionAnadirAutorizados.anadirPAut

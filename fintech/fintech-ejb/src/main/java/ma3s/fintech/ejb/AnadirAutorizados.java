@@ -37,9 +37,10 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
 
     @Override
     public void anadirPAut(PAutorizada autorizada, Empresa empresa, String usuario) throws NoEsPAutorizadaException, EmpresaNoExistenteException, PersonaNoExisteException, EmpresaNoRelacException, NoEsAdministrativoException {
-        if(autorizada == null || empresa == null || usuario == null){
+      if(autorizada == null || empresa == null || usuario == null){
             throw new PersonaNoExisteException();
         }
+
 
         PAutorizada p = em.find(PAutorizada.class,autorizada.getId());
 
