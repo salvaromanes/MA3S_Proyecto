@@ -237,7 +237,7 @@ public class BaseDatos {
             em.persist(ind);
         }
 
-        for (Referencia ref : new Referencia[]{referencia}){
+        for (Referencia ref : new Referencia[]{referencia, referencia2}){
             em.persist(ref);
         }
 
