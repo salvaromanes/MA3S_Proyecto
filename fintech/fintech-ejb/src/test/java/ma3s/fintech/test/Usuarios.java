@@ -44,8 +44,10 @@ public class Usuarios {
         try{
             gestionConcesionAutorizacion.autorizarLectura(pAutorizada, empresa);
             fail("Debe lanzar una excepcion");
-        } catch (UsuarioNoEncontradoException e) {
+        } catch (PersonaNoExisteException e) {
             //ok
+        } catch (EmpresaNoExistenteException e) {
+            fail("Debe lanzar una PersonaNoExisteException");
         }
     }
 
@@ -62,8 +64,10 @@ public class Usuarios {
         try{
             gestionConcesionAutorizacion.autorizarOperacion(pAutorizada, empresa);
             fail("Debe lanzar una excepcion");
-        } catch (UsuarioNoEncontradoException e) {
+        } catch (PersonaNoExisteException e) {
             //ok
+        } catch (EmpresaNoExistenteException e) {
+            fail("Debe lanzar una PersonaNoExisteException");
         }
     }
 
@@ -80,7 +84,9 @@ public class Usuarios {
         try{
             gestionConcesionAutorizacion.autorizarLectura(pAutorizada, empresa);
             //ok
-        } catch (UsuarioNoEncontradoException e) {
+        } catch (PersonaNoExisteException e) {
+            fail("No debe lanzar una excepcion");
+        } catch (EmpresaNoExistenteException e) {
             fail("No debe lanzar una excepcion");
         }
     }
@@ -98,7 +104,9 @@ public class Usuarios {
         try{
             gestionConcesionAutorizacion.autorizarOperacion(pAutorizada, empresa);
             //ok
-        } catch (UsuarioNoEncontradoException e) {
+        } catch (PersonaNoExisteException e) {
+            fail("No debe lanzar una excepcion");
+        } catch (EmpresaNoExistenteException e) {
             fail("No debe lanzar una excepcion");
         }
     }

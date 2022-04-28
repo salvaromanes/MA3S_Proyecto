@@ -4,10 +4,13 @@ import ma3s.fintech.Autorizacion;
 import ma3s.fintech.AutorizadaId;
 import ma3s.fintech.Empresa;
 import ma3s.fintech.PAutorizada;
+import ma3s.fintech.ejb.excepciones.EmpresaNoExistenteException;
+import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
 import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 @Stateless
@@ -16,21 +19,32 @@ public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
     private EntityManager em;
 
     @Override
-    public void autorizarLectura(PAutorizada persona, Empresa empresa) throws UsuarioNoEncontradoException{
+    public void autorizarLectura(PAutorizada persona, Empresa empresa) throws PersonaNoExisteException, EmpresaNoExistenteException {
         AutorizadaId autorizadaId = new AutorizadaId();
         autorizadaId.setIdAutorizado(persona.getId());
         autorizadaId.setEmpresaId(empresa.getId());
-        List<Autorizacion> autorizacion = (List<Autorizacion>) em.find(Autorizacion.class, autorizadaId);
 
-        if(autorizacion == null){
-            throw new UsuarioNoEncontradoException();
+        Query query = em.createQuery("select a from Autorizacion a");
+        List<Autorizacion> autorizacion = query.getResultList();
+
+        PAutorizada pAutorizada = em.find(PAutorizada.class, persona.getId());
+
+        if(pAutorizada == null){
+            throw new PersonaNoExisteException();
+        }
+
+        Empresa emp = em.find(Empresa.class, empresa.getId());
+
+        if(emp == null){
+            throw new EmpresaNoExistenteException();
         }
 
         int max = autorizacion.size();
         int i = 0;
         boolean encontrado = false;
         while(i < max && !encontrado){
-            if(autorizacion.get(i).getEmpresaId().equals(empresa)){
+            if(autorizacion.get(i).getEmpresaId().equals(empresa) &&
+               autorizacion.get(i).getAutorizadaId().equals(pAutorizada.getId())){
                 encontrado = true;
             }else{
                 i++;
@@ -52,21 +66,32 @@ public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
     }
 
     @Override
-    public void autorizarOperacion(PAutorizada persona, Empresa empresa) throws UsuarioNoEncontradoException{
+    public void autorizarOperacion(PAutorizada persona, Empresa empresa) throws EmpresaNoExistenteException, PersonaNoExisteException {
         AutorizadaId autorizadaId = new AutorizadaId();
         autorizadaId.setIdAutorizado(persona.getId());
         autorizadaId.setEmpresaId(empresa.getId());
-        List<Autorizacion> autorizacion = (List<Autorizacion>) em.find(Autorizacion.class, autorizadaId);
 
-        if(autorizacion == null){
-            throw new UsuarioNoEncontradoException();
+        Query query = em.createQuery("select a from Autorizacion a");
+        List<Autorizacion> autorizacion = query.getResultList();
+
+        PAutorizada pAutorizada = em.find(PAutorizada.class, persona.getId());
+
+        if(pAutorizada == null){
+            throw new PersonaNoExisteException();
+        }
+
+        Empresa emp = em.find(Empresa.class, empresa.getId());
+
+        if(emp == null){
+            throw new EmpresaNoExistenteException();
         }
 
         int max = autorizacion.size();
         int i = 0;
         boolean encontrado = false;
         while(i < max && !encontrado){
-            if(autorizacion.get(i).getEmpresaId().equals(empresa)){
+            if(autorizacion.get(i).getEmpresaId().equals(empresa) &&
+                    autorizacion.get(i).getAutorizadaId().equals(pAutorizada.getId())){
                 encontrado = true;
             }else{
                 i++;
