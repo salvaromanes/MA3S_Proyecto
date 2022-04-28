@@ -20,7 +20,7 @@ public class Autorizados {
 
     @Before
     public void setup() throws NamingException {
-        gestionEliminarAutorizados = (ma3s.fintech.ejb.EliminarAutorizados) SuiteTest.ctx.lookup(ELIMINAR_AUTORIZADOS);
+        gestionEliminarAutorizados = (ma3s.fintech.ejb.GestionEliminarAutorizados) SuiteTest.ctx.lookup(ELIMINAR_AUTORIZADOS);
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
 
