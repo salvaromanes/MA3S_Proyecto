@@ -13,20 +13,36 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
     private EntityManager em;
 
     @Override
-    public void darBaja(String usuario, Long idPA, Long idEmpresa) throws PersonaNoExisteException, NoEsPAutorizadaException {
-        PAutorizada pA = em.find(PAutorizada.class, idPA);
-        Usuario admin = em.find(Usuario.class, usuario);
-        Autorizacion autorizacion = em.find(Autorizacion.class, pA.getId());
+    public void darBaja(String usuario, PAutorizada idPA, Empresa idEmpresa) throws PersonaNoExisteException, NoEsPAutorizadaException, EmpresaNoExistenteException {
+
+        if(idPA == null){
+            throw new PersonaNoExisteException();
+        }
+
+        if(idEmpresa == null){
+            throw new PersonaNoExisteException();
+        }
+
         Empresa empresa = em.find(Empresa.class, idEmpresa);
-
-        if (admin == null || !admin.getEsAdmin()){
-            throw new PersonaNoExisteException("El administrativo " + admin + " no existe");
+        if(empresa == null){
+            throw new EmpresaNoExistenteException();
         }
 
+        PAutorizada pA = em.find(PAutorizada.class, idPA);
         if(pA == null){
-            throw new PersonaNoExisteException("La persona autorizada con id " + pA.getId() + " no existe");
+            throw new PersonaNoExisteException("La persona autorizada no existe");
         }
 
+        Usuario admin = em.find(Usuario.class, usuario);
+        if (admin == null || !admin.getEsAdmin()){
+            throw new PersonaNoExisteException("El administrativo no existe");
+        }
+
+        AutorizadaId autid = new AutorizadaId();
+        autid.setIdAutorizado(pA.getId());
+        autid.setEmpresaId(empresa.getId());
+
+        Autorizacion autorizacion = em.find(Autorizacion.class, autid);
         if(autorizacion == null){
             throw new NoEsPAutorizadaException("La persona autorizada no tiene autorizaciones");
         }

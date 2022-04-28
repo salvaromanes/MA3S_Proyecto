@@ -40,11 +40,13 @@ public class Autorizados {
         empresa.setIdentificacion("UMA");
 
         try{
-            gestionEliminarAutorizados.darBaja(user.getUser(), pA.getId(), empresa.getId());
+            gestionEliminarAutorizados.darBaja(user.getUser(), pA, empresa);
             //ok
         } catch (PersonaNoExisteException e) {
             fail("No Debe lanzar una excepcion ");
         } catch (NoEsPAutorizadaException e) {
+            fail("No Debe lanzar una excepcion ");
+        } catch (EmpresaNoExistenteException e) {
             fail("No Debe lanzar una excepcion ");
         }
     }
@@ -65,11 +67,13 @@ public class Autorizados {
         empresa.setIdentificacion("UMA");
 
         try{
-            gestionEliminarAutorizados.darBaja(user.getUser(), pA.getId(), empresa.getId());
+            gestionEliminarAutorizados.darBaja(user.getUser(), pA, empresa);
             fail("Debe lanzar una excepcion PersonaNoExisteException");
         } catch (PersonaNoExisteException e) {
             //ok
         } catch (NoEsPAutorizadaException e) {
+            fail("Debe lanzar una excepcion PersonaNoExisteException");
+        } catch (EmpresaNoExistenteException e) {
             fail("Debe lanzar una excepcion PersonaNoExisteException");
         }
     }
@@ -89,12 +93,14 @@ public class Autorizados {
         empresa.setIdentificacion("UMA");
 
         try{
-            gestionEliminarAutorizados.darBaja(user.getUser(), pA.getId(), empresa.getId());
+            gestionEliminarAutorizados.darBaja(user.getUser(), pA, empresa);
             fail("Debe lanzar una excepcion NoEsPAutorizadaException");
         } catch (PersonaNoExisteException e) {
             fail("Debe lanzar una excepcion NoEsPAutorizadaException");
         } catch (NoEsPAutorizadaException e) {
             //ok
+        } catch (EmpresaNoExistenteException e) {
+            fail("Debe lanzar una excepcion NoEsPAutorizadaException");
         }
     }
 }
