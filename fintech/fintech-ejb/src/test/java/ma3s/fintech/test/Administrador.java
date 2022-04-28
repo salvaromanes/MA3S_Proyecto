@@ -135,21 +135,15 @@ public class Administrador {
     @Test
 
     public void testAnaPNoEsPersonaA() {
-        final String nombre = null;
-        final Long id = parseLong("1");
-        final String emp = "123";
-        final Long idEmpre = parseLong("25");
 
         Usuario user_aux = new Usuario();
-        user_aux.setUser(nombre);
+        user_aux.setUser(null);
 
         PAutorizada aut = new PAutorizada();
-        aut.setNombre(nombre);
-        aut.setId(id);
+
 
         Empresa empresa = new Empresa();
-        empresa.setIdentificacion(emp);
-        empresa.setId(idEmpre);
+
 
         try {
             gestionAnadirAutorizados.anadirPAut
