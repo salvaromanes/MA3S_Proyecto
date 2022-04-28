@@ -135,7 +135,7 @@ public class Administrador {
     @Test
 
     public void testAnaPNoEsPersonaA() {
-        final String nombre = "MA3S";
+        final String nombre = null;
         final Long id = parseLong("1");
         final String emp = "123";
         final Long idEmpre = parseLong("25");
@@ -158,13 +158,13 @@ public class Administrador {
         } catch (NoEsPAutorizadaException e) {
             //ok
         } catch (EmpresaNoExistenteException e) {
-            fail("Debe lanzar una excepcion tipo NoEsPersonaAut ");
+            fail("Debe lanzar una excepcion tipo NoEsPAutorizadaException ");
         } catch (PersonaNoExisteException e) {
-            fail("Debe lanzar una excepcion tipo NoEsPersonaAut ");
+            fail("Debe lanzar una excepcion tipo NoEsPAutorizadaException ");
         } catch (EmpresaNoRelacException e) {
-            fail("Debe lanzar una excepcion tipo NoEsPersonaAut ");
+            fail("Debe lanzar una excepcion tipo NoEsPAutorizadaException ");
         } catch (NoEsAdministrativoException e) {
-            fail("Debe lanzar una excepcion tipo NoEsPersonaAut ");
+            fail("Debe lanzar una excepcion tipo NoEsPAutorizadaException ");
         }
 
     }
