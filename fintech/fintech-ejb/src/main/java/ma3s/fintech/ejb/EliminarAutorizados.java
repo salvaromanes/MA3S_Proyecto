@@ -13,7 +13,7 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
     private EntityManager em;
 
     @Override
-    public void darBaja(String usuario, Long idPA, Empresa idEmpresa) throws PersonaNoExisteException, NoEsPAutorizadaException, EmpresaNoExistenteException {
+    public void darBaja(String usuario, Long idPA, Long idEmpresa) throws PersonaNoExisteException, NoEsPAutorizadaException, EmpresaNoExistenteException {
 
         if(idPA == null){
             throw new PersonaNoExisteException("no es persona autorizada");
@@ -23,7 +23,7 @@ public class EliminarAutorizados implements GestionEliminarAutorizados{
             throw new PersonaNoExisteException("no es empresa");
         }
 
-        Empresa empresa = em.find(Empresa.class, idEmpresa.getId());
+        Empresa empresa = em.find(Empresa.class, idEmpresa);
         if(empresa == null){
             throw new EmpresaNoExistenteException();
         }

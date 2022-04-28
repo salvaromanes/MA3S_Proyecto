@@ -43,7 +43,7 @@ public class Autorizados {
         empresa.setIdentificacion("UMA");
 
         try{
-            gestionEliminarAutorizados.darBaja(user.getUser(), pA.getId(), empresa);
+            gestionEliminarAutorizados.darBaja(user.getUser(), pA.getId(), empresa.getId());
             //ok
         } catch (PersonaNoExisteException e) {
             fail("No Debe lanzar una excepcion " + e.getMessage());
@@ -58,21 +58,11 @@ public class Autorizados {
     @Test
 
     public void testDarBajaErrorPersonaNoExiste(){
-        Usuario user = new Usuario();
-        user.setUser("Almudena");
-        user.setContrasena("Almu");
-
-        PAutorizada pA = new PAutorizada();
-        pA.setNombre("Salva");
-        pA.setIdentificacion("12345678S");
-        pA.setId(parseLong("1"));
-
-        Empresa empresa = new Empresa();
-        empresa.setIdentificacion("UMA");
-        empresa.setId(parseLong("1"));
+        Long id = parseLong("1");
+        Long idEmpresa = parseLong("1");
 
         try{
-            gestionEliminarAutorizados.darBaja(user.getUser(), pA.getId(), empresa);
+            gestionEliminarAutorizados.darBaja("Almu", id, idEmpresa);
             fail("Debe lanzar una excepcion PersonaNoExisteException");
         } catch (PersonaNoExisteException e) {
             //ok
@@ -98,7 +88,7 @@ public class Autorizados {
         empresa.setId(parseLong("1"));
 
         try{
-            gestionEliminarAutorizados.darBaja(user.getUser(), id, empresa);
+            gestionEliminarAutorizados.darBaja(user.getUser(), id, empresa.getId());
             fail("Debe lanzar una excepcion NoEsPAutorizadaException");
         } catch (PersonaNoExisteException e) {
             fail("Debe lanzar una excepcion NoEsPAutorizadaException" + e.getMessage());
