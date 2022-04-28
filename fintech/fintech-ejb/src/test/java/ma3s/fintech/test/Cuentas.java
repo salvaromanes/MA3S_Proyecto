@@ -138,7 +138,7 @@ public class Cuentas {
     @Requisitos({"RF9"})
     @Test
     public void testCierreCuentaNoVacia(){
-        final String ibanCuenta1 = "123846";
+        final String ibanCuenta1 = "123221";
         final String usuario = "Salva";
 
         Cuenta cuenta1 = new Cuenta();
