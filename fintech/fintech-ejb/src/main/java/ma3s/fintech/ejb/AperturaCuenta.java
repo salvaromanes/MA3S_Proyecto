@@ -11,6 +11,7 @@ import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Date;
 
 @Stateless
 public class AperturaCuenta implements GestionAperturaCuenta{
@@ -42,6 +43,7 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         pooled.setIban(iban);
         pooled.setSwift(swift);
         pooled.setEstado("Abierta");
+        pooled.setFechaApertura(new Date());
         pooled.setSaldo(0.0);
 
         em.persist(pooled);
@@ -61,6 +63,7 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         segregate.setIban(iban);
         segregate.setSwift(swift);
         segregate.setEstado("Abierta");
+        segregate.setFechaApertura(new Date());
         segregate.setComision(0.0);
 
         em.persist(segregate);
