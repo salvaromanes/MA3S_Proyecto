@@ -34,23 +34,27 @@ public class BaseDatos {
         cuenta.setSwift("123846");
 
         Pooled pooled = new Pooled();
-        pooled.setIban("12345678");
-        pooled.setSwift("12384");
         pooled.setEstado("Activo");
         pooled.setFechaApertura(new Date());
+        pooled.setIban("12345678");
+        pooled.setSwift("12384");
 
         Segregada segregada = new Segregada();
-        segregada.setIban("12315");
-        segregada.setSwift("12323");
         segregada.setEstado("Activa");
         segregada.setFechaApertura(new Date());
+        segregada.setIban("12315");
+        segregada.setSwift("12323");
+
+
 
         PAutorizada pAutorizada = new PAutorizada();
+        pAutorizada.setId(parseLong("1"));
+        pAutorizada.setIdentificacion("12345678S");
         pAutorizada.setNombre("Salva");
         pAutorizada.setApellidos("Ortiz");
-        pAutorizada.setIdentificacion("12345678S");
-        pAutorizada.setId(parseLong("1"));
         pAutorizada.setDireccion("Romanes");
+
+
 
 
 
@@ -86,17 +90,19 @@ public class BaseDatos {
         Autorizacion autorizacion = new Autorizacion();
         autorizacion.setAutorizadaId(pAutorizada);
         autorizacion.setEmpresaId(empresa);
+        autorizacion.setTipo("Lectura");
 
         Cliente cliente = new Cliente();
-        cliente.setIdentificacion("987654321A");
         cliente.setId(223L);
-        cliente.setCiudad("Madrid");
-        cliente.setCodigopostal("28001");
-        cliente.setDireccion("Concha Espina");
+        cliente.setIdentificacion("987654321A");
+        cliente.setTipoCliente("Individual");
         cliente.setEstado("Activo");
         cliente.setFechaAlta(new Date());
+        cliente.setDireccion("Concha Espina");
+        cliente.setCiudad("Madrid");
+        cliente.setCodigopostal("28001");
         cliente.setPais("Espana");
-        cliente.setTipoCliente("Individual");
+
 
 
 
