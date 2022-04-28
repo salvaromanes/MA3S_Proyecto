@@ -43,13 +43,14 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
 
 
         if(p == null){
-            throw new NoEsPAutorizadaException();
+            throw  new NoEsPAutorizadaException("La persona con usuario : " + p.getUser() + " no es persona autorizada");
         }
+
 
         Empresa e = em.find(Empresa.class,empresa.getId());
 
         if(e == null){
-            throw new EmpresaNoExistenteException();
+            throw  new EmpresaNoExistenteException("La empresa : " + e.getId() + " no se encuentra");
         }
 
         AutorizadaId aux = new AutorizadaId();
@@ -59,25 +60,10 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
         Autorizacion a = em.find(Autorizacion.class , aux);
 
         if(a != null){
-            throw new NoEsPAutorizadaException();
+            throw new NoEsPAutorizadaException( "La persona autorizada ya tiene autorizacion");
         }
 
         comprobarAdministrador(usuario);
-
-        if(!p.getId().equals(autorizada.getId())){
-            throw  new NoEsPAutorizadaException("La persona con usuario : " + p.getUser() + " no es persona autorizada");
-        }
-
-        if(!e.getId().equals(empresa.getId())) {
-            throw  new EmpresaNoExistenteException("La empresa : " + e.getId() + " no se encuentra");
-        }
-        if(!a.getAutorizadaId().getId().equals(autorizada.getId())){
-            throw  new PersonaNoExisteException("La persona con id : " + a.getAutorizadaId() + " no existe" );
-        }
-
-        if(!a.getEmpresaId().getId().equals(empresa.getId())){
-            throw new EmpresaNoRelacException("La empresa : " + a.getEmpresaId() + " no esta relacionada con el  usario: " + a.getAutorizadaId());
-        }
 
         Autorizacion autorizar = new Autorizacion();
         autorizar.setAutorizadaId(p);

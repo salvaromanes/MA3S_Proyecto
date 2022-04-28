@@ -136,8 +136,7 @@ public class Administrador {
 
     public void testAnaPNoEsPersonaA() {
 
-        Usuario user_aux = new Usuario();
-        user_aux.setUser("Juan");
+        final String nombre = "Salva";
 
         PAutorizada aut = new PAutorizada();
         aut.setNombre("Alvaro");
@@ -149,7 +148,7 @@ public class Administrador {
 
         try {
             gestionAnadirAutorizados.anadirPAut
-                    (aut, empresa, user_aux.getUser());
+                    (aut, empresa, nombre);
             fail("Debe lanzar una excepcion");
         } catch (NoEsPAutorizadaException e) {
             //ok
