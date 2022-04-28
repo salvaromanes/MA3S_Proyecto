@@ -139,7 +139,7 @@ public class BaseDatos {
 
         segregada2.setReferencia(referencia);
         referencia.setSegregada(segregada2);
-
+        //
 
         Referencia referencia2 = new Referencia();
         referencia2.setIban("190599");
