@@ -18,13 +18,11 @@ public class Administrador {
 
     private static final String ACCESOPERSONAL = "java:global/classes/AccesoPersonal";
     private static final String ANADIRAUTORIZADOS = "java:global/classes/AnadirAutorizados";
-    private static final String GENERARCSV = "java:global/classes/GenerarCSV";
     private static final String MODIFICARPAUTORIZADA = "java:global/classes/ModificarPAutorizada";
     //private static final String ELIMINAR_AUTORIZADOS = "java:global/classes/EliminarAutorizados";
 
     private ma3s.fintech.ejb.GestionAccesoPersonal gestionAccesoPersonal;
     private ma3s.fintech.ejb.GestionAnadirAutorizados gestionAnadirAutorizados;
-    private ma3s.fintech.ejb.GestionGenerarCSV gestionGenerarCSV;
     private ma3s.fintech.ejb.GestionModificarPAutorizada gestionModificarPAutorizada;
     //private ma3s.fintech.ejb.GestionEliminarAutorizados gestionEliminarAutorizados;
 
@@ -32,7 +30,6 @@ public class Administrador {
     public void setup() throws NamingException {
         gestionAccesoPersonal = (ma3s.fintech.ejb.GestionAccesoPersonal) SuiteTest.ctx.lookup(ACCESOPERSONAL);
         gestionAnadirAutorizados = (ma3s.fintech.ejb.GestionAnadirAutorizados) SuiteTest.ctx.lookup(ANADIRAUTORIZADOS);
-        gestionGenerarCSV = (ma3s.fintech.ejb.GestionGenerarCSV) SuiteTest.ctx.lookup(GENERARCSV);
         gestionModificarPAutorizada = (ma3s.fintech.ejb.GestionModificarPAutorizada) SuiteTest.ctx.lookup(MODIFICARPAUTORIZADA);
         //gestionEliminarAutorizados = (ma3s.fintech.ejb.EliminarAutorizados) SuiteTest.ctx.lookup(ELIMINAR_AUTORIZADOS);
 
@@ -318,77 +315,6 @@ public class Administrador {
 
 
 
-    @Requisitos({"RF12"})
-    @Test
-
-    public void testGenerarCSV() {
-        Date d = new Date(2022 / 03 / 10);
-
-        Usuario user = new Usuario();
-        user.setUser("Almu");
-        user.setEsAdmin(true);
-
-        try {
-            gestionGenerarCSV.generarCSV(user.getUser(), "Individual", d);
-            //ok
-        } catch (IOException e) {
-            fail("No Debe lanzar una excepcion " + e.getMessage());
-        } catch (PersonaNoExisteException e) {
-            fail("No Debe lanzar una excepcion "  + e.getMessage());
-        }
-
-        try {
-            gestionGenerarCSV.generarCSV(user.getUser(), "Periodico", d);
-            //ok
-        } catch (IOException e) {
-            fail("No Debe lanzar una excepcion "  + e.getMessage());
-        } catch (PersonaNoExisteException e) {
-            fail("No Debe lanzar una excepcion "  + e.getMessage());
-        }
-
-    }
-
-
-    @Requisitos({"RF12"})
-    @Test
-
-    public void testGenerarCSVfalloIndividual() {
-        Date d = new Date(2022 / 03 / 10);
-
-        Usuario user = new Usuario();
-        user.setUser("AlmudenaUser");
-        user.setEsAdmin(false);
-
-        try {
-            gestionGenerarCSV.generarCSV(user.getUser(), "Individual", d);
-            fail("Debe lanzar una excepcion");
-        } catch (IOException e) {
-            fail("Debe lanzar una excepcion PersonaNoExisteException " + e.getMessage());
-        } catch (PersonaNoExisteException e) {
-            //ok
-        }
-    }
-
-
-    @Requisitos({"RF12"})
-    @Test
-
-    public void testGenerarCSVfallo() {
-        Date d = new Date(2022 / 03 / 10);
-
-        Usuario user = new Usuario();
-        user.setUser("AlmudenaUser");
-        user.setEsAdmin(false);
-
-        try {
-            gestionGenerarCSV.generarCSV(user.getUser(), "Periodico", d);
-            fail("Debe lanzar una excepcion");
-        } catch (IOException e) {
-            fail("Debe lanzar una excepcion PersonaNoExisteException " + e.getMessage());
-        } catch (PersonaNoExisteException e) {
-            //ok
-        }
-    }
 
 
 
