@@ -138,6 +138,7 @@ public class BaseDatos {
         referencia.setSucursal("Unicaja-Huelin");
 
         segregada2.setReferencia(referencia);
+        referencia.setSegregada(segregada2);
 
 
         Referencia referencia2 = new Referencia();

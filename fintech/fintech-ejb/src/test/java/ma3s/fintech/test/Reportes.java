@@ -69,6 +69,7 @@ public class Reportes {
         ref.setIban(ref_iban);
 
         seg.setReferencia(ref);
+        ref.setSegregada(seg);
 
        try {
             gestionInfHolanda.CuentasApi(seg);
