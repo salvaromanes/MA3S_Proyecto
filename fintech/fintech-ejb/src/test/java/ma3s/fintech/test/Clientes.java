@@ -232,7 +232,7 @@ public class Clientes {
     @Test
     public void testModCiudadEmpresa(){
         try{
-            gestionModificarCliente.modDireccionEmpresa(new Long (20),"Madrid");
+            gestionModificarCliente.modCiudadEmpresa(new Long (20),"Madrid");
         }catch(CampoVacioException|EmpresaNoExistenteException e){
             fail("Lanzó excepción al modificar");
         }
@@ -243,7 +243,7 @@ public class Clientes {
     public void testModCiudadEmpresaCampoVacio(){
         String iden = null;
         try{
-            gestionModificarCliente.modDireccionEmpresa(new Long(20),iden);
+            gestionModificarCliente.modCiudadEmpresa(new Long(20),iden);
             fail("Debe de lanzar una excepción");
         }catch(CampoVacioException e){
             //ok
@@ -256,7 +256,7 @@ public class Clientes {
     @Test
     public void testModCiudadEmpresaNoExistente(){
         try{
-            gestionModificarCliente.modDireccionEmpresa(new Long(300),"Madrid");
+            gestionModificarCliente.modCiudadEmpresa(new Long(300),"Madrid");
             fail("Debe de lanzar una excepción");
         }catch(CampoVacioException e){
             fail("Debe lanzar la excepción empresa no existente");
@@ -424,7 +424,7 @@ public class Clientes {
     @Test
     public void testModCiudadIndividual(){
         try{
-            gestionModificarCliente.modDireccionIndividual(new Long(30),"Barcelona");
+            gestionModificarCliente.modCiudadIndividual(new Long(30),"Barcelona");
         }catch(CampoVacioException|IndividualNoExistenteException e){
             fail("Lanzó excepción al modificar");
         }
@@ -435,7 +435,7 @@ public class Clientes {
     public void testModCiudadIndividualCampoVacio(){
         String iden = null;
         try{
-            gestionModificarCliente.modDireccionIndividual(new Long(30),iden);
+            gestionModificarCliente.modCiudadIndividual(new Long(30),iden);
             fail("Debe de lanzar una excepción");
         }catch(CampoVacioException e){
             //ok
@@ -448,7 +448,7 @@ public class Clientes {
     @Test
     public void testModCiudadIndividualIndividualNoExistenteException(){
         try{
-            gestionModificarCliente.modDireccionIndividual(new Long(400),"Barcelona");
+            gestionModificarCliente.modCiudadIndividual(new Long(400),"Barcelona");
             fail("Debe de lanzar una excepción");
         }catch(CampoVacioException e){
             fail("Debe lanzar la excepción empresa no existente");
