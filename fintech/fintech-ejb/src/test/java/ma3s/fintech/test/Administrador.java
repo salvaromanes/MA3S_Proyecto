@@ -882,7 +882,7 @@ public class Administrador {
         Date date = new Date(2022/04/27);
 
         try {
-            gestionModificarPAutorizada.modificarFechaNacimiento(user.getUser(), pAut.getId(), date);
+            gestionModificarPAutorizada.modificarFechaNacimiento(user.getUser(), pAut.getId(), null);
             // Si no devuelve nada
             fail("Debe Lanzar una excepcion CampoVacioException");
         } catch (PersonaNoExisteException e){
@@ -994,7 +994,7 @@ public class Administrador {
         Date date = new Date(2022/04/27);
 
         try {
-            gestionModificarPAutorizada.modificarFechaInicio(user.getUser(), pAut.getId(), date);
+            gestionModificarPAutorizada.modificarFechaInicio(user.getUser(), pAut.getId(), null);
             // Si no devuelve nada
             fail("Debe Lanzar una excepcion CampoVacioException");
         } catch (PersonaNoExisteException e){
@@ -1106,7 +1106,7 @@ public class Administrador {
         Date date = new Date(2022/04/27);
 
         try {
-            gestionModificarPAutorizada.modificarFechaFin(user.getUser(), pAut.getId(), date);
+            gestionModificarPAutorizada.modificarFechaFin(user.getUser(), pAut.getId(), null);
             // Si no devuelve nada
             fail("Debe Lanzar una excepcion CampoVacioException");
         } catch (PersonaNoExisteException e){
@@ -1222,7 +1222,7 @@ public class Administrador {
         Date date = new Date(2022/04/27);
 
         try {
-            gestionModificarPAutorizada.modificarEstado(user.getUser(), pAut.getId(), "activo");
+            gestionModificarPAutorizada.modificarEstado(user.getUser(), pAut.getId(), null);
             // Si no devuelve nada
             fail("Debe Lanzar una excepcion CampoVacioException");
         } catch (PersonaNoExisteException e){
