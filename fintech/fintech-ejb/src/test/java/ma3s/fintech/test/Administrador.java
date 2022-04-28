@@ -16,32 +16,25 @@ import static org.junit.Assert.fail;
 public class Administrador {
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "FintechEjbTest";
 
-    private static final String APERTURA_CUENTA = "java:global/classes/AperturaCuenta";
-    private static final String CIERRE_CUENTA = "java:global/classes/CierreCuenta";
     private static final String ACCESOPERSONAL = "java:global/classes/AccesoPersonal";
     private static final String ANADIRAUTORIZADOS = "java:global/classes/AnadirAutorizados";
     private static final String GENERARCSV = "java:global/classes/GenerarCSV";
     private static final String MODIFICARPAUTORIZADA = "java:global/classes/ModificarPAutorizada";
-    private static final String ELIMINAR_AUTORIZADOS = "java:global/classes/EliminarAutorizados";
+    //private static final String ELIMINAR_AUTORIZADOS = "java:global/classes/EliminarAutorizados";
 
-    private ma3s.fintech.ejb.GestionAperturaCuenta gestionAperturaCuenta;
-    private ma3s.fintech.ejb.GestionCierreCuenta gestionCierreCuenta;
     private ma3s.fintech.ejb.GestionAccesoPersonal gestionAccesoPersonal;
     private ma3s.fintech.ejb.GestionAnadirAutorizados gestionAnadirAutorizados;
     private ma3s.fintech.ejb.GestionGenerarCSV gestionGenerarCSV;
     private ma3s.fintech.ejb.GestionModificarPAutorizada gestionModificarPAutorizada;
-    private ma3s.fintech.ejb.GestionEliminarAutorizados gestionEliminarAutorizados;
-
+    //private ma3s.fintech.ejb.GestionEliminarAutorizados gestionEliminarAutorizados;
 
     @Before
     public void setup() throws NamingException {
-        gestionAperturaCuenta = (ma3s.fintech.ejb.GestionAperturaCuenta) SuiteTest.ctx.lookup(APERTURA_CUENTA);
-        gestionCierreCuenta = (ma3s.fintech.ejb.GestionCierreCuenta) SuiteTest.ctx.lookup(CIERRE_CUENTA);
         gestionAccesoPersonal = (ma3s.fintech.ejb.GestionAccesoPersonal) SuiteTest.ctx.lookup(ACCESOPERSONAL);
         gestionAnadirAutorizados = (ma3s.fintech.ejb.GestionAnadirAutorizados) SuiteTest.ctx.lookup(ANADIRAUTORIZADOS);
         gestionGenerarCSV = (ma3s.fintech.ejb.GestionGenerarCSV) SuiteTest.ctx.lookup(GENERARCSV);
         gestionModificarPAutorizada = (ma3s.fintech.ejb.GestionModificarPAutorizada) SuiteTest.ctx.lookup(MODIFICARPAUTORIZADA);
-        gestionEliminarAutorizados = (ma3s.fintech.ejb.EliminarAutorizados) SuiteTest.ctx.lookup(ELIMINAR_AUTORIZADOS);
+        //gestionEliminarAutorizados = (ma3s.fintech.ejb.EliminarAutorizados) SuiteTest.ctx.lookup(ELIMINAR_AUTORIZADOS);
 
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
@@ -1301,7 +1294,7 @@ public class Administrador {
 
     // ----------------------------------------------------------------------------------------------------------
 
-
+    /*
     @Requisitos({"RF8"})
     @Test
 
@@ -1375,4 +1368,5 @@ public class Administrador {
             //ok
         }
     }
+    */
 }
