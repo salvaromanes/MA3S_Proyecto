@@ -51,6 +51,9 @@ public class BaseDatos {
         pAutorizada.setId(parseLong("1"));
         pAutorizada.setDireccion("Romanes");
 
+
+
+
         Empresa empresa = new Empresa();
         empresa.setIdentificacion("UMA");
         empresa.setRazonSocial("UMA");

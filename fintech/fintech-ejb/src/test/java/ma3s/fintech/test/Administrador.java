@@ -135,7 +135,7 @@ public class Administrador {
     @Test
 
     public void testAnaPNoEsPersonaA() {
-        final String nombre = "Salva";
+        final String nombre = "MA3S";
         final Long id = parseLong("1");
         final String emp = "123";
         final Long idEmpre = parseLong("25");
