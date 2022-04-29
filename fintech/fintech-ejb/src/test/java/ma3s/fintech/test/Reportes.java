@@ -178,16 +178,6 @@ public class Reportes {
         } catch (PersonaNoExisteException e) {
             fail("No Debe lanzar una excepcion "  + e.getMessage());
         }
-
-        try {
-            gestionGenerarCSV.generarCSV(user.getUser(), "Periodico", d);
-            //ok
-        } catch (IOException e) {
-            fail("No Debe lanzar una excepcion "  + e.getMessage());
-        } catch (PersonaNoExisteException e) {
-            fail("No Debe lanzar una excepcion "  + e.getMessage());
-        }
-
     }
 
 
@@ -231,9 +221,4 @@ public class Reportes {
             //ok
         }
     }
-
-
-
-
-
 }
