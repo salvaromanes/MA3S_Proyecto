@@ -16,7 +16,7 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
         Usuario us1 = em.find(Usuario.class,usuario);
 
         if(us1 == null){
-            throw new PersonaNoExisteException();
+            throw new PersonaNoExisteException("La persona "+ usuario + " no existe");
         }
 
         if(!us1.getUser().equals(usuario)){
@@ -31,9 +31,13 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
 
     @Override
     public void anadirPAut(PAutorizada autorizada, Empresa empresa, String usuario) throws NoEsPAutorizadaException, EmpresaNoExistenteException, PersonaNoExisteException, EmpresaNoRelacException, NoEsAdministrativoException {
-      if(autorizada == null || empresa == null || usuario == null){
-            throw new PersonaNoExisteException();
-        }
+      if(autorizada == null){
+            throw new PersonaNoExisteException("La persona " + autorizada + " no existe");
+      }else if (empresa == null){
+          throw new EmpresaNoExistenteException("La empresa " + empresa + " no existe ");
+      }else if(usuario == null){
+          throw  new PersonaNoExisteException("El usuario " + usuario + " no existe");
+      }
 
 
         PAutorizada p = em.find(PAutorizada.class,autorizada.getId());

@@ -27,7 +27,7 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
         // Referencia referencia = em.find(Referencia.class, cuenta_Aux.getReferencia().getIban());
 
         if(cuenta_Aux.getReferencia() == null){
-            throw new CuentaNoExistenteException("Error en la ref");
+            throw new CuentaNoExistenteException("Error en la referencia");
         }
 
         String aux = "{\n \"searchParametres\":{" +
@@ -45,7 +45,7 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
          Cliente cliente1 = em.find(Cliente.class, cliente.getId());
 
          if(cliente1 == null){
-             throw new ClienteNoExisteException();
+             throw new ClienteNoExisteException("El cliente " + cliente + " no existe");
          }
 
          if(!cliente1.equals(cliente)){
@@ -72,7 +72,7 @@ public class GeneracionInfHolanda implements GestionInfHolanda {
         PAutorizada autorizada1 = em.find(PAutorizada.class, autorizada.getId());
 
         if(autorizada1 == null){
-            throw new NoEsPAutorizadaException();
+            throw new NoEsPAutorizadaException("La persona " + autorizada + " no es autorizada");
         }
 
         if(!autorizada1.getId().equals(autorizada.getId())){
