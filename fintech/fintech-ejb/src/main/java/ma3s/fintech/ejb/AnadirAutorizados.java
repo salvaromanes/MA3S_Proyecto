@@ -30,13 +30,13 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
     }
 
     @Override
-    public void anadirPAut(PAutorizada autorizada, Empresa empresa, String usuario) throws NoEsPAutorizadaException, EmpresaNoExistenteException, PersonaNoExisteException, EmpresaNoRelacException, NoEsAdministrativoException {
+    public void anadirPAut(PAutorizada autorizada, Empresa empresa, String usuario) throws NoEsPAutorizadaException, EmpresaNoExistenteException, PersonaNoExisteException, EmpresaNoRelacException, NoEsAdministrativoException, UsuarioNoEncontradoException {
       if(autorizada == null){
             throw new PersonaNoExisteException("La persona " + autorizada + " no existe");
       }else if (empresa == null){
           throw new EmpresaNoExistenteException("La empresa " + empresa + " no existe ");
       }else if(usuario == null){
-          throw  new PersonaNoExisteException("El usuario " + usuario + " no existe");
+          throw  new UsuarioNoEncontradoException("El usuario " + usuario + " no existe");
       }
 
 

@@ -143,6 +143,8 @@ public class Autorizados {
             fail("Debe lanzar una excepcion tipo NoEsPAutorizadaException ");
         } catch (NoEsAdministrativoException e) {
             fail("Debe lanzar una excepcion tipo NoEsPAutorizadaException ");
+        }catch (UsuarioNoEncontradoException e){
+            fail("Debe lanzar una excepcion tipo NoEsPAutorizadaException ");
         }
 
     }
@@ -184,6 +186,9 @@ public class Autorizados {
         } catch (NoEsAdministrativoException e) {
             fail("Debe lanzar una excepcion tipo NoEsEmp ");
         }
+        catch (UsuarioNoEncontradoException e) {
+        fail("Debe lanzar una excepcion tipo NoEsEmp ");
+    }
 
     }
 
@@ -220,6 +225,10 @@ public class Autorizados {
             fail("Debe lanzar una excepcion tipo NoEsPersona ");
 
         } catch (NoEsAdministrativoException e) {
+            fail("Debe lanzar una excepcion tipo NoEsPersona ");
+        }
+
+        catch (UsuarioNoEncontradoException e) {
             fail("Debe lanzar una excepcion tipo NoEsPersona ");
         }
 
@@ -262,6 +271,10 @@ public class Autorizados {
             fail("Debe lanzar una excepcion tipo EmpresaNoRelac ");
         }
 
+        catch (UsuarioNoEncontradoException e) {
+            fail("Debe lanzar una excepcion tipo EmpresaNoRelac ");
+        }
+
     }
 
     @Requisitos({"RF6"})
@@ -295,6 +308,9 @@ public class Autorizados {
         } catch (EmpresaNoRelacException e ) {
             fail("EmpresaNoRelacException "+ e.getMessage());
         } catch (NoEsAdministrativoException e) {
+            fail("NoEsAdministrativoException "+ e.getMessage());
+        }
+        catch (UsuarioNoEncontradoException e) {
             fail("NoEsAdministrativoException "+ e.getMessage());
         }
     }
