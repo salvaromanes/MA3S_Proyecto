@@ -21,14 +21,14 @@ public class AccesoPersonal implements GestionAccesoPersonal {
         Usuario user1 = em.find(Usuario.class,usuario);
 
         if(user1 == null){
-            throw new UsuarioNoEncontradoException();
+            throw new UsuarioNoEncontradoException("El usuario : " + usuario + " no ha sido encontrado");
         }
         if(user1.getEsAdmin() == false){
-            throw new UsuarioIncorrectoException();
+            throw new UsuarioIncorrectoException("El usuario: " + usuario + " no es administrador");
         }
 
         if(user1.getContrasena().isEmpty() || user1.getContrasena() != password || password == null){
-            throw new ContraseñaIncorrectaException();
+            throw new ContraseñaIncorrectaException("La contraseña no es correcta");
         }
 
     }
