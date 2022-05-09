@@ -29,13 +29,13 @@ public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
         PAutorizada pAutorizada = em.find(PAutorizada.class, persona.getId());
 
         if(pAutorizada == null){
-            throw new PersonaNoExisteException();
+            throw new PersonaNoExisteException("La persona "+persona+" no existe");
         }
 
         Empresa emp = em.find(Empresa.class, empresa.getId());
 
         if(emp == null){
-            throw new EmpresaNoExistenteException();
+            throw new EmpresaNoExistenteException("La empresa "+empresa+" no existe");
         }
 
         int max = autorizacion.size();
@@ -76,13 +76,13 @@ public class ConcesionAutorizacion implements GestionConcesionAutorizacion{
         PAutorizada pAutorizada = em.find(PAutorizada.class, persona.getId());
 
         if(pAutorizada == null){
-            throw new PersonaNoExisteException();
+            throw new PersonaNoExisteException("La persona "+persona+" no existe");
         }
 
         Empresa emp = em.find(Empresa.class, empresa.getId());
 
         if(emp == null){
-            throw new EmpresaNoExistenteException();
+            throw new EmpresaNoExistenteException("La empresa "+empresa+" no existe");
         }
 
         int max = autorizacion.size();

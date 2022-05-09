@@ -17,9 +17,9 @@ public class CierreCuenta implements GestionCierreCuenta{
         Usuario user = em.find(Usuario.class, usuario);
 
         if(user == null){
-            throw new UsuarioNoEncontradoException();
+            throw new UsuarioNoEncontradoException("El usuario "+usuario+" no ha sido encontrado");
         }else if(!user.getEsAdmin()){
-            throw new UsuarioIncorrectoException();
+            throw new UsuarioIncorrectoException("El usuario "+usuario+" no es administrador");
         }
     }
 
@@ -30,7 +30,7 @@ public class CierreCuenta implements GestionCierreCuenta{
         Referencia referencia = em.find(Referencia.class, iban);
 
         if(referencia == null){
-            throw new CuentaNoExistenteException("Ref no existe");
+            throw new CuentaNoExistenteException("La cuenta referencia no existe");
         }
 
         if(referencia.getSaldo() != 0){

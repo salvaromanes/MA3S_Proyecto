@@ -22,9 +22,9 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         Usuario user = em.find(Usuario.class, usuario);
 
         if(user == null){
-            throw new UsuarioNoEncontradoException();
+            throw new UsuarioNoEncontradoException("El usuario "+usuario+" no ha sido encontrado");
         }else if(!user.getEsAdmin()){
-            throw new UsuarioIncorrectoException();
+            throw new UsuarioIncorrectoException("El usuario "+usuario+" no es administrador");
         }
     }
 
