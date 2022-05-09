@@ -4,10 +4,7 @@ import es.uma.informatica.sii.anotaciones.Requisitos;
 import ma3s.fintech.Cuenta;
 import ma3s.fintech.Transaccion;
 import ma3s.fintech.Usuario;
-import ma3s.fintech.ejb.excepciones.CampoVacioException;
-import ma3s.fintech.ejb.excepciones.ErrorOrigenTransaccionException;
-import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
-import ma3s.fintech.ejb.excepciones.SaldoNoSuficiente;
+import ma3s.fintech.ejb.excepciones.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,6 +27,9 @@ public class Transacciones {
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
 
+    /*
+        Se pretende hacer una transferencia por un usuario que no existe en la base de datos
+     */
     @Requisitos({"RF14"})
     @Test
     public void TestTransferenciaClientePorUsuarioNoExistente(){
@@ -42,17 +42,20 @@ public class Transacciones {
         try{
             gestionTransferencia.transferenciaCliente(trans, parseLong("99009"));
             fail("No se han capturado errores y se esperaba PersonaExisteException");
-        } catch (SaldoNoSuficiente saldoNoSuficiente) {
-            fail("Se ha capturado saldoNoSuficiente y se esperaba PersonaNoExisteException");
+        } catch (SaldoNoSuficiente e) {
+            fail("Se ha capturado saldoNoSuficiente y se esperaba PersonaNoExisteException... " + e.getMessage());
         } catch (PersonaNoExisteException e) {
             // ok
         } catch (CampoVacioException e) {
-            fail("Se ha capturado CampoVacioException y se esperaba PersonaNoExisteException");
+            fail("Se ha capturado CampoVacioException y se esperaba PersonaNoExisteException... " + e.getMessage());
         } catch (ErrorOrigenTransaccionException e) {
-            fail("Se ha capturado ErrorOrigenTransaccionException y se esperaba PersonaNoExisteException");
+            fail("Se ha capturado ErrorOrigenTransaccionException y se esperaba PersonaNoExisteException ... " + e.getMessage());
         }
     }
 
+    /*
+        Se pretende hacer una transferencia con algunos campos obligatorios vacios
+     */
     @Requisitos({"RF14"})
     @Test
     public void TestTransferenciaClienteConCamposVacio(){
@@ -65,17 +68,21 @@ public class Transacciones {
         try{
             gestionTransferencia.transferenciaCliente(trans, 223L);
             fail("No se han capturado errores y se esperaba CampoVacioException");
-        } catch (SaldoNoSuficiente saldoNoSuficiente) {
-            fail("Se ha capturado saldoNoSuficiente y se esperaba CampoVacioException");
+        } catch (SaldoNoSuficiente e) {
+            fail("Se ha capturado saldoNoSuficiente y se esperaba CampoVacioException... " + e.getMessage());
         } catch (PersonaNoExisteException e) {
-            fail("Se ha capturado PersonaNoExisteException y se esperaba CampoVacioException");
+            fail("Se ha capturado PersonaNoExisteException y se esperaba CampoVacioException... " + e.getMessage());
         } catch (CampoVacioException e) {
             //ok
         } catch (ErrorOrigenTransaccionException e) {
-            fail("Se ha capturado ErrorOrigenTransaccionException y se esperaba CampoVacioException");
+            fail("Se ha capturado ErrorOrigenTransaccionException y se esperaba CampoVacioException... " + e.getMessage());
         }
     }
 
+    /*
+        Se pretende hacer una transferencia con una cuenta que o bien no tiene acceso ese usuario
+        o bien no existe
+     */
     @Requisitos({"RF14"})
     @Test
     public void TestTransferenciaPAutorizadaErrorCuentaOrigen(){
@@ -93,14 +100,16 @@ public class Transacciones {
         try{
             gestionTransferencia.transferenciaAutorizado (parseLong("1"), parseLong("1"), trans);
             fail("No se han capturado errores y se esperaba ErrorOrigenTransaccionException");
-        } catch (SaldoNoSuficiente saldoNoSuficiente) {
-            fail("Se ha capturado saldoNoSuficiente y se esperaba ErrorOrigenTransaccionException");
+        } catch (SaldoNoSuficiente e) {
+            fail("Se ha capturado saldoNoSuficiente y se esperaba ErrorOrigenTransaccionException... " + e.getMessage());
         } catch (PersonaNoExisteException e) {
-            fail("Se ha capturado PersonaNoExisteException y se esperaba ErrorOrigenTransaccionException");
+            fail("Se ha capturado PersonaNoExisteException y se esperaba ErrorOrigenTransaccionException... " + e.getMessage());
         } catch (CampoVacioException e) {
-            fail("Se ha capturado CampoVacioException y se esperaba ErrorOrigenTransaccionException");
+            fail("Se ha capturado CampoVacioException y se esperaba ErrorOrigenTransaccionException... " + e.getMessage());
         } catch (ErrorOrigenTransaccionException e) {
             // ok
+        } catch (EmpresaNoExistenteException e) {
+            fail("Se ha capturado EmpresaNoExistenteException y se esperaba ErrorOrigenTransaccionException... " + e.getMessage());
         }
     }
 

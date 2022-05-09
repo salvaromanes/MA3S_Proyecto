@@ -153,14 +153,15 @@ public class Transferencias implements GestionTransferencia{
     }
 
     @Override
-    public void transferenciaAutorizado(Long id, Long idEmpresa, Transaccion transaccion) throws PersonaNoExisteException, ErrorOrigenTransaccionException, CampoVacioException, SaldoNoSuficiente {
+    public void transferenciaAutorizado(Long id, Long idEmpresa, Transaccion transaccion) throws PersonaNoExisteException, ErrorOrigenTransaccionException,
+            CampoVacioException, SaldoNoSuficiente, EmpresaNoExistenteException {
         // Comprobar que la PAutorizada existe
         PAutorizada pAutorizada = em.find(PAutorizada.class, id);
         if(pAutorizada == null) throw new PersonaNoExisteException("La persona autorizada con id: " + id + " no existe.");
 
         // Comprobar que la empresa existe
         Empresa empresa = em.find(Empresa.class, idEmpresa);
-        if(empresa == null) throw new PersonaNoExisteException("La empresa con id: " + id + " no existe.");
+        if(empresa == null) throw new EmpresaNoExistenteException("La empresa con id: " + id + " no existe.");
 
         // Comprobamos que los campos de la Transferencia nullable = false, no lo sean
         if ( transaccion.getIdUnico() == null || transaccion.getFechaInstruccion() == null
