@@ -5,6 +5,7 @@ import ma3s.fintech.Fintech;
 import ma3s.fintech.PAutorizada;
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
+import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -25,18 +26,18 @@ public class GenerarCSV implements GestionGenerarCSV{
 
 
     @Override
-    public void generarCSV(String usuario, String tipoInforme, Date ultimoReporte) throws PersonaNoExisteException, IOException {
+    public void generarCSV(String usuario, String tipoInforme, Date ultimoReporte) throws PersonaNoExisteException, IOException, UsuarioNoEncontradoException {
         Usuario user = em.find(Usuario.class, usuario);
 
         if(user == null){
-            throw new PersonaNoExisteException("usuario no encontrado");
+            throw new UsuarioNoEncontradoException("generarCSV: usuario no encontrado");
         }
 
         Query query = em.createQuery("select c from Cliente c");
         List<Cliente> listaClientes = query.getResultList();
 
         if(!isAdministrativo(user.getUser())){
-            throw new PersonaNoExisteException("El usuario " + usuario + " no existe");
+            throw new PersonaNoExisteException("generarCSV: El administrativo " + usuario + " no existe");
         }
 
         CSVPrinter csv = null;
@@ -167,10 +168,10 @@ public class GenerarCSV implements GestionGenerarCSV{
     }
 
     // ¿el usuario es administrativo? sirve para poder gestionar las bajas
-    private boolean isAdministrativo(String usuario) throws PersonaNoExisteException {
+    private boolean isAdministrativo(String usuario) throws PersonaNoExisteException, UsuarioNoEncontradoException {
         Usuario user = em.find(Usuario.class, usuario);
         if(!user.getUser().equals(usuario)){
-            throw new PersonaNoExisteException("El usuario " + usuario + " no existe");
+            throw new UsuarioNoEncontradoException("generarCSV: El usuario " + usuario + " no existe");
         }
         return user.getEsAdmin();
     }

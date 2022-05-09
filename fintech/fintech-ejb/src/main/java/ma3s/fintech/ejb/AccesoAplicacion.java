@@ -17,11 +17,11 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
         Usuario user = em.find(Usuario.class, usuario);
 
         if(user == null){
-            throw new UsuarioIncorrectoException();
+            throw new UsuarioIncorrectoException("accederAplicacion: usuario " + usuario + " incorrecto");
         }
 
         if(!contrasena.equals(user.getContrasena())){
-            throw new ContraseñaIncorrectaException();
+            throw new ContraseñaIncorrectaException("accederAplicacion: contraseña del usuario " + usuario + " es incorrecta");
         }
     }
 }

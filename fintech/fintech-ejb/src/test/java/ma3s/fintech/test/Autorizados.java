@@ -59,13 +59,15 @@ public class Autorizados {
             fail("No Debe lanzar una excepcion " + e.getMessage());
         } catch (EmpresaNoExistenteException e) {
             fail("No Debe lanzar una excepcion " + e.getMessage());
+        } catch (DatosIncorrectosException e){
+            fail("No Debe lanzar una excepcion " + e.getMessage());
         }
     }
 
     @Requisitos({"RF8"})
     @Test
 
-    public void testDarBajaErrorPersonaNoExiste(){
+    public void testDarBajaErrorDatos(){
         Long id = parseLong("444");
         Long idEmpresa = parseLong("1");
 
@@ -75,9 +77,11 @@ public class Autorizados {
         } catch (PersonaNoExisteException e) {
             //ok
         } catch (NoEsPAutorizadaException e) {
-            fail("Debe lanzar una excepcion PersonaNoExisteException"  + e.getMessage());
+            fail("Debe lanzar una excepcion PersonaNoExisteException "  + e.getMessage());
         } catch (EmpresaNoExistenteException e) {
-            fail("Debe lanzar una excepcion PersonaNoExisteException" + e.getMessage());
+            fail("Debe lanzar una excepcion PersonaNoExisteException " + e.getMessage());
+        } catch (DatosIncorrectosException e){
+            fail("No Debe lanzar una excepcion PersonaNoExisteException " + e.getMessage());
         }
     }
 
@@ -99,11 +103,13 @@ public class Autorizados {
             gestionEliminarAutorizados.darBaja(user.getUser(), id, empresa.getId());
             fail("Debe lanzar una excepcion NoEsPAutorizadaException");
         } catch (PersonaNoExisteException e) {
-            fail("Debe lanzar una excepcion NoEsPAutorizadaException" + e.getMessage());
+            fail("Debe lanzar una excepcion NoEsPAutorizadaException " + e.getMessage());
         } catch (NoEsPAutorizadaException e) {
             //ok
         } catch (EmpresaNoExistenteException e) {
-            fail("Debe lanzar una excepcion NoEsPAutorizadaException" + e.getMessage());
+            fail("Debe lanzar una excepcion NoEsPAutorizadaException " + e.getMessage());
+        } catch (DatosIncorrectosException e){
+            fail("No Debe lanzar una excepcion NoEsPAutorizadaException " + e.getMessage());
         }
     }
 

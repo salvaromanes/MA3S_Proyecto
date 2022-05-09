@@ -177,6 +177,8 @@ public class Reportes {
             fail("No Debe lanzar una excepcion " + e.getMessage());
         } catch (PersonaNoExisteException e) {
             fail("No Debe lanzar una excepcion "  + e.getMessage());
+        } catch (UsuarioNoEncontradoException e){
+            fail("No Debe lanzar una excepcion "  + e.getMessage());
         }
     }
 
@@ -198,6 +200,8 @@ public class Reportes {
             fail("Debe lanzar una excepcion PersonaNoExisteException " + e.getMessage());
         } catch (PersonaNoExisteException e) {
             //ok
+        } catch (UsuarioNoEncontradoException e){
+            fail("No Debe lanzar una excepcion PersonaNoExisteException "  + e.getMessage());
         }
     }
 
@@ -205,7 +209,7 @@ public class Reportes {
     @Requisitos({"RF12"})
     @Test
 
-    public void testGenerarCSVfallo() {
+    public void testGenerarCSVfalloPeriodico() {
         Date d = new Date(2022 / 03 / 10);
 
         Usuario user = new Usuario();
@@ -219,6 +223,8 @@ public class Reportes {
             fail("Debe lanzar una excepcion PersonaNoExisteException " + e.getMessage());
         } catch (PersonaNoExisteException e) {
             //ok
+        } catch (UsuarioNoEncontradoException e){
+            fail("No Debe lanzar una excepcion PersonaNoExisteException "  + e.getMessage());
         }
     }
 }
