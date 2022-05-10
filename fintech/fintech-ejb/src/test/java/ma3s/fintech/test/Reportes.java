@@ -190,7 +190,7 @@ public class Reportes {
         Date d = new Date(2022 / 03 / 10);
 
         Usuario user = new Usuario();
-        user.setUser("AlmudenaUser");
+        user.setUser("MA3S");
         user.setEsAdmin(false);
 
         try {
@@ -201,7 +201,7 @@ public class Reportes {
         } catch (PersonaNoExisteException e) {
             //ok
         } catch (UsuarioNoEncontradoException e){
-            fail("No Debe lanzar una excepcion PersonaNoExisteException "  + e.getMessage());
+            fail("Debe lanzar una excepcion PersonaNoExisteException "  + e.getMessage());
         }
     }
 
@@ -213,7 +213,7 @@ public class Reportes {
         Date d = new Date(2022 / 03 / 10);
 
         Usuario user = new Usuario();
-        user.setUser("AlmudenaUser");
+        user.setUser("MA3S");
         user.setEsAdmin(false);
 
         try {
@@ -224,7 +224,7 @@ public class Reportes {
         } catch (PersonaNoExisteException e) {
             //ok
         } catch (UsuarioNoEncontradoException e){
-            fail("No Debe lanzar una excepcion PersonaNoExisteException "  + e.getMessage());
+            fail("Debe lanzar una excepcion PersonaNoExisteException "  + e.getMessage());
         }
     }
 }
