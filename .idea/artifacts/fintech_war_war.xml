@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="fintech-war:war">
+    <output-path>$PROJECT_DIR$/fintech/fintech-war/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>fintech-war</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="fintech-war-1.0.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="fintech-war:war exploded" />
+    </root>
+  </artifact>
+</component>

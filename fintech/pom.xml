@@ -44,6 +44,7 @@
     <module>fintech-jpa</module>
     <module>fintech-ejb</module>
     <module>fintech-war</module>
+    <module>fintech-ear</module>
 
   </modules>
 </project>
