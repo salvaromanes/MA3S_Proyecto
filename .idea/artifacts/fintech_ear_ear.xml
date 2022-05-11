@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="fintech-ear:ear">
+    <output-path>$PROJECT_DIR$/fintech/fintech-ear/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>fintech-ear</module>
+        <packaging>ear</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="fintech-ear-1.0.0-SNAPSHOT.ear">
+      <element id="artifact" artifact-name="fintech-ear:ear exploded" />
+    </root>
+  </artifact>
+</component>

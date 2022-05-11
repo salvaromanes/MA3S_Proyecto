@@ -8,16 +8,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="fintech-ear" />
         <module name="fintech-ejb" />
+        <module name="fintech-tests" />
         <module name="fintech-jpa" />
         <module name="fintech-war" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="fintech" target="1.8" />
-      <module name="fintech-ear" target="17" />
+      <module name="fintech-ear" target="1.8" />
       <module name="fintech-ejb" target="1.8" />
       <module name="fintech-ejb2" target="17" />
       <module name="fintech-jpa" target="1.8" />
+      <module name="fintech-tests" target="17" />
       <module name="fintech-war" target="1.8" />
     </bytecodeTargetLevel>
   </component>
