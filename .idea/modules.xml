@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/fintech/fintech.iml" filepath="$PROJECT_DIR$/fintech/fintech.iml" />
       <module fileurl="file://$PROJECT_DIR$/fintech/fintech-ejb/fintech-ejb.iml" filepath="$PROJECT_DIR$/fintech/fintech-ejb/fintech-ejb.iml" />
       <module fileurl="file://$PROJECT_DIR$/fintech/fintech-jpa/fintech-jpa.iml" filepath="$PROJECT_DIR$/fintech/fintech-jpa/fintech-jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fintech/fintech-war/fintech-war.iml" filepath="$PROJECT_DIR$/fintech/fintech-war/fintech-war.iml" />
     </modules>
   </component>
 </project>
