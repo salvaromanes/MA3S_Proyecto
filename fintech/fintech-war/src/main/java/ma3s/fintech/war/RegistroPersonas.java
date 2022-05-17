@@ -56,8 +56,8 @@ public class RegistroPersonas {
                 FacesMessage facesMessage = new FacesMessage("La contraseña pasada no se corresponde");
                 return null;
             }
-        } catch (UsuarioIncorrectoException e) {
-            throw new RuntimeException(e);
+        } catch (RuntimeException e) {
+
         }
         return null;
     }
