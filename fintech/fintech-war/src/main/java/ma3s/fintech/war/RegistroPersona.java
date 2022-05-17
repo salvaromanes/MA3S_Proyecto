@@ -22,6 +22,8 @@ public class RegistroPersona {
 
     private  String email;
 
+    private String pais;
+
     private  String direccion;
 
     private  String ciudad;

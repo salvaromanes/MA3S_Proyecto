@@ -16,22 +16,33 @@
     <h1> <strong> Registro Clientes </strong> </h1>
     <h:form id = "RegistroPersona">
         <p:messages autoUpdate="true"/>
-        <h:panelGrid columns="4">
+        <h:panelGrid>
 
             <p:outputLabel for = "Usuario_txt"  value="Usuario"/>
-            <p:inputText id = "Usuario_txt" required="true"/>
+            <p:inputText id = "Usuario_txt" value="#{RegistroPersona.usuario}" required="true"/>
 
-            <p:outputLabel for = "Contra_txt"  value="Password"/>
-            <p:inputText id = "Contra_txt" required="true"/>
+            <p:outputLabel for = "Contra_txt"  value="Contraseña"/>
+            <p:inputText id = "Contra_txt" value="#{RegistroPersona.password_res}" type="password" required="true"/>
+
+            <p:outputLabel for = "Contra2_txt"  value="Confirmar Contraseña"/>
+            <p:inputText id = "Contra2_txt" value="#{RegistroPersona.password_res}" type="password" required="true"/>
 
             <p:outputLabel for = "email_txt"  value="Email"/>
-            <p:inputText id = "email_txt"  required="true"/>
-
+            <p:inputText id = "email_txt"  value="#{RegistroPersona.email}" required="true"/>
 
             <p:outputLabel for = "Pais_txt"  value="Pais"/>
-            <p:inputText id = "Pais_txt"  required="true"/>
+            <p:inputText id = "Pais_txt" value="#{RegistroPersona.pais}" required="true"/>
 
-            <p:commandButton icon="ui-icon-key" value="Crear cuenta"/>
+            <p:outputLabel for = "Ciudad_txt"  value="Ciudad"/>
+            <p:inputText id = "Ciudad_txt" value="#{RegistroPersona.ciudad}" required="true"/>
+
+            <p:outputLabel for = "Dirección_txt"  value="Dirección"/>
+            <p:inputText id = "Dirección_txt" value="#{RegistroPersona.direccion}"  required="false"/>
+
+            <p:outputLabel for = "CodigoPostal_txt"  value="Codigo Postal"/>
+            <p:inputText id = "CodigoPostal_txt" value="#{RegistroPersona.codPostal}" required="true"/>
+
+            <p:commandButton icon="ui-icon-key" value="Crear Cuenta"/>
 
         </h:panelGrid>
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="107" failures="0" name="ma3s.fintech.test.SuiteTest" time="5.83" errors="0" skipped="0">
+<testsuite tests="107" failures="0" name="ma3s.fintech.test.SuiteTest" time="5.023" errors="0" skipped="0">
   <properties>
+    <property name="skip.tests" value="true"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\bin"/>
     <property name="java.vm.version" value="25.202-b08"/>
@@ -34,7 +35,6 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="skip-tests" value="true"/>
     <property name="os.version" value="10.0"/>
     <property name="library.jansi.path" value="C:\Program Files\Maven\apache-maven-3.8.5\lib\jansi-native"/>
     <property name="user.home" value="C:\Users\Álvaro Salas"/>
@@ -47,7 +47,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_202\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean package -Dskip-tests"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean package -Dskip.tests"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="es"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -66,111 +66,111 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="ma3s.fintech.test.Cuentas" name="testCierreCuentaOk" time="0.241"/>
-  <testcase classname="ma3s.fintech.test.Cuentas" name="testCierreUsuarioNoEncontrado" time="0.091"/>
-  <testcase classname="ma3s.fintech.test.Cuentas" name="testCierreCuentaUsuarioIncorrecto" time="0.081"/>
-  <testcase classname="ma3s.fintech.test.Cuentas" name="testAperturaCuentaSegregadaOk" time="0.096"/>
-  <testcase classname="ma3s.fintech.test.Cuentas" name="testAperturaCuentaSegregada" time="0.083"/>
-  <testcase classname="ma3s.fintech.test.Cuentas" name="testAperturaCuentaPooled" time="0.085"/>
-  <testcase classname="ma3s.fintech.test.Cuentas" name="testAperturaCuentaPooledOk" time="0.078"/>
-  <testcase classname="ma3s.fintech.test.Cuentas" name="testCierreCuentaNoVacia" time="0.255"/>
-  <testcase classname="ma3s.fintech.test.Cuentas" name="testCierreCuentaNoExistente" time="0.08"/>
-  <testcase classname="ma3s.fintech.test.Transacciones" name="TestTransferenciaClienteConCamposVacio" time="0.065"/>
-  <testcase classname="ma3s.fintech.test.Transacciones" name="TestTransferenciaPAutorizadaErrorCuentaOrigen" time="0.07"/>
-  <testcase classname="ma3s.fintech.test.Transacciones" name="TestTransferenciaClientePorUsuarioNoExistente" time="0.073"/>
-  <testcase classname="ma3s.fintech.test.Usuarios" name="testAutorizarLecturaOk" time="0.173"/>
-  <testcase classname="ma3s.fintech.test.Usuarios" name="testAutorizarOperacioOk" time="0.054"/>
-  <testcase classname="ma3s.fintech.test.Usuarios" name="testAccederAplicacion" time="0.062"/>
-  <testcase classname="ma3s.fintech.test.Usuarios" name="testAutorizarLectura" time="0.059"/>
-  <testcase classname="ma3s.fintech.test.Usuarios" name="testAccederAplicacionErrorUsuario" time="0.054"/>
-  <testcase classname="ma3s.fintech.test.Usuarios" name="testAutorizarOperacion" time="0.058"/>
-  <testcase classname="ma3s.fintech.test.Reportes" name="testPAutoError" time="0.053"/>
-  <testcase classname="ma3s.fintech.test.Reportes" name="testGestionInfNoValido" time="0.054"/>
-  <testcase classname="ma3s.fintech.test.Reportes" name="testPAuto" time="0.052"/>
-  <testcase classname="ma3s.fintech.test.Reportes" name="testGestionInfValido" time="0.048"/>
-  <testcase classname="ma3s.fintech.test.Reportes" name="testGenerarCSV" time="0.135"/>
-  <testcase classname="ma3s.fintech.test.Reportes" name="testGestionClienteApiError" time="0.008"/>
-  <testcase classname="ma3s.fintech.test.Reportes" name="testGenerarCSVfalloIndividual" time="0.056"/>
-  <testcase classname="ma3s.fintech.test.Reportes" name="testGenerarCSVfalloPeriodico" time="0.058"/>
-  <testcase classname="ma3s.fintech.test.Reportes" name="testGestionClienteApi" time="0.058"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModCiudadEmpresaCampoVacio" time="0.054"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testDarAltaIndividualCampoVacio" time="0.051"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModCodigoPostalIndividualCampoVacio" time="0.084"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testDarAltaIndividualClienteYaExistente" time="0.054"/>
+  <testcase classname="ma3s.fintech.test.Cuentas" name="testCierreCuentaOk" time="0.23"/>
+  <testcase classname="ma3s.fintech.test.Cuentas" name="testCierreUsuarioNoEncontrado" time="0.085"/>
+  <testcase classname="ma3s.fintech.test.Cuentas" name="testCierreCuentaUsuarioIncorrecto" time="0.074"/>
+  <testcase classname="ma3s.fintech.test.Cuentas" name="testAperturaCuentaSegregadaOk" time="0.077"/>
+  <testcase classname="ma3s.fintech.test.Cuentas" name="testAperturaCuentaSegregada" time="0.069"/>
+  <testcase classname="ma3s.fintech.test.Cuentas" name="testAperturaCuentaPooled" time="0.066"/>
+  <testcase classname="ma3s.fintech.test.Cuentas" name="testAperturaCuentaPooledOk" time="0.249"/>
+  <testcase classname="ma3s.fintech.test.Cuentas" name="testCierreCuentaNoVacia" time="0.066"/>
+  <testcase classname="ma3s.fintech.test.Cuentas" name="testCierreCuentaNoExistente" time="0.065"/>
+  <testcase classname="ma3s.fintech.test.Transacciones" name="TestTransferenciaClienteConCamposVacio" time="0.054"/>
+  <testcase classname="ma3s.fintech.test.Transacciones" name="TestTransferenciaPAutorizadaErrorCuentaOrigen" time="0.062"/>
+  <testcase classname="ma3s.fintech.test.Transacciones" name="TestTransferenciaClientePorUsuarioNoExistente" time="0.053"/>
+  <testcase classname="ma3s.fintech.test.Usuarios" name="testAutorizarLecturaOk" time="0.148"/>
+  <testcase classname="ma3s.fintech.test.Usuarios" name="testAutorizarOperacioOk" time="0.049"/>
+  <testcase classname="ma3s.fintech.test.Usuarios" name="testAccederAplicacion" time="0.046"/>
+  <testcase classname="ma3s.fintech.test.Usuarios" name="testAutorizarLectura" time="0.051"/>
+  <testcase classname="ma3s.fintech.test.Usuarios" name="testAccederAplicacionErrorUsuario" time="0.042"/>
+  <testcase classname="ma3s.fintech.test.Usuarios" name="testAutorizarOperacion" time="0.045"/>
+  <testcase classname="ma3s.fintech.test.Reportes" name="testPAutoError" time="0.047"/>
+  <testcase classname="ma3s.fintech.test.Reportes" name="testGestionInfNoValido" time="0.043"/>
+  <testcase classname="ma3s.fintech.test.Reportes" name="testPAuto" time="0.047"/>
+  <testcase classname="ma3s.fintech.test.Reportes" name="testGestionInfValido" time="0.047"/>
+  <testcase classname="ma3s.fintech.test.Reportes" name="testGenerarCSV" time="0.062"/>
+  <testcase classname="ma3s.fintech.test.Reportes" name="testGestionClienteApiError" time="0.035"/>
+  <testcase classname="ma3s.fintech.test.Reportes" name="testGenerarCSVfalloIndividual" time="0.046"/>
+  <testcase classname="ma3s.fintech.test.Reportes" name="testGenerarCSVfalloPeriodico" time="0.045"/>
+  <testcase classname="ma3s.fintech.test.Reportes" name="testGestionClienteApi" time="0.04"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModCiudadEmpresaCampoVacio" time="0.04"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testDarAltaIndividualCampoVacio" time="0.039"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModCodigoPostalIndividualCampoVacio" time="0.039"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testDarAltaIndividualClienteYaExistente" time="0.05"/>
   <testcase classname="ma3s.fintech.test.Clientes" name="testModCiudadEmpresaNoExistente" time="0.044"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModRazonSocialEmpresaNoExistente" time="0.052"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModFechaNacimientoIndividualIndividualNoExistenteException" time="0.054"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testDarBajaClienteCuentaAbierta" time="0.056"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModRazonSocialEmpresa" time="0.048"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModNombreIndividual" time="0.045"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModApellidoIndividualIndividualNoExistenteException" time="0.058"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModCodigoPostalIndividualIndividualNoExistenteException" time="0.043"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModCiudadIndividual" time="0.047"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModNombreIndividualIndividualNoExistenteException" time="0.046"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModCiudadIndividualCampoVacio" time="0.057"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModDireccionEmpresaNoExistente" time="0.047"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testDarAltaIndividual" time="0.043"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testDarBajaClienteClienteNoExiste" time="0.045"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModCiudadEmpresa" time="0.043"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModCodigoPostalEmpresa" time="0.045"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModCodigoPostalCampoVacio" time="0.044"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModPaisEmpresa" time="0.04"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModDireccionIndividualIndividualNoExistenteException" time="0.039"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testDarAltaEmpresaCampoVacio" time="0.038"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModFechaNacimientoIndividualCampoVacio" time="0.049"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModPaisIndividualIndividualNoExistenteException" time="0.035"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModCiudadIndividualIndividualNoExistenteException" time="0.036"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testDarBajaCliente" time="0.049"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModRazonSocialEmpresaCampoVacio" time="0.045"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModDireccionEmpresa" time="0.037"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModCodigoPostalIndividual" time="0.039"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModDireccionIndividual" time="0.047"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModDireccionIndividualCampoVacio" time="0.043"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModPaisIndividualCampoVacio" time="0.082"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testDarAltaEmpresa" time="0.043"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModPaisEmpresaNoExistente" time="0.038"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModPaisIndividual" time="0.043"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testDarAltaEmpresaClienteYaExistente" time="0.058"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModPaisEmpresaCampoVacio" time="0.037"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testDarBajaClienteCampoVacio" time="0.034"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModFechaNacimientoIndividual" time="0.039"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModDireccionEmpresaCampoVacio" time="0.033"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModApellidoIndividual" time="0.049"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModNombreIndividualCampoVacio" time="0.035"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModApellidoIndividualCampoVacio" time="0.036"/>
-  <testcase classname="ma3s.fintech.test.Clientes" name="testModCodigoPostalNoExistente" time="0.037"/>
-  <testcase classname="ma3s.fintech.test.Administrador" name="testAccesoPersonalAdmNoEncontrado" time="0.039"/>
-  <testcase classname="ma3s.fintech.test.Administrador" name="testAccesoPersonalAdmValido" time="0.05"/>
-  <testcase classname="ma3s.fintech.test.Administrador" name="testAccesoPersonalAdmContNoValida" time="0.041"/>
-  <testcase classname="ma3s.fintech.test.Administrador" name="testAccesoPersonalAdmNoValido" time="0.04"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testDarBajaErrorDatos" time="0.041"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaFinPAutorizadaAdminNoExist" time="0.046"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyNamePAutorizadaAdminNoExist" time="0.042"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModRazonSocialEmpresaNoExistente" time="0.049"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModFechaNacimientoIndividualIndividualNoExistenteException" time="0.045"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testDarBajaClienteCuentaAbierta" time="0.102"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModRazonSocialEmpresa" time="0.04"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModNombreIndividual" time="0.042"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModApellidoIndividualIndividualNoExistenteException" time="0.043"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModCodigoPostalIndividualIndividualNoExistenteException" time="0.042"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModCiudadIndividual" time="0.037"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModNombreIndividualIndividualNoExistenteException" time="0.036"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModCiudadIndividualCampoVacio" time="0.039"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModDireccionEmpresaNoExistente" time="0.036"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testDarAltaIndividual" time="0.038"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testDarBajaClienteClienteNoExiste" time="0.033"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModCiudadEmpresa" time="0.04"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModCodigoPostalEmpresa" time="0.035"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModCodigoPostalCampoVacio" time="0.034"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModPaisEmpresa" time="0.037"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModDireccionIndividualIndividualNoExistenteException" time="0.032"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testDarAltaEmpresaCampoVacio" time="0.032"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModFechaNacimientoIndividualCampoVacio" time="0.032"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModPaisIndividualIndividualNoExistenteException" time="0.032"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModCiudadIndividualIndividualNoExistenteException" time="0.035"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testDarBajaCliente" time="0.037"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModRazonSocialEmpresaCampoVacio" time="0.034"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModDireccionEmpresa" time="0.035"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModCodigoPostalIndividual" time="0.035"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModDireccionIndividual" time="0.035"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModDireccionIndividualCampoVacio" time="0.037"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModPaisIndividualCampoVacio" time="0.035"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testDarAltaEmpresa" time="0.038"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModPaisEmpresaNoExistente" time="0.039"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModPaisIndividual" time="0.037"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testDarAltaEmpresaClienteYaExistente" time="0.069"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModPaisEmpresaCampoVacio" time="0.032"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testDarBajaClienteCampoVacio" time="0.029"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModFechaNacimientoIndividual" time="0.033"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModDireccionEmpresaCampoVacio" time="0.034"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModApellidoIndividual" time="0.037"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModNombreIndividualCampoVacio" time="0.033"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModApellidoIndividualCampoVacio" time="0.034"/>
+  <testcase classname="ma3s.fintech.test.Clientes" name="testModCodigoPostalNoExistente" time="0.034"/>
+  <testcase classname="ma3s.fintech.test.Administrador" name="testAccesoPersonalAdmNoEncontrado" time="0.032"/>
+  <testcase classname="ma3s.fintech.test.Administrador" name="testAccesoPersonalAdmValido" time="0.035"/>
+  <testcase classname="ma3s.fintech.test.Administrador" name="testAccesoPersonalAdmContNoValida" time="0.034"/>
+  <testcase classname="ma3s.fintech.test.Administrador" name="testAccesoPersonalAdmNoValido" time="0.037"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testDarBajaErrorDatos" time="0.034"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaFinPAutorizadaAdminNoExist" time="0.031"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyNamePAutorizadaAdminNoExist" time="0.031"/>
   <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaNacimientoPAutorizadaNoEsAdministrador" time="0.035"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifySurNamePAutorizadaNoEsAdministrador" time="0.039"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaNacimientoPAutorizadaCampoVacio" time="0.043"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyEstadoPAutorizadaNoEsAdministrador" time="0.045"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaInicioPAutorizadaNoEsAdministrador" time="0.043"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testAnaPNoEsEmpresa" time="0.043"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testDarBajaErrorNoEsPAutorizada" time="0.048"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyAdressPAutorizadaAdminNoExist" time="0.038"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testAnaEmpresaCorrecto" time="0.054"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyNamePAutorizadaNoEsAdministrador" time="0.033"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyEstadoPAutorizadaEstadoNoValido" time="0.036"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyEstadoPAutorizadaCampoVacio" time="0.071"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testAnaPersonaNoExistente" time="0.045"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaNacimientoPAutorizadaAdminNoExist" time="0.035"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testDarBaja" time="0.045"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifySurNamePAutorizadaAdminNoExist" time="0.037"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaFinPAutorizadaCampoVacio" time="0.042"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testAnaEmpresaNoRelac" time="0.043"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyAdressPAutorizadaNoEsAdministrador" time="0.038"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyNamePAutorizadaCampoVacio" time="0.038"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaInicioPAutorizadaAdminNoExist" time="0.041"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaInicioPAutorizadaCampoVacio" time="0.047"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyAdressPAutorizadaCampoVacio" time="0.048"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifySurNamePAutorizadaNoEsAdministrador" time="0.035"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaNacimientoPAutorizadaCampoVacio" time="0.035"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyEstadoPAutorizadaNoEsAdministrador" time="0.032"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaInicioPAutorizadaNoEsAdministrador" time="0.034"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testAnaPNoEsEmpresa" time="0.037"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testDarBajaErrorNoEsPAutorizada" time="0.036"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyAdressPAutorizadaAdminNoExist" time="0.032"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testAnaEmpresaCorrecto" time="0.036"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyNamePAutorizadaNoEsAdministrador" time="0.031"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyEstadoPAutorizadaEstadoNoValido" time="0.032"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyEstadoPAutorizadaCampoVacio" time="0.032"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testAnaPersonaNoExistente" time="0.035"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaNacimientoPAutorizadaAdminNoExist" time="0.036"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testDarBaja" time="0.035"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifySurNamePAutorizadaAdminNoExist" time="0.03"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaFinPAutorizadaCampoVacio" time="0.043"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testAnaEmpresaNoRelac" time="0.049"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyAdressPAutorizadaNoEsAdministrador" time="0.061"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyNamePAutorizadaCampoVacio" time="0.043"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaInicioPAutorizadaAdminNoExist" time="0.045"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaInicioPAutorizadaCampoVacio" time="0.038"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyAdressPAutorizadaCampoVacio" time="0.039"/>
   <testcase classname="ma3s.fintech.test.Autorizados" name="testAnaPNoEsPersonaA" time="0.036"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyEstadoPAutorizadaAdminNoExist" time="0.032"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaFinPAutorizadaNoEsAdministrador" time="0.037"/>
-  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifySurNamePAutorizadaCampoVacio" time="0.038"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyEstadoPAutorizadaAdminNoExist" time="0.045"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifyFechaFinPAutorizadaNoEsAdministrador" time="0.072"/>
+  <testcase classname="ma3s.fintech.test.Autorizados" name="testModifySurNamePAutorizadaCampoVacio" time="0.032"/>
 </testsuite>
