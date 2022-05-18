@@ -43,13 +43,13 @@ public class InicioSesionAdmin {
             sesion.setUsuario(gestionAccesoAplicacion.entrarAplicacion(usuario.getUser(), usuario.getContrasena()));
         }catch (UsuarioIncorrectoException e) {
             FacesMessage fm = new FacesMessage("El usuario introducido es incorrecto");
-            FacesContext.getCurrentInstance().addMessage("index:user", fm);
+            FacesContext.getCurrentInstance().addMessage("admin:user", fm);
         }catch (ContraseñaIncorrectaException e) {
             FacesMessage fm = new FacesMessage("La contraseña introducida es incorrecta");
-            FacesContext.getCurrentInstance().addMessage("index:pass", fm);
+            FacesContext.getCurrentInstance().addMessage("admin:pass", fm);
         }catch (AccesoException e) {
             FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
-            FacesContext.getCurrentInstance().addMessage("index:user", fm);
+            FacesContext.getCurrentInstance().addMessage("admin:user", fm);
         }
         return "principalAdmin.xhtml";
     }

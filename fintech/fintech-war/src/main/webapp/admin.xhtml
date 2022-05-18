@@ -15,11 +15,11 @@
     <h:panelGrid columns="3">
       <h:outputText value="Nombre de usuario:"/>
       <h:inputText id="user" required="true" value="#{InicioSesionAdmin.usuario.user}"/>
-      <h:message id="userMessage" for="user"/>
+      <h:message for="user"/>
 
       <h:outputText value="Contraseña:"/>
       <h:inputSecret id="pass" required="true" value="#{InicioSesionAdmin.usuario.contrasena}"/>
-      <h:message id="passwordMessage" for="pass"/>
+      <h:message for="pass"/>
 
       <h:commandButton id="botonLogin" value="Entrar" action="#{InicioSesionAdmin.entrar()}"/>
     </h:panelGrid>
