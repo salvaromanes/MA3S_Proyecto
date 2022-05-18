@@ -20,7 +20,7 @@ public class InicioSesionAdmin {
     private String password;
 
     @Inject
-    private GestionAccesoAplicacion gestionAccesoAplicacion;
+    private AccesoAplicacion accesoAplicacion;
 
     private Usuario usuario;
 
@@ -44,7 +44,7 @@ public class InicioSesionAdmin {
 
     public String entrar() {
         try {
-            gestionAccesoAplicacion.accederAplicacion(username, password);
+            accesoAplicacion.accederAplicacion(username, password);
             return "admin.xhtml";
         }catch (UsuarioIncorrectoException e) {
             FacesMessage fm = new FacesMessage("El usuario introducido es incorrecto");
