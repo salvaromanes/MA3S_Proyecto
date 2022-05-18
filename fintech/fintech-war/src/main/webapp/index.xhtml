@@ -13,26 +13,26 @@
 <h:body>
   <h:form id="index">
     <h:panelGrid columns="3">
-      <!--
       <h:outputText value="Nombre de usuario:"/>
       <h:inputText id="user" required="true" value="#{InicioSesionIndex.usuario.user}"/>
       <h:message id="userMessage" for="user"/>
-      -->
+      <!--
       <h5>Usuario:</h5>
       <p:inputText id="user" required="true" value="#{InicioSesionIndex.usuario.user}"/>
+      -->
 
-      <!--
       <h:outputText value="Contraseña:"/>
       <h:inputSecret id="pass" required="true" value="#{InicioSesionIndex.usuario.contrasena}"/>
       <h:message id="passwordMessage" for="pass"/>
-      -->
+      <!--
       <h5>Contraseña:</h5>
       <p:password id="pass" required="true" value="#{InicioSesionIndex.usuario.contrasena}" toggleMask="true" redisplay="true"/>
-
-      <!--
-      <h:commandButton id="botonLogin" value="Entrar" action="#{InicioSesionIndex.entrar()}"/>
       -->
+
+      <h:commandButton id="botonLogin" value="Entrar" action="#{InicioSesionIndex.entrar()}"/>
+      <!--
       <p:button id="botonLogin" value="Entrar" action="#{InicioSesionIndex.entrar()"/>
+      -->
     </h:panelGrid>
 
     <div>
