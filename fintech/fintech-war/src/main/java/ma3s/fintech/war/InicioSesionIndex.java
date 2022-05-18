@@ -44,7 +44,7 @@ public class InicioSesionIndex {
     public String entrar() {
         try {
             gestionAccesoAplicacion.accederAplicacion(username, password);
-            return "index.xhtml";
+            return "RegistroPersonas.xhtml";
         }catch (UsuarioIncorrectoException e) {
             FacesMessage fm = new FacesMessage("El usuario introducido es incorrecto");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
