@@ -13,11 +13,11 @@
 <h:body>
   <h:form id="index">
     <h:panelGrid columns="3">
-      <h5>Usuario: </h5>
+      <h:outputText value="Nombre de usuario:"/>
       <p:inputText id="user" required="true" value="#{InicioSesionIndex.usuario.user}"/>
       <h:message id="userMessage" for="user"/>
 
-      <h5>Contraseña: </h5>
+      <h:outputText value="Contraseña:"/>
       <p:password id="pass" required="true" value="#{InicioSesionIndex.usuario.contrasena}" toggleMask="true" redisplay="true"/>
       <h:message id="passwordMessage" for="pass"/>
 
