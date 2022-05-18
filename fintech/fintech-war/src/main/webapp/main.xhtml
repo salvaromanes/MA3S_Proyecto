@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+  <title>Inicio de sesión Administrador</title>
+</h:head>
+<h:body>
+  <h:form id="admin">
+    <h:panelGrid columns="3">
+      <h:outputText value="Nombre de usuario:"/>
+      <h:inputText id="user" required="true" value="#{InicioSesionAdmin.usuario.user}"/>
+      <h:message id="userMessage" for="user"/>
+
+      <h:outputText value="Contraseña:"/>
+      <h:inputSecret id="pass" required="true" value="#{InicioSesionAdmin.usuario.contrasena}"/>
+      <h:message id="passwordMessage" for="pass"/>
+
+      <h:commandButton id="botonLogin" value="Entrar" action="#{InicioSesionAdmin.entrar()}"/>
+    </h:panelGrid>
+  </h:form>
+</h:body>
+</html>
+
+<!--
+<h:head>
+    <title>Inicio de sesión Administrador</title>
+</h:head>
+
+<h:body>
+    <h1><h:outputText id ="saludo" value="#{saludo.saludo}"/></h1>
+</h:body>
+<div>
+  <span class="ui-float-label">
+    <p:inputText id="float-input" value="#{InicioSesion.username}"/>
+    <p:outputLabel for="@previous" value="Usuario"/>
+  </span>
+
+  <h:form>
+    <span class="ui-float-label">
+    <p:password id="toggle and float-input" value="#{InicioSesion.password}" toggleMask="true" redisplay="true"/>
+    <p:outputLabel for="@previous" value="Contraseña"/>
+    </span>
+  </h:form>
+
+  <h:form>
+    <p:button value="Iniciar Sesión" />
+  </h:form>
+</div>
+
+</html>
+-->
