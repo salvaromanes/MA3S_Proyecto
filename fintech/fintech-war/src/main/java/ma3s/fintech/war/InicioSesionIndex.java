@@ -12,6 +12,8 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+@Named(value = "index")
+@RequestScoped
 public class InicioSesionIndex {
     private String username;
     private String password;
