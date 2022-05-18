@@ -1,0 +1,39 @@
+body{
+    font-family: Arial, helvetica;
+    background: #e2e6f1;
+}
+
+.menu{
+    list-style: none;
+    background: #3852ee;
+    width: 150px;
+    max-width: 200px;
+    display: inline;
+    margin: 20px;
+    padding: 20px;
+    border-width: 20px;
+}
+
+.menu li a{
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    display: inline;
+}
+
+.menu li{
+    display: inline;
+    text-align: center;
+}
+
+.menu li a:hover{
+    background: #04389d;
+}
+
+h1 {
+    color: #000000;
+    font-weight: normal;
+    font-size: 15px;
+    font-family: Arial;
+    text-transform: uppercase;
+}
