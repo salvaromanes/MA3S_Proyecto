@@ -7,9 +7,11 @@ import ma3s.fintech.ejb.excepciones.UsuarioIncorrectoException;
 import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
 import ma3s.fintech.ejb.excepciones.ValorNoValidoException;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+@Stateless
 public class AñadirDivisa implements GestionAñadirDivisa {
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
@@ -24,6 +26,7 @@ public class AñadirDivisa implements GestionAñadirDivisa {
         }
     }
 
+    @Override
     public void anadirNuevaDivisa(Divisa divisa, String usuario) throws UsuarioNoEncontradoException, UsuarioIncorrectoException, DivisaExistenteException {
         Divisa d = em.find(Divisa.class, divisa.getAbreviatura());
 
@@ -42,6 +45,7 @@ public class AñadirDivisa implements GestionAñadirDivisa {
         em.persist(div);
     }
 
+    @Override
     public void editarDivisa(Double cambio, Divisa divisa, String usuario) throws UsuarioNoEncontradoException, UsuarioIncorrectoException, DivisaExistenteException, ValorNoValidoException {
         Divisa d = em.find(Divisa.class, divisa.getAbreviatura());
 
@@ -60,6 +64,7 @@ public class AñadirDivisa implements GestionAñadirDivisa {
         }
     }
 
+    @Override
     public void eliminarDivisa(Divisa divisa, String usuario) throws UsuarioNoEncontradoException, UsuarioIncorrectoException, DivisaExistenteException {
         Divisa d = em.find(Divisa.class, divisa.getAbreviatura());
 
