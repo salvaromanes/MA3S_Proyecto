@@ -1,22 +1,27 @@
 body{
     font-family: Arial, helvetica;
-    background: #e2e6f1;
+    background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwoHBwYHBwsIBwcHBhYHBgcHCA8ICQcWFREiFhURExMYHSggGBolGxMfITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDg0NFSsdFR0rLSsrKysrLSsrLSsrKysrKy0rKystKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAJ0BQgMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAEAAEG/8QAFRABAQAAAAAAAAAAAAAAAAAAABL/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAwEFBP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oADAMBAAIRAxEAPwDv7Vj2re6OaRase1ZAi1Y9qyBFqx7VkCLVj2rIEWrHtWQItWPasgRase1ZAi1Y9qyBFqx7VkCLVj2rIEWrHtWQItWPasgRase1ZAi1Y9qyBFqx7VkCLVj2rIEWrHtWQItWPasgRase1ZAi0PaID2rGtWpGk2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtDWiA9qxrVqxpNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbYPaID2rGtWpGk2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtg9ogPasa1asaTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm0NaID2rGtWpGk2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtDWiA1qx7VqxpFqx7VkCLVj2rIEWrHtWQItWPasgRase1ZAi1Y9qyBFqx7VkCLVj2rIEWrHtWQItWPasgTbLHtWQItWPasgRase1ZAi1Y9qyBFqx7VkCLVj2rIEWrHtWQItWPasgRase1ZAm0NaIDWrHtWpGkWrHtWQItWPasgRase1ZAi1Y9qyBFqx7VkCLVj2rIEWrHtWQItWPasgRase1ZAi1Y9qyBFqx7VkCLVj2rIEWrHtWQItWPasgRase1ZAi1Y9qyBFqx7VkCLVj2rIEWrHtWQItD2iA9qxrVqxpNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbVjWrIE2rGtWQJtWNasgTasa1ZAm1Y1qyBNqxrVkCbQ1ogPaselSkaRaselRAi1Y9KiBFqx6VECLVj0qIEWrHpUQItWPSogRaselRAi1Y9KiBFqx6VECLVj0qIEWrHpUQItWPSogRaselRAi1Y9KiBFqx6VECLVj0qIEWrHpUQItWPSogRaselRAi0PSIP/9k=");
+    background-size: cover;
+
+
 }
 
 .menu{
+    text-align: center;
     list-style: none;
-    background: #3852ee;
+    background: none;
     width: 150px;
     max-width: 200px;
     display: inline;
     margin: 20px;
     padding: 20px;
     border-width: 20px;
+    font-size: 20px;
 }
 
 .menu li a{
     text-decoration: none;
-    color: white;
+    color: #ffffff;
     padding: 20px;
     display: inline;
 }
@@ -34,7 +39,17 @@ h1 {
     color: #000000;
     font-weight: normal;
     padding: 20px;
-    font-size: 15px;
+    font-size: 20px;
     font-family: Arial;
     text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+    position: center;
+    left: 50%;
+    top: 50%;
+
+}
+
+p{
+    text-align: center;
 }
