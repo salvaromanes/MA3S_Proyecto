@@ -40,9 +40,8 @@ h1 {
     font-weight: normal;
     padding: 20px;
     font-size: 20px;
-    font-family: Arial;
     text-transform: uppercase;
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
     position: center;
     left: 50%;
@@ -52,4 +51,32 @@ h1 {
 
 p{
     text-align: center;
+}
+
+
+.menu2{
+    text-align: left;
+    list-style: none;
+    background: none;
+    width: 150px;
+    max-width: 200px;
+    display: inline;
+    margin: 20px;
+    padding: 20px;
+    border-width: 20px;
+    font-size: 20px;
+}
+
+h2 {
+    color: #000000;
+    font-weight: normal;
+    padding: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: left;
+    margin-top: 20px;
+    position: center;
+    left: 50%;
+    top: 50%;
+
 }
