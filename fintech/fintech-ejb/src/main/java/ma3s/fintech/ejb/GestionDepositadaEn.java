@@ -9,4 +9,5 @@ public interface GestionDepositadaEn {
 
     void crearDeposito(Pooled pooled, double saldo, Referencia referencia) throws PooledException, SaldoNoSuficiente, ReferenciaException;
 
+    void actualizarDeposito(Pooled pooled, double saldo, Referencia referencia) throws PooledException, SaldoNoSuficiente, ReferenciaException;
 }
