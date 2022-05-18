@@ -1,6 +1,7 @@
 package ma3s.fintech.ejb;
 
 import ma3s.fintech.Cliente;
+import ma3s.fintech.Individual;
 import ma3s.fintech.PAutorizada;
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
@@ -12,6 +13,6 @@ public interface GestionOperacionUsuario {
     public void cambiarContraseña(String contrasena, String usuario) throws UsuarioNoEncontradoException;
     public void cambiarEstado(String estado, String usuario) throws UsuarioNoEncontradoException;
     public void asignarAutorizada(PAutorizada pAutorizada, String usuario) throws UsuarioNoEncontradoException, PersonaNoExisteException;
-    public void asignarCliente(Cliente cliente, String usuario) throws UsuarioNoEncontradoException, PersonaNoExisteException;
+    public void asignarCliente(Individual individual, String usuario) throws UsuarioNoEncontradoException, PersonaNoExisteException;
     public void bloquearUsuario(Long id) throws UsuarioNoEncontradoException;
 }
