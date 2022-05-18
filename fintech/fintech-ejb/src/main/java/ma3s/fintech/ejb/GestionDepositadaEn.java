@@ -7,6 +7,6 @@ import ma3s.fintech.ejb.excepciones.*;
 
 public interface GestionDepositadaEn {
 
-    void crearDeposito(Pooled pooled, Segregada segregada, double saldo, Referencia referencia) throws PooledException, SegregadaException, SaldoNoSuficiente;
+    void crearDeposito(Pooled pooled, double saldo, Referencia referencia) throws PooledException, SaldoNoSuficiente, ReferenciaException;
 
 }
