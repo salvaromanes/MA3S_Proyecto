@@ -1,6 +1,7 @@
 package ma3s.fintech.ejb;
 
 import ma3s.fintech.Cliente;
+import ma3s.fintech.Individual;
 import ma3s.fintech.PAutorizada;
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
@@ -71,18 +72,18 @@ public class OperacionUsuario implements GestionOperacionUsuario {
     }
 
     @Override
-    public void asignarCliente(Cliente cliente, String usuario) throws UsuarioNoEncontradoException, PersonaNoExisteException {
+    public void asignarCliente(Individual individual, String usuario) throws UsuarioNoEncontradoException, PersonaNoExisteException {
         Usuario user = em.find(Usuario.class, usuario);
 
         if(user == null){
             throw new UsuarioNoEncontradoException("El usuario "+usuario+" no ha sido encontrado");
         }
 
-        if(cliente == null){
-            throw new PersonaNoExisteException("El cliente "+cliente.getIdentificacion()+" no ha sido encontrado");
+        if(individual == null){
+            throw new PersonaNoExisteException("El cliente "+individual.getIdentificacion()+" no ha sido encontrado");
         }
 
-        user.setCliente(cliente);
+        user.setCliente(individual);
 
         em.merge(user);
     }
