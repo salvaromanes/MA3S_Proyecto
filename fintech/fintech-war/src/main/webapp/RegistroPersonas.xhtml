@@ -15,8 +15,7 @@
 <h:body>
     <h1> <strong> Registro Clientes </strong> </h1>
     <h:form id = "registro">
-        <span style="border-image: initial; border: 1px solid blue;">
-        <p:messages autoUpdate="true"/>
+
         <h:panelGrid>
 
             <p:outputLabel for = "Usuario_txt"  value="Usuario"/>
@@ -56,11 +55,10 @@
             <p:outputLabel for = "CodigoPostal_txt"  value="Codigo Postal"/>
             <p:inputText id = "CodigoPostal_txt" value="#{RegistroPersona.codPostal}" required="true"/>
 
-            <p:commandButton icon="ui-icon-key" value="Crear Cuenta" action="#{RegistroPersona.resgistrarPersona()}" />
+            <p:button value="Crear Cuenta" action="#{RegistroPersona.resgistrarPersona()}" />
 
         </h:panelGrid>
 
-        </span>
 
     </h:form>
 
