@@ -15,13 +15,10 @@ import javax.inject.Named;
 @Named(value = "InicioSesion")
 @RequestScoped
 public class InicioSesionIndex {
-    private String username;
-    private String password;
+    private Usuario usuario;
 
     @Inject
     private GestionAccesoAplicacion gestionAccesoAplicacion;
-
-    private Usuario usuario;
 
     public InicioSesionIndex(){ usuario = new Usuario(); }
 
@@ -31,14 +28,6 @@ public class InicioSesionIndex {
 
     public String getPassword() {
         return usuario.getContrasena();
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String entrar() {
