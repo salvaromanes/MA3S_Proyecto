@@ -2,20 +2,25 @@ package ma3s.fintech.war;
 
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.AccesoAplicacion;
+import ma3s.fintech.ejb.GestionAccesoAplicacion;
 import ma3s.fintech.ejb.excepciones.AccesoException;
 import ma3s.fintech.ejb.excepciones.ContraseñaIncorrectaException;
 import ma3s.fintech.ejb.excepciones.UsuarioIncorrectoException;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.inject.Named;
 
+@Named(value = "InicioSesionAdmin")
+@RequestScoped
 public class InicioSesionAdmin {
     private String username;
     private String password;
 
     @Inject
-    private AccesoAplicacion accesoAplicacion;
+    private GestionAccesoAplicacion gestionAccesoAplicacion;
 
     private Usuario usuario;
 
@@ -39,7 +44,7 @@ public class InicioSesionAdmin {
 
     public String entrar() {
         try {
-            accesoAplicacion.accederAplicacion(username, password);
+            gestionAccesoAplicacion.accederAplicacion(username, password);
             return "admin.xhtml";
         }catch (UsuarioIncorrectoException e) {
             FacesMessage fm = new FacesMessage("El usuario introducido es incorrecto");

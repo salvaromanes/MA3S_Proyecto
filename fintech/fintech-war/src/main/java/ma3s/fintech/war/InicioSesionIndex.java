@@ -12,13 +12,16 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-@Named(value = "InicioSesion")
+@Named(value = "InicioSesionIndex")
 @RequestScoped
 public class InicioSesionIndex {
-    private Usuario usuario;
+    private String username;
+    private String password;
 
     @Inject
     private GestionAccesoAplicacion gestionAccesoAplicacion;
+
+    private Usuario usuario;
 
     public InicioSesionIndex(){ usuario = new Usuario(); }
 
@@ -30,9 +33,17 @@ public class InicioSesionIndex {
         return usuario.getContrasena();
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String entrar() {
         try {
-            gestionAccesoAplicacion.accederAplicacion(usuario.getUser(), usuario.getContrasena());
+            gestionAccesoAplicacion.accederAplicacion(username, password);
             return "index.xhtml";
         }catch (UsuarioIncorrectoException e) {
             FacesMessage fm = new FacesMessage("El usuario introducido es incorrecto");
