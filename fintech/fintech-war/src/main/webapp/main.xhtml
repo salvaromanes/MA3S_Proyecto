@@ -10,48 +10,41 @@
 <h:head>
   <title>Bienvenido a MA3S</title>
 </h:head>
-<h:body>
-  <h:form id="admin">
-    <h:panelGrid columns="3">
-      <h:outputText value="Nombre de usuario:"/>
-      <h:inputText id="user" required="true" value="#{InicioSesionAdmin.usuario.user}"/>
-      <h:message id="userMessage" for="user"/>
 
-      <h:outputText value="Contraseña:"/>
-      <h:inputSecret id="pass" required="true" value="#{InicioSesionAdmin.usuario.contrasena}"/>
-      <h:message id="passwordMessage" for="pass"/>
-
-      <h:commandButton id="botonLogin" value="Entrar" action="#{InicioSesionAdmin.entrar()}"/>
-    </h:panelGrid>
-  </h:form>
-</h:body>
-</html>
-
-<!--
-<h:head>
-    <title>Inicio de sesión Administrador</title>
-</h:head>
 
 <h:body>
-    <h1><h:outputText id ="saludo" value="#{saludo.saludo}"/></h1>
+
+  <h1> <strong> Bienvenido a MA3S </strong></h1>
+
+  <h2> <strong> Acciones a realizar </strong>  </h2>
+  <h:panelGrid>
+
+    <p:commandButton  value="Inicio sesion usuario" action="RegistroPersonas.xhtml" />
+
+    <p:commandButton value="Inicio sesion empresa" action="RegistroPersonas.xhtml" />
+
+    <p:commandButton value="Registro Usuario" action="RegistroPersonas.xhtml" />
+
+    <p:commandButton value="Registro Empresa" action="RegistroPersonas.xhtml" />
+
+
+  </h:panelGrid>
+
+
+
+
+  <h2> ¿Quiénes somos? </h2>
+  <p> Grupo de estudiantes de la Universidad de Málaga de 3º. Trabajo realizado para la asignatura de
+  Sistemas de la Información para Internet. Información cliente<h:link outcome="https://www.ebury.es/" > EBURY</h:link>
+  </p>
+
+  <h3> Comentarios </h3>
+  <h:inputTextarea placeholder="lf" cols="20" rows="10"/>
+
+
+
 </h:body>
-<div>
-  <span class="ui-float-label">
-    <p:inputText id="float-input" value="#{InicioSesion.username}"/>
-    <p:outputLabel for="@previous" value="Usuario"/>
-  </span>
 
-  <h:form>
-    <span class="ui-float-label">
-    <p:password id="toggle and float-input" value="#{InicioSesion.password}" toggleMask="true" redisplay="true"/>
-    <p:outputLabel for="@previous" value="Contraseña"/>
-    </span>
-  </h:form>
-
-  <h:form>
-    <p:button value="Iniciar Sesión" />
-  </h:form>
-</div>
 
 </html>
--->
+
