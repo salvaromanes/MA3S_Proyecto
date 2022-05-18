@@ -4,14 +4,17 @@ package ma3s.fintech.war;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 // importaciones de excepciones
+import ma3s.fintech.ejb.GestionOperacionUsuario;
 import  ma3s.fintech.ejb.excepciones.AccesoException;
 
 // importaciones de entidades jpa
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.excepciones.ContraseñaIncorrectaException;
+import ma3s.fintech.ejb.excepciones.UsuarioExistenteException;
 import ma3s.fintech.ejb.excepciones.UsuarioIncorrectoException;
 
 @Named(value = "registro")
@@ -19,6 +22,9 @@ import ma3s.fintech.ejb.excepciones.UsuarioIncorrectoException;
 public class RegistroPersona {
 
 // inyectar datos de los ejb
+
+    @Inject
+    private GestionOperacionUsuario gestionOperacionUsuario;
 
     private Usuario usuario;
     private String password_res;
@@ -104,20 +110,17 @@ public class RegistroPersona {
 
     public String resgistrarPersona(){
         try{
+            gestionOperacionUsuario.crearUsuario(usuario);
             if(!usuario.getContrasena().equals(password_res)){
                 FacesMessage fm = new FacesMessage("Las contraseñas deben coincidir");
                 FacesContext.getCurrentInstance().addMessage("registro:password_res",fm);
                 return null;
             }
 
-            // hay que hacer un ejb para usuario, de ella saco la excepción
-
-        }catch(RuntimeException e){
+        }catch( UsuarioExistenteException e){
 
         }
         return null;
     }
-
-
 }
 
