@@ -15,15 +15,16 @@
     <h:panelGrid columns="3">
       <h:outputText value="Nombre de usuario:"/>
       <p:inputText id="user" required="true" value="#{InicioSesionIndex.usuario.user}"/>
-      <h:message id="userMessage" for="user"/>
+      <h:message for="user"/>
 
       <h:outputText value="Contraseña:"/>
       <p:password id="pass" required="true" value="#{InicioSesionIndex.usuario.contrasena}" toggleMask="true" redisplay="true"/>
-      <h:message id="passwordMessage" for="pass"/>
+      <h:message for="pass"/>
 
       <p:button id="botonIniciarSesion" value="Entrar" action="#{InicioSesionIndex.entrar()}"/>
     </h:panelGrid>
 
+    <a href="recuperarContraseña.xhtml">¿Has olvidado tu contraseña?</a>
     <div>
       <p>Si no tiene cuenta puede crear una en la <h:link outcome="RegistroPersonas.xhtml">página de registro</h:link></p>
     </div>
