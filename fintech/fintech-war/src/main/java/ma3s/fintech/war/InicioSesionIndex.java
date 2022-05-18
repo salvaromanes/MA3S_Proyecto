@@ -26,11 +26,11 @@ public class InicioSesionIndex {
     public InicioSesionIndex(){ usuario = new Usuario(); }
 
     public String getUsername() {
-        return username;
+        return usuario.getUser();
     }
 
     public String getPassword() {
-        return password;
+        return usuario.getContrasena();
     }
 
     public void setUsername(String username) {
@@ -43,7 +43,7 @@ public class InicioSesionIndex {
 
     public String entrar() {
         try {
-            gestionAccesoAplicacion.accederAplicacion(username, password);
+            gestionAccesoAplicacion.accederAplicacion(usuario.getUser(), usuario.getContrasena());
             return "index.xhtml";
         }catch (UsuarioIncorrectoException e) {
             FacesMessage fm = new FacesMessage("El usuario introducido es incorrecto");
