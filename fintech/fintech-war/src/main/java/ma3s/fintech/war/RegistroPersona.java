@@ -107,17 +107,23 @@ public class RegistroPersona {
             gestionOperacionUsuario.crearUsuario(usuario);
             gestionAltaCliente.darAltaIndividual(individual);
             gestionOperacionUsuario.asignarCliente(individual,usuario.getUser());
+            return "index.xhtml";
 
         }catch( UsuarioExistenteException e){
-            throw new RuntimeException(e);
+            FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
+            FacesContext.getCurrentInstance().addMessage("registro:Usuario_txt", fm);
         } catch (ClienteYaExistenteException e) {
-            throw new RuntimeException(e);
+            FacesMessage fm = new FacesMessage("Usuario ya existe");
+            FacesContext.getCurrentInstance().addMessage("registro:Usuario_txt", fm);
         } catch (CampoVacioException e) {
-            throw new RuntimeException(e);
+            FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
+            FacesContext.getCurrentInstance().addMessage("registro:Usuario_txt", fm);
         } catch (UsuarioNoEncontradoException e) {
-            throw new RuntimeException(e);
+            FacesMessage fm = new FacesMessage("Usuario no encontrado");
+            FacesContext.getCurrentInstance().addMessage("registro:Usuario_txt", fm);
         } catch (PersonaNoExisteException e) {
-            throw new RuntimeException(e);
+            FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
+            FacesContext.getCurrentInstance().addMessage("registro:Usuario_txt", fm);
         }
         return null;
     }

@@ -21,12 +21,25 @@
 
             <p:outputLabel for = "Usuario_txt"  value="Usuario"/>
             <p:inputText id = "Usuario_txt" value="#{RegistroPersona.usuario}" required="true"/>
+            <p:message for="Usuario_txt"/>
 
             <p:outputLabel for = "Contra_txt"  value="Contraseña"/>
             <p:inputText id = "Contra_txt" value="#{RegistroPersona.password_res}" type="password" required="true"/>
+            <p:message for="Contra_txt"/>
+
 
             <p:outputLabel for = "Contra2_txt"  value="Confirmar Contraseña"/>
             <p:inputText id = "Contra2_txt" value="#{RegistroPersona.password_res}" type="password" required="true"/>
+            <p:message for="Contra2_txt"/>
+
+
+            <p:outputLabel for = "nombre_txt"  value="Nombre"/>
+            <p:inputText id = "nombre_txt" value="#{RegistroPersona.nombre}" required="true"/>
+            <p:message for="nombre_txt"/>
+
+            <p:outputLabel for = "apellidos_txt"  value="Apellidos"/>
+            <p:inputText id = "apellidos_txt" value="#{RegistroPersona.apellidos}" required="true"/>
+            <p:message for="apellidos_txt"/>
 
             <p:outputLabel for = "email_txt"  value="Email"/>
             <p:inputText id = "email_txt"  value="#{RegistroPersona.email}" required="true"/>
@@ -43,7 +56,7 @@
             <p:outputLabel for = "CodigoPostal_txt"  value="Codigo Postal"/>
             <p:inputText id = "CodigoPostal_txt" value="#{RegistroPersona.codPostal}" required="true"/>
 
-            <p:commandButton icon="ui-icon-key" value="Crear Cuenta"/>
+            <p:commandButton icon="ui-icon-key" value="Crear Cuenta" action="#{RegistroPersona.resgistrarPersona()}" />
 
         </h:panelGrid>
 
