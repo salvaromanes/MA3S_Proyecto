@@ -15,9 +15,11 @@
     <h:panelGrid columns="3">
       <h5>Usuario: </h5>
       <p:inputText id="user" required="true" value="#{InicioSesionIndex.usuario.user}"/>
+      <h:message id="userMessage" for="user"/>
 
       <h5>Contraseña: </h5>
       <p:password id="pass" required="true" value="#{InicioSesionIndex.usuario.contrasena}" toggleMask="true" redisplay="true"/>
+      <h:message id="passwordMessage" for="pass"/>
 
       <p:button id="botonIniciarSesion" value="Entrar" action="#{InicioSesionIndex.entrar()}"/>
     </h:panelGrid>
