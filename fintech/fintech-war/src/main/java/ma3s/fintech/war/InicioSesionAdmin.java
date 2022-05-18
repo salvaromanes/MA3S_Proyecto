@@ -12,12 +12,15 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.logging.Logger;
 
 @Named(value = "admin")
 @RequestScoped
 public class InicioSesionAdmin {
-    private String username;
-    private String password;
+    private static final Logger LOGGER = Logger.getLogger(InicioSesionIndex.class.getCanonicalName());
+
+    @Inject
+    private Sesion sesion;
 
     @Inject
     private GestionAccesoAplicacion gestionAccesoAplicacion;
@@ -26,36 +29,28 @@ public class InicioSesionAdmin {
 
     public InicioSesionAdmin(){ usuario = new Usuario(); }
 
-    public String getUsername() {
-        return username;
+    public Usuario getUsuario(){
+        return usuario;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUsuario(Usuario usuario){
+        this.usuario = usuario;
     }
 
     public String entrar() {
         try {
-            gestionAccesoAplicacion.accederAplicacion(username, password);
-            return "admin.xhtml";
+            LOGGER.info(usuario.getUser());
+            sesion.setUsuario(gestionAccesoAplicacion.entrarAplicacion(usuario.getUser(), usuario.getContrasena()));
         }catch (UsuarioIncorrectoException e) {
             FacesMessage fm = new FacesMessage("El usuario introducido es incorrecto");
-            FacesContext.getCurrentInstance().addMessage("admin:user", fm);
+            FacesContext.getCurrentInstance().addMessage("index:user", fm);
         }catch (ContraseñaIncorrectaException e) {
             FacesMessage fm = new FacesMessage("La contraseña introducida es incorrecta");
-            FacesContext.getCurrentInstance().addMessage("admin:pass", fm);
+            FacesContext.getCurrentInstance().addMessage("index:pass", fm);
         }catch (AccesoException e) {
             FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
-            FacesContext.getCurrentInstance().addMessage("admin:user", fm);
+            FacesContext.getCurrentInstance().addMessage("index:user", fm);
         }
-        return null;
+        return "principalAdmin.xhtml";
     }
 }
