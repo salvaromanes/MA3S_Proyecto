@@ -13,8 +13,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-@Named(value = "InicioSesionAdmin")
-@RequestScoped
 public class InicioSesionAdmin {
     private String username;
     private String password;
