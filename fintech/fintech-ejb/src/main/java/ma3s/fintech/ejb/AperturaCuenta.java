@@ -69,4 +69,29 @@ public class AperturaCuenta implements GestionAperturaCuenta{
 
         em.persist(segregate);
     }
+
+    @Override
+    public Pooled obtenerDatosCuentaPooled(String IBAN){
+        Pooled pooled = em.find(Pooled.class, IBAN);
+
+        if(pooled != null){
+            return pooled;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Segregada obtenerDatosCuentaSegregada(String IBAN){
+        Segregada segregada = em.find(Segregada.class, IBAN);
+
+        if(segregada != null){
+            return segregada;
+        }
+
+        return null;
+    }
+
+
+
 }
