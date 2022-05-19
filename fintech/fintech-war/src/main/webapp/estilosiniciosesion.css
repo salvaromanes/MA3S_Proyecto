@@ -1,0 +1,22 @@
+body{
+    font-family: Arial, helvetica;
+    background-size: cover;
+}
+
+.index{
+    text-align: center;
+    list-style: none;
+    background: none;
+    width: 150px;
+    max-width: 200px;
+    display: inline;
+    margin: 20px;
+    padding: 20px;
+    border-width: 20px;
+    font-size: 20px;
+}
+
+.center{
+    background: #b1b7c7;
+    align-content: center;
+}
