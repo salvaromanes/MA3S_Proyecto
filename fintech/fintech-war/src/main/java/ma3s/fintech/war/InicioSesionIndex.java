@@ -40,12 +40,15 @@ public class InicioSesionIndex {
             sesion.setUsuario(gestionAccesoAplicacion.entrarAplicacion(usuario.getUser(), usuario.getContrasena()));
             return "principalCliente.xhtml";
         }catch (UsuarioIncorrectoException e) {
+            LOGGER.info("Usuario incorrecto");
             FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
         }catch (ContraseñaIncorrectaException e) {
+            LOGGER.info("Contraseña incorrecto");
             FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesContext.getCurrentInstance().addMessage("index:pass", fm);
         }catch (AccesoException e) {
+            LOGGER.info("Acceso incorrecto");
             FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
         } catch (ErrorInternoException e) {
