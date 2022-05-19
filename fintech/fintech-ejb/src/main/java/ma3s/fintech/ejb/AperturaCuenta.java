@@ -1,10 +1,8 @@
 package ma3s.fintech.ejb;
 
-import ma3s.fintech.Cuenta;
-import ma3s.fintech.Pooled;
-import ma3s.fintech.Segregada;
-import ma3s.fintech.Usuario;
+import ma3s.fintech.*;
 import ma3s.fintech.ejb.excepciones.CuentaExistenteException;
+import ma3s.fintech.ejb.excepciones.DivisaExistenteException;
 import ma3s.fintech.ejb.excepciones.UsuarioIncorrectoException;
 import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
 
@@ -29,7 +27,7 @@ public class AperturaCuenta implements GestionAperturaCuenta{
     }
 
     @Override
-    public void abrirCuentaPooled(String iban, String swift, String usuario) throws CuentaExistenteException, UsuarioNoEncontradoException, UsuarioIncorrectoException {
+    public void abrirCuentaPooled(String iban, String swift, String usuario, String divisaAbrev) throws CuentaExistenteException, UsuarioNoEncontradoException, UsuarioIncorrectoException, DivisaExistenteException {
         Cuenta cuenta = em.find(Cuenta.class, iban);
 
         comprobarAdministrador(usuario);
@@ -38,10 +36,14 @@ public class AperturaCuenta implements GestionAperturaCuenta{
             throw new CuentaExistenteException("La cuenta con IBAN "+iban+" ya existe.");
         }
 
+        Divisa divisa = em.find(Divisa.class, divisaAbrev);
+        if(divisa == null) throw new DivisaExistenteException("La divisa no existe");
+
         Pooled pooled = new Pooled();
         pooled.setIban(iban);
         pooled.setSwift(swift);
         pooled.setEstado("Abierta");
+        pooled.setDivisa(divisa);
         pooled.setFechaApertura(new Date());
         pooled.setSaldo(0.0);
 
