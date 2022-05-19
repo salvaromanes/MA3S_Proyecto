@@ -1,6 +1,5 @@
 package ma3s.fintech.ejb;
 
-import jdk.tools.jlink.internal.plugins.StripNativeCommandsPlugin;
 import ma3s.fintech.Pooled;
 import ma3s.fintech.Segregada;
 import ma3s.fintech.ejb.excepciones.CuentaExistenteException;

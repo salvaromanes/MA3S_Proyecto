@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.logging.Logger;
 
-@Named(value = "crearCuenta")
+@Named(value = "cerrarCuenta")
 @RequestScoped
 public class CerrarUnaCuenta {
     private static final Logger LOGGER = Logger.getLogger(InicioSesionIndex.class.getCanonicalName());
