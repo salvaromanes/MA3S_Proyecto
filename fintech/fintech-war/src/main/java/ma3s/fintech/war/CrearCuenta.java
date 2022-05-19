@@ -49,30 +49,52 @@ public class CrearCuenta {
             LOGGER.info("");
             String nombreUsuario = sesion.getUsuario().getUser();
             gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, "salva", divisa);
-
+            return "admin.xhtml";
         }catch (UsuarioNoEncontradoException e) {
             LOGGER.info("Usuario incorrecto");
             FacesMessage fm = new FacesMessage("El usuario no se encuentra en la base de datos");
-            FacesContext.getCurrentInstance().addMessage("crearCuenta:usuario", fm);
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaPooled:usuario", fm);
         } catch (UsuarioIncorrectoException e) {
             LOGGER.info("No es administrador");
             FacesMessage fm = new FacesMessage("");
-            FacesContext.getCurrentInstance().addMessage("crearCuenta:usuario", fm);
+            FacesContext.getCurrentInstance().addMessage("crearCuentaPooled:usuario", fm);
         } catch (CuentaExistenteException e) {
             LOGGER.info("La cuenta ya existe");
             e.printStackTrace();
         } catch (DivisaExistenteException e) {
             LOGGER.info("La divisa no existe");
             FacesMessage fm = new FacesMessage("La divisa no existe");
-            FacesContext.getCurrentInstance().addMessage("crearCuenta:divisa", fm);
+            FacesContext.getCurrentInstance().addMessage("crearCuentaPooled:divisa", fm);
         }
 
-        return null;
+        return "CrearCuentaPooled.xhtml";
     }
 
     public String crearCuentaSegregada(){
+        try{
+            LOGGER.info("");
+            String nombreUsuario = sesion.getUsuario().getUser();
+            gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, "salva", divisa);
+            return "admin.xhtml";
 
-        return "index.html";
+        }catch (UsuarioNoEncontradoException e) {
+            LOGGER.info("Usuario incorrecto");
+            FacesMessage fm = new FacesMessage("El usuario no se encuentra en la base de datos");
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:usuario", fm);
+        } catch (UsuarioIncorrectoException e) {
+            LOGGER.info("No es administrador");
+            FacesMessage fm = new FacesMessage("");
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:usuario", fm);
+        } catch (CuentaExistenteException e) {
+            LOGGER.info("La cuenta ya existe");
+            e.printStackTrace();
+        } catch (DivisaExistenteException e) {
+            LOGGER.info("La divisa no existe");
+            FacesMessage fm = new FacesMessage("La divisa no existe");
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:divisa", fm);
+        }
+
+        return null;
     }
 
 }

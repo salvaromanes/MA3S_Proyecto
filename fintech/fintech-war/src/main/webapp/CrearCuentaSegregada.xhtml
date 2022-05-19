@@ -9,18 +9,18 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-  <title>Crear Cuenta</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Crear Cuenta</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="estilosCrearCuenta.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
 
     <div class="center">
-
-        <h3>Crear Cuenta Pooled</h3>
-
         <h:form id="crearCuenta">
+
+            <h3>Crear Cuenta segregada</h3>
+
             <h:panelGrid columns="3">
                 <h:outputText value="Introduzca el IBAN de la cuenta:"/>
                 <h:inputText id="iban" required="true" value="#{crearCuenta.IBAN}"/>
@@ -34,7 +34,7 @@
                 <h:inputSecret id="divisa" required="false" value="#{crearCuenta.divisa}" />
                 <h:message for="divisa"/>
 
-                <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Crear cuenta pooled" action="#{crearCuenta.crearCuentaPooled}"/>
+                <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Crear cuenta pooled" action="#{crearCuenta.crearSegregada}"/>
             </h:panelGrid>
 
 
