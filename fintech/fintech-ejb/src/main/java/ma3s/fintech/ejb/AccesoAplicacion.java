@@ -29,7 +29,7 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
     }
 
     @Override
-    public Usuario entrarAplicacion(String usuario, String contrasena) throws AccesoException, ErrorInternoException {
+    public Usuario entrarAplicacion(String usuario, String contrasena) throws AccesoException, ErrorInternoException, CampoVacioException {
 //        TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u " + "WHERE u.user LIKE :username", Usuario.class);
 //        query.setParameter("username", usuario);
 //        Usuario u = query.getSingleResult();
@@ -41,6 +41,7 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
             throw new UsuarioIncorrectoException("accederAplicacion: usuario " + usuario + " incorrecto");
         }
 
+        /*
         byte[] contEnc = null;
 
         try {
@@ -52,8 +53,15 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
         }
 
         if(contEnc == null){
-
+            throw new CampoVacioException("Contraseña vacia");
         }else if(contEnc != user.getContrasena().getBytes()){
+            throw new ContraseñaIncorrectaException("Usuario o contraseña incorrecta");
+        }
+        */
+
+        if(contrasena == null){
+            throw new CampoVacioException("Contraseña vacia");
+        }else if(!contrasena.equals(user.getContrasena())){
             throw new ContraseñaIncorrectaException("Usuario o contraseña incorrecta");
         }
 

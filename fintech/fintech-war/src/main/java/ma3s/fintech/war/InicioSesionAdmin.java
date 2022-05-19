@@ -2,10 +2,7 @@ package ma3s.fintech.war;
 
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.GestionAccesoAplicacion;
-import ma3s.fintech.ejb.excepciones.AccesoException;
-import ma3s.fintech.ejb.excepciones.ContraseñaIncorrectaException;
-import ma3s.fintech.ejb.excepciones.ErrorInternoException;
-import ma3s.fintech.ejb.excepciones.UsuarioIncorrectoException;
+import ma3s.fintech.ejb.excepciones.*;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -54,6 +51,9 @@ public class InicioSesionAdmin {
         } catch (ErrorInternoException e) {
             FacesMessage fm = new FacesMessage("Error interno");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
+        } catch (CampoVacioException e) {
+            FacesMessage fm = new FacesMessage("Contraseña vacia");
+            FacesContext.getCurrentInstance().addMessage("admin:pass", fm);
         }
         return "admin.xhtml";
     }

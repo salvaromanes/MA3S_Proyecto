@@ -5,5 +5,5 @@ import ma3s.fintech.ejb.excepciones.*;
 
 public interface GestionAccesoAplicacion {
     void accederAplicacion(String usuario, String contrasena) throws AccesoException;
-    public Usuario entrarAplicacion(String usuario, String contrasena) throws AccesoException, ErrorInternoException;
+    public Usuario entrarAplicacion(String usuario, String contrasena) throws AccesoException, ErrorInternoException, CampoVacioException;
 }
