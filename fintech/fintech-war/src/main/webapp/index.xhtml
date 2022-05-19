@@ -17,14 +17,14 @@
   <h:form id="index">
     <h:panelGrid columns="3">
       <h:outputText value="Nombre de usuario:"/>
-      <p:inputText id="user" required="true" value="#{index.usuario.user}"/>
+      <h:inputText id="user" required="true" value="#{index.usuario.user}"/>
       <h:message for="user"/>
 
       <h:outputText value="Contraseña:"/>
-      <p:password id="pass" required="true" value="#{index.usuario.contrasena}" toggleMask="true" redisplay="true"/>
+      <h:inputSecret id="pass" required="true" value="#{index.usuario.contrasena}" toggleMask="true" redisplay="true"/>
       <h:message for="pass"/>
 
-      <p:button id="botonIniciarSesion" value="Entrar" action="#{index.entrar()}"/>
+      <h:commandButton id="botonIniciarSesion" value="Entrar" action="#{index.entrar()}"/>
     </h:panelGrid>
 
     <a href="recuperarContraseña.xhtml">¿Has olvidado tu contraseña?</a>

@@ -6,7 +6,9 @@ import ma3s.fintech.ejb.excepciones.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 @Stateless
 public class AccesoAplicacion implements GestionAccesoAplicacion {
@@ -27,11 +29,34 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
     }
 
     @Override
-    public Usuario entrarAplicacion(String usuario, String contrasena) throws AccesoException {
-        TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u " + "WHERE u.user LIKE :username", Usuario.class);
-        query.setParameter("username", usuario);
-        Usuario u = query.getSingleResult();
+    public Usuario entrarAplicacion(String usuario, String contrasena) throws AccesoException, ErrorInternoException {
+//        TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u " + "WHERE u.user LIKE :username", Usuario.class);
+//        query.setParameter("username", usuario);
+//        Usuario u = query.getSingleResult();
+//        find con el user y comprobar que no sea null y la contraseña
 
-        return u;
+        Usuario user = em.find(Usuario.class, usuario);
+
+        if(user == null){
+            throw new UsuarioIncorrectoException("accederAplicacion: usuario " + usuario + " incorrecto");
+        }
+
+        byte[] contEnc = null;
+
+        try {
+            contEnc = MessageDigest.getInstance("SHA").digest(contrasena.getBytes("UTF-8"));
+        } catch (NoSuchAlgorithmException e) {
+            throw new ErrorInternoException("ERROR. Algoritmo");
+        } catch (UnsupportedEncodingException e) {
+            throw new ErrorInternoException("ERROR. Codificacion");
+        }
+
+        if(contEnc == null){
+
+        }else if(contEnc != user.getContrasena().getBytes()){
+            throw new ContraseñaIncorrectaException("Usuario o contraseña incorrecta");
+        }
+
+        return user;
     }
 }

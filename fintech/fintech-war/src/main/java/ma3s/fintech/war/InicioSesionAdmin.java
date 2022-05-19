@@ -1,10 +1,10 @@
 package ma3s.fintech.war;
 
 import ma3s.fintech.Usuario;
-import ma3s.fintech.ejb.AccesoAplicacion;
 import ma3s.fintech.ejb.GestionAccesoAplicacion;
 import ma3s.fintech.ejb.excepciones.AccesoException;
 import ma3s.fintech.ejb.excepciones.ContraseñaIncorrectaException;
+import ma3s.fintech.ejb.excepciones.ErrorInternoException;
 import ma3s.fintech.ejb.excepciones.UsuarioIncorrectoException;
 
 import javax.enterprise.context.RequestScoped;
@@ -41,16 +41,20 @@ public class InicioSesionAdmin {
         try {
             LOGGER.info(usuario.getUser());
             sesion.setUsuario(gestionAccesoAplicacion.entrarAplicacion(usuario.getUser(), usuario.getContrasena()));
+            return "principalAdmin.xhtml";
         }catch (UsuarioIncorrectoException e) {
-            FacesMessage fm = new FacesMessage("El usuario introducido es incorrecto");
-            FacesContext.getCurrentInstance().addMessage("admin:user", fm);
+            FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
+            FacesContext.getCurrentInstance().addMessage("index:user", fm);
         }catch (ContraseñaIncorrectaException e) {
-            FacesMessage fm = new FacesMessage("La contraseña introducida es incorrecta");
-            FacesContext.getCurrentInstance().addMessage("admin:pass", fm);
+            FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
+            FacesContext.getCurrentInstance().addMessage("index:pass", fm);
         }catch (AccesoException e) {
             FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesContext.getCurrentInstance().addMessage("admin:user", fm);
+        } catch (ErrorInternoException e) {
+            FacesMessage fm = new FacesMessage("Error interno");
+            FacesContext.getCurrentInstance().addMessage("index:user", fm);
         }
-        return "principalAdmin.xhtml";
+        return "admin.xhtml";
     }
 }

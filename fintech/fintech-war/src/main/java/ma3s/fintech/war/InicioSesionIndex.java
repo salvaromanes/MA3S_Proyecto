@@ -4,6 +4,7 @@ import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.GestionAccesoAplicacion;
 import ma3s.fintech.ejb.excepciones.AccesoException;
 import ma3s.fintech.ejb.excepciones.ContraseñaIncorrectaException;
+import ma3s.fintech.ejb.excepciones.ErrorInternoException;
 import ma3s.fintech.ejb.excepciones.UsuarioIncorrectoException;
 
 import javax.enterprise.context.RequestScoped;
@@ -40,16 +41,20 @@ public class InicioSesionIndex {
         try {
             LOGGER.info(usuario.getUser());
             sesion.setUsuario(gestionAccesoAplicacion.entrarAplicacion(usuario.getUser(), usuario.getContrasena()));
+            return "principalCliente.xhtml";
         }catch (UsuarioIncorrectoException e) {
-            FacesMessage fm = new FacesMessage("El usuario introducido es incorrecto");
+            FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
         }catch (ContraseñaIncorrectaException e) {
-            FacesMessage fm = new FacesMessage("La contraseña introducida es incorrecta");
+            FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesContext.getCurrentInstance().addMessage("index:pass", fm);
         }catch (AccesoException e) {
             FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
+        } catch (ErrorInternoException e) {
+            FacesMessage fm = new FacesMessage("Error interno");
+            FacesContext.getCurrentInstance().addMessage("index:user", fm);
         }
-        return "principalCliente.xhtml";
+        return "index.xhtml";
     }
 }
