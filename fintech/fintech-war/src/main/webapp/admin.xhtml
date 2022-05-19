@@ -9,19 +9,20 @@
 
 <h:head>
   <title>Inicio de sesión Administrador</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </h:head>
 <h:body>
   <h:form id="admin">
     <h:panelGrid columns="3">
-      <h:outputText value="Nombre de usuario:"/>
-      <h:inputText id="user" required="true" value="#{admin.usuario.user}"/>
-      <h:message for="user"/>
+        <h:outputLabel value="Nombre de usuario:"/>
+        <h:inputText id="user" required="true" value="#{admin.usuario.user}"/>
+        <h:message for="user"/>
 
-      <h:outputText value="Contraseña:"/>
-      <h:inputSecret id="pass" required="true" value="#{admin.usuario.contrasena}" toggleMask="true" redisplay="true"/>
-      <h:message for="pass"/>
+        <h:outputLabel value="Contraseña:"/>
+        <h:inputSecret id="pass" required="true" value="#{admin.usuario.contrasena}" toggleMask="true" redisplay="true"/>
+        <h:message for="pass"/>
 
-      <h:commandButton id="botonIniciarSesion" value="Entrar" action="#{admin.entrar()}"/>
+        <h:commandButton id="botonIniciarSesion" value="Entrar" action="#{admin.entrar()}"/>
     </h:panelGrid>
   </h:form>
 </h:body>
