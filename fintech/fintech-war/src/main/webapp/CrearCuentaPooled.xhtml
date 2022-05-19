@@ -13,26 +13,30 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </h:head>
 
-
 <h:body>
-  <div class="card">
-    <h5>Basic</h5>
-    <p:inputText/>
 
-    <h5>Floating Label</h5>
-    <span class="ui-float-label">
-       <p:inputText id="usuario" value="#{crearCuenta.usuario}"/>
-       <p:outputLabel for="@previous" value="Username"/>
-   </span>
+    <div class="center">
+        <h:form id="crearCuenta">
+            <h:panelGrid columns="3">
+                <h:outputText value="Introduzca el IBAN de la cuenta pooled"/>
+                <h:inputText id="iban" required="true" value="#{crearCuenta.IBAN}"/>
+                <h:message for="iban"/>
 
-    <h5>Help Text</h5>
-    <div class="p-field">
-      <p:outputLabel for="username1" styleClass="p-d-block">Username</p:outputLabel>
-      <p:inputText id="username1" styleClass="p-d-block"/>
-      <small class="p-d-block">Enter your username to reset your password.</small>
+                <h:outputText value="Introduzca el SWIFT de la cuenta"/>
+                <h:inputSecret id="swift" required="false" value="#{crearCuenta.SWIFT}" />
+                <h:message for="swift"/>
+
+                <h:outputText value="Introduzca la divisa"/>
+                <h:inputSecret id="divisa" required="false" value="#{crearCuenta.divisa}" />
+                <h:message for="divisa"/>
+
+                <h:commandButton id="botonIniciarSesion" value="Crear cuenta pooled" action="#{crearCuenta.crearCuentaPooled}"/>
+            </h:panelGrid>
+
+
+
+        </h:form>
     </div>
-  </div>
-
 
 </h:body>
 

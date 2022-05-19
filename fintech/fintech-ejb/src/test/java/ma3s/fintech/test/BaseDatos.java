@@ -30,6 +30,13 @@ public class BaseDatos {
         usuario1.setUser("MA3S");
         usuario1.setContrasena("ma3s");
 
+        Divisa euro = new Divisa();
+        euro.setAbreviatura("EUR");
+        euro.setNombre("Euro");
+        euro.setSimbolo((char) 8364);
+        euro.setCambioEuro((double) 1);
+        em.persist(euro);
+
         Cuenta cuenta = new Cuenta();
         cuenta.setIban("123456789012345");
         cuenta.setSwift("123846");

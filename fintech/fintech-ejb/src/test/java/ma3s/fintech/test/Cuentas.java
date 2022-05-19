@@ -39,8 +39,10 @@ public class Cuentas {
         cuenta.setIban(ibanCuenta);
         cuenta.setSwift(swiftCuenta);
 
+        final String divisa = "EUR";
+
         try{
-            gestionAperturaCuenta.abrirCuentaPooled(cuenta.getIban(), cuenta.getSwift(), usuario);
+            gestionAperturaCuenta.abrirCuentaPooled(cuenta.getIban(), cuenta.getSwift(), usuario, divisa);
             fail("Debe lanzar una excepcion");
         } catch (CuentaExistenteException e) {
             //ok
@@ -48,6 +50,8 @@ public class Cuentas {
             fail("Debe lanzar una excepcion CuentaExistente");
         } catch (UsuarioIncorrectoException e) {
             fail("Debe lanzar una excepcion CuentaExistente");
+        } catch (DivisaExistenteException e) {
+            fail("Debe lanzar una exepcion DivisaExistenteException");
         }
     }
 
@@ -81,15 +85,19 @@ public class Cuentas {
         cuenta.setIban(ibanCuenta);
         cuenta.setSwift(swiftCuenta);
 
+        final String divisa = "EUR";
+
         try{
-            gestionAperturaCuenta.abrirCuentaPooled(cuenta.getIban(), cuenta.getSwift(), usuario);
+            gestionAperturaCuenta.abrirCuentaPooled(cuenta.getIban(), cuenta.getSwift(), usuario, divisa);
             //ok
         } catch (CuentaExistenteException e) {
-            fail("No debe lanzar una excepcion");
+            fail("No debe lanzar una excepcion CuentaExistenteException");
         } catch (UsuarioNoEncontradoException e) {
-            fail("No debe lanzar una excepcion");
+            fail("No debe lanzar una excepcion UsuarioNoEncontradoException");
         } catch (UsuarioIncorrectoException e) {
-            fail("No debe lanzar una excepcion");
+            fail("No debe lanzar una excepcion UsuarioIncorrectoException");
+        } catch (DivisaExistenteException e) {
+            fail("No debe lanzar una excepcion DivisaExistenteException");
         }
     }
 

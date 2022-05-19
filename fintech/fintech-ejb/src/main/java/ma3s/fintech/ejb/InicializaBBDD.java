@@ -215,7 +215,7 @@ public class InicializaBBDD {
         usuario1.setContrasena("juan");
         usuario1.setEsAdmin(false);
         //usuario1.setCliente(individual);
-        em.persist(usuario1);
+        //em.persist(usuario1);
 
         Usuario usuario2 = new Usuario();
         usuario2.setUser("ana");
