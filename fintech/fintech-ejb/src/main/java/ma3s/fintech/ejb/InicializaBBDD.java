@@ -18,7 +18,7 @@ import static java.lang.Long.parseLong;
 @Singleton
 @Startup
 public class InicializaBBDD {
-    @PersistenceContext(unitName = "")
+    @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
 
     @PostConstruct
@@ -213,7 +213,9 @@ public class InicializaBBDD {
         Usuario usuario1 = new Usuario();
         usuario1.setUser("juan");
         usuario1.setContrasena("juan");
-        usuario1.setCliente(individual);
+        usuario1.setEsAdmin(false);
+        //usuario1.setCliente(individual);
+        em.persist(usuario1);
 
         Usuario usuario2 = new Usuario();
         usuario2.setUser("ana");
