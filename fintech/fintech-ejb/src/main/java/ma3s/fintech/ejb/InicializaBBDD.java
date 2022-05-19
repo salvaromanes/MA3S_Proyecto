@@ -226,5 +226,6 @@ public class InicializaBBDD {
         usuario3.setUser("ponciano");
         usuario3.setContrasena("ponciano");
         usuario3.setEsAdmin(true);
+        //em.persist(usuario3);
     }
 }

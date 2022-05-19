@@ -51,10 +51,8 @@ public class InicioSesionIndex {
             LOGGER.info("Acceso incorrecto");
             FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
-        } catch (ErrorInternoException e) {
-            FacesMessage fm = new FacesMessage("Error interno");
-            FacesContext.getCurrentInstance().addMessage("index:user", fm);
         } catch (CampoVacioException e) {
+            LOGGER.info("Campo vacio");
             FacesMessage fm = new FacesMessage("Contraseña vacia");
             FacesContext.getCurrentInstance().addMessage("admin:pass", fm);
         }
