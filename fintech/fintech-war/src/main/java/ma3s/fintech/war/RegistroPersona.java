@@ -26,18 +26,12 @@ public class RegistroPersona {
 
     private Usuario usuario;
     private String password_res;
-
     private  String email;
-
     private String nombre;
-
     private  String apellidos;
     private String pais;
-
     private  String direccion;
-
     private  String ciudad;
-
     private  String codPostal;
 
 
