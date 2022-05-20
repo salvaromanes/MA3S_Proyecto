@@ -13,7 +13,7 @@ public class Transferencias implements GestionTransferencia{
 
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
-
+   
     /*
     private Transaccion subirTransaccion(String idTransf, Date fechaInstruccion, Double cantidad, String tipo, Double comision, Boolean internacional,
                                          Cuenta cuentaOri, Cuenta cuentaDest, Divisa divisaOri, Divisa divisaDest){

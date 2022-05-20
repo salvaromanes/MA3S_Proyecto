@@ -11,34 +11,23 @@
     <title>Title</title>
 </head>
 <body>
-<h:form id="contactos">
-    <h:dataTable value="#{sesionCliente.getClientes}" var="c">
-        <h:column>
-            <f:facet id="cabeceraNombre" name="header">Nombre</f:facet>
-            <h:outputText id="textoNombre" value="#{c.identificacion}"/>
-        </h:column>
+<h:form id="caja1">
 
-        <h:column>
-            <f:facet id="cabeceraTelefono" name="header">Teléfono</f:facet>
-            <h:outputText id="textoTelefono" value="#{c.tipoCliente}"/>
-        </h:column>
+    <p:dataTable styleClass="card" id="dtCliente" value="#{clienteBB.clientes}" var="a">
 
-        <h:column>
-            <f:facet id="cabeceraEmail" name="header">e-mail</f:facet>
-            <h:outputText id="textoEmail" value="#{c.pais}"/>
-        </h:column>
+        <p:column id="a" headerText="Identificación" filterBy="#{a.identificacion}" filterMatchMode="contains">
+            <p:outputLabel id="ab" value="#{a.identificacion}" />
+        </p:column>
+        <p:column id="b" headerText="Tipo Cliente" filterBy="#{a.tipoCliente}" filterMatchMode="contains">
+            <p:outputLabel id="aa" value="#{a.tipoCliente}" />
+        </p:column>
+        <p:column id="c" headerText="Estado" filterBy="#{a.estado}" filterMatchMode="contains">
+            <p:outputLabel id="ac" value="#{a.estado}" />
+        </p:column>
 
-        <h:column>
-            <h:commandButton id="botonModificar" value="Modificar" action="#{contactos.modificar(c)}"/>
-        </h:column>
 
-        <h:column>
-            <h:commandButton id="botonEliminar" value="Eliminar" action="#{contactos.eliminar(c)}"/>
-        </h:column>
-    </h:dataTable>
-    <h:commandButton id="botonInsertar" value="Insertar" action="#{contactos.insertarContacto()}"/>
-    <h:commandButton id="botonRefrescar" value="Refrescar" action="#{contactos.refrescar}"/>
-    <p><h:commandLink id="enlaceLogout" action="#{infoSesion.invalidarSesion()}">Log out</h:commandLink></p>
+
+    </p:dataTable>
 </h:form>
 </body>
 </html>
