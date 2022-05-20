@@ -24,12 +24,21 @@ public class TransaccionClientes {
     private Autorizacion autorizacion;
     private PAutorizada autorizada;
     private Usuario usuario;
+    private Pooled pooled;
 
     private Cliente cliente;
     private Empresa empresa;
 
     private String div;
     private double cantidad;
+
+    public Pooled getPooled() {
+        return pooled;
+    }
+
+    public void setPooled(Pooled pooled) {
+        this.pooled = pooled;
+    }
 
     public Autorizacion getAutorizacion() {
         return autorizacion;
@@ -106,12 +115,13 @@ public class TransaccionClientes {
     public String realizarTransaccionCliente() {
         Transaccion t = new Transaccion();
         try {
-            gestionTransferencia.transferenciaCliente(t, cliente.getId());
-            if(!cliente.getTipoCliente().equalsIgnoreCase("FISICA") || autorizacion.getEmpresaId().equals(empresa)){
-
-                // dudas, como saco un autorizado a una cuenta cuyo cliente sea persona juridica
-
+            if(!cliente.getTipoCliente().equalsIgnoreCase("FISICA") ||
+                    !autorizacion.getEmpresaId().equals(empresa.getId()) ||
+                    cuenta.getIban() == pooled.getIban()){
             }
+
+            gestionTransferencia.transferenciaCliente(t, cliente.getId());
+            pooled.setSaldo(getPooled().getSaldo() + cantidad);
 
         } catch (PersonaNoExisteException e) {
             throw new RuntimeException(e);
