@@ -11,10 +11,10 @@
     <title> Cuentas del usuario </title>
 </h:head>
     <h:body>
-        <h:dataTable>
-
-
-            <h:commandButton><a href="TransaccionCliente.xhtml"> transaccion </a></h:commandButton><
+        <h:dataTable value="#{listCuenta.cuentasC}" var="datos">
+                <f:facet name="header">IBAN</f:facet>
+                #{datos.iban}
+            <h:commandButton><a href="TransaccionCliente.xhtml"> transaccion </a></h:commandButton>
         </h:dataTable>
 
 
