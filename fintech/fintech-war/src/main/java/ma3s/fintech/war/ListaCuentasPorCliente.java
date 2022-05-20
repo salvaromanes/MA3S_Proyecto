@@ -16,15 +16,6 @@ import java.util.logging.Logger;
 @RequestScoped
 public class ListaCuentasPorCliente {
 
-    @Inject
-    private GestionGetCuentas gestionGetCuentas;
 
-    @Inject
-    private Cuenta cuenta;
-
-
-    public synchronized List<Cuenta> getCuentasC(){
-        return gestionGetCuentas.getCuentas();
-    }
 }
 
