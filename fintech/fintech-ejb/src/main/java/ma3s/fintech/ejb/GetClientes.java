@@ -6,12 +6,14 @@ import ma3s.fintech.Empresa;
 import ma3s.fintech.ejb.excepciones.CampoVacioException;
 import ma3s.fintech.ejb.excepciones.ClienteYaExistenteException;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.Date;
 import java.util.List;
 
+@Stateless
 public class GetClientes implements GestionGetClientes{
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;

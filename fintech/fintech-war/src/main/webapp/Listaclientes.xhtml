@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<h:form id="contactos">
+    <h:dataTable value="#{sesionCliente.getClientes}" var="c">
+        <h:column>
+            <f:facet id="cabeceraNombre" name="header">Nombre</f:facet>
+            <h:outputText id="textoNombre" value="#{c.identificacion}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet id="cabeceraTelefono" name="header">Teléfono</f:facet>
+            <h:outputText id="textoTelefono" value="#{c.tipoCliente}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet id="cabeceraEmail" name="header">e-mail</f:facet>
+            <h:outputText id="textoEmail" value="#{c.pais}"/>
+        </h:column>
+
+        <h:column>
+            <h:commandButton id="botonModificar" value="Modificar" action="#{contactos.modificar(c)}"/>
+        </h:column>
+
+        <h:column>
+            <h:commandButton id="botonEliminar" value="Eliminar" action="#{contactos.eliminar(c)}"/>
+        </h:column>
+    </h:dataTable>
+    <h:commandButton id="botonInsertar" value="Insertar" action="#{contactos.insertarContacto()}"/>
+    <h:commandButton id="botonRefrescar" value="Refrescar" action="#{contactos.refrescar}"/>
+    <p><h:commandLink id="enlaceLogout" action="#{infoSesion.invalidarSesion()}">Log out</h:commandLink></p>
+</h:form>
+</body>
+</html>
