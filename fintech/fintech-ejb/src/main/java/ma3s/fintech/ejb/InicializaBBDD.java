@@ -214,18 +214,61 @@ public class InicializaBBDD {
         usuario1.setUser("juan");
         usuario1.setContrasena("juan");
         usuario1.setEsAdmin(false);
-        //usuario1.setCliente(individual);
-        //em.persist(usuario1);
+        usuario1.setCliente(individual);
 
         Usuario usuario2 = new Usuario();
         usuario2.setUser("ana");
-        usuario2.setContrasena("juan");
+        usuario2.setContrasena("ana");
+        usuario2.setEsAdmin(false);
         usuario2.setAutorizada(pAutorizada);
 
         Usuario usuario3 = new Usuario();
         usuario3.setUser("ponciano");
         usuario3.setContrasena("ponciano");
         usuario3.setEsAdmin(true);
-        //em.persist(usuario3);
+
+        for (Usuario u: new Usuario[]{usuario1, usuario2, usuario3}) {
+            em.persist(u);
+        }
+
+        for (Transaccion t: new Transaccion[]{transaccion}){
+            em.persist(t);
+        }
+
+        for (Empresa e : new Empresa[]{empresa}){
+            em.persist(e);
+        }
+
+        for (Individual i : new Individual[] {individual}){
+            em.persist(i);
+        }
+
+        for (PAutorizada p : new PAutorizada[]{pAutorizada}){
+            em.persist(p);
+        }
+
+        for (Autorizacion a : new Autorizacion[]{autorizacion}){
+            em.persist(a);
+        }
+
+        for (Divisa d : new Divisa[]{dolar, euro, libra}){
+            em.persist(d);
+        }
+
+        for (Referencia r : new Referencia[]{referencia1, referencia2, referencia3, referencia4, referencia5, referencia6}){
+            em.persist(r);
+        }
+
+        for (Segregada s : new Segregada[]{segregada1, segregada2, segregada3}){
+            em.persist(s);
+        }
+
+        for (Pooled p : new Pooled[]{pooled}){
+            em.persist(p);
+        }
+
+        for (DepositadaEn d : new DepositadaEn[]{depositada1, depositada2, depositada3}){
+            em.persist(d);
+        }
     }
 }
