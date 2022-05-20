@@ -5,6 +5,7 @@ import ma3s.fintech.ejb.GestionAperturaCuenta;
 import ma3s.fintech.ejb.GestionCierreCuenta;
 import ma3s.fintech.ejb.excepciones.*;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -19,10 +20,6 @@ public class CerrarUnaCuenta {
 
     @Inject
     private GestionCierreCuenta gestionCierreCuenta;
-
-    public CerrarUnaCuenta(){
-
-    }
 
     public String cerrarCuenta(String IBAN){
         try{

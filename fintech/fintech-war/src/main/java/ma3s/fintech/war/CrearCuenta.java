@@ -53,11 +53,11 @@ public class CrearCuenta {
         }catch (UsuarioNoEncontradoException e) {
             LOGGER.info("Usuario incorrecto");
             FacesMessage fm = new FacesMessage("El usuario no se encuentra en la base de datos");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaPooled:usuario", fm);
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaPooled:divisa", fm);
         } catch (UsuarioIncorrectoException e) {
             LOGGER.info("No es administrador");
             FacesMessage fm = new FacesMessage("");
-            FacesContext.getCurrentInstance().addMessage("crearCuentaPooled:usuario", fm);
+            FacesContext.getCurrentInstance().addMessage("crearCuentaPooled:divisa", fm);
         } catch (CuentaExistenteException e) {
             LOGGER.info("La cuenta ya existe");
             e.printStackTrace();
@@ -80,11 +80,11 @@ public class CrearCuenta {
         }catch (UsuarioNoEncontradoException e) {
             LOGGER.info("Usuario incorrecto");
             FacesMessage fm = new FacesMessage("El usuario no se encuentra en la base de datos");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:usuario", fm);
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:divisa", fm);
         } catch (UsuarioIncorrectoException e) {
             LOGGER.info("No es administrador");
             FacesMessage fm = new FacesMessage("");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:usuario", fm);
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:divisa", fm);
         } catch (CuentaExistenteException e) {
             LOGGER.info("La cuenta ya existe");
             e.printStackTrace();
@@ -94,7 +94,7 @@ public class CrearCuenta {
             FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:divisa", fm);
         }
 
-        return null;
+        return "CrearCuentaSegregada.xhtml";
     }
 
 }

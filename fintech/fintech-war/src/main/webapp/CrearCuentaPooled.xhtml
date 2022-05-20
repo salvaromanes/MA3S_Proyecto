@@ -21,20 +21,21 @@
         <h3>Crear Cuenta Pooled</h3>
 
         <h:form id="crearCuenta">
-            <h:panelGrid columns="3">
-                <h:outputText value="Introduzca el IBAN de la cuenta:"/>
-                <h:inputText id="iban" required="true" value="#{crearCuenta.IBAN}"/>
-                <h:message for="iban"/>
+            <h:panelGrid class="casillas" columns="3">
+                <h:outputText class="textoAuxiliar" value="Introduzca el IBAN de la cuenta:"/>
+                <h:inputText class="entradaTexto" id="iban" required="true" value="#{crearCuenta.IBAN}"/>
 
-                <h:outputText value="Introduzca el SWIFT de la cuenta:"/>
-                <h:inputSecret id="swift" required="false" value="#{crearCuenta.SWIFT}" />
-                <h:message for="swift"/>
 
-                <h:outputText value="Introduzca la divisa:"/>
-                <h:inputSecret id="divisa" required="false" value="#{crearCuenta.divisa}" />
-                <h:message for="divisa"/>
+                <h:outputText class="textoAuxiliar" value="Introduzca el SWIFT de la cuenta:"/>
+                <h:inputSecret class="entradaTexto" id="swift" required="false" value="#{crearCuenta.SWIFT}" />
+
+
+                <h:outputText class="textoAuxiliar" value="Introduzca la divisa:"/>
+                <h:inputSecret class="entradaTexto" id="divisa" required="false" value="#{crearCuenta.divisa}" />
+
 
                 <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Crear cuenta pooled" action="#{crearCuenta.crearCuentaPooled}"/>
+                <h:message for="divisa"/>
             </h:panelGrid>
 
 
