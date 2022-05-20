@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 @Named
 @RequestScoped
-public class ClienteBB {
+public class ListaClientes {
     @Inject
     private GestionGetClientes gestionGetClientes;
 
@@ -22,7 +22,7 @@ public class ClienteBB {
 
     private final static Logger LOGGER = Logger.getLogger(GestionGetClientes.class.getCanonicalName());
 
-    public ClienteBB(){
+    public ListaClientes(){
 
     }
 
