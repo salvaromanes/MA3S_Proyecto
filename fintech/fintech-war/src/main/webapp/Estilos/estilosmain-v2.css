@@ -10,12 +10,13 @@
     margin: 20px;
     padding: 20px;
     border-width: 20px;
-    font-size: 20px;
+    font-size: 25px;
+    color: #ea8e0f;
 }
 
 .menu li a{
     text-decoration: none;
-    color: #ffffff;
+    color: gold;
     padding: 20px;
     display: inline;
 }
@@ -26,7 +27,7 @@
 }
 
 .menu li a:hover{
-    background: #04389d;
+    background: #ea8e0f;
 }
 
 html,body{
@@ -40,6 +41,9 @@ body{
     font-family: sans-serif;
     letter-spacing:0.03em ;
     line-height: 1.6;
+    background-color: aqua;
+    background-image: url("https://p4.wallpaperbetter.com/wallpaper/761/546/510/blue-gradient-abstract-wallpaper-preview.jpg");
+    background-size: cover;
 }
 
 .title{
@@ -68,6 +72,7 @@ body{
     overflow: hidden;
     text-align: center;
     transition: all 0.25s;
+    background-color: #cecbcb;
 }
 
 .container .card:hover{
@@ -101,4 +106,8 @@ body{
 }
 
 
-
+h1{
+    text-align: center;
+    padding-top: 50px;
+    color: white;
+}
