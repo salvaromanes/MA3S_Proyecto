@@ -18,19 +18,20 @@
 
         <h:panelGrid>
 
-            <p:outputLabel for = "cuenta_txt"  value="Cuenta destino"/>
-            <p:inputText id = "cuenta_txt" value="#{transcliente.cuenta}" required="true"/>
-            <p:message for="cuenta_txt"/>
+            <h:outputLabel for = "cuenta_txt"  value="Cuenta destino"/>
+            <h:inputText id = "cuenta_txt" value="#{transcliente.cuenta}" required="true"/>
+            <h:message for="cuenta_txt"/>
 
-            <p:outputLabel for = "cantidad_txt"  value="Cantidad"/>
-            <p:inputText id = "cantidad_txt" value="#{transcliente.cantidad}" type="password" required="true"/>
-            <p:message for="cantidad_txt"/>
+            <h:outputLabel for = "cantidad_txt"  value="Cantidad"/>
+            <h:inputText id = "cantidad_txt" value="#{transcliente.cantidad}" type="password" required="true"/>
+            <h:message for="cantidad_txt"/>
 
 
-            <p:outputLabel for = "divisa_txt"  value="Divisa"/>
-            <p:inputText id = "divisa_txt" value="#{transcliente.cuenta}" type="password" required="true"/>
-            <p:message for="divisa_txt"/>
+            <h:outputLabel for = "divisa_txt"  value="Divisa"/>
+            <h:inputText id = "divisa_txt" value="#{transcliente.cuenta}" type="password" required="true"/>
+            <h:message for="divisa_txt"/>
 
+            <h:commandButton id="btnConfirmar" value="Confirmar" action="#{transcliente.realizarTransaccionCliente()}"/>
 
         </h:panelGrid>
 
