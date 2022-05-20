@@ -1,5 +1,6 @@
 package ma3s.fintech.ejb;
 
+import ma3s.fintech.Cliente;
 import ma3s.fintech.ejb.excepciones.*;
 
 import java.util.Date;
@@ -7,6 +8,7 @@ import java.util.Date;
 public interface GestionModificarCliente {
     //Modificar Empresa
     public void modDireccionEmpresa(Long id, String direccion) throws CampoVacioException, EmpresaNoExistenteException;
+    public Cliente devolverCliente(String identificacion) throws ClienteNoExisteException;
     public void modCiudadEmpresa(Long id, String ciudad) throws CampoVacioException, EmpresaNoExistenteException;
     public void modCodigoPostalEmpresa(Long id, String codigoPostal) throws CampoVacioException, EmpresaNoExistenteException;
     public void modPaisEmpresa(Long id, String pais) throws CampoVacioException, EmpresaNoExistenteException;

@@ -1,9 +1,14 @@
 package ma3s.fintech.war;
 
-import ma3s.fintech.Cliente;
-import ma3s.fintech.PAutorizada;
-import ma3s.fintech.ejb.GestionModificarCliente;
-import ma3s.fintech.ejb.excepciones.*;
+
+import ma3s.fintech.Empresa;
+import ma3s.fintech.Individual;
+import ma3s.fintech.ejb.GestionAltaCliente;
+import ma3s.fintech.ejb.GestionBajaCliente;
+import ma3s.fintech.ejb.excepciones.CampoVacioException;
+import ma3s.fintech.ejb.excepciones.ClienteNoExisteException;
+import ma3s.fintech.ejb.excepciones.ClienteYaExistenteException;
+import ma3s.fintech.ejb.excepciones.CuentaAbiertaException;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -12,9 +17,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
 
-@Named(value = "cliente")
+@Named(value = "DarAltaBajaEmpresaAdministrador")
 @RequestScoped
-public class MisDatosCliente {
+public class DarAltaBajaEmpresaAdmin {
 
     private Long id;
     private String identificacion;
@@ -28,9 +33,13 @@ public class MisDatosCliente {
     private String pais;
 
     @Inject
-    private GestionModificarCliente gestionModificarCliente;
+    private GestionAltaCliente gestionAltaCliente;
+    private GestionBajaCliente gestionBajaCliente;
+    private Empresa empresa;
 
-    public MisDatosCliente(){ }
+    public DarAltaBajaEmpresaAdmin(){
+        empresa = new Empresa();
+    }
 
     public Long getId() {
         return id;
@@ -112,31 +121,24 @@ public class MisDatosCliente {
         this.pais =  pais;
     }
 
-    public String modificar(String identificacion) {
+    public String modificar() {
         try {
-            Cliente cliente = new Cliente();
-            cliente = gestionModificarCliente.devolverCliente(identificacion);
-            if(cliente.getTipoCliente().equals("Individual")){
-                gestionModificarCliente.modDireccionIndividual(cliente.getId(), direccion);
-                gestionModificarCliente.modCiudadIndividual(cliente.getId(), ciudad);
-                gestionModificarCliente.modCodigoPostalIndividual(cliente.getId(), codigopostal);
-                gestionModificarCliente.modPaisIndividual(cliente.getId(), pais);
+            gestionAltaCliente.darAltaEmpresa(empresa);
+            gestionBajaCliente.darBajaCliente(id);
 
-            }else if(cliente.getTipoCliente().equals("Empresa")){
-                gestionModificarCliente.modDireccionEmpresa(cliente.getId(), direccion);
-                gestionModificarCliente.modCiudadEmpresa(cliente.getId(), ciudad);
-                gestionModificarCliente.modCodigoPostalEmpresa(cliente.getId(), codigopostal);
-                gestionModificarCliente.modPaisEmpresa(cliente.getId(), pais);
-            }
-            return "MisDatosCliente.xhtml";
-        } catch (CampoVacioException e) {
-
-        } catch (IndividualNoExistenteException e) {
-
-        } catch (EmpresaNoExistenteException e) {
-
+            return "DarAltaBajaEmpresaAdmin.xhtml";
+        } catch (ClienteYaExistenteException e) {
+            FacesMessage fm = new FacesMessage("El cliente ya existe");
+            FacesContext.getCurrentInstance().addMessage("admin: ", fm);
         } catch (ClienteNoExisteException e) {
-
+            FacesMessage fm = new FacesMessage("El cliente no existe");
+            FacesContext.getCurrentInstance().addMessage("admin: ", fm);
+        } catch (CuentaAbiertaException e) {
+            FacesMessage fm = new FacesMessage("La cuenta está abierta");
+            FacesContext.getCurrentInstance().addMessage("admin: ", fm);
+        } catch (CampoVacioException e) {
+            FacesMessage fm = new FacesMessage("El campo esta vacio");
+            FacesContext.getCurrentInstance().addMessage("admin: ", fm);
         }
         return null;
     }
