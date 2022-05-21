@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Stateless
 public class Transferencias implements GestionTransferencia{
-
+//
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
    
