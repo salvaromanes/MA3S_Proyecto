@@ -12,46 +12,14 @@
 </head>
 <body>
 
+<h1>Pruebas</h1>
+
 <h:form id="caja1">
 
-    <p:dataTable styleClass="card" id="dtCliente" value="#{listaClientes.clientes}" var="a">
-
-        <p:column id="a" headerText="Identificación" filterBy="#{a.identificacion}" filterMatchMode="contains">
-            <p:outputLabel id="ab" value="#{a.identificacion}" />
+    <p:dataTable styleClass="card" id="dtCliente" value="#{listaCuentas.pooleds}" var="a">
+        <p:column id="a" headerText="IBAN" filterBy="#{a.swift}">
+            <p:outputLabel id="ab" value="#{a.swift}" />
         </p:column>
-        <p:column id="b" headerText="Tipo Cliente" filterBy="#{a.tipoCliente}" filterMatchMode="contains">
-            <p:outputLabel id="aa" value="#{a.tipoCliente}" />
-        </p:column>
-        <p:column id="c" headerText="Estado" filterBy="#{a.estado}" filterMatchMode="contains">
-            <p:outputLabel id="ac" value="#{a.estado}" />
-        </p:column>
-        <p:column id="d" headerText="FechaAlta" filterBy="#{a.fechaAlta}" filterMatchMode="contains">
-            <p:outputLabel id="ad" value="#{a.fechaAlta}" />
-        </p:column>
-        <p:column id="e" headerText="FechaBaja" filterBy="#{a.fechaBaja}" filterMatchMode="contains">
-            <p:outputLabel id="ae" value="#{a.fechaBaja}" />
-        </p:column>
-        <p:column id="f" headerText="Dirección" filterBy="#{a.direccion}" filterMatchMode="contains">
-            <p:outputLabel id="af" value="#{a.direccion}" />
-        </p:column>
-        <p:column id="g" headerText="Ciudad" filterBy="#{a.ciudad}" filterMatchMode="contains">
-            <p:outputLabel id="ag" value="#{a.ciudad}" />
-        </p:column>
-        <p:column id="h" headerText="CodigoPostal" filterBy="#{a.codigopostal}" filterMatchMode="contains">
-            <p:outputLabel id="ah" value="#{a.codigopostal}" />
-        </p:column>
-        <p:column id="i" headerText="País" filterBy="#{a.pais}" filterMatchMode="contains">
-            <p:outputLabel id="ai" value="#{a.pais}" />
-        </p:column>
-        <p:column id ="elim" headerText="Dar Baja">
-            <h:commandButton id = "eliminar" value="Baja"
-                             action="#{listaClientes.baja(a)}" />
-        </p:column>
-        <p:column id = "mod" headerText="Modificar">
-            <h:commandButton id="Modificar" value="Modificar"
-                             action="#{listaClientes.modificar(a)}" />
-        </p:column>
-
     </p:dataTable>
 </h:form>
 
