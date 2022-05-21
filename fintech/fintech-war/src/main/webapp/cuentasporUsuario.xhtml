@@ -16,54 +16,29 @@
 
 <h:body>
 
-    <h:form id="Mostar" rendered="#{listCuenta.esPooled = true}">
+    <h:form id="Mostar" rendered="#{listCuenta.fintech = true}">
         <div class="card">
-            <p:dataTable var="pooled" value="#{listCuenta.listaPooled}">
-                <p:column headerText="Identificacion">
-                    <h:outputText value="#{pooled.cliente.identificacion}" />
-                </p:column>
+            <p:dataTable var="fintech" value="#{listCuenta.fintech}">
 
                 <p:column headerText="IBAN">
-                    <h:outputText value="#{pooled.iban}" />
-                </p:column>
-
-                <p:column headerText="Estado">
-                    <h:outputText value="#{pooled.estado}" />
+                    <h:outputText value="#{fintech.iban}" />
                 </p:column>
 
                 <p:column headerText="Fecha Apertura">
-                    <h:outputText value="#{pooled.fechaApertura}" />
+                    <h:outputText value="#{fintech.fechaApertura}" />
+                </p:column>
+
+                <p:column headerText="Estado">
+                    <h:outputText value="#{fintech.estado}" />
                 </p:column>
 
                 <p:column headerText="Saldo">
-                    <h:outputText  value="#{pooled.saldo}"/>
+                    <h:outputText  value="#{fintech.}"/>
                 </p:column>
 
             </p:dataTable>
         </div>
     </h:form>
 
-    <h:form id="Mostar2" >
-        <div class="card">
-            <p:dataTable var="pooled" value="#{listCuenta.segregada}">
-                <p:column headerText="Identificacion">
-                    <h:outputText value="#{pooled.cliente.identificacion}" />
-                </p:column>
-
-                <p:column headerText="IBAN">
-                    <h:outputText value="#{pooled.iban}" />
-                </p:column>
-
-                <p:column headerText="Estado">
-                    <h:outputText value="#{pooled.estado}" />
-                </p:column>
-
-                <p:column headerText="Fecha Apertura">
-                    <h:outputText value="#{pooled.fechaApertura}" />
-                </p:column>
-            </p:dataTable>
-        </div>
-    </h:form>
-
-    </h:body>
+</h:body>
 </html>
