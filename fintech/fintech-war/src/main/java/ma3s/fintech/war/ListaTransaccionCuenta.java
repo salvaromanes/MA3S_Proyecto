@@ -1,11 +1,9 @@
 package ma3s.fintech.war;
 
 
-import ma3s.fintech.Cliente;
-import ma3s.fintech.Cuenta;
-import ma3s.fintech.Fintech;
-import ma3s.fintech.Segregada;
+import ma3s.fintech.*;
 import ma3s.fintech.ejb.GestionGetCuentas;
+import ma3s.fintech.ejb.GestionListaCuenta;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -17,18 +15,11 @@ import java.util.List;
 public class ListaTransaccionCuenta {
 
     @Inject
-    GestionGetCuentas gestionGetCuentas;
+    GestionListaCuenta gestionListaCuenta;
 
-    Cuenta cuenta;
+    public synchronized Transaccion getTransaccion(String iban){
 
-
-    public synchronized List<Fintech> getFintech(){
-        List<Fintech> fintechList = cliente.getCuentasFintech();
-        return fintechList;
-    }
-
-    public synchronized Segregada getSegregada(String iban){
-        return gestionGetCuentas.getSegregada(iban);
+        return gestionListaCuenta.getTransaccion(iban);
     }
 
 
