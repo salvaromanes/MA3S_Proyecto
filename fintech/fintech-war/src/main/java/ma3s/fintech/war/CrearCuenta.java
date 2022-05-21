@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 @Named(value = "crearCuenta")
 @RequestScoped
 public class CrearCuenta {
-    private static final Logger LOGGER = Logger.getLogger(InicioSesionIndex.class.getCanonicalName());
+    private static final Logger LOGGER = Logger.getLogger(CrearCuenta.class.getCanonicalName());
 
     @Inject
     private GestionAperturaCuenta gestionAperturaCuenta;

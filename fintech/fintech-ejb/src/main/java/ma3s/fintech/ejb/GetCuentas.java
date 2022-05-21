@@ -17,14 +17,15 @@ public class GetCuentas implements GestionGetCuentas{
 
     @Override
     public List<Cuenta> getCuentas(){
-        Query query = em.createQuery("select c from Cliente c");
+        Query query = em.createQuery("select c from Cuenta c");
         List<Cuenta> listaClientes = query.getResultList();
         return listaClientes;
     }
 
     @Override
-    public Segregada getSegregada(String iban) {
-        return em.find(Segregada.class,iban);
+    public List<Segregada> getSegregada(String iban) {
+        Query query = em.createQuery("select c from Segregada c where c.iban like :idCuenta").setParameter("idCuenta", iban);
+        return query.getResultList();
     }
 
     @Override
@@ -41,10 +42,10 @@ public class GetCuentas implements GestionGetCuentas{
     }
 
     @Override
-    public Pooled getPooled (String iban) {
-        Pooled aux = em.find(Pooled.class,iban);
-
-        return aux;
+    public List<Pooled> getPooled (String iban) {
+        //List<Pooled> aux = new ArrayList<>();
+        Query query = em.createQuery("select c from Pooled c where c.iban like :idCuenta").setParameter("idCuenta", iban);
+        return query.getResultList();
     }
 
     @Override
