@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 @Named(value = "sesion")
 @SessionScoped
 public class Sesion implements Serializable {
-    private static final Logger LOGGER = Logger.getLogger(InicioSesionIndex.class.getCanonicalName());
+    private static final Logger LOGGER = Logger.getLogger(Sesion.class.getCanonicalName());
 
     @Inject
     private GestionAccesoAplicacion gestionAccesoAplicacion;
