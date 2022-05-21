@@ -6,7 +6,9 @@ import ma3s.fintech.ejb.excepciones.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Stateless
 public class Transferencias implements GestionTransferencia{
@@ -30,6 +32,37 @@ public class Transferencias implements GestionTransferencia{
         return transaccion;
     }
     */
+
+    @Override
+    public List<Transaccion> verTransferencias(Segregada segregada){
+        List<Transaccion> aux = new ArrayList<>();
+        List<Transaccion> transaccionList = em.createQuery("select p from Transaccion p", Transaccion.class).getResultList();
+        for(Transaccion auxiliar : transaccionList){
+            if(auxiliar.getCuentaOrigen().getIban().equals(segregada.getIban()) ||
+                    auxiliar.getCuentaDestino().getIban().equals(segregada.getIban())){
+                aux.add(auxiliar);
+            }
+        }
+        return aux;
+
+    }
+
+
+    @Override
+    public List<Transaccion> verTransferencias2(Pooled pooled){
+        List<Transaccion> aux = new ArrayList<>();
+        List<Transaccion> transaccionList = em.createQuery("select p from Transaccion p", Transaccion.class).getResultList();
+        for(Transaccion auxiliar : transaccionList){
+            if(auxiliar.getCuentaOrigen().getIban().equals(pooled.getIban()) ||
+                    auxiliar.getCuentaDestino().getIban().equals(pooled.getIban())){
+                aux.add(auxiliar);
+            }
+        }
+        return aux;
+
+    }
+
+
 
     @Override
     public void transferenciaCliente(Transaccion transaccion, Long id) throws PersonaNoExisteException, CampoVacioException, ErrorOrigenTransaccionException, SaldoNoSuficiente {
