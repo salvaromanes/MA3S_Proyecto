@@ -39,6 +39,50 @@ public class MostrarDatosCuenta {
     private String IBAN;
     private Boolean esPooled = false;
 
+    public String eliminarAutorizacion(PAutorizada paut){
+        for (Autorizacion c : autorizaciones) {
+            if(c.getAutorizadaId().equals(paut)){
+                autorizaciones.remove(c);
+            }
+        }
+        return "MostrarDatosCuentaPooled.xhtml";
+    }
+
+    public List<Pooled> getListaPooled() {
+        return listaPooled;
+    }
+    public void setListaPooled(List<Pooled> listaPooled) {
+        this.listaPooled = listaPooled;
+    }
+
+    public List<Segregada> getSegregada() {
+        return segregada;
+    }
+    public void setSegregada(List<Segregada> segregada) {
+        this.segregada = segregada;
+    }
+
+    public String getIBAN() {
+        return IBAN;
+    }
+    public void setIBAN(String IBAN) {
+        this.IBAN = IBAN;
+    }
+
+    public Boolean getEsPooled() {
+        return esPooled;
+    }
+    public void setEsPooled(Boolean esPooled) {
+        this.esPooled = esPooled;
+    }
+
+    public List<Autorizacion> getAutorizaciones() {
+        return autorizaciones;
+    }
+    public void setAutorizaciones(List<Autorizacion> autorizaciones) {
+        this.autorizaciones = autorizaciones;
+    }
+
     public MostrarDatosCuenta(){
         Empresa empresa = new Empresa();
         empresa.setId(new Long(1));
@@ -97,47 +141,4 @@ public class MostrarDatosCuenta {
         esPooled = true;
     }
 
-    public String eliminarAutorizacion(PAutorizada paut){
-        for (Autorizacion c : autorizaciones) {
-            if(c.getAutorizadaId().equals(paut)){
-                autorizaciones.remove(c);
-            }
-        }
-        return "MostrarDatosCuentaPooled.xhtml";
-    }
-
-    public List<Pooled> getListaPooled() {
-        return listaPooled;
-    }
-    public void setListaPooled(List<Pooled> listaPooled) {
-        this.listaPooled = listaPooled;
-    }
-
-    public List<Segregada> getSegregada() {
-        return segregada;
-    }
-    public void setSegregada(List<Segregada> segregada) {
-        this.segregada = segregada;
-    }
-
-    public String getIBAN() {
-        return IBAN;
-    }
-    public void setIBAN(String IBAN) {
-        this.IBAN = IBAN;
-    }
-
-    public Boolean getEsPooled() {
-        return esPooled;
-    }
-    public void setEsPooled(Boolean esPooled) {
-        this.esPooled = esPooled;
-    }
-
-    public List<Autorizacion> getAutorizaciones() {
-        return autorizaciones;
-    }
-    public void setAutorizaciones(List<Autorizacion> autorizaciones) {
-        this.autorizaciones = autorizaciones;
-    }
 }
