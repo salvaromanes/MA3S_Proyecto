@@ -8,11 +8,22 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Pagina principal del administrador</title>
+    <title>Pagina principal del cliente</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="Estilos/estilosmain-v2.css" rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
-    <p:button id="CerrarSesion" value="Cerrar Sesion" href="index.xhtml"/>
-    <p:button id="VerCuentas" value="Mis Cuentras" href="cuentasUsuario.xhtml"/>
-    <p:button id="RealizarTransaccion" value="Realizar transaccion" href="TransaccionCliente.xhtml"/>
+    <div class="container">
+        <div class="card">
+            <div>
+                <div>
+                    <p:button id="CerrarSesion" value="Cerrar Sesion" href="index.xhtml"/>
+                </div>
+                <div>
+                    <p:button id="VerCuentas" value="Mis Cuentras" href="cuentasUsuario.xhtml"/>
+                </div>
+            </div>
+        </div>
+    </div>
 </h:body>
 </html>
