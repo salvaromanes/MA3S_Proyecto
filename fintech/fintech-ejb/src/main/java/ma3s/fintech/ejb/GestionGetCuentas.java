@@ -8,11 +8,11 @@ import java.util.List;
 public interface GestionGetCuentas {
     public List<Cuenta> getCuentas();
 
-    public Segregada getSegregada(String iban);
+    public List<Segregada> getSegregada(String iban);
 
     public List<Segregada> getSegregadas(Usuario usuario);
 
-    public Pooled getPooled (String iban);
+    public List<Pooled> getPooled (String iban);
 
     public List<Pooled> getPooleds(Usuario usuario);
 

@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 @Named(value = "cerrarCuenta")
 @RequestScoped
 public class CerrarUnaCuenta {
-    private static final Logger LOGGER = Logger.getLogger(InicioSesionIndex.class.getCanonicalName());
+    private static final Logger LOGGER = Logger.getLogger(CerrarUnaCuenta.class.getCanonicalName());
 
     @Inject
     private GestionCierreCuenta gestionCierreCuenta;
