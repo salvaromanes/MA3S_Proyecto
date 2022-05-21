@@ -30,12 +30,12 @@ public class ListaCuentasPorCliente {
 
     public String verCuenta(Segregada segregada1){
         segregada = segregada1;
-        return "prueba.xhtml";
+        return "HistorialTransacciones.xhtml";
     }
 
     public String verCuenta(Pooled pooled1){
         pooled = pooled1;
-        return "prueba.xhtml";
+        return "HistorialTransacciones.xhtml";
     }
     public synchronized List<Segregada> getSegregadas(){
         List<Segregada> cuentasSeg = null ;//gestionGetCuentas.getSegregadas(sesion.getUsuario());
