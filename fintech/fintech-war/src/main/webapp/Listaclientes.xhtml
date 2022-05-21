@@ -13,7 +13,7 @@
 <body>
 <h:form id="caja1">
 
-    <p:dataTable styleClass="card" id="dtCliente" value="#{clienteBB.clientes}" var="a">
+    <p:dataTable styleClass="card" id="dtCliente" value="#{listaClientes.clientes}" var="a">
 
         <p:column id="a" headerText="Identificación" filterBy="#{a.identificacion}" filterMatchMode="contains">
             <p:outputLabel id="ab" value="#{a.identificacion}" />
@@ -24,8 +24,14 @@
         <p:column id="c" headerText="Estado" filterBy="#{a.estado}" filterMatchMode="contains">
             <p:outputLabel id="ac" value="#{a.estado}" />
         </p:column>
-
-
+        <p:column id ="elim" headerText="Dar Baja">
+            <h:commandButton id = "eliminar" value="Baja"
+                             action="#{listaClientes.baja(a)}" />
+        </p:column>
+        <p:column id = "mod" headerText="Modificar">
+            <h:commandButton id="Modificar" value="Modificar"
+                             action="#{listaClientes.modificar(a)}" />
+        </p:column>
 
     </p:dataTable>
 </h:form>

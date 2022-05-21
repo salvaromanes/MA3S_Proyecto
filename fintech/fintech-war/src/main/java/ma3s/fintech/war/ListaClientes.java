@@ -1,7 +1,11 @@
 package ma3s.fintech.war;
 
 import ma3s.fintech.Cliente;
+import ma3s.fintech.ejb.GestionBajaCliente;
 import ma3s.fintech.ejb.GestionGetClientes;
+import ma3s.fintech.ejb.excepciones.CampoVacioException;
+import ma3s.fintech.ejb.excepciones.ClienteNoExisteException;
+import ma3s.fintech.ejb.excepciones.CuentaAbiertaException;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -14,6 +18,9 @@ import java.util.logging.Logger;
 public class ListaClientes {
     @Inject
     private GestionGetClientes gestionGetClientes;
+
+    @Inject
+    private GestionBajaCliente bajaCliente;
 
     @Inject
     private Sesion infosesion;
@@ -37,5 +44,23 @@ public class ListaClientes {
     //Metodo para leer a todos los clientes
     public synchronized List<Cliente> getClientes(){
         return gestionGetClientes.getClientes();
+    }
+
+    public String modificar(Cliente c){
+        cliente = c;
+        return "MisDatosClientes.xhtml";
+    }
+
+    public String baja(Cliente c){
+        try{
+            bajaCliente.darBajaCliente(c.getId());
+        } catch (ClienteNoExisteException e) {
+            e.printStackTrace();
+        } catch (CuentaAbiertaException e) {
+            e.printStackTrace();
+        } catch (CampoVacioException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
