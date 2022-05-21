@@ -17,14 +17,14 @@
   <h:form id="admin">
       <h:panelGrid class="casillas" columns="3">
           <h:outputText class="salida" value="Nombre de usuario:"/>
-          <h:inputText class="entrada" id="user" required="true" value="#{admin.usuario.user}"/>
+          <h:inputText class="entrada" id="user" required="true" value="#{sesion.usuario.user}"/>
           <h:message for="user"/>
 
           <h:outputText class="salida" value="Contraseña:"/>
-          <h:inputSecret class="entrada" id="pass" required="true" value="#{admin.usuario.contrasena}" toggleMask="true" redisplay="true"/>
+          <h:inputSecret class="entrada" id="pass" required="true" value="#{sesion.usuario.contrasena}" toggleMask="true" redisplay="true"/>
           <h:message for="pass"/>
 
-          <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Entrar" action="#{admin.entrar()}"/>
+          <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Entrar" action="#{sesion.entrarAdmin}"/>
       </h:panelGrid>
   </h:form>
   </div>
