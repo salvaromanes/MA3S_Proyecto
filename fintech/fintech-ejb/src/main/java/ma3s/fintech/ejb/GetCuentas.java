@@ -1,6 +1,7 @@
 package ma3s.fintech.ejb;
 
 import ma3s.fintech.Cuenta;
+import ma3s.fintech.Segregada;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -19,4 +20,11 @@ public class GetCuentas implements GestionGetCuentas{
         List<Cuenta> listaClientes = query.getResultList();
         return listaClientes;
     }
+
+    @Override
+    public Segregada getSegregada(String iban) {
+        return em.find(Segregada.class,iban);
+    }
+
 }
+
