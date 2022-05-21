@@ -8,7 +8,6 @@ import java.util.List;
 public interface GestionGetCuentas {
     public List<Cuenta> getCuentas();
 
-    public Segregada getSegregada(String iban);
 }
 
 
