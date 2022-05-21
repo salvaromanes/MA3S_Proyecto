@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Stateless
@@ -41,7 +42,9 @@ public class GetCuentas implements GestionGetCuentas{
 
     @Override
     public Pooled getPooled (String iban) {
-        return em.find(Pooled.class,iban);
+        Pooled aux = em.find(Pooled.class,iban);
+
+        return aux;
     }
 
     @Override
@@ -67,6 +70,23 @@ public class GetCuentas implements GestionGetCuentas{
         Query query = em.createQuery("select c from Referencia c");
         List<Referencia> listaClientes = query.getResultList();
         return listaClientes;
+    }
+
+    @Override
+    public List<Autorizacion> getAutorizaciones (String iban, String ident){
+        List<Autorizacion> listaAutorizaciones = new ArrayList<>();
+
+        // Creamos la consulta para obtener todas las autorizaciones
+        Query query = em.createQuery("select c from Autorizacion c");
+
+        for(Autorizacion auto : (List<Autorizacion>) query.getResultList()){
+            // Seleccionamos solo las autorizaciones que pertenezcan a esta empresa
+            if(auto.getEmpresaId().getIdentificacion().equals(ident)){
+                listaAutorizaciones.add(auto);
+            }
+        }
+
+        return listaAutorizaciones;
     }
 
 }

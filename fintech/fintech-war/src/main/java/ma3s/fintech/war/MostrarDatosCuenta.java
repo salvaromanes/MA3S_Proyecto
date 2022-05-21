@@ -4,6 +4,8 @@ package ma3s.fintech.war;
 import com.sun.jndi.ldap.pool.Pool;
 import ma3s.fintech.*;
 import ma3s.fintech.ejb.GestionAperturaCuenta;
+import ma3s.fintech.ejb.GestionEliminarAutorizados;
+import ma3s.fintech.ejb.GestionGetCuentas;
 import ma3s.fintech.ejb.excepciones.CuentaExistenteException;
 import ma3s.fintech.ejb.excepciones.DivisaExistenteException;
 import ma3s.fintech.ejb.excepciones.UsuarioIncorrectoException;
@@ -28,24 +30,26 @@ public class MostrarDatosCuenta {
     private static final Logger LOGGER = Logger.getLogger(InicioSesionIndex.class.getCanonicalName());
 
     @Inject
-    private GestionAperturaCuenta gestionAperturaCuenta;
+    private GestionGetCuentas gestionGetCuentas;
+
+    @Inject
+    private GestionEliminarAutorizados gestionEliminarAutorizados;
 
     @Inject
     private Sesion sesion;
 
     private List<Pooled> listaPooled = new ArrayList<Pooled>();
     private List<Autorizacion> autorizaciones = new ArrayList<Autorizacion>();
-    private List<Segregada> segregada = new ArrayList<Segregada>();
-    private String IBAN;
-    private Boolean esPooled = false;
+    private List<Segregada> listaSegregada = new ArrayList<Segregada>();
 
-    public String eliminarAutorizacion(PAutorizada paut){
-        for (Autorizacion c : autorizaciones) {
-            if(c.getAutorizadaId().equals(paut)){
-                autorizaciones.remove(c);
-            }
-        }
-        return "MostrarDatosCuentaPooled.xhtml";
+    private Boolean esPooled = false;
+    private Boolean esSegregada = false;
+
+    public Boolean getEsSegregada() {
+        return esSegregada;
+    }
+    public void setEsSegregada(Boolean esSegregada) {
+        this.esSegregada = esSegregada;
     }
 
     public List<Pooled> getListaPooled() {
@@ -55,18 +59,11 @@ public class MostrarDatosCuenta {
         this.listaPooled = listaPooled;
     }
 
-    public List<Segregada> getSegregada() {
-        return segregada;
+    public List<Segregada> getListaSegregada() {
+        return listaSegregada;
     }
-    public void setSegregada(List<Segregada> segregada) {
-        this.segregada = segregada;
-    }
-
-    public String getIBAN() {
-        return IBAN;
-    }
-    public void setIBAN(String IBAN) {
-        this.IBAN = IBAN;
+    public void setListaSegregada(List<Segregada> segregada) {
+        this.listaSegregada = segregada;
     }
 
     public Boolean getEsPooled() {
@@ -84,6 +81,7 @@ public class MostrarDatosCuenta {
     }
 
     public MostrarDatosCuenta(){
+        /*
         Empresa empresa = new Empresa();
         empresa.setId(new Long(1));
         empresa.setIdentificacion("P3310693A");
@@ -134,11 +132,71 @@ public class MostrarDatosCuenta {
 
         empresa.setAutorizaciones(autorizaciones);
 
+        setEsPooled(true);
+
         autorizaciones = empresa.getAutorizaciones();
+        */
+
+        //mostrarDatosCuenta("ES8400817251647192321264");
+        String iban = "ES8400817251647192321264";
+
+        //Pooled cuentaPooledAMostrar = gestionGetCuentas.getPooled(iban);
+        Segregada cuentaSegregadaAMostrar = gestionGetCuentas.getSegregada(iban);
+
+        if (cuentaSegregadaAMostrar != null){
+            //mostrarSegregada(cuentaSegregadaAMostrar, iban);
+
+            setEsSegregada(true);
+            listaSegregada.add(cuentaSegregadaAMostrar);
+
+            autorizaciones = gestionGetCuentas.getAutorizaciones(iban, cuentaSegregadaAMostrar.getCliente().getIdentificacion());
+        }
+
     }
 
-    public void setEsPooled(){
-        esPooled = true;
+    public String eliminarAutorizacion(PAutorizada paut){
+        //gestionEliminarAutorizados.darBaja();
+        return null;
     }
+
+    public void mostrarDatosCuenta(String iban) {
+        Pooled cuentaPooledAMostrar = gestionGetCuentas.getPooled(iban);
+        Segregada cuentaSegregadaAMostrar = gestionGetCuentas.getSegregada(iban);
+
+        if (cuentaPooledAMostrar != null){
+            //mostrarPooled(cuentaPooledAMostrar, iban);
+
+            setEsPooled(true);
+            listaPooled.add(cuentaPooledAMostrar);
+
+            autorizaciones = gestionGetCuentas.getAutorizaciones(iban, cuentaPooledAMostrar.getCliente().getIdentificacion());
+
+        } else if (cuentaSegregadaAMostrar != null){
+            //mostrarSegregada(cuentaSegregadaAMostrar, iban);
+
+            setEsSegregada(true);
+            listaSegregada.add(cuentaSegregadaAMostrar);
+
+            autorizaciones = gestionGetCuentas.getAutorizaciones(iban, cuentaSegregadaAMostrar.getCliente().getIdentificacion());
+
+        }
+    }
+
+    public void mostrarPooled(Pooled cuentaPooledAMostrar, String iban){
+        setEsPooled(true);
+        listaPooled.add(cuentaPooledAMostrar);
+
+        autorizaciones = gestionGetCuentas.getAutorizaciones(iban, cuentaPooledAMostrar.getCliente().getIdentificacion());
+
+    }
+
+    public void mostrarSegregada(Segregada cuentaSegregadaAMostrar, String iban){
+        setEsSegregada(true);
+        listaSegregada.add(cuentaSegregadaAMostrar);
+
+        autorizaciones = gestionGetCuentas.getAutorizaciones(iban, cuentaSegregadaAMostrar.getCliente().getIdentificacion());
+
+    }
+
 
 }
