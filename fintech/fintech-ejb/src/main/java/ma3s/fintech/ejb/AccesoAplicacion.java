@@ -36,6 +36,10 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
             throw new UsuarioIncorrectoException("accederAplicacion: usuario " + usuario + " incorrecto");
         }
 
+        if(user.getEsAdmin()){
+            throw new UsuarioIncorrectoException("El usuario es administrador");
+        }
+
         if(contrasena == null){
             throw new CampoVacioException("Contraseña vacia");
         }else if(!contrasena.equals(user.getContrasena())){
