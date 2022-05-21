@@ -16,7 +16,7 @@
 
 <h:form id="caja1">
 
-    <p:dataTable styleClass="card" id="dtCliente" value="#{listaCuentas.pooleds}" var="a">
+    <p:dataTable styleClass="card" id="dtCliente" value="#{listaCuentas.cuentas}" var="a">
         <p:column id="a" headerText="IBAN" filterBy="#{a.swift}">
             <p:outputLabel id="ab" value="#{a.swift}" />
         </p:column>
