@@ -1,6 +1,7 @@
 package ma3s.fintech.war;
 
 import ma3s.fintech.Cuenta;
+import ma3s.fintech.Pooled;
 import ma3s.fintech.ejb.GestionCierreCuenta;
 import ma3s.fintech.ejb.GestionGetCuentas;
 import ma3s.fintech.ejb.excepciones.CuentaNoExistenteException;
@@ -38,7 +39,9 @@ public class ListaCuentas {
 
     public void setCuenta(Cuenta c) {this.cuenta = c;}
 
-    public synchronized List<Cuenta> getCuentas(){ return gestionGetCuentas.getCuentas();}
+    public synchronized List<Cuenta> getCuentas(){
+        return gestionGetCuentas.getCuentas();
+    }
 
     public String cerrar (String iban){
         try{
