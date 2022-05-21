@@ -33,22 +33,6 @@ public class ModificarCliente implements GestionModificarCliente{
     }
 
 
-    @Override
-    public Cliente devolverCliente(String identificacion) throws ClienteNoExisteException {
-        TypedQuery <Cliente> query = em.createQuery("SELECT c FROM Cliente c WHERE c.identificacion = :ident", Cliente.class);
-        query.setParameter("ident", identificacion);
-
-        Cliente cliente = new Cliente();
-        if(query.getResultList().size() == 1){
-            cliente = query.getSingleResult();
-        }
-
-        if(cliente == null){
-            throw new ClienteNoExisteException("Modificar Cliente: el cliente no existe");
-        }
-
-        return cliente;
-    }
 
 
     @Override
