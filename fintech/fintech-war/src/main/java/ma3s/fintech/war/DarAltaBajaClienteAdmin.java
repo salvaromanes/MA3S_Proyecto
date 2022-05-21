@@ -14,9 +14,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
 
-@Named(value = "DarAltaBajaAdmin")
+@Named(value = "DarAltaBajaClienteAdministrador")
 @RequestScoped
-public class DarAltaBajaAdmin {
+public class DarAltaBajaClienteAdmin {
 
     private Long id;
     private String identificacion;
@@ -34,11 +34,9 @@ public class DarAltaBajaAdmin {
     private GestionBajaCliente gestionBajaCliente;
 
     private Individual individual;
-    private Empresa empresa;
 
-    public DarAltaBajaAdmin(){
+    public DarAltaBajaClienteAdmin(){
         individual = new Individual();
-        empresa = new Empresa();
     }
 
     public Long getId() {
@@ -73,7 +71,7 @@ public class DarAltaBajaAdmin {
         return ciudad;
     }
 
-    public String getCodigoPostal() {
+    public String getCodigopostal() {
         return codigopostal;
     }
 
@@ -81,57 +79,52 @@ public class DarAltaBajaAdmin {
         return pais;
     }
 
-    public void setId() {
+    public void setId(Long id) {
         this.id =  id;
     }
 
-    public void setIdentificacion() {
+    public void setIdentificacion(String identificacion) {
         this.identificacion =  identificacion;
     }
 
-    public void setTipoCliente() {
+    public void setTipoCliente(String tipoCliente) {
         this.tipoCliente =  tipoCliente;
     }
 
-    public void setEstado() {
+    public void setEstado(String estado) {
         this.estado =  estado;
     }
 
-    public void setFechaAlta() {
+    public void setFechaAlta(Date fechaAlta) {
         this.fechaAlta =  fechaAlta;
     }
 
-    public void setFechaBaja() {
+    public void setFechaBaja(Date fechaBaja) {
         this.fechaBaja =  fechaBaja;
     }
 
-    public void setDireccion() {
+    public void setDireccion(String direccion) {
         this.direccion =  direccion;
     }
 
-    public void setCiudad() {
+    public void setCiudad(String ciudad) {
         this.ciudad =  ciudad;
     }
 
-    public void setCodigoPostal() {
+    public void setCodigopostal(String codigopostal) {
         this.codigopostal =  codigopostal;
     }
 
-    public void setPais() {
+    public void setPais(String pais) {
         this.pais =  pais;
     }
 
     public String modificar() {
         try {
-            if(getTipoCliente().equals("Indivual")){
-                gestionAltaCliente.darAltaIndividual(individual);
-                gestionBajaCliente.darBajaCliente(id);
+            gestionAltaCliente.darAltaIndividual(individual);
+            gestionBajaCliente.darBajaCliente(id);
 
-            }else if(getTipoCliente().equals("Empresa")){
-                gestionAltaCliente.darAltaEmpresa(empresa);
-                gestionBajaCliente.darBajaCliente(id);
-            }
-            return "DarAltaBajaAdmin.xhtml";
+            return "DarAltaBajaClienteAdmin.xhtml";
         } catch (ClienteYaExistenteException e) {
             FacesMessage fm = new FacesMessage("El cliente ya existe");
             FacesContext.getCurrentInstance().addMessage("admin: ", fm);

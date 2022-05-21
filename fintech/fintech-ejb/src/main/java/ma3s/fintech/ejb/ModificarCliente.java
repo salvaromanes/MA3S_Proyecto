@@ -1,11 +1,14 @@
 package ma3s.fintech.ejb;
 
+import ma3s.fintech.Cliente;
 import ma3s.fintech.Empresa;
 import ma3s.fintech.Individual;
 import ma3s.fintech.ejb.excepciones.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.Date;
 
 @Stateless
@@ -27,6 +30,24 @@ public class ModificarCliente implements GestionModificarCliente{
 
         empresa.setDireccion(direccion);
         em.merge(empresa);
+    }
+
+
+    @Override
+    public Cliente devolverCliente(String identificacion) throws ClienteNoExisteException {
+        TypedQuery <Cliente> query = em.createQuery("SELECT c FROM Cliente c WHERE c.identificacion = :ident", Cliente.class);
+        query.setParameter("ident", identificacion);
+
+        Cliente cliente = new Cliente();
+        if(query.getResultList().size() == 1){
+            cliente = query.getSingleResult();
+        }
+
+        if(cliente == null){
+            throw new ClienteNoExisteException("Modificar Cliente: el cliente no existe");
+        }
+
+        return cliente;
     }
 
 
