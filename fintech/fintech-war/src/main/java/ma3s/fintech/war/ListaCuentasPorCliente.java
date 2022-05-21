@@ -25,11 +25,20 @@ public class ListaCuentasPorCliente {
 
     Cliente cliente;
     String iban;
+    Segregada segregada;
+    Pooled pooled;
 
+    public String verCuenta(Segregada segregada1){
+        segregada = segregada1;
+        return "prueba.xhtml";
+    }
 
-
+    public String verCuenta(Pooled pooled1){
+        pooled = pooled1;
+        return "prueba.xhtml";
+    }
     public synchronized List<Segregada> getSegregadas(){
-        List<Segregada> cuentasSeg = gestionGetCuentas.getSegregadas(sesion.getUsuario());
+        List<Segregada> cuentasSeg = null ;//gestionGetCuentas.getSegregadas(sesion.getUsuario());
         if(cuentasSeg != null){
             return  cuentasSeg;
         }
@@ -37,7 +46,7 @@ public class ListaCuentasPorCliente {
     }
 
     public synchronized List<Pooled> getPooleds(){
-        List<Pooled> cuentasPoo = gestionGetCuentas.getPooleds(sesion.getUsuario());
+        List<Pooled> cuentasPoo = null;//gestionGetCuentas.getPooleds(sesion.getUsuario());
         if(cuentasPoo != null){
             return  cuentasPoo;
         }

@@ -32,6 +32,10 @@
                     <h:outputText value="#{segregadas.estado}" />
                 </h:column>
 
+                <h:column>
+                    <h:commandButton id="btnver" class= "buttons" value="historial" action="#{listCuenta.verCuenta(segregadas)}"/>
+                </h:column>
+
             </h:dataTable>
         </div>
     </h:form>
@@ -58,6 +62,9 @@
                     <h:outputText value="#{pooled.saldo}" />
                 </h:column>
 
+                <h:column>
+                    <h:commandButton id="btnver2" class= "buttons" value="historial" action="#{listCuenta.verCuenta(pooled)}"/>
+                </h:column>
 
             </h:dataTable>
         </div>
