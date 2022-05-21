@@ -6,6 +6,7 @@ import ma3s.fintech.ejb.GestionGetClientes;
 import ma3s.fintech.ejb.excepciones.CampoVacioException;
 import ma3s.fintech.ejb.excepciones.ClienteNoExisteException;
 import ma3s.fintech.ejb.excepciones.CuentaAbiertaException;
+import org.primefaces.model.FilterMeta;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -27,6 +28,7 @@ public class ListaClientes {
 
     private Cliente cliente;
 
+
     private final static Logger LOGGER = Logger.getLogger(GestionGetClientes.class.getCanonicalName());
 
     public ListaClientes(){
@@ -40,6 +42,7 @@ public class ListaClientes {
     public void setCliente(Cliente c){
         this.cliente = c;
     }
+
 
     //Metodo para leer a todos los clientes
     public synchronized List<Cliente> getClientes(){
