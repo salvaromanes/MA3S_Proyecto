@@ -114,12 +114,8 @@ public class TransaccionClientes {
 
     public String realizarTransaccionCliente() {
         Transaccion t = new Transaccion();
-        try {
-            if(!cliente.getTipoCliente().equalsIgnoreCase("FISICA") ||
-                    !autorizacion.getEmpresaId().equals(empresa.getId()) ||
-                    cuenta.getIban() == pooled.getIban()){
-            }
 
+        try {
             gestionTransferencia.transferenciaCliente(t, cliente.getId());
             pooled.setSaldo(getPooled().getSaldo() + cantidad);
 
