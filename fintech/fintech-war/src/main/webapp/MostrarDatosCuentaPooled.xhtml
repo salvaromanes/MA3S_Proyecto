@@ -16,14 +16,18 @@
 
 <h:body>
 
-    <h:form id="Mostar" rendered="#{mostrarDatosCuenta.esPooled = true}">
+    <h:form id="MostarPooled" rendered="#{mostrarDatosCuenta.esPooled}">
         <div class="card">
             <p:dataTable var="pooled" value="#{mostrarDatosCuenta.listaPooled}">
-                <p:column headerText="Identificacion">
+                <p:column headerText="Identificacion Propietario">
                     <h:outputText value="#{pooled.cliente.identificacion}" />
                 </p:column>
 
                 <p:column headerText="IBAN">
+                    <h:outputText value="#{pooled.iban}" />
+                </p:column>
+
+                <p:column headerText="SWIFT">
                     <h:outputText value="#{pooled.iban}" />
                 </p:column>
 
@@ -34,11 +38,54 @@
                 <p:column headerText="Fecha Apertura">
                     <h:outputText value="#{pooled.fechaApertura}" />
                 </p:column>
+
+                <p:column headerText="Fecha Cierre">
+                    <h:outputText value="#{pooled.fechaCierre}" />
+                </p:column>
+
+                <p:column headerText="Clasificacion">
+                    <h:outputText value="Pooled" />
+                </p:column>
+
             </p:dataTable>
         </div>
     </h:form>
 
-    <h:form id="MostarAutorizacion" rendered="#{mostrarDatosCuenta.esPooled = true}">
+    <h:form id="MostarSegregada" rendered="#{mostrarDatosCuenta.esSegregada}">
+        <div class="card">
+            <p:dataTable var="segregada" value="#{mostrarDatosCuenta.listaSegregada}">
+                <p:column headerText="Identificacion Propietario">
+                    <h:outputText value="#{segregada.cliente.identificacion}" />
+                </p:column>
+
+                <p:column headerText="IBAN">
+                    <h:outputText value="#{segregada.iban}" />
+                </p:column>
+
+                <p:column headerText="SWIFT">
+                    <h:outputText value="#{segregada.swift}" />
+                </p:column>
+
+                <p:column headerText="Estado">
+                    <h:outputText value="#{segregada.estado}" />
+                </p:column>
+
+                <p:column headerText="Fecha Apertura">
+                    <h:outputText value="#{segregada.fechaApertura}" />
+                </p:column>
+
+                <p:column headerText="Fecha Cierre">
+                    <h:outputText value="#{segregada.fechaCierre}" />
+                </p:column>
+
+                <p:column headerText="Clasificacion">
+                    <h:outputText value="Segregada" />
+                </p:column>
+            </p:dataTable>
+        </div>
+    </h:form>
+
+    <h:form id="MostarAutorizacion" rendered="#{mostrarDatosCuenta.esPooled}">
         <div class="card">
             <p:dataTable var="autorizacion" value="#{mostrarDatosCuenta.autorizaciones}">
                 <p:column headerText="Identificacion">
@@ -54,7 +101,7 @@
                 </p:column>
 
                 <p:column headerText="Eliminar Autorizacion">
-                    <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Crear cuenta pooled" action="#{mostrarDatosCuenta.eliminarAutorizacion(autorizacion.autorizadaId)}"/>
+                    <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Eliminar Autorizado" action=""/>
                 </p:column>
             </p:dataTable>
         </div>

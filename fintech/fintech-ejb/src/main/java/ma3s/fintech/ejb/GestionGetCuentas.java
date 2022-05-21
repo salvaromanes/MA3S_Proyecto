@@ -19,6 +19,8 @@ public interface GestionGetCuentas {
     public Referencia getReferencia(String iban);
 
     public List<Referencia> getReferencias();
+
+    public List<Autorizacion> getAutorizaciones (String iban, String ident);
 }
 
 
