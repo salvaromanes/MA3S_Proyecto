@@ -65,4 +65,20 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
 
         return user;
     }
+
+    @Override
+    public Usuario refrescarUsuario(Usuario u) throws CampoVacioException, AccesoException {
+        entrarAplicacion(u.getUser(), u.getContrasena());
+        Usuario user = em.find(Usuario.class, u.getUser());
+        em.refresh(user);
+        return user;
+    }
+
+    @Override
+    public Usuario refrescarUsuarioAdmin(Usuario u) throws CampoVacioException, AccesoException {
+        entrarAplicacion(u.getUser(), u.getContrasena());
+        Usuario user = em.find(Usuario.class, u.getUser());
+        em.refresh(user);
+        return user;
+    }
 }
