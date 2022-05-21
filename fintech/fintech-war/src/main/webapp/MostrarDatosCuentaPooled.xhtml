@@ -16,31 +16,49 @@
 
 <h:body>
 
-    <div class="center">
+    <h:form id="Mostar" rendered="#{mostrarDatosCuenta.esPooled = true}">
+        <div class="card">
+            <p:dataTable var="pooled" value="#{mostrarDatosCuenta.listaPooled}">
+                <p:column headerText="Identificacion">
+                    <h:outputText value="#{pooled.cliente.identificacion}" />
+                </p:column>
 
-        <h3>Datos de una cuenta Pooled</h3>
+                <p:column headerText="IBAN">
+                    <h:outputText value="#{pooled.iban}" />
+                </p:column>
 
-        <h:form id="crearCuenta">
-            <h:panelGrid columns="3">
-                <h:outputText value="Introduzca el IBAN de la cuenta:"/>
-                <h:inputText id="iban" required="true" value="#{crearCuenta.IBAN}"/>
-                <h:message for="iban"/>
+                <p:column headerText="Estado">
+                    <h:outputText value="#{pooled.estado}" />
+                </p:column>
 
-                <h:outputText value="Introduzca el SWIFT de la cuenta:"/>
-                <h:inputSecret id="swift" required="false" value="#{crearCuenta.SWIFT}" />
-                <h:message for="swift"/>
+                <p:column headerText="Fecha Apertura">
+                    <h:outputText value="#{pooled.fechaApertura}" />
+                </p:column>
+            </p:dataTable>
+        </div>
+    </h:form>
 
-                <h:outputText value="Introduzca la divisa:"/>
-                <h:inputSecret id="divisa" required="false" value="#{crearCuenta.divisa}" />
-                <h:message for="divisa"/>
+    <h:form id="MostarAutorizacion" rendered="#{mostrarDatosCuenta.esPooled = true}">
+        <div class="card">
+            <p:dataTable var="autorizacion" value="#{mostrarDatosCuenta.autorizaciones}">
+                <p:column headerText="Identificacion">
+                    <h:outputText value="#{autorizacion.autorizadaId.identificacion}" />
+                </p:column>
 
-                <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Crear cuenta pooled" action="#{crearCuenta.crearCuentaPooled}"/>
-            </h:panelGrid>
+                <p:column headerText="Tipo">
+                    <h:outputText value="#{autorizacion.tipo}" />
+                </p:column>
 
+                <p:column headerText="Empresa">
+                    <h:outputText value="#{autorizacion.empresaId.identificacion}" />
+                </p:column>
 
-
-        </h:form>
-    </div>
+                <p:column headerText="Eliminar Autorizacion">
+                    <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Crear cuenta pooled" action="#{mostrarDatosCuenta.eliminarAutorizacion(autorizacion.autorizadaId)}"/>
+                </p:column>
+            </p:dataTable>
+        </div>
+    </h:form>
 
 </h:body>
 
