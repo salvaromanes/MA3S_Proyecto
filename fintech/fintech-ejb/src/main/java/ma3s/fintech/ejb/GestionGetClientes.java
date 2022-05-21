@@ -1,9 +1,20 @@
 package ma3s.fintech.ejb;
 
 import ma3s.fintech.Cliente;
+import ma3s.fintech.Empresa;
+import ma3s.fintech.Individual;
+import ma3s.fintech.ejb.excepciones.ClienteNoExisteException;
+import ma3s.fintech.ejb.excepciones.EmpresaNoExistenteException;
+import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
 
 import java.util.List;
 
 public interface GestionGetClientes {
     public List<Cliente> getClientes();
+
+    public Cliente devolverCliente(String identificacion) throws ClienteNoExisteException;
+
+    public Individual devolverIndividual(Long id) throws PersonaNoExisteException;
+
+    public Empresa devolverEmpresa(Long id) throws EmpresaNoExistenteException;
 }
