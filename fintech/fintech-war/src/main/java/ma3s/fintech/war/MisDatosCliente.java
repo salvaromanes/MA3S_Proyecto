@@ -1,7 +1,7 @@
 package ma3s.fintech.war;
 
-import ma3s.fintech.Cliente;
-import ma3s.fintech.PAutorizada;
+import ma3s.fintech.*;
+import ma3s.fintech.ejb.GestionGetClientes;
 import ma3s.fintech.ejb.GestionModificarCliente;
 import ma3s.fintech.ejb.excepciones.*;
 
@@ -10,14 +10,22 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.Column;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
+import java.util.List;
 
 @Named(value = "cliente")
 @RequestScoped
 public class MisDatosCliente {
 
-    // hola
-
+    private String razonSocial;
+    private List<Autorizacion> autorizaciones;
+    private String nombre;
+    private String apellido;
+    private Date fechaNacimiento;
     private Long id;
     private String identificacion;
     private String tipoCliente;
@@ -31,8 +39,30 @@ public class MisDatosCliente {
 
     @Inject
     private GestionModificarCliente gestionModificarCliente;
+    @Inject
+    private GestionGetClientes gestionGetClientes;
 
     public MisDatosCliente(){ }
+
+    public String getRazonSocial() {
+        return razonSocial;
+    }
+
+    public List<Autorizacion> getAutorizaciones() {
+        return autorizaciones;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
 
     public Long getId() {
         return id;
@@ -72,6 +102,26 @@ public class MisDatosCliente {
 
     public String getPais() {
         return pais;
+    }
+
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
+    }
+
+    public void setAutorizaciones(List<Autorizacion> autorizaciones) {
+        this.autorizaciones = autorizaciones;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public void setId(Long id) {
@@ -116,21 +166,31 @@ public class MisDatosCliente {
 
     public String modificar(String identificacion) {
         try {
-            Cliente cliente = new Cliente();
-            cliente = gestionModificarCliente.devolverCliente(identificacion);
+            Cliente cliente;
+            cliente = gestionGetClientes.devolverCliente(identificacion);
+
+            Individual individual;
+            individual = gestionGetClientes.devolverIndividual(cliente.getId());
+
+            Empresa empresa;
+            empresa = gestionGetClientes.devolverEmpresa(cliente.getId());
+
             if(cliente.getTipoCliente().equals("Individual")){
+                gestionModificarCliente.modNombreIndividual(individual.getId(), nombre);
+                gestionModificarCliente.modApellidoIndividual(individual.getId(), apellido);
                 gestionModificarCliente.modDireccionIndividual(cliente.getId(), direccion);
                 gestionModificarCliente.modCiudadIndividual(cliente.getId(), ciudad);
                 gestionModificarCliente.modCodigoPostalIndividual(cliente.getId(), codigopostal);
                 gestionModificarCliente.modPaisIndividual(cliente.getId(), pais);
 
             }else if(cliente.getTipoCliente().equals("Empresa")){
+                gestionModificarCliente.modRazonSocialEmpresa(empresa.getId(), razonSocial);
                 gestionModificarCliente.modDireccionEmpresa(cliente.getId(), direccion);
                 gestionModificarCliente.modCiudadEmpresa(cliente.getId(), ciudad);
                 gestionModificarCliente.modCodigoPostalEmpresa(cliente.getId(), codigopostal);
                 gestionModificarCliente.modPaisEmpresa(cliente.getId(), pais);
             }
-            return "MisDatosCliente.xhtml";
+            return "MisDatosClientes.xhtml";
         } catch (CampoVacioException e) {
 
         } catch (IndividualNoExistenteException e) {
@@ -138,6 +198,8 @@ public class MisDatosCliente {
         } catch (EmpresaNoExistenteException e) {
 
         } catch (ClienteNoExisteException e) {
+
+        } catch (PersonaNoExisteException e) {
 
         }
         return null;
