@@ -16,6 +16,8 @@ import java.util.Date;
 @RequestScoped
 public class MisDatosCliente {
 
+    // hola
+
     private Long id;
     private String identificacion;
     private String tipoCliente;
