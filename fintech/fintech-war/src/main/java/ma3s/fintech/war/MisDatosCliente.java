@@ -44,6 +44,10 @@ public class MisDatosCliente {
 
     public MisDatosCliente(){ }
 
+    private Cliente cliente;
+
+
+/*
     public String getRazonSocial() {
         return razonSocial;
     }
@@ -102,8 +106,18 @@ public class MisDatosCliente {
 
     public String getPais() {
         return pais;
+    }*/
+
+
+    public Cliente getCliente(){
+        return cliente;
     }
 
+    public void setCliente(Cliente c){
+        this.cliente = c;
+    }
+
+/*
     public void setRazonSocial(String razonSocial) {
         this.razonSocial = razonSocial;
     }
@@ -162,13 +176,22 @@ public class MisDatosCliente {
 
     public void setPais(String pais) {
         this.pais =  pais;
-    }
+    }*/
 
-    public String modificar(String identificacion) {
+
+    public String pasarCliente(String identificacion) {
         try {
-            Cliente cliente;
             cliente = gestionGetClientes.devolverCliente(identificacion);
 
+            return "MisDatosClientes.xhtml";
+        } catch (ClienteNoExisteException e) {
+
+        }
+        return null;
+    }
+
+    public String modificar() {
+        try {
             Individual individual;
             individual = gestionGetClientes.devolverIndividual(cliente.getId());
 
@@ -190,18 +213,19 @@ public class MisDatosCliente {
                 gestionModificarCliente.modCodigoPostalEmpresa(cliente.getId(), codigopostal);
                 gestionModificarCliente.modPaisEmpresa(cliente.getId(), pais);
             }
+
             return "MisDatosClientes.xhtml";
+        } catch (PersonaNoExisteException e) {
+
         } catch (CampoVacioException e) {
 
         } catch (IndividualNoExistenteException e) {
 
         } catch (EmpresaNoExistenteException e) {
 
-        } catch (ClienteNoExisteException e) {
-
-        } catch (PersonaNoExisteException e) {
-
         }
         return null;
     }
+
+
 }
