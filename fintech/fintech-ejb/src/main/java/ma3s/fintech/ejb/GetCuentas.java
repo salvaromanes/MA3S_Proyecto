@@ -1,14 +1,12 @@
 package ma3s.fintech.ejb;
 
-import ma3s.fintech.Cuenta;
-import ma3s.fintech.Pooled;
-import ma3s.fintech.Referencia;
-import ma3s.fintech.Segregada;
+import ma3s.fintech.*;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
@@ -29,10 +27,16 @@ public class GetCuentas implements GestionGetCuentas{
     }
 
     @Override
-    public List<Segregada> getSegregadas(){
-        Query query = em.createQuery("select c from Segregada c");
+    public List<Segregada> getSegregadas(Usuario usuario){
+        List<Segregada> aux = new ArrayList<>();
+        Query query = em.createQuery("select c from Segregada c", Segregada.class);
         List<Segregada> listaClientes = query.getResultList();
-        return listaClientes;
+        for(Segregada cuenta: listaClientes){
+            if(cuenta.getCliente().getUser().getUser().equals(usuario.getUser())){
+                aux.add(cuenta);
+            }
+        }
+        return aux;
     }
 
     @Override
@@ -41,10 +45,16 @@ public class GetCuentas implements GestionGetCuentas{
     }
 
     @Override
-    public List<Pooled> getPooleds(){
+    public List<Pooled> getPooleds(Usuario usuario){
+        List<Pooled> aux = new ArrayList<>();
         Query query = em.createQuery("select c from Pooled c");
         List<Pooled> listaClientes = query.getResultList();
-        return listaClientes;
+        for(Pooled cuenta2 : listaClientes){
+            if(cuenta2.getCliente().getUser().getUser().equals(usuario.getUser())){
+                aux.add(cuenta2);
+            }
+        }
+        return aux;
     }
 
     @Override

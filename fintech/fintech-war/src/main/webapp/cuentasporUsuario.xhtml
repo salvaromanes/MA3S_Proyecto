@@ -16,23 +16,50 @@
 
 <h:body>
 
-    <h:form id="Mostar" rendered="#{listCuenta.fintech = true}">
+    <h:form id="Segregadas" >
         <div class="card">
-            <p:dataTable var="fintech" value="#{listCuenta.fintech}">
+            <h:dataTable var="segregadas" value="#{listCuenta.segregadas}">
 
-                <p:column headerText="IBAN">
-                    <h:outputText value="#{fintech.iban}" />
-                </p:column>
+                <h:column headerText="IBAN">
+                    <h:outputText value="#{segregadas.iban}" />
+                </h:column>
 
-                <p:column headerText="Fecha Apertura">
-                    <h:outputText value="#{fintech.fechaApertura}" />
-                </p:column>
+                <h:column headerText="Fecha Apertura">
+                    <h:outputText value="#{segregadas.fechaApertura}" />
+                </h:column>
 
-                <p:column headerText="Estado">
-                    <h:outputText value="#{fintech.estado}" />
-                </p:column>
+                <h:column headerText="Estado">
+                    <h:outputText value="#{segregadas.estado}" />
+                </h:column>
 
-            </p:dataTable>
+            </h:dataTable>
+        </div>
+    </h:form>
+
+
+    <h:form id="Pooled" >
+        <div class="card">
+            <h:dataTable var="pooled" value="#{listCuenta.pooleds}">
+
+                <h:column headerText="IBAN">
+                    <h:outputText value="#{pooled.iban}" />
+                </h:column>
+
+                <h:column headerText="Fecha Apertura">
+                    <h:outputText value="#{pooled.fechaApertura}" />
+                </h:column>
+
+                <h:column headerText="Estado">
+                    <h:outputText value="#{pooled.estado}" />
+                </h:column>
+
+
+                <h:column headerText="Saldo">
+                    <h:outputText value="#{pooled.saldo}" />
+                </h:column>
+
+
+            </h:dataTable>
         </div>
     </h:form>
 

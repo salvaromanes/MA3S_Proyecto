@@ -19,18 +19,29 @@ public class ListaCuentasPorCliente {
     @Inject
     GestionGetCuentas gestionGetCuentas;
 
+    @Inject
+    private Sesion sesion;
+
 
     Cliente cliente;
     String iban;
 
 
-    public synchronized List<Fintech> getFintech(){
-        List<Fintech> fintechList = cliente.getCuentasFintech();
-        return fintechList;
+
+    public synchronized List<Segregada> getSegregadas(){
+        List<Segregada> cuentasSeg = gestionGetCuentas.getSegregadas(sesion.getUsuario());
+        if(cuentasSeg != null){
+            return  cuentasSeg;
+        }
+        return null;
     }
 
-    public synchronized Segregada getSegregada(String iban){
-        return gestionGetCuentas.getSegregada(iban);
+    public synchronized List<Pooled> getPooleds(){
+        List<Pooled> cuentasPoo = gestionGetCuentas.getPooleds(sesion.getUsuario());
+        if(cuentasPoo != null){
+            return  cuentasPoo;
+        }
+        return null;
     }
 
 }
