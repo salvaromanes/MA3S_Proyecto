@@ -16,7 +16,7 @@ import java.util.Date;
 @Named(value = "DarAltaClienteAdministrador")
 @RequestScoped
 public class DarAltaClienteAdmin {
-
+/*
     private Long id;
     private String identificacion;
     private String tipoCliente;
@@ -26,7 +26,7 @@ public class DarAltaClienteAdmin {
     private String direccion;
     private String ciudad;
     private String codigopostal;
-    private String pais;
+    private String pais;*/
 
     @Inject
     private GestionAltaCliente gestionAltaCliente;
@@ -37,7 +37,7 @@ public class DarAltaClienteAdmin {
     public DarAltaClienteAdmin(){
         individual = new Individual();
     }
-
+/*
     public Long getId() {
         return id;
     }
@@ -116,12 +116,12 @@ public class DarAltaClienteAdmin {
 
     public void setPais(String pais) {
         this.pais =  pais;
-    }
+    }*/
 
     public String modificar() {
         try {
             gestionAltaCliente.darAltaIndividual(individual);
-            gestionBajaCliente.darBajaCliente(id);
+            gestionBajaCliente.darBajaCliente(individual.getId());
 
             return "DarAltasClientesAdmin.xhtml";
         } catch (ClienteYaExistenteException e) {

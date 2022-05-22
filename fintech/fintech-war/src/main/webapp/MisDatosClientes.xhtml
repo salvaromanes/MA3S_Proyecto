@@ -15,64 +15,93 @@
 <h:body>
   <h1 class="cliente"> Modificar Cliente </h1>
   <h:form id="form">
-    <div class="cliente">
+    <div class="centro">
+
       <h:panelGrid columns="1">
 
 
         <h:outputText value="Nombre:" />
-        <h:inputText id="nombre" required="true"
+        <h:inputText id="nombre" required="false"
                      value="#{cliente.cliente.nombre}" />
 
         <h:outputText value="Apellidos:" />
-        <h:inputText id="apellidos" required="true"
+        <p:inplace editor="true">
+          <p:inputText value="#{cliente.cliente.apellidos}" required="false" label="text"/>
+        </p:inplace>
+        <h:inputText id="apellidos" required="false"
                      value="#{cliente.cliente.apellidos}" />
 
         <h:outputText value="Identificacion:" />
-        <h:inputText id="identificacion" required="true"
+        <p:inplace editor="true">
+          <p:inputText value="#{cliente.cliente.identificacion}" required="false" label="text"/>
+        </p:inplace>
+        <h:inputText id="identificacion" required="false"
                      value="#{cliente.cliente.identificacion}" />
 
         <h:outputText value="TipoCliente:" />
-        <h:inputText id="tipoCliente" required="true"
+        <p:inplace editor="true">
+          <p:inputText value="#{cliente.cliente.tipoCliente}" required="false" label="text"/>
+        </p:inplace>
+        <h:inputText id="tipoCliente" required="false"
                      value="#{cliente.cliente.tipoCliente}" />
 
         <h:outputText value="Estado" />
-        <h:inputText id="estado" required="true"
+        <p:inplace editor="true">
+          <p:inputText value="#{cliente.cliente.estado}" required="false" label="text"/>
+        </p:inplace>
+        <h:inputText id="estado" required="false"
                      value="#{cliente.cliente.estado}" />
 
         <h:outputText value="FechaAlta" />
-        <h:inputText id="fechaAlta" required="true"
+        <p:inplace editor="false">
+          <p:inputText value="#{cliente.cliente.fechaAlta}" required="false" label="text"/>
+        </p:inplace>
+        <h:inputText id="fechaAlta" required="false"
                      value="#{cliente.cliente.fechaAlta}" />
 
         <h:outputText value="FechaBaja" />
-        <h:inputText id="fechaBaja" required="true"
+        <p:inplace editor="true">
+          <p:inputText value="#{cliente.cliente.fechaBaja}" required="false" label="text"/>
+        </p:inplace>
+        <h:inputText id="fechaBaja" required="false"
                      value="#{cliente.cliente.fechaBaja}" />
 
         <h:outputText value="Direccion" />
-        <h:inputText id="direccion" required="true"
+        <p:inplace editor="true">
+          <p:inputText value="#{cliente.cliente.direccion}" required="false" label="text"/>
+        </p:inplace>
+        <h:inputText id="direccion" required="false"
                      value="#{cliente.cliente.direccion}" />
 
         <h:outputText value="Ciudad" />
-        <h:inputText id="ciudad" required="true"
+        <p:inplace editor="true">
+          <p:inputText value="#{cliente.cliente.ciudad}" required="false" label="text"/>
+        </p:inplace>
+        <h:inputText id="ciudad" required="false"
                      value="#{cliente.cliente.ciudad}" />
 
         <h:outputText value="Codigopostal" />
-        <h:inputText id="codigopostal" required="true"
+        <p:inplace editor="true">
+          <p:inputText value="#{cliente.cliente.codigopostal}" required="false" label="text"/>
+        </p:inplace>
+        <h:inputText id="codigopostal" required="false"
                      value="#{cliente.cliente.codigopostal}" />
 
         <h:outputText value="Pais" />
-        <h:inputText id="pais" required="true"
+        <p:inplace editor="true">
+          <p:inputText value="#{cliente.cliente.pais}" required="false" label="text"/>
+        </p:inplace>
+        <h:inputText id="pais" required="false"
                      value="#{cliente.cliente.pais}" />
         <h:inputHidden value="#{cliente.cliente.id}"/>
 
-        <h:commandButton id="modificar" value="Modificar" action="#{cliente.modificar()}" />
+        <h:commandButton id="modificar" value="Modificar" action="#{cliente.modificar(cliente.cliente)}" />
 
       </h:panelGrid>
     </div>
   </h:form>
 
 </h:body>
-
-
 
 
 </html>
