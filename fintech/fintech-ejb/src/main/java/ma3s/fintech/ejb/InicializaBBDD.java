@@ -105,13 +105,23 @@ public class InicializaBBDD {
         referencia2.setSucursal("Santander-Malaga");
         referencia2.setDivisa(dolar);
 
+        Referencia referencia7 = new Referencia();
+        referencia7.setIban("Prueba Cuenta cerrada");
+        referencia7.setEstado("Cerrada");
+        referencia7.setFechaApertura(new Date());
+        referencia7.setNombreBanco("Pacolin");
+        referencia7.setPais("Espana");
+        referencia7.setSaldo(0);
+        referencia7.setSucursal("Pacolin-Malaga");
+        referencia7.setDivisa(dolar);
+
         Segregada segregada2 = new Segregada();
         segregada2.setEstado("Activa");
         segregada2.setFechaApertura(new Date());
         segregada2.setIban("FR5514508000502273293129K55");
         segregada2.setSwift("12323");
         segregada2.setCliente(empresa);
-        segregada2.setReferencia(referencia2);
+        segregada2.setReferencia(referencia7);
 
         Referencia referencia3 = new Referencia();
         referencia3.setIban("HN47QUXH113256787697855");
@@ -248,7 +258,7 @@ public class InicializaBBDD {
             em.persist(d);
         }
 
-        for (Referencia r : new Referencia[]{referencia1, referencia2, referencia3, referencia4, referencia5, referencia6}){
+        for (Referencia r : new Referencia[]{referencia1, referencia2, referencia3, referencia4, referencia5, referencia6, referencia7}){
             em.persist(r);
         }
 

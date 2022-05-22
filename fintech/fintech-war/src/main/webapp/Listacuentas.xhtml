@@ -7,21 +7,80 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-<head>
+<h:head>
     <title>Cuentas</title>
-</head>
-<body>
+</h:head>
+<h:body>
 
-<h1>Pruebas</h1>
+<h1>Todas las cuentas</h1>
+    <div>
+        <h:form>
+            <p:dataTable value="#{listaCuentas.cuentas}" var="a" rows="5"
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                         rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+                <p:column  headerText="IBAN" filterBy="#{a.iban}" filterMatchMode="contains">
+                    <h:outputText  value="#{a.iban}" />
+                </p:column>
+                <p:column  headerText="SWIFT" filterBy="#{a.swift}" filterMatchMode="contains">
+                    <h:outputText  value="#{a.swift}" />
+                </p:column>
+                <p:column  headerText="Dar Baja">
+                    <p:commandButton  value="Baja"
+                                      action="#{listaClientes.baja(a)}" />
+                </p:column>
+                <p:column  headerText="Modificar">
+                    <p:commandButton  value="Modificar"
+                                      action="#{cliente.pasarCliente(a.identificacion)}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </div>
 
-<h:form id="caja1">
+    <h1>Cuentas Segregadas</h1>
+    <div>
+        <h:form>
+            <p:dataTable value="#{listaCuentas.segregadas}" var="a" rows="5"
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                         rowsPerPageTemplate="5,10,{ShowAll|'All'}">
 
-    <p:dataTable styleClass="card" id="dtCliente" value="#{listaCuentas.cuentas}" var="a">
-        <p:column id="a" headerText="IBAN" filterBy="#{a.swift}">
-            <p:outputLabel id="ab" value="#{a.swift}" />
-        </p:column>
-    </p:dataTable>
-</h:form>
+                <p:column headerText="IBAN" filterBy="#{a.iban}" filterStyle="width: 100px;" filterMatchMode="contains">
+                    <h:outputText value="#{a.iban}"/>
+                </p:column>
 
-</body>
+                <p:column headerText="SWIFT" filterBy="#{a.swift}" filterMatchMode="contains">
+                    <h:outputText value="#{a.swift}" />
+                </p:column>
+
+                <p:column  headerText="Comision" filterBy="#{a.comision}" filterMatchMode="contains">
+                    <h:outputText value="#{a.comision}" />
+                </p:column>
+
+                <p:column  headerText="Cuenta Referencia" filterBy="#{a.referencia.iban}" filterMatchMode="contains">
+                    <h:outputText value="#{a.referencia.iban}" />
+                </p:column>
+
+                <p:column  headerText="Saldo" filterBy="#{a.referencia.saldo}" filterMatchMode="contains">
+                    <h:outputText value="#{a.referencia.saldo}" />
+                </p:column>
+
+                <p:column  headerText="Divisa" filterBy="#{a.referencia.divisa.abreviatura}" filterMatchMode="contains">
+                    <h:outputText value="#{a.referencia.divisa.abreviatura}" />
+                </p:column>
+
+                <p:column  headerText="Cerrar">
+                    <p:commandButton  value="Cerrar"
+                                      action="#{listaCuentas.cerrar(a.iban)}" />
+                </p:column>
+                <p:column  headerText="Detalles">
+                    <p:commandButton  value="Detalles"
+                                      action="#{listaCuentas.cerrar(a.iban)}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </div>
+</h:body>
 </html>

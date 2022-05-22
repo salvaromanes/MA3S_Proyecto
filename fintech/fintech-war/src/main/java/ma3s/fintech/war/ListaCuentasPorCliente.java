@@ -22,6 +22,8 @@ public class ListaCuentasPorCliente {
     @Inject
     private Sesion sesion;
 
+    @Inject
+    private HistorialCuentas historialCuentas;
 
     Cliente cliente;
     String iban;
@@ -29,7 +31,7 @@ public class ListaCuentasPorCliente {
     Pooled pooled;
 
     public String verCuenta(Segregada segregada1){
-        segregada = segregada1;
+        historialCuentas.setSegregada(segregada1);
         return "HistorialTransacciones.xhtml";
     }
 
