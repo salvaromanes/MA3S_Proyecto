@@ -36,9 +36,9 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
             throw new UsuarioIncorrectoException("accederAplicacion: usuario " + usuario + " incorrecto");
         }
 
-        if(user.getEsAdmin()){
-            throw new UsuarioIncorrectoException("El usuario es administrador");
-        }
+//        if(user.getEsAdmin()){
+//            throw new UsuarioIncorrectoException("El usuario es administrador");
+//        }
 
         if(contrasena == null){
             throw new CampoVacioException("Contraseña vacia");
@@ -78,11 +78,11 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
         return user;
     }
 
-    @Override
-    public Usuario refrescarUsuarioAdmin(Usuario u) throws CampoVacioException, AccesoException {
-        entrarAplicacion(u.getUser(), u.getContrasena());
-        Usuario user = em.find(Usuario.class, u.getUser());
-        em.refresh(user);
-        return user;
-    }
+//    @Override
+//    public Usuario refrescarUsuarioAdmin(Usuario u) throws CampoVacioException, AccesoException {
+//        entrarAplicacion(u.getUser(), u.getContrasena());
+//        Usuario user = em.find(Usuario.class, u.getUser());
+//        em.refresh(user);
+//        return user;
+//    }
 }

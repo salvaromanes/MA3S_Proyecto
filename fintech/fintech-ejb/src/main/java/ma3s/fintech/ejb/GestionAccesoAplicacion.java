@@ -8,5 +8,5 @@ public interface GestionAccesoAplicacion {
     Usuario entrarAplicacion(String usuario, String contrasena) throws AccesoException, CampoVacioException;
     Usuario entrarAplicacionAdministrador(String usuario, String contrasena) throws AccesoException, CampoVacioException;
     Usuario refrescarUsuario(Usuario u) throws CampoVacioException, AccesoException;
-    Usuario refrescarUsuarioAdmin(Usuario u) throws CampoVacioException, AccesoException;
+    //Usuario refrescarUsuarioAdmin(Usuario u) throws CampoVacioException, AccesoException;
 }

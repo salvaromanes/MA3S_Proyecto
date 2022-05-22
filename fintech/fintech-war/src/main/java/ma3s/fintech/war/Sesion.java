@@ -58,7 +58,7 @@ public class Sesion implements Serializable {
     public String entrarAdmin() {
         try {
             gestionAccesoAplicacion.entrarAplicacionAdministrador(usuario.getUser(), usuario.getContrasena());
-            sesionActual.setUsuario(gestionAccesoAplicacion.refrescarUsuarioAdmin(usuario));
+            sesionActual.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
             return "principalAdmin.xhtml";
         } catch (CampoVacioException e) {
             LOGGER.info("Campos sin rellenar");
@@ -66,7 +66,7 @@ public class Sesion implements Serializable {
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
             FacesContext.getCurrentInstance().addMessage("admin:user", fm);
         } catch (AccesoException e) {
-            LOGGER.info("Usuario incorrecto");
+            LOGGER.info("Usuario incorrecto" + e.getMessage());
             FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
             FacesContext.getCurrentInstance().addMessage("admin:user", fm);
