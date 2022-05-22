@@ -16,98 +16,41 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
+
 
 @Named(value = "cliente")
 @RequestScoped
 public class MisDatosCliente {
 
-    private String razonSocial;
-    private List<Autorizacion> autorizaciones;
-    private String nombre;
-    private String apellido;
-    private Date fechaNacimiento;
-    private Long id;
+    private static final Logger LOGGER = Logger.getLogger(MisDatosCliente.class.getCanonicalName());
+
     private String identificacion;
-    private String tipoCliente;
     private String estado;
-    private Date fechaAlta;
     private Date fechaBaja;
     private String direccion;
     private String ciudad;
     private String codigopostal;
     private String pais;
+    private String nombre;
+    private String apellido;
+    private String razonSocial;
 
     @Inject
     private GestionModificarCliente gestionModificarCliente;
     @Inject
     private GestionGetClientes gestionGetClientes;
 
-    public MisDatosCliente(){ }
+    @Inject
+    private Sesion sesion;
 
     private Cliente cliente;
 
+    private Individual individual;
 
-/*
-    public String getRazonSocial() {
-        return razonSocial;
-    }
+    private Empresa empresa;
 
-    public List<Autorizacion> getAutorizaciones() {
-        return autorizaciones;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getIdentificacion() {
-        return identificacion;
-    }
-
-    public String getTipoCliente() {
-        return tipoCliente;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public Date getFechaAlta() {
-        return fechaAlta;
-    }
-
-    public Date getFechaBaja() {
-        return fechaBaja;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public String getCodigopostal() {
-        return codigopostal;
-    }
-
-    public String getPais() {
-        return pais;
-    }*/
-
+    public MisDatosCliente(){ }
 
     public Cliente getCliente(){
         return cliente;
@@ -117,115 +60,143 @@ public class MisDatosCliente {
         this.cliente = c;
     }
 
-/*
-    public void setRazonSocial(String razonSocial) {
-        this.razonSocial = razonSocial;
+    public Individual getIndividual() {
+        return individual;
     }
 
-    public void setAutorizaciones(List<Autorizacion> autorizaciones) {
-        this.autorizaciones = autorizaciones;
+    public void setIndividual(Individual individual) {
+        this.individual = individual;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public String modificar() {
+        String identificacion1 = sesion.getIdentificacion();
+        try {
+            Cliente c = gestionGetClientes.devolverCliente(identificacion1);
+            individual = gestionGetClientes.devolverIndividual(c.getId());
+            empresa = gestionGetClientes.devolverEmpresa(c.getId());
+
+            if(c.getTipoCliente().equals("Individual")){
+                gestionModificarCliente.modNombreIndividual(individual.getId(), nombre);
+                gestionModificarCliente.modApellidoIndividual(individual.getId(), apellido);
+                gestionModificarCliente.modDireccionIndividual(individual.getId(), direccion);
+                gestionModificarCliente.modCiudadIndividual(individual.getId(), ciudad);
+                gestionModificarCliente.modCodigoPostalIndividual(individual.getId(), codigopostal);
+                gestionModificarCliente.modPaisIndividual(individual.getId(), pais);
+
+            }else if(cliente.getTipoCliente().equals("Jurídico")){
+                gestionModificarCliente.modRazonSocialEmpresa(empresa.getId(), razonSocial);
+                gestionModificarCliente.modDireccionEmpresa(empresa.getId(), direccion);
+                gestionModificarCliente.modCiudadEmpresa(empresa.getId(), ciudad);
+                gestionModificarCliente.modCodigoPostalEmpresa(empresa.getId(), codigopostal);
+                gestionModificarCliente.modPaisEmpresa(empresa.getId(), pais);
+            }
+
+            return "Listaclientes.xhtml";
+        } catch (PersonaNoExisteException e) {
+            LOGGER.info("PersonaNoExisteException " + e.getMessage());
+        } catch (CampoVacioException e) {
+            LOGGER.info("CampoVacioException " + e.getMessage());
+        } catch (IndividualNoExistenteException e) {
+            LOGGER.info("IndividualNoExistenteException " + e.getMessage());
+        } catch (EmpresaNoExistenteException e) {
+            LOGGER.info("EmpresaNoExistenteException " + e.getMessage());
+        } catch (ClienteNoExisteException e) {
+            LOGGER.info("ClienteNoExisteException " + e.getMessage());
+        }
+        return "Listaclientes.xhtml";
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Date getFechaBaja() {
+        return fechaBaja;
+    }
+
+    public void setFechaBaja(Date fechaBaja) {
+        this.fechaBaja = fechaBaja;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getCodigopostal() {
+        return codigopostal;
+    }
+
+    public void setCodigopostal(String codigopostal) {
+        this.codigopostal = codigopostal;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
+
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public String getRazonSocial() {
+        return razonSocial;
     }
 
-    public void setId(Long id) {
-        this.id =  id;
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
+    }
+
+    public String getIdentificacion() {
+        try {
+            cliente = gestionGetClientes.devolverCliente(sesion.getIdentificacion());
+        } catch (ClienteNoExisteException e) {
+            e.printStackTrace();
+        }
+        identificacion = cliente.getIdentificacion();
+        return identificacion;
     }
 
     public void setIdentificacion(String identificacion) {
-        this.identificacion =  identificacion;
+        this.identificacion = identificacion;
     }
-
-    public void setTipoCliente(String tipoCliente) {
-        this.tipoCliente =  tipoCliente;
-    }
-
-    public void setEstado(String estado) {
-        this.estado =  estado;
-    }
-
-    public void setFechaAlta(Date fechaAlta) {
-        this.fechaAlta =  fechaAlta;
-    }
-
-    public void setFechaBaja(Date fechaBaja) {
-        this.fechaBaja =  fechaBaja;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion =  direccion;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad =  ciudad;
-    }
-
-    public void setCodigopostal(String codigopostal) {
-        this.codigopostal =  codigopostal;
-    }
-
-    public void setPais(String pais) {
-        this.pais =  pais;
-    }*/
-
-
-    public String pasarCliente(String identificacion) {
-        try {
-            cliente = gestionGetClientes.devolverCliente(identificacion);
-
-            return "MisDatosClientes.xhtml";
-        } catch (ClienteNoExisteException e) {
-
-        }
-        return "index.xhtml";
-    }
-
-    public String modificar() {
-        try {
-            Individual individual;
-            individual = gestionGetClientes.devolverIndividual(cliente.getId());
-
-            Empresa empresa;
-            empresa = gestionGetClientes.devolverEmpresa(cliente.getId());
-
-            if(cliente.getTipoCliente().equals("Individual")){
-                gestionModificarCliente.modNombreIndividual(individual.getId(), nombre);
-                gestionModificarCliente.modApellidoIndividual(individual.getId(), apellido);
-                gestionModificarCliente.modDireccionIndividual(cliente.getId(), direccion);
-                gestionModificarCliente.modCiudadIndividual(cliente.getId(), ciudad);
-                gestionModificarCliente.modCodigoPostalIndividual(cliente.getId(), codigopostal);
-                gestionModificarCliente.modPaisIndividual(cliente.getId(), pais);
-
-            }else if(cliente.getTipoCliente().equals("Empresa")){
-                gestionModificarCliente.modRazonSocialEmpresa(empresa.getId(), razonSocial);
-                gestionModificarCliente.modDireccionEmpresa(cliente.getId(), direccion);
-                gestionModificarCliente.modCiudadEmpresa(cliente.getId(), ciudad);
-                gestionModificarCliente.modCodigoPostalEmpresa(cliente.getId(), codigopostal);
-                gestionModificarCliente.modPaisEmpresa(cliente.getId(), pais);
-            }
-
-            return "Listaclientes.xhtml";
-        } catch (PersonaNoExisteException e) {
-
-        } catch (CampoVacioException e) {
-
-        } catch (IndividualNoExistenteException e) {
-
-        } catch (EmpresaNoExistenteException e) {
-
-        }
-        return null;
-    }
-
-
 }

@@ -52,14 +52,14 @@ public class ListaClientes {
     }
 
     public String modificar(Cliente c){
-        cliente = c;
-        return "MisDatosClientes.xhtml";
+        infosesion.setIdentificacion(c.getIdentificacion());
+        return "MisDatosClientes.xhtml?faces-redirect=true";
     }
 
     public String baja(Cliente c){
         try{
             bajaCliente.darBajaCliente(c.getId());
-            return "Listaclientes.xhtml";
+            return "Listaclientes.xhtml?faces-redirect=true";
         } catch (ClienteNoExisteException e) {
             e.printStackTrace();
         } catch (CuentaAbiertaException e) {

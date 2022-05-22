@@ -1,9 +1,6 @@
 package ma3s.fintech.war;
 
-import ma3s.fintech.Cuenta;
-import ma3s.fintech.Pooled;
-import ma3s.fintech.Referencia;
-import ma3s.fintech.Segregada;
+import ma3s.fintech.*;
 import ma3s.fintech.ejb.GestionCierreCuenta;
 import ma3s.fintech.ejb.GestionGetCuentas;
 import ma3s.fintech.ejb.excepciones.CuentaNoExistenteException;
@@ -14,6 +11,8 @@ import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -65,6 +64,14 @@ public class ListaCuentas {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public String fechaSimple(Date date){
+
+        if(date == null){
+            return null;
+        }
+        return new SimpleDateFormat("dd-MM-yyyy").format(date);
     }
 
 }

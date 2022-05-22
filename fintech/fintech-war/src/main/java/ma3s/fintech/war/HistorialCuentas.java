@@ -22,6 +22,9 @@ import java.util.List;
 public class HistorialCuentas {
 
     @Inject
+    private Sesion sesion;
+
+    @Inject
     private GestionTransferencia gestionTransferencia;
 
 
@@ -46,12 +49,12 @@ public class HistorialCuentas {
 
     public String verCuenta(Segregada segregada1){
         segregada = segregada1;
-        return "HistorialTransacciones.xhtml";
+        return "TransaccionCliente.xhtml";
     }
 
     public String verCuenta(Pooled pooled1){
         pooled = pooled1;
-        return "HistorialTransacciones.xhtml";
+        return "TransaccionCliente.xhtml";
     }
     public synchronized List<Transaccion> getTransSeg(){
         List<Transaccion> transaccionList = gestionTransferencia.verTransferencias(segregada);
@@ -63,7 +66,7 @@ public class HistorialCuentas {
     }
 
     public synchronized List<Transaccion> getTransPooled(){
-        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias2(pooled);
+        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias2(sesion.getPooled());
         if(transaccionList != null){
             return transaccionList;
         }

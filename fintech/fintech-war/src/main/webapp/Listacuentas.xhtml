@@ -12,34 +12,90 @@
 </h:head>
 <h:body>
 
-<h1>Todas las cuentas</h1>
-    <div>
+    <div class="card">
+        <p:tabMenu activeIndex="#{3}">
+            <p:menuitem value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
+                <f:param name="i" value="0"/>
+            </p:menuitem>
+            <p:menuitem value="Clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-users">
+                <f:param name="i" value="1"/>
+            </p:menuitem>
+            <p:menuitem value="Añadir cliente" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-user-plus">
+                <f:param name="i" value="2"/>
+            </p:menuitem>
+            <p:menuitem value="Cuentas" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-wallet">
+                <f:param name="i" value="3"/>
+            </p:menuitem>
+            <p:menuitem value="Añadir cuenta" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-plus">
+                <f:param name="i" value="4"/>
+            </p:menuitem>
+            <p:menuitem value="Generar archivo CSV Alemania" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-file">
+                <f:param name="i" value="5"/>
+            </p:menuitem>
+            <p:menuitem value="API Holanda" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-code">
+                <f:param name="i" value="6"/>
+            </p:menuitem>
+            <p:menuitem value="Cerrar Sesión" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-power-off">
+                <f:param name="i" value="7"/>
+            </p:menuitem>
+        </p:tabMenu>
+    </div>
+
+
+
+    <h1>Cuentas Pooleds</h1>
+    <div class="card">
         <h:form>
-            <p:dataTable value="#{listaCuentas.cuentas}" var="a" rows="5"
+            <p:dataTable value="#{listaCuentas.pooleds}" var="a" rows="5"
                          paginator="true"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                          currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                          rowsPerPageTemplate="5,10,{ShowAll|'All'}">
-                <p:column  headerText="IBAN" filterBy="#{a.iban}" filterMatchMode="contains">
-                    <h:outputText  value="#{a.iban}" />
+
+                <p:column headerText="IBAN" filterBy="#{a.iban}" filterStyle="width: 100px;" filterMatchMode="contains">
+                    <h:outputText value="#{a.iban}"/>
                 </p:column>
-                <p:column  headerText="SWIFT" filterBy="#{a.swift}" filterMatchMode="contains">
-                    <h:outputText  value="#{a.swift}" />
+
+                <p:column headerText="SWIFT" filterBy="#{a.swift}" filterMatchMode="contains">
+                    <h:outputText value="#{a.swift}" />
                 </p:column>
-                <p:column  headerText="Dar Baja">
-                    <p:commandButton  value="Baja"
-                                      action="#{listaClientes.baja(a)}" />
+
+                <p:column headerText="Estado" filterBy="#{a.estado}" filterMatchMode="contains">
+                    <h:outputText value="#{a.estado}" />
                 </p:column>
-                <p:column  headerText="Modificar">
-                    <p:commandButton  value="Modificar"
-                                      action="#{cliente.pasarCliente(a.identificacion)}" />
+
+                <p:column headerText="fechaApertura">
+                    <h:outputText value="#{listaCuentas.fechaSimple(a.fechaApertura)}" />
                 </p:column>
+
+                <p:column headerText="fechaCierre">
+                    <h:outputText value="#{listaCuentas.fechaSimple(a.fechaCierre)}" />
+                </p:column>
+
+                <p:column headerText="Cliente" filterBy="#{a.cliente.identificacion}">
+                    <h:outputText value="#{a.cliente.identificacion}" />
+                </p:column>
+
+                <p:column headerText="Divisa">
+                    <h:outputText value="#{a.divisa.nombre}" />
+                </p:column>
+
+                <p:column  headerText="Cerrar">
+                    <p:commandButton  value="Cerrar"
+                                      action="#{listaCuentas.cerrar(a.iban)}" />
+                </p:column>
+
+                <p:column  headerText="Detalles">
+                    <p:commandButton  value="Detalles"
+                                      action="#{listaCuentas.cerrar(a.iban)}" />
+                </p:column>
+
             </p:dataTable>
         </h:form>
     </div>
 
     <h1>Cuentas Segregadas</h1>
-    <div>
+    <div class="card">
         <h:form>
             <p:dataTable value="#{listaCuentas.segregadas}" var="a" rows="5"
                          paginator="true"
@@ -55,32 +111,86 @@
                     <h:outputText value="#{a.swift}" />
                 </p:column>
 
+                <p:column headerText="Estado" filterBy="#{a.estado}" filterMatchMode="contains">
+                    <h:outputText value="#{a.estado}" />
+                </p:column>
+
+                <p:column headerText="Fecha Apertura">
+                    <h:outputText value="#{listaCuentas.fechaSimple(a.fechaApertura)}" />
+                </p:column>
+
+                <p:column headerText="Fecha Cierre">
+                    <h:outputText value="#{listaCuentas.fechaSimple(a.fechaCierre)}" />
+                </p:column>
+
+                <p:column headerText="Cliente" filterBy="#{a.cliente.identificacion}" filterMatchMode="contains">
+                    <h:outputText value="#{a.cliente.identificacion}" />
+                </p:column>
+
                 <p:column  headerText="Comision" filterBy="#{a.comision}" filterMatchMode="contains">
                     <h:outputText value="#{a.comision}" />
-                </p:column>
-
-                <p:column  headerText="Cuenta Referencia" filterBy="#{a.referencia.iban}" filterMatchMode="contains">
-                    <h:outputText value="#{a.referencia.iban}" />
-                </p:column>
-
-                <p:column  headerText="Saldo" filterBy="#{a.referencia.saldo}" filterMatchMode="contains">
-                    <h:outputText value="#{a.referencia.saldo}" />
-                </p:column>
-
-                <p:column  headerText="Divisa" filterBy="#{a.referencia.divisa.abreviatura}" filterMatchMode="contains">
-                    <h:outputText value="#{a.referencia.divisa.abreviatura}" />
                 </p:column>
 
                 <p:column  headerText="Cerrar">
                     <p:commandButton  value="Cerrar"
                                       action="#{listaCuentas.cerrar(a.iban)}" />
                 </p:column>
+
                 <p:column  headerText="Detalles">
                     <p:commandButton  value="Detalles"
                                       action="#{listaCuentas.cerrar(a.iban)}" />
                 </p:column>
+
             </p:dataTable>
         </h:form>
     </div>
+
+    <h1>Cuentas Referencias</h1>
+    <div class="card">
+        <h:form>
+            <p:dataTable value="#{listaCuentas.referencias}" var="a" rows="5"
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                         rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+
+                <p:column headerText="IBAN" filterBy="#{a.iban}" filterStyle="width: 100px;" filterMatchMode="contains">
+                    <h:outputText value="#{a.iban}"/>
+                </p:column>
+
+                <p:column headerText="SWIFT" filterBy="#{a.swift}" filterMatchMode="contains">
+                    <h:outputText value="#{a.swift}" />
+                </p:column>
+
+                <p:column headerText="Nombre Banco" filterBy="#{a.nombreBanco}" filterMatchMode="contains">
+                    <h:outputText value="#{a.nombreBanco}" />
+                </p:column>
+
+                <p:column headerText="Sucursal" filterBy="#{a.sucursal}" filterMatchMode="contains">
+                    <h:outputText value="#{a.sucursal}" />
+                </p:column>
+
+                <p:column headerText="Pais" filterBy="#{a.pais}" filterMatchMode="contains">
+                    <h:outputText value="#{a.pais}" />
+                </p:column>
+
+                <p:column headerText="Divisa">
+                    <h:outputText value="#{a.divisa.nombre}" />
+                </p:column>
+
+                <p:column  headerText="Cerrar">
+                    <p:commandButton  value="Cerrar"
+                                      action="#{listaCuentas.cerrar(a.iban)}" />
+                </p:column>
+
+                <p:column  headerText="Detalles">
+                    <p:commandButton  value="Detalles"
+                                      action="#{listaCuentas.cerrar(a.iban)}" />
+                </p:column>
+
+            </p:dataTable>
+        </h:form>
+    </div>
+
 </h:body>
 </html>
