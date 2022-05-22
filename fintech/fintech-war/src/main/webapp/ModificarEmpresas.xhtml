@@ -22,11 +22,6 @@
         <h:outputText value="Identificacion:" />
         <h:outputText value="#{cliente.identificacion}"/>
 
-        <h:outputText value="Nombre"/>
-        <h:inputText required="true" value="#{cliente.cliente.nombre}"/>
-
-        <h:outputText value="Apellidos"/>
-        <h:inputText required="true" value="#{cliente.cliente.apellido}"/>
 
         <h:outputText value="Direccion"/>
         <h:inputText required="true" value="#{cliente.cliente.direccion}"/>
@@ -39,6 +34,9 @@
 
         <h:outputText value="Pais"/>
         <h:inputText required="true" value="#{cliente.cliente.pais}"/>
+
+        <h:outputText value="RazonSocial"/>
+        <h:inputText required="true" value="#{cliente.cliente.razonSocial}"/>
 
         <h:commandButton id="modificar" value="Modificar" action="#{cliente.modificar()}" />
 
