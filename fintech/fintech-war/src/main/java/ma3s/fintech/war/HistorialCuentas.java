@@ -46,12 +46,12 @@ public class HistorialCuentas {
 
     public String verCuenta(Segregada segregada1){
         segregada = segregada1;
-        return "HistorialTransacciones.xhtml";
+        return "TransaccionCliente.xhtml";
     }
 
     public String verCuenta(Pooled pooled1){
         pooled = pooled1;
-        return "HistorialTransacciones.xhtml";
+        return "TransaccionCliente.xhtml";
     }
     public synchronized List<Transaccion> getTransSeg(){
         List<Transaccion> transaccionList = gestionTransferencia.verTransferencias(segregada);
