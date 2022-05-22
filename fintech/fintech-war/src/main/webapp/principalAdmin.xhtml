@@ -13,6 +13,36 @@
     <link href="Estilos/estilosmain-v2.css" rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
+
+    <div class="card">
+        <p:tabMenu activeIndex="#{0}">
+            <p:menuitem value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
+                <f:param name="i" value="0"/>
+            </p:menuitem>
+            <p:menuitem value="Clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-users">
+                <f:param name="i" value="1"/>
+            </p:menuitem>
+            <p:menuitem value="Añadir cliente" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-user-plus">
+                <f:param name="i" value="2"/>
+            </p:menuitem>
+            <p:menuitem value="Cuentas" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-wallet">
+                <f:param name="i" value="3"/>
+            </p:menuitem>
+            <p:menuitem value="Añadir cuenta" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-plus">
+                <f:param name="i" value="4"/>
+            </p:menuitem>
+            <p:menuitem value="Generar archivo CSV Alemania" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-file">
+                <f:param name="i" value="5"/>
+            </p:menuitem>
+            <p:menuitem value="API Holanda" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-code">
+                <f:param name="i" value="6"/>
+            </p:menuitem>
+            <p:menuitem value="Cerrar Sesión" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-power-off">
+                <f:param name="i" value="7"/>
+            </p:menuitem>
+        </p:tabMenu>
+    </div>
+
     <div class="container">
         <div class="card">
             <div>

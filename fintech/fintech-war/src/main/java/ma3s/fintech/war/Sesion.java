@@ -40,7 +40,7 @@ public class Sesion implements Serializable {
         try {
             gestionAccesoAplicacion.entrarAplicacion(usuario.getUser(), usuario.getContrasena());
             sesionActual.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
-            return "principalCliente.xhtml";
+            return "principalCliente.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
             LOGGER.info("Campos sin rellenar");
             FacesMessage fm = new FacesMessage("Campos sin rellenar");
@@ -59,7 +59,7 @@ public class Sesion implements Serializable {
         try {
             gestionAccesoAplicacion.entrarAplicacionAdministrador(usuario.getUser(), usuario.getContrasena());
             sesionActual.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
-            return "principalAdmin.xhtml";
+            return "principalAdmin.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
             LOGGER.info("Campos sin rellenar");
             FacesMessage fm = new FacesMessage("Campos sin rellenar");
