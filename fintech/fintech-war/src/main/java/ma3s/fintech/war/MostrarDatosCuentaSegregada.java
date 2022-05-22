@@ -29,7 +29,7 @@ public class MostrarDatosCuentaSegregada {
 
     private List<Autorizacion> autorizaciones = new ArrayList<Autorizacion>();
     private List<Segregada> listaSegregada = new ArrayList<Segregada>();
-    private String iban = "NL63ABNA6548268733";
+    private String iban = "FR5514508000502273293129K55";
     private String id = "P3310693A";
 
     public synchronized List<Autorizacion> getAutorizaciones() {
@@ -40,5 +40,7 @@ public class MostrarDatosCuentaSegregada {
     public synchronized List<Segregada> getCuentas(){
         return gestionGetCuentas.getSegregada(iban);
     }
+
+    public synchronized List<Referencia> getReferencia() {return gestionGetCuentas.getReferenciaSegregada(iban);}
 
 }

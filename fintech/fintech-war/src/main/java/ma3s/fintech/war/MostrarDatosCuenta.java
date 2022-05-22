@@ -41,4 +41,6 @@ public class MostrarDatosCuenta {
         return gestionGetCuentas.getPooled(iban);
     }
 
+    public synchronized List<DepositadaEn> getDepositos() {return gestionGetCuentas.getReferenciaPooled(iban); }
+
 }

@@ -90,5 +90,45 @@ public class GetCuentas implements GestionGetCuentas{
         return listaAutorizaciones;
     }
 
+    @Override
+    public List<Referencia> getReferenciaSegregada(String iban){
+        //Query query = em.createQuery("select c from Referencia c where c.segregada.iban like :idCuenta").setParameter("idCuenta", iban);
+        //return query.getResultList();
+
+        List<Referencia> listaReferencia = new ArrayList<>();
+
+        // Creamos la consulta para obtener todas las autorizaciones
+        Query query = em.createQuery("select c from Referencia c");
+
+        for(Referencia ref : (List<Referencia>) query.getResultList()){
+            // Seleccionamos solo las autorizaciones que pertenezcan a esta empresa
+            if(ref.getSegregada().getIban().equals(iban)){
+                listaReferencia.add(ref);
+            }
+        }
+
+        return listaReferencia;
+    }
+
+    @Override
+    public List<DepositadaEn> getReferenciaPooled(String iban){
+        //Query query = em.createQuery("select c from Referencia c where c.segregada.iban like :idCuenta").setParameter("idCuenta", iban);
+        //return query.getResultList();
+
+        List<DepositadaEn> listaDepositadas = new ArrayList<>();
+
+        // Creamos la consulta para obtener todas las autorizaciones
+        Query query = em.createQuery("select c from DepositadaEn c");
+
+        for(DepositadaEn dep : (List<DepositadaEn>) query.getResultList()){
+            // Seleccionamos solo las autorizaciones que pertenezcan a esta empresa
+            if(dep.getIbanPooled().getIban().equals(iban)){
+                listaDepositadas.add(dep);
+            }
+        }
+
+        return listaDepositadas;
+    }
+
 }
 
