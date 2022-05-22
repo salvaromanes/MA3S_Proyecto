@@ -74,4 +74,34 @@ public class GetClientes implements GestionGetClientes{
 
         return empresa;
     }
+
+    @Override
+    public Individual devolverIndividual(String identificacion) throws PersonaNoExisteException {
+        Query query = em.createQuery("select i from Individual i");
+        List<Individual> lista = query.getResultList();
+
+        for(Individual ind : lista){
+            // Seleccionamos solo las autorizaciones que pertenezcan a esta empresa
+            if(ind.getIdentificacion().equals(identificacion)){
+                return ind;
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public Empresa devolverEmpresa(String identificacion) throws EmpresaNoExistenteException {
+        Query query = em.createQuery("select e from Empresa e");
+        List<Empresa> lista = query.getResultList();
+
+        for(Empresa emp : lista){
+            // Seleccionamos solo las autorizaciones que pertenezcan a esta empresa
+            if(emp.getIdentificacion().equals(identificacion)){
+                return emp;
+            }
+        }
+
+        return null;
+    }
 }
