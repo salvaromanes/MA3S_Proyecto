@@ -30,7 +30,7 @@ public class PAutorizada implements Serializable {
     @OneToMany(mappedBy = "autorizadaId")
     private List<Autorizacion> autorizaciones;
 
-    @OneToOne
+    @OneToOne(mappedBy = "pAutorizada", cascade = CascadeType.ALL)
     Usuario user;
 
     public PAutorizada(){

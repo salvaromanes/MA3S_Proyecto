@@ -30,15 +30,18 @@ public class GetCuentas implements GestionGetCuentas{
 
     @Override
     public List<Segregada> getSegregadas(Usuario usuario){
-        List<Segregada> aux = new ArrayList<>();
-        Query query = em.createQuery("select c from Segregada c", Segregada.class);
-        List<Segregada> listaClientes = query.getResultList();
-        for(Segregada cuenta: listaClientes){
-            if(cuenta.getCliente().getUser().getUser().equals(usuario.getUser())){
-                aux.add(cuenta);
-            }
-        }
-        return aux;
+       Usuario user = em.find(Usuario.class, usuario.getUser());
+       if(user == null){
+           return null;
+       }
+       List<Fintech> lista = user.getCliente().getCuentasFintech();
+       List<Segregada> listaSeg = new ArrayList<>();
+       for (Fintech f : lista){
+           Segregada s = em.find(Segregada.class, f.getIban());
+           if(s != null)
+               listaSeg.add(s);
+       }
+       return listaSeg;
     }
 
     @Override

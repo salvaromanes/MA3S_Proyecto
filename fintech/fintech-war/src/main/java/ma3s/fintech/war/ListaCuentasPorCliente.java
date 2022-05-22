@@ -38,15 +38,16 @@ public class ListaCuentasPorCliente {
         return "HistorialTransacciones.xhtml";
     }
     public synchronized List<Segregada> getSegregadas(){
-        List<Segregada> cuentasSeg = null ;//gestionGetCuentas.getSegregadas(sesion.getUsuario());
+        List<Segregada> cuentasSeg = gestionGetCuentas.getSegregadas(sesion.getUsuario());
         if(cuentasSeg != null){
             return  cuentasSeg;
         }
-        return null;
+        List<Segregada> aux = new ArrayList<>();
+        return aux;
     }
 
     public synchronized List<Pooled> getPooleds(){
-        List<Pooled> cuentasPoo = null;//gestionGetCuentas.getPooleds(sesion.getUsuario());
+        List<Pooled> cuentasPoo = gestionGetCuentas.getPooleds(sesion.getUsuario());
         if(cuentasPoo != null){
             return  cuentasPoo;
         }

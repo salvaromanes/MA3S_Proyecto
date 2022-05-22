@@ -227,13 +227,6 @@ public class InicializaBBDD {
         usuario3.setContrasena("ponciano");
         usuario3.setEsAdmin(true);
 
-        for (Usuario u: new Usuario[]{usuario1, usuario2, usuario3}) {
-            em.persist(u);
-        }
-
-        for (Transaccion t: new Transaccion[]{transaccion}){
-            em.persist(t);
-        }
 
         for (Empresa e : new Empresa[]{empresa}){
             em.persist(e);
@@ -267,8 +260,17 @@ public class InicializaBBDD {
             em.persist(p);
         }
 
+        for (Transaccion t: new Transaccion[]{transaccion}){
+            em.persist(t);
+        }
+
         for (DepositadaEn d : new DepositadaEn[]{depositada1, depositada2, depositada3}){
             em.persist(d);
         }
+
+        for (Usuario u: new Usuario[]{usuario1, usuario2, usuario3}) {
+            em.persist(u);
+        }
+
     }
 }

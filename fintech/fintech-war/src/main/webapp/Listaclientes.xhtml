@@ -7,52 +7,54 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-<head>
+<h:head>
     <title>Clientes</title>
-</head>
-<body>
+</h:head>
+<h:body>
 
 <h:form id="caja1">
+    <p:dataTable id="dtCliente" paginator="true" paginatorPosition="top" emptyMessage="No hay clientes" value="#{listaClientes.clientes}" var="a">
 
-    <p:dataTable styleClass="card" id="dtCliente" value="#{listaClientes.clientes}" var="a">
+        <p:column headerText="Identificación" filterBy="#{a.identificacion}" filterStyle="width: 100px;" filterMatchMode="contains">
+            <h:outputText value="#{a.identificacion}"/>
+        </p:column>
 
-        <p:column id="a" headerText="Identificación" filterBy="#{a.identificacion}" filterMatchMode="contains">
-            <p:outputLabel id="ab" value="#{a.identificacion}" />
+        <p:column headerText="Tipo Cliente" filterBy="#{a.tipoCliente}" filterMatchMode="contains">
+            <h:outputText value="#{a.tipoCliente}" />
         </p:column>
-        <p:column id="b" headerText="Tipo Cliente" filterBy="#{a.tipoCliente}" filterMatchMode="contains">
-            <p:outputLabel id="aa" value="#{a.tipoCliente}" />
+
+        <p:column  headerText="Estado" filterBy="#{a.estado}" filterMatchMode="contains">
+            <h:outputText value="#{a.estado}" />
         </p:column>
-        <p:column id="c" headerText="Estado" filterBy="#{a.estado}" filterMatchMode="contains">
-            <p:outputLabel id="ac" value="#{a.estado}" />
+
+        <p:column  headerText="FechaAlta">
+            <h:outputText  value="#{listaClientes.fechaSimple(a.fechaAlta)}" />
         </p:column>
-        <p:column id="d" headerText="FechaAlta" filterBy="#{a.fechaAlta}" filterMatchMode="contains">
-            <p:outputLabel id="ad" value="#{a.fechaAlta}" />
+        <p:column  headerText="FechaBaja">
+            <h:outputText  value="#{listaClientes.fechaSimple(a.fechaBaja)}" />
         </p:column>
-        <p:column id="e" headerText="FechaBaja" filterBy="#{a.fechaBaja}" filterMatchMode="contains">
-            <p:outputLabel id="ae" value="#{a.fechaBaja}" />
+        <p:column  headerText="Dirección" filterBy="#{a.direccion}" filterMatchMode="contains">
+            <h:outputText value="#{a.direccion}" />
         </p:column>
-        <p:column id="f" headerText="Dirección" filterBy="#{a.direccion}" filterMatchMode="contains">
-            <p:outputLabel id="af" value="#{a.direccion}" />
+        <p:column  headerText="Ciudad" filterBy="#{a.ciudad}" filterMatchMode="contains">
+            <h:outputText  value="#{a.ciudad}" />
         </p:column>
-        <p:column id="g" headerText="Ciudad" filterBy="#{a.ciudad}" filterMatchMode="contains">
-            <p:outputLabel id="ag" value="#{a.ciudad}" />
+        <p:column  headerText="CodigoPostal" filterBy="#{a.codigopostal}" filterMatchMode="contains">
+            <h:outputText  value="#{a.codigopostal}" />
         </p:column>
-        <p:column id="h" headerText="CodigoPostal" filterBy="#{a.codigopostal}" filterMatchMode="contains">
-            <p:outputLabel id="ah" value="#{a.codigopostal}" />
+        <p:column  headerText="País" filterBy="#{a.pais}" filterMatchMode="contains">
+            <h:outputText  value="#{a.pais}" />
         </p:column>
-        <p:column id="i" headerText="País" filterBy="#{a.pais}" filterMatchMode="contains">
-            <p:outputLabel id="ai" value="#{a.pais}" />
-        </p:column>
-        <p:column id ="elim" headerText="Dar Baja">
-            <h:commandButton id = "eliminar" value="Baja"
+        <p:column  headerText="Dar Baja">
+            <p:commandButton  value="Baja"
                              action="#{listaClientes.baja(a)}" />
         </p:column>
-        <p:column id = "mod" headerText="Modificar">
-            <h:commandButton id="Modificar" value="Modificar"
-                             action="#{listaClientes.modificar(a)}" />
+        <p:column  headerText="Modificar">
+            <p:commandButton  value="Modificar"
+                             action="#{cliente.pasarCliente(a.identificacion)}" />
         </p:column>
-
     </p:dataTable>
 </h:form>
-</body>
+
+</h:body>
 </html>

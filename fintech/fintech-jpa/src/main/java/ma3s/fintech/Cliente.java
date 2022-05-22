@@ -34,7 +34,7 @@ public class Cliente implements Serializable {
     @OneToMany(mappedBy = "cliente")
     private List<Fintech> cuentasFintech;
 
-    @OneToOne
+    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
     Usuario user;
 
     public Cliente(){

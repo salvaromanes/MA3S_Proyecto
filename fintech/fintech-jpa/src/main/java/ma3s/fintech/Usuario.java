@@ -14,16 +14,20 @@ public class Usuario implements Serializable {
     @Column(nullable = false)
     private Boolean esAdmin;
 
-    @OneToOne(mappedBy = "user")
-    @JoinColumn(name = "idPAutorizada")
+    @OneToOne
     private PAutorizada pAutorizada;
 
-    @OneToOne(mappedBy = "user")
-    @JoinColumn(name = "idCliente")
+    @OneToOne
     private Cliente cliente;
 
     public Usuario(){
 
+    }
+
+    public Usuario(String user, String contrasena, Boolean esAdmin) {
+        this.user = user;
+        this.contrasena = contrasena;
+        this.esAdmin = esAdmin;
     }
 
     public String getUser() {

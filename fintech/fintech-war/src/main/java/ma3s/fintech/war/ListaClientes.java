@@ -11,6 +11,8 @@ import org.primefaces.model.FilterMeta;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -66,4 +68,13 @@ public class ListaClientes {
         }
         return null;
     }
+
+    public String fechaSimple(Date date){
+
+        if(date == null){
+            return null;
+        }
+        return new SimpleDateFormat("dd-MM-yyyy").format(date);
+    }
+
 }
