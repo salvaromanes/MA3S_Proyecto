@@ -2,10 +2,12 @@ package ma3s.fintech.war;
 
 
 import ma3s.fintech.Empresa;
-import ma3s.fintech.Individual;
 import ma3s.fintech.ejb.GestionAltaCliente;
 import ma3s.fintech.ejb.GestionBajaCliente;
-import ma3s.fintech.ejb.excepciones.*;
+import ma3s.fintech.ejb.excepciones.CampoVacioException;
+import ma3s.fintech.ejb.excepciones.ClienteNoExisteException;
+import ma3s.fintech.ejb.excepciones.ClienteYaExistenteException;
+import ma3s.fintech.ejb.excepciones.CuentaAbiertaException;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -14,9 +16,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
 
-@Named(value = "DarAltaBajaClienteAdministrador")
+@Named(value = "DarAltaEmpresaAdministrador")
 @RequestScoped
-public class DarAltaBajaClienteAdmin {
+public class DarAltaEmpresaAdmin {
 
     private Long id;
     private String identificacion;
@@ -32,11 +34,10 @@ public class DarAltaBajaClienteAdmin {
     @Inject
     private GestionAltaCliente gestionAltaCliente;
     private GestionBajaCliente gestionBajaCliente;
+    private Empresa empresa;
 
-    private Individual individual;
-
-    public DarAltaBajaClienteAdmin(){
-        individual = new Individual();
+    public DarAltaEmpresaAdmin(){
+        empresa = new Empresa();
     }
 
     public Long getId() {
@@ -121,10 +122,10 @@ public class DarAltaBajaClienteAdmin {
 
     public String modificar() {
         try {
-            gestionAltaCliente.darAltaIndividual(individual);
+            gestionAltaCliente.darAltaEmpresa(empresa);
             gestionBajaCliente.darBajaCliente(id);
 
-            return "DarAltaBajaClienteAdmin.xhtml";
+            return "DarAltasEmpresasAdmin.xhtml";
         } catch (ClienteYaExistenteException e) {
             FacesMessage fm = new FacesMessage("El cliente ya existe");
             FacesContext.getCurrentInstance().addMessage("admin: ", fm);

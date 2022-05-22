@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 @Named(value = "mostrarDatosCuentaPooled")
 @RequestScoped
 public class MostrarDatosCuenta {
-    private static final Logger LOGGER = Logger.getLogger(InicioSesionIndex.class.getCanonicalName());
+    private static final Logger LOGGER = Logger.getLogger(MostrarDatosCuenta.class.getCanonicalName());
 
     @Inject
     private GestionGetCuentas gestionGetCuentas;
