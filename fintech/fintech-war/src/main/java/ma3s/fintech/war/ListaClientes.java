@@ -53,7 +53,7 @@ public class ListaClientes {
 
     public String modificar(Cliente c){
         infosesion.setIdentificacion(c.getIdentificacion());
-        return "MisDatosClientes.xhtml?faces-redirect=true";
+        return "ModificarIndividuales.xhtml?faces-redirect=true";
     }
 
     public String baja(Cliente c){

@@ -183,7 +183,7 @@ public class DarBajaClienteAdmin {
             cliente = gestionGetClientes.devolverCliente(identificacion);
 
             darBajaCliente(cliente);
-            return "MisDatosClientes.xhtml";
+            return "ModificarIndividuales.xhtml";
         } catch (ClienteNoExisteException e) {
 
         }
@@ -194,7 +194,7 @@ public class DarBajaClienteAdmin {
         try {
             gestionBajaCliente.darBajaCliente(c.getId());
 
-            return "MisDatosClientes.xhtml";
+            return "ModificarIndividuales.xhtml";
 
         } catch (ClienteNoExisteException e) {
             throw new RuntimeException(e);
