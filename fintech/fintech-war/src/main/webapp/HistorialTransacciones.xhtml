@@ -18,7 +18,7 @@
 
     <h:form id="Segregadas" >
         <div class="card">
-            <h:dataTable var="segregadas" value="#{hisotrial.transSeg}">
+            <h:dataTable var="segregadas" value="#{historial.segregada}">
 
                 <h:column headerText="Fecha de ejecucion">
                     <h:outputText value="#{segregadas.fechaEjecucion}" />
@@ -41,7 +41,7 @@
                 </h:column>
 
                 <h:column>
-                    <h:commandButton id="btnver" class= "buttons" value="historial" action="#{listCuenta.verCuenta(segregadas)}"/>
+                    <h:commandButton id="btnver" class= "buttons" value="historial" action="#{historial.verCuenta(segregadas)}"/>
                 </h:column>
 
             </h:dataTable>
@@ -51,7 +51,7 @@
 
     <h:form id="Pooled" >
         <div class="card">
-            <h:dataTable var="pooled" value="#{listCuenta.pooleds}">
+            <h:dataTable var="pooled" value="#{historial.pooled}">
 
                 <h:column headerText="IBAN">
                     <h:outputText value="#{pooled.iban}" />
@@ -71,7 +71,7 @@
                 </h:column>
 
                 <h:column>
-                    <h:commandButton id="btnver2" class= "buttons" value="historial" action="#{listCuenta.verCuenta(pooled)}"/>
+                    <h:commandButton id="btnver2" class= "buttons" value="historial" action="#{historial.verCuenta(pooled)}"/>
                 </h:column>
 
             </h:dataTable>

@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui">
 <ui:fragment rendered="#{not empty sesionActual.usuario}">
     <div class="inicio">
-        <p>Hola, <h:outputText id="saludo" value="#{sesionActual.usuario.user}"/>.</p>
+        <p>Hola, <h:link outcome="MisDatosClientes.xhtml"><h:outputText id="saludo" value="#{sesionActual.usuario.user}"/></h:link>.</p>
     </div>
 </ui:fragment>
 <h:head>
