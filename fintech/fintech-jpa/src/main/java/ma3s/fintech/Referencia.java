@@ -19,7 +19,7 @@ public class Referencia extends Cuenta implements Serializable {
     private Date fechaApertura;
     private String estado;
 
-    @OneToOne
+    @OneToOne(mappedBy = "referencia")
     private Segregada segregada;
 
     @ManyToOne

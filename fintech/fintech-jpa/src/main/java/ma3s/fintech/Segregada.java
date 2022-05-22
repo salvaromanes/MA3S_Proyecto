@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Segregada extends Fintech implements Serializable {
     private Double comision;
 
-    @OneToOne(mappedBy = "segregada")
+    @OneToOne
     private Referencia referencia;
 
     public Segregada(){
