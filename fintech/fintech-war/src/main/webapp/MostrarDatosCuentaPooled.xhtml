@@ -54,7 +54,7 @@
             </div>
         </h:form>
 
-        <h3>Autorizaciones de la cuenta pooled</h3>
+        <h3>Autorizaciones de la cuenta</h3>
         <h:form id="MostarAutorizacion">
             <div class="card">
                 <p:dataTable var="autorizacion" value="#{mostrarDatosCuentaPooled.autorizaciones}">
@@ -87,6 +87,14 @@
 
                     <p:column headerText="Saldo">
                         <h:outputText value="#{deposito.saldo}" />
+                    </p:column>
+
+                    <p:column headerText="Banco">
+                        <h:outputText value="#{deposito.referencia.nombreBanco}" />
+                    </p:column>
+
+                    <p:column headerText="Sucursal">
+                        <h:outputText value="#{deposito.referencia.sucursal}" />
                     </p:column>
                 </p:dataTable>
             </div>

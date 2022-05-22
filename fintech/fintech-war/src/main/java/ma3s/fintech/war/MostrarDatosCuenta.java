@@ -32,6 +32,13 @@ public class MostrarDatosCuenta {
     private String iban = "ES8400817251647192321264";
     private String id = "63937528N";
 
+    public String mostrarDatosCuenta(String iban, String idCliente){
+        this.iban = iban;
+        this.id = idCliente;
+
+        return "MostrarDatosCuentaPooled";
+    }
+
     public synchronized List<Autorizacion> getAutorizaciones() {
         return gestionGetCuentas.getAutorizaciones(iban, id);
     }

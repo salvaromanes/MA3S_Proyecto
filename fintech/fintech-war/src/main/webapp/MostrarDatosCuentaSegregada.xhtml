@@ -18,7 +18,7 @@
 
     <div class="center">
 
-        <h3>Datos de una cuenta Segregada</h3>
+        <h2>Datos de una cuenta Segregada</h2>
 
         <h:form id="MostarSegregada">
             <div class="card">
@@ -58,6 +58,8 @@
             </div>
         </h:form>
 
+        <h3>Autorizaciones de la cuenta</h3>
+
         <h:form id="MostarAutorizacion">
             <div class="card">
                 <p:dataTable var="autorizacion" value="#{mostrarDatosCuentaSegregada.autorizaciones}">
@@ -80,6 +82,8 @@
             </div>
         </h:form>
 
+        <h3>Cuenta de referencia</h3>
+
         <h:form id="MostrarReferencia">
             <div class="card">
                 <p:dataTable var="referencia" value="#{mostrarDatosCuentaSegregada.cuentas}">
@@ -93,6 +97,14 @@
 
                     <p:column headerText="Divisa">
                         <h:outputText value="#{referencia.referencia.divisa.abreviatura}" />
+                    </p:column>
+
+                    <p:column headerText="Banco">
+                        <h:outputText value="#{referencia.referencia.nombreBanco}" />
+                    </p:column>
+
+                    <p:column headerText="Sucursal">
+                        <h:outputText value="#{referencia.referencia.sucursal}" />
                     </p:column>
                 </p:dataTable>
             </div>
