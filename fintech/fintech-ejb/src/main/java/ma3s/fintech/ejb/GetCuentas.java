@@ -45,6 +45,14 @@ public class GetCuentas implements GestionGetCuentas{
     }
 
     @Override
+    public List<Segregada> getSegregadas(){
+        Query query = em.createQuery("select s from Segregada s");
+        List<Segregada> lista = query.getResultList();
+
+        return lista;
+    }
+
+    @Override
     public List<Pooled> getPooled (String iban) {
         //List<Pooled> aux = new ArrayList<>();
         Query query = em.createQuery("select c from Pooled c where c.iban like :idCuenta").setParameter("idCuenta", iban);
@@ -62,6 +70,14 @@ public class GetCuentas implements GestionGetCuentas{
             }
         }
         return aux;
+    }
+
+    @Override
+    public List<Pooled> getPooleds(){
+        Query query = em.createQuery("select p from Pooled p");
+        List<Pooled> lista = query.getResultList();
+
+        return lista;
     }
 
     @Override

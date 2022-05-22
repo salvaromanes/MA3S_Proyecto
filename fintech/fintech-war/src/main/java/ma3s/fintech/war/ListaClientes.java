@@ -59,6 +59,7 @@ public class ListaClientes {
     public String baja(Cliente c){
         try{
             bajaCliente.darBajaCliente(c.getId());
+            return "Listaclientes.xhtml";
         } catch (ClienteNoExisteException e) {
             e.printStackTrace();
         } catch (CuentaAbiertaException e) {

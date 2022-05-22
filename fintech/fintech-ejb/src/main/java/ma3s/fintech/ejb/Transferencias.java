@@ -6,6 +6,7 @@ import ma3s.fintech.ejb.excepciones.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,15 +36,20 @@ public class Transferencias implements GestionTransferencia{
 
     @Override
     public List<Transaccion> verTransferencias(Segregada segregada){
-        List<Transaccion> aux = new ArrayList<>();
-        List<Transaccion> transaccionList = em.createQuery("select p from Transaccion p", Transaccion.class).getResultList();
-        for(Transaccion auxiliar : transaccionList){
-            if(auxiliar.getCuentaOrigen().getIban().equals(segregada.getIban()) ||
-                    auxiliar.getCuentaDestino().getIban().equals(segregada.getIban())){
-                aux.add(auxiliar);
+        Query query = em.createQuery("select t from Transaccion t");
+        List<Transaccion> listaT = query.getResultList();
+        List<Transaccion> listaux = new ArrayList<>();
+        Segregada aux = em.find(Segregada.class, segregada.getIban());
+        if(aux == null)
+            return listaux;
+        for(Transaccion t : listaT){
+            if(t.getCuentaOrigen().equals(segregada.getIban())
+                    || t.getCuentaDestino().equals(segregada.getIban())){
+                listaux.add(t);
             }
         }
-        return aux;
+
+        return listaux;
 
     }
 
