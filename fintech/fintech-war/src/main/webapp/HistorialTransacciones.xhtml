@@ -48,26 +48,22 @@
         </div>
     </h:form>
 
+<h1>Pooled</h1>
 
     <h:form id="Pooled" >
         <div class="card">
-            <h:dataTable var="pooled" value="#{historial.pooled}">
+            <h:dataTable var="pooled" value="#{historial.transPooled}">
 
-                <h:column headerText="IBAN">
-                    <h:outputText value="#{pooled.iban}" />
+                <h:column headerText="Cuenta destino">
+                    <h:outputText value="#{pooled.cuentaDestino.iban}" />
                 </h:column>
 
-                <h:column headerText="Fecha Apertura">
-                    <h:outputText value="#{pooled.fechaApertura}" />
+                <h:column headerText="Cuenta Origen">
+                    <h:outputText value="#{pooled.cuentaOrigen.iban}" />
                 </h:column>
 
-                <h:column headerText="Estado">
-                    <h:outputText value="#{pooled.estado}" />
-                </h:column>
-
-
-                <h:column headerText="Saldo">
-                    <h:outputText value="#{pooled.saldo}" />
+                <h:column headerText="Cantidad">
+                    <h:outputText value="#{pooled.cantidad}" />
                 </h:column>
 
                 <h:column>

@@ -31,14 +31,19 @@ public class ListaCuentasPorCliente {
     Pooled pooled;
 
     public String verCuenta(Segregada segregada1){
-        historialCuentas.setSegregada(segregada1);
+        segregada = segregada1;
         return "HistorialTransacciones.xhtml";
     }
 
     public String verCuenta(Pooled pooled1){
-        pooled = pooled1;
-        return "HistorialTransacciones.xhtml";
+        sesion.setPooled(pooled1);
+        return "HistorialTransacciones.xhtml?faces-redirect=true";
     }
+
+    public Pooled getPooled() {
+        return pooled;
+    }
+
     public synchronized List<Segregada> getSegregadas(){
         List<Segregada> cuentasSeg = gestionGetCuentas.getSegregadas(sesion.getUsuario());
         if(cuentasSeg != null){

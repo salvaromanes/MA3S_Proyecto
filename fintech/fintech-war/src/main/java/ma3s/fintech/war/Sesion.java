@@ -1,5 +1,6 @@
 package ma3s.fintech.war;
 
+import ma3s.fintech.Pooled;
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.GestionAccesoAplicacion;
 import ma3s.fintech.ejb.excepciones.AccesoException;
@@ -25,6 +26,16 @@ public class Sesion implements Serializable {
     private SesionActual sesionActual;
 
     private Usuario usuario;
+
+    private Pooled pooled;
+
+    public Pooled getPooled() {
+        return pooled;
+    }
+
+    public void setPooled(Pooled p){
+        pooled = p;
+    }
 
     public Sesion(){ usuario = new Usuario(); }
 

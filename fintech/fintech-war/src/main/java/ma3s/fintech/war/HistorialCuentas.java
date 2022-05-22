@@ -22,6 +22,9 @@ import java.util.List;
 public class HistorialCuentas {
 
     @Inject
+    private Sesion sesion;
+
+    @Inject
     private GestionTransferencia gestionTransferencia;
 
 
@@ -63,7 +66,7 @@ public class HistorialCuentas {
     }
 
     public synchronized List<Transaccion> getTransPooled(){
-        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias2(pooled);
+        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias2(sesion.getPooled());
         if(transaccionList != null){
             return transaccionList;
         }
