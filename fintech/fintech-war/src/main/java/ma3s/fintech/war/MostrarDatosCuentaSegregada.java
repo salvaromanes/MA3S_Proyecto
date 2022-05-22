@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 @Named(value = "mostrarDatosCuentaSegregada")
 @RequestScoped
 public class MostrarDatosCuentaSegregada {
-    private static final Logger LOGGER = Logger.getLogger(InicioSesionIndex.class.getCanonicalName());
+    private static final Logger LOGGER = Logger.getLogger(MostrarDatosCuentaSegregada.class.getCanonicalName());
 
     @Inject
     private GestionGetCuentas gestionGetCuentas;
