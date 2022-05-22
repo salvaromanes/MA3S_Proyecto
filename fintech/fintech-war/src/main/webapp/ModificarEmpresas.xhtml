@@ -18,14 +18,27 @@
     <div class="centro">
 
       <h:panelGrid columns="1">
+
         <h:outputText value="Identificacion:" />
         <h:outputText value="#{cliente.identificacion}"/>
+
+        <h:outputText value="Nombre"/>
+        <h:inputText required="true" value="#{cliente.cliente.nombre}"/>
+
+        <h:outputText value="Apellidos"/>
+        <h:inputText required="true" value="#{cliente.cliente.apellido}"/>
+
+        <h:outputText value="Direccion"/>
+        <h:inputText required="true" value="#{cliente.cliente.direccion}"/>
 
         <h:outputText value="Ciudad"/>
         <h:inputText required="true" value="#{cliente.cliente.ciudad}"/>
 
         <h:outputText value="Codigo Postal"/>
         <h:inputText required="true" value="#{cliente.cliente.codigopostal}"/>
+
+        <h:outputText value="Pais"/>
+        <h:inputText required="true" value="#{cliente.cliente.pais}"/>
 
         <h:commandButton id="modificar" value="Modificar" action="#{cliente.modificar()}" />
 
