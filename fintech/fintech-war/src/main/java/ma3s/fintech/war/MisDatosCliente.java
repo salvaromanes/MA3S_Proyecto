@@ -43,6 +43,9 @@ public class MisDatosCliente {
     @Inject
     private GestionGetClientes gestionGetClientes;
 
+    @Inject
+    private Sesion sesion;
+
     private Cliente cliente;
 
     private Individual individual;
@@ -76,7 +79,7 @@ public class MisDatosCliente {
     }
 
 
-    public String pasarCliente(String identificacion) {
+    /*public String pasarCliente(String identificacion) {
         try {
             cliente = gestionGetClientes.devolverCliente(identificacion);
 
@@ -87,11 +90,13 @@ public class MisDatosCliente {
             LOGGER.info("ClienteNoExisteException " + e.getMessage());
         }
         return "index.xhtml";
-    }
+    }*/
 
 
-    public String modificar(Cliente c) {
+    public String modificar() {
+        String identificacion1 = sesion.getIdentificacion();
         try {
+            Cliente c = gestionGetClientes.devolverCliente(identificacion1);
             individual = gestionGetClientes.devolverIndividual(c.getId());
             empresa = gestionGetClientes.devolverEmpresa(c.getId());
 
@@ -120,6 +125,8 @@ public class MisDatosCliente {
             LOGGER.info("IndividualNoExistenteException " + e.getMessage());
         } catch (EmpresaNoExistenteException e) {
             LOGGER.info("EmpresaNoExistenteException " + e.getMessage());
+        } catch (ClienteNoExisteException e) {
+            LOGGER.info("ClienteNoExisteException " + e.getMessage());
         }
         return "Listaclientes.xhtml";
     }
