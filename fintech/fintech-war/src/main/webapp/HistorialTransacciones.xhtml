@@ -18,7 +18,7 @@
 
     <h:form id="Segregadas" >
         <div class="card">
-            <h:dataTable var="segregadas" value="#{hisotrial.transSeg}">
+            <h:dataTable var="segregadas" value="#{historial.segregada}">
 
                 <h:column headerText="Fecha de ejecucion">
                     <h:outputText value="#{segregadas.fechaEjecucion}" />
@@ -51,7 +51,7 @@
 
     <h:form id="Pooled" >
         <div class="card">
-            <h:dataTable var="pooled" value="#{listCuenta.pooleds}">
+            <h:dataTable var="pooled" value="#{historial.pooled}">
 
                 <h:column headerText="IBAN">
                     <h:outputText value="#{pooled.iban}" />
