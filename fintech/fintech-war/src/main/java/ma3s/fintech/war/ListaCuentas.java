@@ -11,6 +11,8 @@ import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -48,8 +50,6 @@ public class ListaCuentas {
 
     public synchronized List<Referencia> getReferencias() { return gestionGetCuentas.getReferencias();}
 
-    public synchronized List<DepositadaEn> getDepositos(String iban) {return gestionGetCuentas.getReferenciaPooled(iban); }
-
     public String cerrar (String iban){
         try{
             gestionCierreCuenta.cerrarCuenta(iban, infosesion.getUsuario().getUser());
@@ -64,6 +64,14 @@ public class ListaCuentas {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public String fechaSimple(Date date){
+
+        if(date == null){
+            return null;
+        }
+        return new SimpleDateFormat("dd-MM-yyyy").format(date);
     }
 
 }
