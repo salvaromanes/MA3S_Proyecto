@@ -13,40 +13,66 @@
 </h:head>
 
 <h:body>
-  <h1> <strong> Mis Datos </strong> </h1>
+  <h1 class="cliente"> Modificar Cliente </h1>
+  <h:form id="form">
+    <div class="cliente">
+      <h:panelGrid columns="1">
 
-  <h:form id = "cliente">
-    <div class="cliente" >
-      <p:dataTable>
-        <p:column headerText="Campos">
-          <h:outputText value="Identificacion" />
-          <h:outputText value="TipoCliente" />
-          <h:outputText value="Estado" />
-          <h:outputText value="FechaAlta" />
-          <h:outputText value="FechaBaja" />
-          <h:outputText value="Dirección" />
-          <h:outputText value="Ciudad" />
-          <h:outputText value="CodigoPostal" />
-          <h:outputText value="Pais" />
 
-        </p:column>
+        <h:outputText value="Nombre:" />
+        <h:inputText id="nombre" required="true"
+                     value="#{cliente.cliente.nombre}" />
 
-        <p:column headerText="Valor">
-          <h:inputText value="#{cliente.identificacion}" />
-          <h:inputText value="#{cliente.tipoCliente}" />
-          <h:inputText value="#{cliente.estado}" />
-          <h:inputText value="#{cliente.fechaAlta}" />
-          <h:inputText value="#{cliente.fechaBaja}" />
-          <h:inputText value="#{cliente.direccion}" />
-          <h:inputText value="#{cliente.ciudad}" />
-          <h:inputText value="#{cliente.codigopostal}" />
-          <h:inputText value="#{cliente.pais}" />
+        <h:outputText value="Apellidos:" />
+        <h:inputText id="apellidos" required="true"
+                     value="#{cliente.cliente.apellidos}" />
 
-        </p:column>
-      </p:dataTable>
+        <h:outputText value="Identificacion:" />
+        <h:inputText id="identificacion" required="true"
+                     value="#{cliente.cliente.identificacion}" />
+
+        <h:outputText value="TipoCliente:" />
+        <h:inputText id="tipoCliente" required="true"
+                     value="#{cliente.cliente.tipoCliente}" />
+
+        <h:outputText value="Estado" />
+        <h:inputText id="estado" required="true"
+                     value="#{cliente.cliente.estado}" />
+
+        <h:outputText value="FechaAlta" />
+        <h:inputText id="fechaAlta" required="true"
+                     value="#{cliente.cliente.fechaAlta}" />
+
+        <h:outputText value="FechaBaja" />
+        <h:inputText id="fechaBaja" required="true"
+                     value="#{cliente.cliente.fechaBaja}" />
+
+        <h:outputText value="Direccion" />
+        <h:inputText id="direccion" required="true"
+                     value="#{cliente.cliente.direccion}" />
+
+        <h:outputText value="Ciudad" />
+        <h:inputText id="ciudad" required="true"
+                     value="#{cliente.cliente.ciudad}" />
+
+        <h:outputText value="Codigopostal" />
+        <h:inputText id="codigopostal" required="true"
+                     value="#{cliente.cliente.codigopostal}" />
+
+        <h:outputText value="Pais" />
+        <h:inputText id="pais" required="true"
+                     value="#{cliente.cliente.pais}" />
+        <h:inputHidden value="#{cliente.cliente.id}"/>
+
+        <h:commandButton id="modificar" value="Modificar" action="#{cliente.modificar()}" />
+
+      </h:panelGrid>
     </div>
   </h:form>
 
 </h:body>
+
+
+
 
 </html>

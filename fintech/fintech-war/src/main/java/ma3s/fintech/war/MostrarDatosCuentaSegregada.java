@@ -13,10 +13,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
-@Named(value = "mostrarDatosCuentaPooled")
+@Named(value = "mostrarDatosCuentaSegregada")
 @RequestScoped
-public class MostrarDatosCuenta {
-    private static final Logger LOGGER = Logger.getLogger(MostrarDatosCuenta.class.getCanonicalName());
+public class MostrarDatosCuentaSegregada {
+    private static final Logger LOGGER = Logger.getLogger(MostrarDatosCuentaSegregada.class.getCanonicalName());
 
     @Inject
     private GestionGetCuentas gestionGetCuentas;
@@ -28,17 +28,17 @@ public class MostrarDatosCuenta {
     private Sesion sesion;
 
     private List<Autorizacion> autorizaciones = new ArrayList<Autorizacion>();
-    private List<Pooled> listaPooled = new ArrayList<Pooled>();
-    private String iban = "ES8400817251647192321264";
-    private String id = "63937528N";
+    private List<Segregada> listaSegregada = new ArrayList<Segregada>();
+    private String iban = "NL63ABNA6548268733";
+    private String id = "P3310693A";
 
     public synchronized List<Autorizacion> getAutorizaciones() {
         return gestionGetCuentas.getAutorizaciones(iban, id);
     }
 
     //Metodo para leer a todos los clientes
-    public synchronized List<Pooled> getCuentas(){
-        return gestionGetCuentas.getPooled(iban);
+    public synchronized List<Segregada> getCuentas(){
+        return gestionGetCuentas.getSegregada(iban);
     }
 
 }
