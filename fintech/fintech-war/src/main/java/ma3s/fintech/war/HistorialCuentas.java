@@ -14,6 +14,7 @@ import ma3s.fintech.ejb.excepciones.SaldoNoSuficiente;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.ArrayList;
 import java.util.List;
 
 @Named(value = "hisotrial")
@@ -40,7 +41,8 @@ public class HistorialCuentas {
        if(transaccionList != null){
            return transaccionList;
        }
-       return null;
+       List<Transaccion> aux = new ArrayList<>();
+       return aux;
    }
 
     public synchronized List<Transaccion> getTransPooled(){
@@ -48,7 +50,8 @@ public class HistorialCuentas {
         if(transaccionList != null){
             return transaccionList;
         }
-        return null;
+        List<Transaccion> aux = new ArrayList<>();
+        return aux;
     }
 
 
