@@ -187,7 +187,7 @@ public class MisDatosCliente {
         } catch (ClienteNoExisteException e) {
 
         }
-        return null;
+        return "index.xhtml";
     }
 
     public String modificar() {
@@ -214,7 +214,7 @@ public class MisDatosCliente {
                 gestionModificarCliente.modPaisEmpresa(cliente.getId(), pais);
             }
 
-            return "MisDatosClientes.xhtml";
+            return "Listaclientes.xhtml";
         } catch (PersonaNoExisteException e) {
 
         } catch (CampoVacioException e) {

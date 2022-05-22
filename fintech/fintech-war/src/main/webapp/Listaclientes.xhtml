@@ -12,6 +12,7 @@
 </h:head>
 <h:body>
 
+<h:panelGrid>
 <h:form id="caja1">
     <p:dataTable id="dtCliente" paginator="true" paginatorPosition="top" emptyMessage="No hay clientes" value="#{listaClientes.clientes}" var="a">
 
@@ -55,6 +56,6 @@
         </p:column>
     </p:dataTable>
 </h:form>
-
+</h:panelGrid>
 </h:body>
 </html>
