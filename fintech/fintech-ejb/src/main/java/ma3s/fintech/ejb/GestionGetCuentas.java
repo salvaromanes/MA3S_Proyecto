@@ -21,6 +21,10 @@ public interface GestionGetCuentas {
     public List<Referencia> getReferencias();
 
     public List<Autorizacion> getAutorizaciones (String iban, String ident);
+
+    public List<Referencia> getReferenciaSegregada(String iban);
+
+    public List<DepositadaEn> getReferenciaPooled(String iban);
 }
 
 

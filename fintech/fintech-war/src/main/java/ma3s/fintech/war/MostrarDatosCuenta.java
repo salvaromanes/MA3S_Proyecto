@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 @Named(value = "mostrarDatosCuentaPooled")
 @RequestScoped
 public class MostrarDatosCuenta {
-    private static final Logger LOGGER = Logger.getLogger(InicioSesionIndex.class.getCanonicalName());
+    private static final Logger LOGGER = Logger.getLogger(MostrarDatosCuenta.class.getCanonicalName());
 
     @Inject
     private GestionGetCuentas gestionGetCuentas;
@@ -40,5 +40,7 @@ public class MostrarDatosCuenta {
     public synchronized List<Pooled> getCuentas(){
         return gestionGetCuentas.getPooled(iban);
     }
+
+    public synchronized List<DepositadaEn> getDepositos() {return gestionGetCuentas.getReferenciaPooled(iban); }
 
 }

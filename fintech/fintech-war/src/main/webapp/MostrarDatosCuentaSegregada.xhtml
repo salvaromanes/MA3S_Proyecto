@@ -60,7 +60,7 @@
 
         <h:form id="MostarAutorizacion">
             <div class="card">
-                <p:dataTable var="autorizacion" value="#{mostrarDatosCuenta.autorizaciones}">
+                <p:dataTable var="autorizacion" value="#{mostrarDatosCuentaSegregada.autorizaciones}">
                     <p:column headerText="Identificacion">
                         <h:outputText value="#{autorizacion.autorizadaId.identificacion}" />
                     </p:column>
@@ -75,6 +75,24 @@
 
                     <p:column headerText="Eliminar Autorizacion">
                         <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Eliminar Autorizado"/>
+                    </p:column>
+                </p:dataTable>
+            </div>
+        </h:form>
+
+        <h:form id="MostrarReferencia">
+            <div class="card">
+                <p:dataTable var="referencia" value="#{mostrarDatosCuentaSegregada.cuentas}">
+                    <p:column headerText="Iban cuenta referencia">
+                        <h:outputText value="#{referencia.referencia.iban}" />
+                    </p:column>
+
+                    <p:column headerText="Saldo">
+                        <h:outputText value="#{referencia.referencia.saldo}" />
+                    </p:column>
+
+                    <p:column headerText="Divisa">
+                        <h:outputText value="#{referencia.referencia.divisa.abreviatura}" />
                     </p:column>
                 </p:dataTable>
             </div>

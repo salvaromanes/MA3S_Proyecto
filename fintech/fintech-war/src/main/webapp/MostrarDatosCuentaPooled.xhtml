@@ -18,7 +18,7 @@
 
     <div class="center">
 
-        <h3>Datos de una cuenta Pooled</h3>
+        <h2>Datos de una cuenta Pooled</h2>
 
         <h:form id="MostrarPooled">
             <div class="card">
@@ -54,6 +54,7 @@
             </div>
         </h:form>
 
+        <h3>Autorizaciones de la cuenta pooled</h3>
         <h:form id="MostarAutorizacion">
             <div class="card">
                 <p:dataTable var="autorizacion" value="#{mostrarDatosCuentaPooled.autorizaciones}">
@@ -71,6 +72,21 @@
 
                     <p:column headerText="Eliminar Autorizacion">
                         <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Eliminar Autorizado"/>
+                    </p:column>
+                </p:dataTable>
+            </div>
+        </h:form>
+
+        <h3>Lista de depositos de la cuenta pooled</h3>
+        <h:form id="Depositos">
+            <div class="card">
+                <p:dataTable var="deposito" value="#{mostrarDatosCuentaPooled.depositos}">
+                    <p:column headerText="Iban Referencia">
+                        <h:outputText value="#{deposito.referencia.iban}" />
+                    </p:column>
+
+                    <p:column headerText="Saldo">
+                        <h:outputText value="#{deposito.saldo}" />
                     </p:column>
                 </p:dataTable>
             </div>
