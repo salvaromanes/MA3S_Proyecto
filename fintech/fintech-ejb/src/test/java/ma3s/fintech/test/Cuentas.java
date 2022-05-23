@@ -34,6 +34,7 @@ public class Cuentas {
         final String ibanCuenta = "12345678";
         final String swiftCuenta = "12384";
         final String usuario = "Salva";
+        final String identificacion = "UMA";
 
         Cuenta cuenta = new Cuenta();
         cuenta.setIban(ibanCuenta);
@@ -42,7 +43,7 @@ public class Cuentas {
         final String divisa = "EUR";
 
         try{
-            gestionAperturaCuenta.abrirCuentaPooled(cuenta.getIban(), cuenta.getSwift(), usuario, divisa);
+            gestionAperturaCuenta.abrirCuentaPooled(cuenta.getIban(), cuenta.getSwift(), usuario, divisa, identificacion);
             fail("Debe lanzar una excepcion");
         } catch (CuentaExistenteException e) {
             //ok
@@ -52,6 +53,8 @@ public class Cuentas {
             fail("Debe lanzar una excepcion CuentaExistente");
         } catch (DivisaExistenteException e) {
             fail("Debe lanzar una exepcion DivisaExistenteException");
+        } catch (ClienteNoExisteException e) {
+            fail("Debe lanzar una exepcion ClienteNoExisteException");
         }
     }
 
@@ -61,15 +64,18 @@ public class Cuentas {
         final String ibanCuenta = "12315";
         final String swiftCuenta = "12323";
         final String usuario = "Salva";
+        final String identificacion = "8554A";
 
         try{
-            gestionAperturaCuenta.abrirCuentaSegregate(ibanCuenta, swiftCuenta, usuario);
+            gestionAperturaCuenta.abrirCuentaSegregate(ibanCuenta, swiftCuenta, usuario, identificacion);
             fail("Debe lanzar una excepcion");
         } catch (CuentaExistenteException e) {
             //ok
         } catch (UsuarioNoEncontradoException e) {
             fail("Debe lanzar una excepcion CuentaExistente");
         } catch (UsuarioIncorrectoException e) {
+            fail("Debe lanzar una excepcion CuentaExistente");
+        } catch (ClienteNoExisteException e) {
             fail("Debe lanzar una excepcion CuentaExistente");
         }
     }
@@ -80,6 +86,7 @@ public class Cuentas {
         final String ibanCuenta = "132";
         final String swiftCuenta = "132";
         final String usuario = "Salva";
+        final String identificacion = "UMA";
 
         Cuenta cuenta = new Cuenta();
         cuenta.setIban(ibanCuenta);
@@ -88,7 +95,7 @@ public class Cuentas {
         final String divisa = "EUR";
 
         try{
-            gestionAperturaCuenta.abrirCuentaPooled(cuenta.getIban(), cuenta.getSwift(), usuario, divisa);
+            gestionAperturaCuenta.abrirCuentaPooled(cuenta.getIban(), cuenta.getSwift(), usuario, divisa, identificacion);
             //ok
         } catch (CuentaExistenteException e) {
             fail("No debe lanzar una excepcion CuentaExistenteException");
@@ -98,6 +105,8 @@ public class Cuentas {
             fail("No debe lanzar una excepcion UsuarioIncorrectoException");
         } catch (DivisaExistenteException e) {
             fail("No debe lanzar una excepcion DivisaExistenteException");
+        } catch (ClienteNoExisteException e) {
+            fail("No debe lanzar una excepcion ClienteNoExisteException");
         }
     }
 
@@ -107,15 +116,18 @@ public class Cuentas {
         final String ibanCuenta = "9999";
         final String swiftCuenta = "8888";
         final String usuario = "Salva";
+        final String identificacion = "UCAM";
 
         try{
-            gestionAperturaCuenta.abrirCuentaSegregate(ibanCuenta, swiftCuenta, usuario);
+            gestionAperturaCuenta.abrirCuentaSegregate(ibanCuenta, swiftCuenta, usuario, identificacion);
             //ok
         } catch (CuentaExistenteException e) {
             fail("No debe lanzar una excepcion");
         } catch (UsuarioNoEncontradoException e) {
             fail("No debe lanzar una excepcion");
         } catch (UsuarioIncorrectoException e) {
+            fail("No debe lanzar una excepcion");
+        } catch (ClienteNoExisteException e) {
             fail("No debe lanzar una excepcion");
         }
     }

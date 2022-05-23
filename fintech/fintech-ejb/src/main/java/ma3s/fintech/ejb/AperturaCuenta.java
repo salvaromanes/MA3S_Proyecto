@@ -1,14 +1,12 @@
 package ma3s.fintech.ejb;
 
 import ma3s.fintech.*;
-import ma3s.fintech.ejb.excepciones.CuentaExistenteException;
-import ma3s.fintech.ejb.excepciones.DivisaExistenteException;
-import ma3s.fintech.ejb.excepciones.UsuarioIncorrectoException;
-import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
+import ma3s.fintech.ejb.excepciones.*;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.Date;
 
 @Stateless
@@ -27,7 +25,7 @@ public class AperturaCuenta implements GestionAperturaCuenta{
     }
 
     @Override
-    public void abrirCuentaPooled(String iban, String swift, String usuario, String divisaAbrev) throws CuentaExistenteException, UsuarioNoEncontradoException, UsuarioIncorrectoException, DivisaExistenteException {
+    public void abrirCuentaPooled(String iban, String swift, String usuario, String divisaAbrev, String identificacion) throws CuentaExistenteException, UsuarioNoEncontradoException, UsuarioIncorrectoException, DivisaExistenteException, ClienteNoExisteException {
         Cuenta cuenta = em.find(Cuenta.class, iban);
 
         comprobarAdministrador(usuario);
@@ -39,6 +37,25 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         Divisa divisa = em.find(Divisa.class, divisaAbrev);
         if(divisa == null) throw new DivisaExistenteException("La divisa no existe");
 
+        Cliente cliente;
+        Query query = em.createQuery("select c from Cliente c where c.identificacion like :ident").setParameter("ident", identificacion);
+
+        if(query.getResultList() == null){
+            throw new ClienteNoExisteException("El cliente no existe");
+        }
+
+        if(query.getResultList().size() == 0){
+            throw new ClienteNoExisteException("El cliente no existe");
+        }
+
+        cliente = (Cliente )query.getResultList().get(0);
+
+        if(cliente == null){
+            throw new ClienteNoExisteException("El cliente no existe");
+        }
+
+
+
         Pooled pooled = new Pooled();
         pooled.setIban(iban);
         pooled.setSwift(swift);
@@ -46,12 +63,13 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         pooled.setDivisa(divisa);
         pooled.setFechaApertura(new Date());
         pooled.setSaldo(0.0);
+        pooled.setCliente(cliente);
 
         em.persist(pooled);
     }
 
     @Override
-    public void abrirCuentaSegregate(String iban, String swift, String usuario) throws CuentaExistenteException, UsuarioNoEncontradoException, UsuarioIncorrectoException {
+    public void abrirCuentaSegregate(String iban, String swift, String usuario, String identificacion) throws CuentaExistenteException, UsuarioNoEncontradoException, UsuarioIncorrectoException, ClienteNoExisteException {
         Cuenta cuenta = em.find(Cuenta.class, iban);
 
         comprobarAdministrador(usuario);
@@ -60,12 +78,30 @@ public class AperturaCuenta implements GestionAperturaCuenta{
             throw new CuentaExistenteException("La cuenta con IBAN "+iban+" ya extiste.");
         }
 
+        Cliente cliente;
+        Query query = em.createQuery("select c from Cliente c where c.identificacion like :ident").setParameter("ident", identificacion);
+
+        if(query.getResultList() == null){
+            throw new ClienteNoExisteException("El cliente no existe");
+        }
+
+        if(query.getResultList().size() == 0){
+            throw new ClienteNoExisteException("El cliente no existe");
+        }
+
+        cliente = (Cliente)query.getResultList().get(0);
+
+        if(cliente == null){
+            throw new ClienteNoExisteException("El cliente no existe");
+        }
+
         Segregada segregate = new Segregada();
         segregate.setIban(iban);
         segregate.setSwift(swift);
         segregate.setEstado("Abierta");
         segregate.setFechaApertura(new Date());
         segregate.setComision(0.0);
+        segregate.setCliente(cliente);
 
         em.persist(segregate);
     }

@@ -1,12 +1,13 @@
 package ma3s.fintech.ejb;
 
-import ma3s.fintech.Referencia;
-import ma3s.fintech.Usuario;
+import ma3s.fintech.*;
 import ma3s.fintech.ejb.excepciones.*;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.List;
 
 @Stateless
 public class CierreCuenta implements GestionCierreCuenta{
@@ -27,17 +28,29 @@ public class CierreCuenta implements GestionCierreCuenta{
     public void cerrarCuenta(String iban, String usuario) throws CuentaNoExistenteException, CuentaNoVacia, UsuarioNoEncontradoException, UsuarioIncorrectoException {
         comprobarAdministrador(usuario);
 
-        Referencia referencia = em.find(Referencia.class, iban);
+        Segregada s = em.find(Segregada.class, iban);
+        Pooled p = em.find(Pooled.class, iban);
 
-        if(referencia == null){
-            throw new CuentaNoExistenteException("La cuenta referencia no existe");
+        if(s == null && p == null)
+            throw new CuentaNoExistenteException("La cuenta no existe");
+
+        if(p != null){
+            Query query = em.createQuery("select d from DepositadaEn d");
+            List<DepositadaEn> depositadas = query.getResultList();
+            for(DepositadaEn d : depositadas){
+                if(d.getIbanPooled().equals(p) && d.getSaldo() != 0)
+                    throw new CuentaNoVacia("La cuenta no tiene saldo 0");
+            }
+            p.setEstado("Cerrada");
+            em.merge(p);
         }
 
-        if(referencia.getSaldo() != 0){
-            throw new CuentaNoVacia("La cuenta con IBAN "+iban+" no tiene el saldo a 0.");
+        if(s != null){
+            if(s.getReferencia().getSaldo() != 0)
+                throw new CuentaNoVacia("La cuenta no tiene saldo 0");
+            s.setEstado("Cerrada");
+            em.merge(s);
         }
 
-        referencia.setEstado("Cerrado");
-        em.merge(referencia);
     }
 }
