@@ -20,49 +20,45 @@
                 <p:menuitem value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
                 </p:menuitem>
 
-                <p:submenu label="Clientes" icon="pi pi-fw pi-file">
-                    <p:menuitem value="Lista" icon="pi pi-fw pi-external-link"/>
-                    <p:submenu label="New" icon="pi pi-fw pi-plus">
-                        <p:menuitem value="Individual" icon="pi pi-fw pi-bookmark"/>
-                        <p:menuitem value="Jurídico" icon="pi pi-fw pi-video"/>
-                    </p:submenu>
-                </p:submenu>
+                <p:divider layout="vertical"/>
 
-                <p:submenu label="Users" icon="pi pi-fw pi-user">
-                    <p:menuitem value="New" icon="pi pi-fw pi-user-plus"/>
-                    <p:menuitem value="Delete" icon="pi pi-fw pi-user-minus"/>
-                    <p:submenu label="Search" icon="pi pi-fw pi-users">
-                        <p:submenu label="Filter" icon="pi pi-fw pi-filter">
-                            <p:menuitem value="Print" icon="pi pi-fw pi-print"/>
-                        </p:submenu>
-                        <p:menuitem value="List" icon="pi pi-fw pi-bars"/>
-                    </p:submenu>
-                </p:submenu>
-
-                <p:submenu label="Events" icon="pi pi-fw pi-calendar">
-                    <p:submenu label="Edit" icon="pi pi-fw pi-pencil">
-                        <p:menuitem value="Save" icon="pi pi-fw pi-calendar-plus"/>
-                        <p:menuitem value="Delete" icon="pi pi-fw pi-calendar-minus"/>
-                    </p:submenu>
-                    <p:submenu label="Archieve" icon="pi pi-fw pi-calendar-times">
-                        <p:menuitem value="Remove" icon="pi pi-fw pi-calendar-minus"/>
+                <p:submenu label="Clientes" icon="pi pi-fw pi-users">
+                    <p:menuitem value="Lista" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
+                    <p:submenu label="Dar Alta" icon="pi pi-fw pi-plus">
+                        <p:menuitem value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
+                        <p:menuitem value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
                     </p:submenu>
                 </p:submenu>
 
                 <p:divider layout="vertical"/>
 
-                <p:menuitem value="Quit" icon="pi pi-fw pi-power-off"/>
+                <p:submenu label="Cuentas" icon="pi pi-fw pi-wallet">
+                    <p:menuitem value="Lista" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
+                    <p:submenu label="Crear" icon="pi pi-fw pi-plus">
+                        <p:menuitem value="Segregada" outcome="CrearCuentaSegregada.xhtml" />
+                        <p:menuitem value="Pooled" outcome="CrearCuentaPooled.xhtml" />
+                    </p:submenu>
+                </p:submenu>
+
+                <p:divider layout="vertical"/>
+
+                <p:submenu label="Archivos" icon="pi pi-fw pi-file">
+                    <p:menuitem value="Generar CSV Alemania" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-file-excel"/>
+                    <p:menuitem value="Api Holanda" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-code"/>
+                </p:submenu>
+
+                <p:divider layout="vertical"/>
 
                 <f:facet name="options">
-                    <div class="ui-input-icon-left p-mr-2">
-                        <i class="pi pi-fw pi-search" />
-                        <p:inputText placeholder="Search"/>
-                    </div>
-                    <p:button value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info"/>
+                    <p:button value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info"/>
                 </f:facet>
             </p:menubar>
         </h:form>
     </div>
+
+    <script type="text/javascript">
+        if(sessionStorage)
+    </script>
 
     <p:spinner />
 </h:body>
