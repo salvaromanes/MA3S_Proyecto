@@ -12,30 +12,31 @@
     <title>Crear Cuenta</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="Estilos/estilosCrearCuenta.css" rel="stylesheet" type="text/css" />
-
 </h:head>
 
 <h:body>
 
     <div class="center">
-        <h:form id="crearCuenta">
-            <h3>Crear Cuenta segregada</h3>
 
+        <h3>Crear Cuenta Segregada</h3>
+
+        <h:form id="crearCuenta">
             <h:panelGrid class="casillas" columns="2">
-                <h:outputText class="textoAuxiliar" value="Introduzca el IBAN de la cuenta:"/>
+                <h:outputText class="textoAuxiliar" value="IBAN de la cuenta:"/>
                 <h:inputText class="entradaTexto" id="iban" required="true" value="#{crearCuenta.IBAN}"/>
 
 
-                <h:outputText class="textoAuxiliar" value="Introduzca el SWIFT de la cuenta:"/>
-                <h:inputSecret class="entradaTexto" id="swift" required="false" value="#{crearCuenta.SWIFT}" />
+                <h:outputText class="textoAuxiliar" value="SWIFT de la cuenta:"/>
+                <h:inputText class="entradaTexto" id="swift" required="false" value="#{crearCuenta.SWIFT}" />
 
+                <h:outputText class="textoAuxiliar" value="Identificacion:"/>
+                <h:inputText class="entradaTexto" id="identificacion" required="false" value="#{crearCuenta.identificacion}" />
 
-                <h:outputText class="textoAuxiliar" value="Introduzca la divisa:"/>
-                <h:inputSecret class="entradaTexto" id="divisa" required="false" value="#{crearCuenta.divisa}" />
 
                 <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Crear cuenta pooled" action="#{crearCuenta.crearCuentaSegregada(sesionActual.usuario.user)}"/>
-                <h:message for="divisa"/>
+                <h:message for="iban"/>
             </h:panelGrid>
+
         </h:form>
     </div>
 

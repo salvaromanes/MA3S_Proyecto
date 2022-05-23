@@ -4,10 +4,7 @@ package ma3s.fintech.war;
 import ma3s.fintech.Divisa;
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.GestionAperturaCuenta;
-import ma3s.fintech.ejb.excepciones.CuentaExistenteException;
-import ma3s.fintech.ejb.excepciones.DivisaExistenteException;
-import ma3s.fintech.ejb.excepciones.UsuarioIncorrectoException;
-import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
+import ma3s.fintech.ejb.excepciones.*;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -32,13 +29,20 @@ public class CrearCuenta {
     private String SWIFT;
     //private List<String> divisa;
     private String divisa;
+    private String identificacion;
 
     public String getIBAN(){return IBAN;}
     public String getSWIFT(){return SWIFT;}
     public String getDivisa(){return divisa;}
+    public String getIdentificacion() {
+        return identificacion;
+    }
     public void setSWIFT(String SWIFT){this.SWIFT = SWIFT;}
     public void setIBAN(String IBAN){this.IBAN = IBAN;}
     public void setDivisa(String divisa){this.divisa = divisa;}
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
 
     public CrearCuenta (){
 
@@ -47,9 +51,8 @@ public class CrearCuenta {
     public String crearCuentaPooled(String user){
         try{
             LOGGER.info("");
-            String nombreUsuario = sesion.getUsuario().getUser();
-            gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, user, divisa);
-            return "admin.xhtml";
+            gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, user, divisa, identificacion);
+            return "Listacuentas.xhtml";
         }catch (UsuarioNoEncontradoException e) {
             LOGGER.info("Usuario incorrecto");
             FacesMessage fm = new FacesMessage("El usuario no se encuentra en la base de datos");
@@ -57,14 +60,19 @@ public class CrearCuenta {
         } catch (UsuarioIncorrectoException e) {
             LOGGER.info("No es administrador");
             FacesMessage fm = new FacesMessage("");
-            FacesContext.getCurrentInstance().addMessage("crearCuentaPooled:divisa", fm);
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaPooled:divisa", fm);
         } catch (CuentaExistenteException e) {
             LOGGER.info("La cuenta ya existe");
-            e.printStackTrace();
+            FacesMessage fm = new FacesMessage("La cuenta ya existe");
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaPooled:divisa", fm);
         } catch (DivisaExistenteException e) {
             LOGGER.info("La divisa no existe");
             FacesMessage fm = new FacesMessage("La divisa no existe");
-            FacesContext.getCurrentInstance().addMessage("crearCuentaPooled:divisa", fm);
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaPooled:divisa", fm);
+        } catch (ClienteNoExisteException e) {
+            LOGGER.info("El cliente no existe");
+            FacesMessage fm = new FacesMessage("El cliente no existe");
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaPooled:divisa", fm);
         }
 
         return "CrearCuentaPooled.xhtml";
@@ -73,25 +81,25 @@ public class CrearCuenta {
     public String crearCuentaSegregada(String user){
         try{
             LOGGER.info("");
-            String nombreUsuario = sesion.getUsuario().getUser();
-            gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, user, divisa);
-            return "admin.xhtml";
+            gestionAperturaCuenta.abrirCuentaSegregate(IBAN, SWIFT, user, identificacion);
+            return "Listacuentas.xhtml";
 
         }catch (UsuarioNoEncontradoException e) {
             LOGGER.info("Usuario incorrecto");
             FacesMessage fm = new FacesMessage("El usuario no se encuentra en la base de datos");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:divisa", fm);
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:iban", fm);
         } catch (UsuarioIncorrectoException e) {
             LOGGER.info("No es administrador");
             FacesMessage fm = new FacesMessage("");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:divisa", fm);
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:iban", fm);
         } catch (CuentaExistenteException e) {
             LOGGER.info("La cuenta ya existe");
-            e.printStackTrace();
-        } catch (DivisaExistenteException e) {
-            LOGGER.info("La divisa no existe");
-            FacesMessage fm = new FacesMessage("La divisa no existe");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:divisa", fm);
+            FacesMessage fm = new FacesMessage("La cuenta ya existe");
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:iban", fm);
+        } catch (ClienteNoExisteException e) {
+            LOGGER.info("El cliente no existe");
+            FacesMessage fm = new FacesMessage("El cliente no existe");
+            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:iban", fm);
         }
 
         return "CrearCuentaSegregada.xhtml";

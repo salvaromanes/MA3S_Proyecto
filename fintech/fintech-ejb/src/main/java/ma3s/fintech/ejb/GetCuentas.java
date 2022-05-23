@@ -149,5 +149,11 @@ public class GetCuentas implements GestionGetCuentas{
         return listaDepositadas;
     }
 
+    @Override
+    public List<Segregada> getSegregadasAuto(Usuario usuario){return null;}
+
+    @Override
+    public List<Pooled> getPooledAut(Usuario usuario){return null;}
+
 }
 
