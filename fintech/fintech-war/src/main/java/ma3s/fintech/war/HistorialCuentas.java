@@ -17,9 +17,12 @@ import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
-@Named(value = "hisotrial")
+@Named(value = "historial")
 @RequestScoped
 public class HistorialCuentas {
+
+    @Inject
+    private Sesion sesion;
 
     @Inject
     private GestionTransferencia gestionTransferencia;
@@ -27,6 +30,23 @@ public class HistorialCuentas {
 
     Segregada segregada;
     Pooled pooled;
+
+    public Segregada getSegregada() {
+        return segregada;
+    }
+
+    public void setSegregada(Segregada segregada) {
+        this.segregada = segregada;
+    }
+
+    public Pooled getPooled() {
+        return pooled;
+    }
+
+    public void setPooled(Pooled pooled) {
+        this.pooled = pooled;
+    }
+
     public String verCuenta(Segregada segregada1){
         segregada = segregada1;
         return "TransaccionCliente.xhtml";
@@ -36,17 +56,17 @@ public class HistorialCuentas {
         pooled = pooled1;
         return "TransaccionCliente.xhtml";
     }
-   public synchronized List<Transaccion> getTransSeg(){
-       List<Transaccion> transaccionList = gestionTransferencia.verTransferencias(segregada);
-       if(transaccionList != null){
-           return transaccionList;
-       }
-       List<Transaccion> aux = new ArrayList<>();
-       return aux;
-   }
+    public synchronized List<Transaccion> getTransSeg(){
+        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias(segregada);
+        if(transaccionList != null){
+            return transaccionList;
+        }
+        List<Transaccion> aux = new ArrayList<>();
+        return aux;
+    }
 
     public synchronized List<Transaccion> getTransPooled(){
-        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias2(pooled);
+        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias2(sesion.getPooled());
         if(transaccionList != null){
             return transaccionList;
         }

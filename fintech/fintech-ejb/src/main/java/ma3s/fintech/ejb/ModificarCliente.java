@@ -174,15 +174,17 @@ public class ModificarCliente implements GestionModificarCliente{
 
     @Override
     public void modNombreIndividual(Long id, String nombre) throws CampoVacioException, IndividualNoExistenteException {
-        if(id == null)
+        if(id == null){
             throw new CampoVacioException();
+        }
         Individual individual = em.find(Individual.class, id);
 
         if (individual == null){
             throw new IndividualNoExistenteException("El individual con el id " + id + " no existe");
         }
-        if(nombre == null)
+        if(nombre == null) {
             throw new CampoVacioException();
+        }
 
         individual.setNombre(nombre);
 

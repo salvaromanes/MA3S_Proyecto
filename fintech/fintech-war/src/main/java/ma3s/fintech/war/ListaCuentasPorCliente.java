@@ -22,6 +22,8 @@ public class ListaCuentasPorCliente {
     @Inject
     private Sesion sesion;
 
+    @Inject
+    private HistorialCuentas historialCuentas;
 
     Cliente cliente;
     String iban;
@@ -34,9 +36,14 @@ public class ListaCuentasPorCliente {
     }
 
     public String verCuenta(Pooled pooled1){
-        pooled = pooled1;
-        return "HistorialTransacciones.xhtml";
+        sesion.setPooled(pooled1);
+        return "HistorialTransacciones.xhtml?faces-redirect=true";
     }
+
+    public Pooled getPooled() {
+        return pooled;
+    }
+
     public synchronized List<Segregada> getSegregadas(){
         List<Segregada> cuentasSeg = gestionGetCuentas.getSegregadas(sesion.getUsuario());
         if(cuentasSeg != null){
@@ -52,6 +59,27 @@ public class ListaCuentasPorCliente {
             return  cuentasPoo;
         }
         return null;
+    }
+
+
+    public synchronized List<Segregada> getSegregadasAut(){
+        List<Segregada> cuentasSeg = gestionGetCuentas.getSegregadasAuto(sesion.getUsuario());
+        if(cuentasSeg != null){
+            return  cuentasSeg;
+        }
+        List<Segregada> aux = new ArrayList<>();
+        return aux;
+    }
+
+
+
+    public synchronized List<Pooled> getPooledAut(){
+        List<Pooled> pooledList = gestionGetCuentas.getPooledAut(sesion.getUsuario());
+        if(pooledList != null){
+            return  pooledList;
+        }
+        List<Pooled> aux = new ArrayList<>();
+        return aux;
     }
 
 }

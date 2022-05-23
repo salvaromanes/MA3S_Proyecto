@@ -11,6 +11,12 @@ body{
     background-size: cover;
 }
 
+.inicio{
+    color: white; !important;
+    font-size: medium;
+    text-align: center;
+}
+
 .container{
     width: 100%;
     max-width: 1200px;

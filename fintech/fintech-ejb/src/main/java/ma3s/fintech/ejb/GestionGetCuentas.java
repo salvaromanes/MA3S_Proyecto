@@ -12,9 +12,13 @@ public interface GestionGetCuentas {
 
     public List<Segregada> getSegregadas(Usuario usuario);
 
+    public List<Segregada> getSegregadas();
+
     public List<Pooled> getPooled (String iban);
 
     public List<Pooled> getPooleds(Usuario usuario);
+
+    public List<Pooled> getPooleds();
 
     public Referencia getReferencia(String iban);
 
@@ -25,6 +29,12 @@ public interface GestionGetCuentas {
     public List<Referencia> getReferenciaSegregada(String iban);
 
     public List<DepositadaEn> getReferenciaPooled(String iban);
-}
+
+    public List<Segregada> getSegregadasAuto(Usuario usuario);
+
+    public List<Pooled> getPooledAut(Usuario usuario);
+
+
+    }
 
 

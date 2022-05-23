@@ -17,4 +17,14 @@ public interface GestionGetClientes {
     public Individual devolverIndividual(Long id) throws PersonaNoExisteException;
 
     public Empresa devolverEmpresa(Long id) throws EmpresaNoExistenteException;
+
+    public Individual devolverIndividual(String identificacion) throws PersonaNoExisteException;
+
+    public Empresa devolverEmpresa(String identificacion) throws EmpresaNoExistenteException;
+
+    public List<Empresa> getEmpresas();
+
+    public List<Individual> getIndividuales();
+
+
 }

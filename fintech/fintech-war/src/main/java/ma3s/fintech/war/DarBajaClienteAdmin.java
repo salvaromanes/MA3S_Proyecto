@@ -18,7 +18,7 @@ import java.util.List;
 @Named(value = "admin")
 @RequestScoped
 public class DarBajaClienteAdmin {
-
+/*
     private String razonSocial;
     private List<Autorizacion> autorizaciones;
     private String nombre;
@@ -34,7 +34,7 @@ public class DarBajaClienteAdmin {
     private String ciudad;
     private String codigopostal;
     private String pais;
-
+*/
     @Inject
     private GestionBajaCliente gestionBajaCliente;
 
@@ -182,18 +182,19 @@ public class DarBajaClienteAdmin {
         try {
             cliente = gestionGetClientes.devolverCliente(identificacion);
 
-            return "MisDatosClientes.xhtml";
+            darBajaCliente(cliente);
+            return "ModificarIndividuales.xhtml";
         } catch (ClienteNoExisteException e) {
 
         }
         return null;
     }
 
-    public String darBajaCliente() {
+    public String darBajaCliente(Cliente c) {
         try {
-            gestionBajaCliente.darBajaCliente(cliente.getId());
+            gestionBajaCliente.darBajaCliente(c.getId());
 
-            return "MisDatosClientes.xhtml";
+            return "ModificarIndividuales.xhtml";
 
         } catch (ClienteNoExisteException e) {
             throw new RuntimeException(e);

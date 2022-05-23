@@ -1,5 +1,6 @@
 package ma3s.fintech.war;
 
+import ma3s.fintech.Pooled;
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.GestionAccesoAplicacion;
 import ma3s.fintech.ejb.excepciones.AccesoException;
@@ -26,6 +27,26 @@ public class Sesion implements Serializable {
 
     private Usuario usuario;
 
+    private Pooled pooled;
+
+    private String identificacion;
+
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
+
+    public Pooled getPooled() {
+        return pooled;
+    }
+
+    public void setPooled(Pooled p){
+        pooled = p;
+    }
+
     public Sesion(){ usuario = new Usuario(); }
 
     public synchronized void setUsuario(Usuario usuario){
@@ -40,7 +61,7 @@ public class Sesion implements Serializable {
         try {
             gestionAccesoAplicacion.entrarAplicacion(usuario.getUser(), usuario.getContrasena());
             sesionActual.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
-            return "principalCliente.xhtml";
+            return "principalCliente.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
             LOGGER.info("Campos sin rellenar");
             FacesMessage fm = new FacesMessage("Campos sin rellenar");
@@ -59,7 +80,7 @@ public class Sesion implements Serializable {
         try {
             gestionAccesoAplicacion.entrarAplicacionAdministrador(usuario.getUser(), usuario.getContrasena());
             sesionActual.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
-            return "principalAdmin.xhtml";
+            return "principalAdmin.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
             LOGGER.info("Campos sin rellenar");
             FacesMessage fm = new FacesMessage("Campos sin rellenar");

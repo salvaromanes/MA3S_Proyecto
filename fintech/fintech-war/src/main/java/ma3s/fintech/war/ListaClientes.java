@@ -1,6 +1,8 @@
 package ma3s.fintech.war;
 
 import ma3s.fintech.Cliente;
+import ma3s.fintech.Empresa;
+import ma3s.fintech.Individual;
 import ma3s.fintech.ejb.GestionBajaCliente;
 import ma3s.fintech.ejb.GestionGetClientes;
 import ma3s.fintech.ejb.excepciones.CampoVacioException;
@@ -51,14 +53,29 @@ public class ListaClientes {
         return gestionGetClientes.getClientes();
     }
 
+    public synchronized List<Individual> getIndividuales(){ return gestionGetClientes.getIndividuales();}
+
+    public synchronized List<Empresa> getEmpresas(){ return gestionGetClientes.getEmpresas();}
+
     public String modificar(Cliente c){
-        cliente = c;
-        return "MisDatosClientes.xhtml";
+        infosesion.setIdentificacion(c.getIdentificacion());
+        return "ModificarIndividuales.xhtml?faces-redirect=true";
+    }
+
+    public String modificarIndividual(Individual i){
+        infosesion.setIdentificacion(i.getIdentificacion());
+        return "ModificarIndividuales.xhtml?faces-redirect=true";
+    }
+
+    public String modificarEmpresa(Empresa e){
+        infosesion.setIdentificacion(e.getIdentificacion());
+        return "ModificarEmpresa.xhtml?faces-redirect=true";
     }
 
     public String baja(Cliente c){
         try{
             bajaCliente.darBajaCliente(c.getId());
+            return "Listaclientes.xhtml?faces-redirect=true";
         } catch (ClienteNoExisteException e) {
             e.printStackTrace();
         } catch (CuentaAbiertaException e) {
