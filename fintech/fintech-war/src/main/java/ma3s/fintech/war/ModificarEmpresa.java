@@ -82,7 +82,7 @@ public class ModificarEmpresa {
             gestionModificarCliente.modCodigoPostalEmpresa(empresa.getId(), empresa.getCodigopostal());
             gestionModificarCliente.modPaisEmpresa(empresa.getId(), empresa.getPais());
 
-            return "Listaclientes.xhtml";
+            return "Listaclientes.xhtml?faces-redirect=true";
 
         } catch (EmpresaNoExistenteException e) {
             LOGGER.info("EmpresaNoExistenteException " + e.getMessage());

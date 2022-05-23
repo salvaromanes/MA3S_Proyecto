@@ -8,8 +8,9 @@ import java.util.Date;
 public class Transaccion implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private String idUnico;
+    protected String idUnico;
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date fechaInstruccion;

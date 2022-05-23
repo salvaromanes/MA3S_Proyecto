@@ -144,7 +144,7 @@ public class ModificarIndividual {
             gestionModificarCliente.modCodigoPostalIndividual(individual.getId(), individual.getCodigopostal());
             gestionModificarCliente.modPaisIndividual(individual.getId(), individual.getPais());
 
-            return "Listaclientes.xhtml";
+            return "Listaclientes.xhtml?faces-redirect=true";
 
         } catch (CampoVacioException e) {
             LOGGER.info("CampoVacioException " + e.getMessage());

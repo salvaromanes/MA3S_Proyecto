@@ -9,8 +9,9 @@ import java.util.Objects;
 @Entity
 public class PAutorizada implements Serializable {
 
-    @Id @GeneratedValue
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected Long id;
     @Column(unique=true, nullable = false)
     private String identificacion;
     @Column(nullable = false)

@@ -12,10 +12,14 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
+import java.util.logging.Logger;
 
 @Named(value = "DarAltaClienteAdministrador")
 @RequestScoped
 public class DarAltaClienteAdmin {
+
+    private static final Logger LOGGER = Logger.getLogger(DarAltaClienteAdmin.class.getCanonicalName());
+
 
     @Inject
     private GestionAltaCliente gestionAltaCliente;
@@ -28,25 +32,31 @@ public class DarAltaClienteAdmin {
     }
 
 
-    public String modificar() {
+    public String darAltaIndividual() {
         try {
+            individual.setTipoCliente("Individual");
+            individual.setEstado("Abierto");
+            individual.setFechaAlta(new Date());
             gestionAltaCliente.darAltaIndividual(individual);
-            gestionBajaCliente.darBajaCliente(individual.getId());
 
-            return "DarAltasClientesAdmin.xhtml";
+            return "Listaclientes.xhtml?faces-redirect=true";
         } catch (ClienteYaExistenteException e) {
+            LOGGER.info("Cliente Ya Existente");
             FacesMessage fm = new FacesMessage("El cliente ya existe");
             FacesContext.getCurrentInstance().addMessage("admin: ", fm);
-        } catch (ClienteNoExisteException e) {
-            FacesMessage fm = new FacesMessage("El cliente no existe");
-            FacesContext.getCurrentInstance().addMessage("admin: ", fm);
-        } catch (CuentaAbiertaException e) {
-            FacesMessage fm = new FacesMessage("La cuenta está abierta");
-            FacesContext.getCurrentInstance().addMessage("admin: ", fm);
         } catch (CampoVacioException e) {
+            LOGGER.info("Campo Vacio");
             FacesMessage fm = new FacesMessage("El campo esta vacio");
             FacesContext.getCurrentInstance().addMessage("admin: ", fm);
         }
         return null;
+    }
+
+    public Individual getIndividual() {
+        return individual;
+    }
+
+    public void setIndividual(Individual individual) {
+        this.individual = individual;
     }
 }

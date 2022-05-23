@@ -10,7 +10,8 @@ import java.util.Objects;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Cliente implements Serializable {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected Long id;
     @Column(nullable = false)
     private String identificacion;
     @Column(nullable = false)
