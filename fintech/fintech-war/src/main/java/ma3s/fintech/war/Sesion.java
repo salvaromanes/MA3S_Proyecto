@@ -97,6 +97,6 @@ public class Sesion implements Serializable {
             usuario = null;
             FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         }
-        return "login.xhtml";
+        return "login.xhtml?faces-redirect=true";
     }
 }
