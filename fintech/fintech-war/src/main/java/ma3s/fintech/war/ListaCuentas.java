@@ -58,16 +58,16 @@ public class ListaCuentas {
             return "Listacuentas.xhtml?faces-redirect=true";
         } catch (CuentaNoExistenteException e) {
             LOGGER.info("Cuenta no existe");
-            showMessage();
+            showMessage("Cuenta no existe");
         } catch (UsuarioNoEncontradoException e) {
             LOGGER.info("Usuario no encontrado");
-            showMessage();
+            showMessage("Usuario para el proceso no encontrado");
         } catch (CuentaNoVacia cuentaNoVacia) {
             LOGGER.info("Cuenta no vacia");
-            showMessage();
+            showMessage("La cuenta no está vacía");
         } catch (UsuarioIncorrectoException e) {
             LOGGER.info("Usuario Incorrecto");
-            showMessage();
+            showMessage("Usuario para el proceso incorrecto");
         }
         return null;
     }
@@ -80,8 +80,8 @@ public class ListaCuentas {
         return new SimpleDateFormat("dd-MM-yyyy").format(date);
     }
 
-    public void showMessage() {
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Message", " No se ha podido cerrar la cuenta");
+    public void showMessage(String msg) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", msg);
 
         PrimeFaces.current().dialog().showMessageDynamic(message);
     }
