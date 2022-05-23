@@ -60,12 +60,12 @@ public class Sesion implements Serializable {
             this.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
             return "principalCliente.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
-            LOGGER.info("Campos sin rellenar");
+            LOGGER.info("Campos sin rellenar " + e.getMessage());
             FacesMessage fm = new FacesMessage("Campos sin rellenar");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
             FacesContext.getCurrentInstance().addMessage("admin:user", fm);
         } catch (AccesoException e) {
-            LOGGER.info("Usuario incorrecto");
+            LOGGER.info("Usuario incorrecto " + e.getMessage());
             FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
             FacesContext.getCurrentInstance().addMessage("admin:user", fm);

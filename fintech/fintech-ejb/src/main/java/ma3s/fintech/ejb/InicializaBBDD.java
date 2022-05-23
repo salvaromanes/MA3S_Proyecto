@@ -8,6 +8,9 @@ import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import ma3s.fintech.DepositadaEn;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -20,6 +23,26 @@ import static java.lang.Long.parseLong;
 public class InicializaBBDD {
     @PersistenceContext(unitName = "FintechEjb")
     private EntityManager em;
+
+    private String encriptar(String password) {
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+        }
+        catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        byte[] hash = md.digest(password.getBytes());
+        StringBuffer sb = new StringBuffer();
+
+        for(byte b : hash) {
+            sb.append(String.format("%02x", b));
+        }
+
+        return sb.toString();
+    }
 
     @PostConstruct
     public void inicializar(){
@@ -222,19 +245,19 @@ public class InicializaBBDD {
 
         Usuario usuario1 = new Usuario();
         usuario1.setUser("juan");
-        usuario1.setContrasena("juan");
+        usuario1.setContrasena(encriptar("juan"));
         usuario1.setEsAdmin(false);
         usuario1.setCliente(individual);
 
         Usuario usuario2 = new Usuario();
         usuario2.setUser("ana");
-        usuario2.setContrasena("ana");
+        usuario2.setContrasena(encriptar("ana"));
         usuario2.setEsAdmin(false);
         usuario2.setAutorizada(pAutorizada);
 
         Usuario usuario3 = new Usuario();
         usuario3.setUser("ponciano");
-        usuario3.setContrasena("ponciano");
+        usuario3.setContrasena(encriptar("ponciano"));
         usuario3.setEsAdmin(true);
 
 

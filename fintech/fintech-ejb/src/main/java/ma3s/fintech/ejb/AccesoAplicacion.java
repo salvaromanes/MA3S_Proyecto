@@ -28,6 +28,26 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
         }
     }
 
+    private String encriptar(String password) {
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+        }
+        catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        byte[] hash = md.digest(password.getBytes());
+        StringBuffer sb = new StringBuffer();
+
+        for(byte b : hash) {
+            sb.append(String.format("%02x", b));
+        }
+
+        return sb.toString();
+    }
+
     @Override
     public Usuario entrarAplicacion(String usuario, String contrasena) throws AccesoException, CampoVacioException {
         Usuario user = em.find(Usuario.class, usuario);
@@ -40,11 +60,17 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
 //            throw new UsuarioIncorrectoException("El usuario es administrador");
 //        }
 
-        if(contrasena == null){
+        if(encriptar(contrasena) == null){
             throw new CampoVacioException("Contraseña vacia");
-        }else if(!contrasena.equals(user.getContrasena())){
+        }else if(!encriptar(contrasena).equals(user.getContrasena())){
             throw new ContraseñaIncorrectaException("Usuario o contraseña incorrecta");
         }
+
+//        if(contrasena == null){
+//            throw new CampoVacioException("Contraseña vacia");
+//        }else if(!contrasena.equals(user.getContrasena())){
+//            throw new ContraseñaIncorrectaException("Usuario o contraseña incorrecta");
+//        }
 
         return user;
     }
@@ -61,11 +87,17 @@ public class AccesoAplicacion implements GestionAccesoAplicacion {
             throw new UsuarioIncorrectoException("El usuario no es administrador");
         }
 
-        if(contrasena == null){
+        if(encriptar(contrasena) == null){
             throw new CampoVacioException("Contraseña vacia");
-        }else if(!contrasena.equals(user.getContrasena())){
+        }else if(!encriptar(contrasena).equals(user.getContrasena())){
             throw new ContraseñaIncorrectaException("Usuario o contraseña incorrecta");
         }
+
+//        if(contrasena == null){
+//            throw new CampoVacioException("Contraseña vacia");
+//        }else if(!contrasena.equals(user.getContrasena())){
+//            throw new ContraseñaIncorrectaException("Usuario o contraseña incorrecta");
+//        }
 
         return user;
     }
