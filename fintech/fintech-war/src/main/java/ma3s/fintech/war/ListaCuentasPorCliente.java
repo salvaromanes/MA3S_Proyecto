@@ -32,7 +32,7 @@ public class ListaCuentasPorCliente {
 
     public String verCuenta(Segregada segregada1){
         segregada = segregada1;
-        return "HistorialTransacciones.xhtml";
+        return "HistorialTransacciones.xhtml?faces-redirect=true";
     }
 
     public String verCuenta(Pooled pooled1){
@@ -42,11 +42,11 @@ public class ListaCuentasPorCliente {
 
     public String transS(Segregada segregada1){
         segregada = segregada1;
-        return "TransaccionCliente.xhtml";
+        return "TransaccionCliente.xhtml?faces-redirect=true";
     }
     public String transP(Pooled pooled1){
         pooled = pooled1;
-        return "TransaccionCliente.xhtml";
+        return "TransaccionCliente.xhtml?faces-redirect=true";
     }
     public Pooled getPooled() {
         return pooled;
