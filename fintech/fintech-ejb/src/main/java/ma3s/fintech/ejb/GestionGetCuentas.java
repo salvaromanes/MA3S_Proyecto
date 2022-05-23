@@ -32,6 +32,8 @@ public interface GestionGetCuentas {
 
     public List<Segregada> getSegregadasAuto(Usuario usuario);
 
+    public List<Pooled> getPooledAut(Usuario usuario);
+
 
     }
 

@@ -61,4 +61,25 @@ public class ListaCuentasPorCliente {
         return null;
     }
 
+
+    public synchronized List<Segregada> getSegregadasAut(){
+        List<Segregada> cuentasSeg = gestionGetCuentas.getSegregadasAuto(sesion.getUsuario());
+        if(cuentasSeg != null){
+            return  cuentasSeg;
+        }
+        List<Segregada> aux = new ArrayList<>();
+        return aux;
+    }
+
+
+
+    public synchronized List<Pooled> getPooledAut(){
+        List<Pooled> pooledList = gestionGetCuentas.getPooledAut(sesion.getUsuario());
+        if(pooledList != null){
+            return  pooledList;
+        }
+        List<Pooled> aux = new ArrayList<>();
+        return aux;
+    }
+
 }
