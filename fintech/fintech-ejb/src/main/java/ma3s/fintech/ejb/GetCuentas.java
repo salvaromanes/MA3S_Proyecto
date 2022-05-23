@@ -171,9 +171,14 @@ public class GetCuentas implements GestionGetCuentas{
             return null;
         }
         List<Fintech> lista = new ArrayList<>();
-        List<Autorizacion> autorizacionLista = user.getAutorizada().getAutorizaciones();
         List<Empresa> empresaList = new ArrayList<>();
         List<Segregada> listaSeg = new ArrayList<>();
+        if(user.getAutorizada() == null)
+            return listaSeg;
+        List<Autorizacion> autorizacionLista = user.getAutorizada().getAutorizaciones();
+
+        if(autorizacionLista == null)
+            return listaSeg;
 
         for (Autorizacion f : autorizacionLista){
             empresaList.add(f.getEmpresaId());
@@ -199,10 +204,15 @@ public class GetCuentas implements GestionGetCuentas{
             return null;
         }
         List<Fintech> lista = new ArrayList<>();
-        List<Autorizacion> autorizacionLista = user.getAutorizada().getAutorizaciones();
         List<Empresa> empresaList = new ArrayList<>();
         List<Pooled> listaPooled = new ArrayList<>();
+        if(user.getAutorizada() == null)
+            return listaPooled;
 
+        List<Autorizacion> autorizacionLista = user.getAutorizada().getAutorizaciones();
+
+        if (autorizacionLista == null)
+            return listaPooled;
         for (Autorizacion f : autorizacionLista){
             empresaList.add(f.getEmpresaId());
         }
