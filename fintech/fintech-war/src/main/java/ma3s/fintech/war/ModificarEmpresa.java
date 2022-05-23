@@ -7,6 +7,7 @@ import ma3s.fintech.ejb.GestionGetClientes;
 import ma3s.fintech.ejb.GestionModificarCliente;
 import ma3s.fintech.ejb.excepciones.*;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -41,8 +42,28 @@ public class ModificarEmpresa {
 
     public ModificarEmpresa(){ }
 
+
+    @PostConstruct
+    public void ModificarEmpresa(){
+        //individual = new Individual();
+
+        try{
+            empresa = gestionGetClientes.devolverEmpresa(sesion.getIdentificacion());
+        } catch (EmpresaNoExistenteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public Cliente getCliente(){
         return cliente;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 
     public void setCliente(Cliente c){
@@ -55,11 +76,11 @@ public class ModificarEmpresa {
 
         try {
 
-            gestionModificarCliente.modRazonSocialEmpresa(empresa.getId(), razonSocial);
-            gestionModificarCliente.modDireccionEmpresa(empresa.getId(), direccion);
-            gestionModificarCliente.modCiudadEmpresa(empresa.getId(), ciudad);
-            gestionModificarCliente.modCodigoPostalEmpresa(empresa.getId(), codigopostal);
-            gestionModificarCliente.modPaisEmpresa(empresa.getId(), pais);
+            gestionModificarCliente.modRazonSocialEmpresa(empresa.getId(), empresa.getRazonSocial());
+            gestionModificarCliente.modDireccionEmpresa(empresa.getId(), empresa.getDireccion());
+            gestionModificarCliente.modCiudadEmpresa(empresa.getId(), empresa.getCiudad());
+            gestionModificarCliente.modCodigoPostalEmpresa(empresa.getId(), empresa.getCodigopostal());
+            gestionModificarCliente.modPaisEmpresa(empresa.getId(), empresa.getPais());
 
             return "Listaclientes.xhtml";
 
@@ -112,12 +133,6 @@ public class ModificarEmpresa {
     }
 
     public String getIdentificacion() {
-        try {
-            empresa = gestionGetClientes.devolverEmpresa(sesion.getIdentificacion());
-        } catch (EmpresaNoExistenteException e) {
-            e.printStackTrace();
-        }
-        identificacion = empresa.getIdentificacion();
         return identificacion;
     }
 

@@ -24,19 +24,19 @@
 
 
         <h:outputText value="Direccion"/>
-        <h:inputText required="true" value="#{cliente.cliente.direccion}"/>
+        <h:inputText required="true" value="#{cliente.empresa.direccion}"/>
 
         <h:outputText value="Ciudad"/>
-        <h:inputText required="true" value="#{cliente.cliente.ciudad}"/>
+        <h:inputText required="true" value="#{cliente.empresa.ciudad}"/>
 
         <h:outputText value="Codigo Postal"/>
-        <h:inputText required="true" value="#{cliente.cliente.codigopostal}"/>
+        <h:inputText required="true" value="#{cliente.empresa.codigopostal}"/>
 
         <h:outputText value="Pais"/>
-        <h:inputText required="true" value="#{cliente.cliente.pais}"/>
+        <h:inputText required="true" value="#{cliente.empresa.pais}"/>
 
         <h:outputText value="RazonSocial"/>
-        <h:inputText required="true" value="#{cliente.cliente.razonSocial}"/>
+        <h:inputText required="true" value="#{cliente.empresa.razonSocial}"/>
 
         <h:commandButton id="modificar" value="Modificar" action="#{cliente.modificar()}" />
 

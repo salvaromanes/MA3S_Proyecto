@@ -5,6 +5,7 @@ import ma3s.fintech.ejb.GestionGetClientes;
 import ma3s.fintech.ejb.GestionModificarCliente;
 import ma3s.fintech.ejb.excepciones.*;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -39,8 +40,20 @@ public class ModificarIndividual {
 
     private Individual individual;
 
+    public ModificarIndividual(){
 
-    public ModificarIndividual(){ }
+    }
+
+    @PostConstruct
+    public void ModificarIndividual(){
+        //individual = new Individual();
+
+        try{
+            individual = gestionGetClientes.devolverIndividual(sesion.getIdentificacion());
+        } catch (PersonaNoExisteException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     public Cliente getCliente(){
@@ -110,12 +123,6 @@ public class ModificarIndividual {
 
 
     public String getIdentificacion() {
-        try {
-            individual = gestionGetClientes.devolverIndividual(sesion.getIdentificacion());
-        } catch (PersonaNoExisteException e) {
-            e.printStackTrace();
-        }
-        identificacion = individual.getIdentificacion();
         return identificacion;
     }
 
@@ -130,12 +137,12 @@ public class ModificarIndividual {
 
         try {
 
-            gestionModificarCliente.modNombreIndividual(individual.getId(), nombre);
-            gestionModificarCliente.modApellidoIndividual(individual.getId(), apellido);
-            gestionModificarCliente.modDireccionIndividual(individual.getId(), direccion);
-            gestionModificarCliente.modCiudadIndividual(individual.getId(), ciudad);
-            gestionModificarCliente.modCodigoPostalIndividual(individual.getId(), codigopostal);
-            gestionModificarCliente.modPaisIndividual(individual.getId(), pais);
+            gestionModificarCliente.modNombreIndividual(individual.getId(), individual.getNombre());
+            gestionModificarCliente.modApellidoIndividual(individual.getId(), individual.getApellido());
+            gestionModificarCliente.modDireccionIndividual(individual.getId(), individual.getDireccion());
+            gestionModificarCliente.modCiudadIndividual(individual.getId(), individual.getCiudad());
+            gestionModificarCliente.modCodigoPostalIndividual(individual.getId(), individual.getCodigopostal());
+            gestionModificarCliente.modPaisIndividual(individual.getId(), individual.getPais());
 
             return "Listaclientes.xhtml";
 

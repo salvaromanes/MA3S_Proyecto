@@ -69,7 +69,7 @@ public class ListaClientes {
 
     public String modificarEmpresa(Empresa e){
         infosesion.setIdentificacion(e.getIdentificacion());
-        return "ModificarEmpresa.xhtml?faces-redirect=true";
+        return "ModificarEmpresas.xhtml?faces-redirect=true";
     }
 
     public String baja(Cliente c){
