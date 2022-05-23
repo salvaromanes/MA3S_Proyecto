@@ -15,64 +15,65 @@
 </h:head>
 
 <h:body>
-
+    <h1>Sus transacciones en las cuentas segregadas</h1>
+    <div class="card">
     <h:form id="Segregadas" >
-        <div class="card">
-            <h:dataTable var="segregadas" value="#{historial.segregada}">
 
-                <h:column headerText="Fecha de ejecucion">
+            <p:dataTable var="segregadas" value="#{historial.segregada}">
+
+                <p:column headerText="Fecha de ejecucion">
                     <h:outputText value="#{segregadas.fechaEjecucion}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="Internacional">
+                <p:column headerText="Internacional">
                     <h:outputText value="#{segregadas.internacional}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="cantidad">
+                <p:column headerText="cantidad">
                     <h:outputText value="#{segregadas.cantidad}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="cuenta destino">
+                <p:column headerText="cuenta destino">
                     <h:outputText value="#{segregadas.cuentaDestino}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="cuenta origen">
+                <p:column headerText="cuenta origen">
                     <h:outputText value="#{segregadas.cuentaOrigen}" />
-                </h:column>
+                </p:column>
 
-                <h:column>
-                    <h:commandButton id="btnver" class= "buttons" value="historial" action="#{historial.verCuenta(segregadas)}"/>
-                </h:column>
+                <p:column>
+                    <h:commandButton id="btnver" class= "buttons" value="Realizar Transaccion" action="#{historial.verCuenta(segregadas)}"/>
+                </p:column>
 
-            </h:dataTable>
-        </div>
+            </p:dataTable>
+
     </h:form>
-
-<h1>Pooled</h1>
-
+</div>
+<h1>Sus tranascciones en las cuentas pooled</h1>
+    <div class="card">
     <h:form id="Pooled" >
-        <div class="card">
-            <h:dataTable var="pooled" value="#{historial.transPooled}">
 
-                <h:column headerText="Cuenta destino">
+            <p:dataTable var="pooled" value="#{historial.transPooled}">
+
+                <p:column headerText="Cuenta destino">
                     <h:outputText value="#{pooled.cuentaDestino.iban}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="Cuenta Origen">
+                <p:column headerText="Cuenta Origen">
                     <h:outputText value="#{pooled.cuentaOrigen.iban}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="Cantidad">
+                <p:column headerText="Cantidad">
                     <h:outputText value="#{pooled.cantidad}" />
-                </h:column>
+                </p:column>
 
-                <h:column>
-                    <h:commandButton id="btnver2" class= "buttons" value="historial" action="#{historial.verCuenta(pooled)}"/>
-                </h:column>
+                <p:column>
+                    <h:commandButton id="btnver2" class= "buttons" value="Realizar Transaccion" action="#{historial.verCuenta(pooled)}"/>
+                </p:column>
 
-            </h:dataTable>
-        </div>
+            </p:dataTable>
+
     </h:form>
-
+</div>
 </h:body>
 </html>
