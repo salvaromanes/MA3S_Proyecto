@@ -53,7 +53,7 @@ public class CrearCuenta {
         try{
             LOGGER.info("");
             gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, sesion.getUsuario().getUser(), divisa, identificacion);
-            return "Listacuentas.xhtml";
+            return "Listacuentas.xhtml?faces-redirect=true";
         }catch (UsuarioNoEncontradoException e) {
             LOGGER.info("Usuario incorrecto");
             showMessage("El usuario no existe");
@@ -75,11 +75,11 @@ public class CrearCuenta {
         return "CrearCuentaPooled.xhtml";
     }
 
-    public String crearCuentaSegregada(String user){
+    public String crearCuentaSegregada(){
         try{
             LOGGER.info("");
-            gestionAperturaCuenta.abrirCuentaSegregate(IBAN, SWIFT, user, identificacion);
-            return "Listacuentas.xhtml";
+            gestionAperturaCuenta.abrirCuentaSegregate(IBAN, SWIFT, sesion.getUsuario().getUser(), identificacion);
+            return "Listacuentas.xhtmlfaces-redirect=true";
 
         }catch (UsuarioNoEncontradoException e) {
             LOGGER.info("Usuario incorrecto");

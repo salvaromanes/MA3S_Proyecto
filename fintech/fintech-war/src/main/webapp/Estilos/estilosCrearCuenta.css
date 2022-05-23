@@ -1,67 +1,12 @@
-*{
-    font-family: 'Asap', sans-serif;
-}
-
-.center{
+.contenedor{
     margin:auto;
     padding: 20px;
-    background: #049EDB;
     width: 45%;
     text-align: justify;
     border-radius: 25px;
-
     position: fixed;
     top: 50%;
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
-}
-
-h3 {
-    font-size: 40px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    margin: 15px;
-    font-family: 'Asap', sans-serif;
-}
-
-.entradaTexto {
-    border-radius: 15px;
-    width: auto;
-    padding: 10px;
-    font-family: 'Asap', sans-serif;
-}
-
-.textoAuxiliar {
-    color: #fff;
-    font-size: 20px;
-    font-family: 'Asap', sans-serif;
-    padding-right: 20px;
-}
-
-
-.casillas{
-    margin: auto;
-}
-
-.css-button-rounded--black {
-    min-width: 130px;
-    font-family: 'Asap', sans-serif;
-    height: 40px;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 5px;
-    border: 2px solid #212529;
-    background: #212529;
-}
-.css-button-rounded--black:hover {
-    background: #fff;
-    color: #212529
 }
