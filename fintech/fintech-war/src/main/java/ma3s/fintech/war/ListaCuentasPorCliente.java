@@ -29,6 +29,15 @@ public class ListaCuentasPorCliente {
     String iban;
     Segregada segregada;
     Pooled pooled;
+    boolean ejemplo = false;
+
+    public boolean isEjemplo() {
+        return ejemplo;
+    }
+
+    public void setEjemplo(boolean ejemplo) {
+        this.ejemplo = ejemplo;
+    }
 
     public String verCuenta(Segregada segregada1){
         segregada = segregada1;
