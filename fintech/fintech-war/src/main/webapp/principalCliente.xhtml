@@ -14,8 +14,8 @@
 </h:head>
 <h:body>
     <div class="inicio">
-        <ui:fragment rendered="#{not empty sesionActual.usuario}">
-            <p>Hola, <h:outputText id="saludo" value="#{sesionActual.usuario.user}"/>.</p>
+        <ui:fragment rendered="#{not empty sesion.usuario}">
+            <p>Hola, <h:outputText id="saludo" value="#{sesion.usuario.user}"/>.</p>
         </ui:fragment>
     </div>
     <div class="container">
