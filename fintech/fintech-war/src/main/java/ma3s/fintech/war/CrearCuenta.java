@@ -44,11 +44,11 @@ public class CrearCuenta {
 
     }
 
-    public String crearCuentaPooled(){
+    public String crearCuentaPooled(String user){
         try{
             LOGGER.info("");
             String nombreUsuario = sesion.getUsuario().getUser();
-            gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, "salva", divisa);
+            gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, user, divisa);
             return "admin.xhtml";
         }catch (UsuarioNoEncontradoException e) {
             LOGGER.info("Usuario incorrecto");
@@ -70,11 +70,11 @@ public class CrearCuenta {
         return "CrearCuentaPooled.xhtml";
     }
 
-    public String crearCuentaSegregada(){
+    public String crearCuentaSegregada(String user){
         try{
             LOGGER.info("");
             String nombreUsuario = sesion.getUsuario().getUser();
-            gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, "salva", divisa);
+            gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, user, divisa);
             return "admin.xhtml";
 
         }catch (UsuarioNoEncontradoException e) {

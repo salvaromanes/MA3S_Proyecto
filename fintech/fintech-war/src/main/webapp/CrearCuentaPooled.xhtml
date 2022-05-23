@@ -34,7 +34,7 @@
                 <h:inputSecret class="entradaTexto" id="divisa" required="false" value="#{crearCuenta.divisa}" />
 
 
-                <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Crear cuenta pooled" action="#{crearCuenta.crearCuentaPooled}"/>
+                <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Crear cuenta pooled" action="#{crearCuenta.crearCuentaPooled(sesionActual.usuario.user)}"/>
                 <h:message for="divisa"/>
             </h:panelGrid>
 
