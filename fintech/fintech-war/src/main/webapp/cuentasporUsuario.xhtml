@@ -9,120 +9,128 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Crear Cuenta</title>
+    <title>Cuentas</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="Estilos/estilosCrearCuenta.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
 
+    <h1>Cuentas Segregadas</h1>
+    <div class="card">
+
     <h:form id="Segregadas" >
-        <div class="card">
-            <h:dataTable var="segregadas" value="#{listCuenta.segregadas}">
+            <p:dataTable var="segregadas" value="#{listCuenta.segregadas}">
 
-                <h:column headerText="IBAN">
+                <p:column headerText="IBAN">
                     <h:outputText value="#{segregadas.iban}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="Fecha Apertura">
+                <p:column headerText="Fecha Apertura">
                     <h:outputText value="#{segregadas.fechaApertura}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="Estado">
+                <p:column headerText="Estado">
                     <h:outputText value="#{segregadas.estado}" />
-                </h:column>
+                </p:column>
 
-                <h:column>
+                <p:column>
                     <h:commandButton id="btnver" class= "buttons" value="historial" action="#{listCuenta.verCuenta(segregadas)}"/>
-                </h:column>
+                </p:column>
 
-            </h:dataTable>
-        </div>
+            </p:dataTable>
+
     </h:form>
+</div>
 
+    <h1>Cuentas Segregadas que tiene autorización</h1>
 
+    <div class="card">
     <h:form id="SegregadasAut" >
-        <div class="card">
-            <h:dataTable var="segregadasAut" value="#{listCuenta.segregadasAut}">
+            <p:dataTable var="segregadasAut" value="#{listCuenta.segregadasAut}">
 
-                <h:column headerText="IBAN">
+                <p:column headerText="IBAN">
                     <h:outputText value="#{segregadasAut.iban}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="Fecha Apertura">
+                <p:column headerText="Fecha Apertura">
                     <h:outputText value="#{segregadasAut.fechaApertura}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="Estado">
+                <p:column headerText="Estado">
                     <h:outputText value="#{segregadasAut.estado}" />
-                </h:column>
+                </p:column>
 
-                <h:column>
-                    <h:commandButton id="btnver23" class= "buttons" value="historial" action="#{listCuenta.verCuenta(segregadas)}"/>
-                </h:column>
+                <p:column>
+                    <h:commandButton id="btnver23" class= "buttons" value="historial" action="#{listCuenta.verCuenta(segregadasAut)}"/>
+                </p:column>
 
-            </h:dataTable>
-        </div>
+            </p:dataTable>
     </h:form>
+    </div>
 
+
+    <h1>Cuentas Pooled</h1>
+    <div class="card">
     <h:form id="Pooled" >
-        <div class="card">
-            <h:dataTable var="pooled" value="#{listCuenta.pooleds}">
+            <p:dataTable var="pooled" value="#{listCuenta.pooleds}">
 
-                <h:column headerText="IBAN">
+                <p:column headerText="IBAN">
                     <h:outputText value="#{pooled.iban}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="Fecha Apertura">
+                <p:column headerText="Fecha Apertura">
                     <h:outputText value="#{pooled.fechaApertura}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="Estado">
+                <p:column headerText="Estado">
                     <h:outputText value="#{pooled.estado}" />
-                </h:column>
+                </p:column>
 
 
-                <h:column headerText="Saldo">
+                <p:column headerText="Saldo">
                     <h:outputText value="#{pooled.saldo}" />
-                </h:column>
+                </p:column>
 
-                <h:column>
+                <p:column>
                     <h:commandButton id="btnver2" class= "buttons" value="historial" action="#{listCuenta.verCuenta(pooled)}"/>
-                </h:column>
+                </p:column>
 
-            </h:dataTable>
-        </div>
+            </p:dataTable>
+
     </h:form>
+</div>
 
+    <h1>Cuentas Pooled que tiene autorización</h1>
+    <div class="card">
+    <h:form id="PooledAut">
 
-    <h:form id="PooledAut" >
-        <div class="card">
-            <h:dataTable var="pooledAut" value="#{listCuenta.pooledAut}">
+            <p:dataTable var="pooledAut" value="#{listCuenta.pooledAut}">
 
-                <h:column headerText="IBAN">
+                <p:column headerText="IBAN">
                     <h:outputText value="#{pooledAut.iban}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="Fecha Apertura">
+                <p:column headerText="Fecha Apertura">
                     <h:outputText value="#{pooledAut.fechaApertura}" />
-                </h:column>
+                </p:column>
 
-                <h:column headerText="Estado">
+                <p:column headerText="Estado">
                     <h:outputText value="#{pooledAut.estado}" />
-                </h:column>
+                </p:column>
 
 
-                <h:column headerText="Saldo">
+                <p:column headerText="Saldo">
                     <h:outputText value="#{pooledAut.saldo}" />
-                </h:column>
+                </p:column>
 
-                <h:column>
-                    <h:commandButton id="btnver22" class= "buttons" value="historial" action="#{listCuenta.verCuenta(pooled)}"/>
-                </h:column>
+                <p:column>
+                    <h:commandButton id="btnver22" class= "buttons" value="historial" action="#{listCuenta.verCuenta(pooledAut)}"/>
+                </p:column>
 
-            </h:dataTable>
-        </div>
+            </p:dataTable>
+
     </h:form>
-
+</div>
 </h:body>
 </html>
