@@ -5,6 +5,7 @@ import ma3s.fintech.Divisa;
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.GestionAperturaCuenta;
 import ma3s.fintech.ejb.excepciones.*;
+import org.primefaces.PrimeFaces;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -48,31 +49,27 @@ public class CrearCuenta {
 
     }
 
-    public String crearCuentaPooled(String user){
+    public String crearCuentaPooled(){
         try{
             LOGGER.info("");
-            gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, user, divisa, identificacion);
+            gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, sesion.getUsuario().getUser(), divisa, identificacion);
             return "Listacuentas.xhtml";
         }catch (UsuarioNoEncontradoException e) {
             LOGGER.info("Usuario incorrecto");
-            FacesMessage fm = new FacesMessage("El usuario no se encuentra en la base de datos");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaPooled:divisa", fm);
+            showMessage("El usuario no existe");
         } catch (UsuarioIncorrectoException e) {
             LOGGER.info("No es administrador");
             FacesMessage fm = new FacesMessage("");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaPooled:divisa", fm);
+            showMessage("El usuario no puede crear la cuenta porque no es administrador");
         } catch (CuentaExistenteException e) {
             LOGGER.info("La cuenta ya existe");
-            FacesMessage fm = new FacesMessage("La cuenta ya existe");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaPooled:divisa", fm);
+            showMessage("La cuenta ya existe");
         } catch (DivisaExistenteException e) {
             LOGGER.info("La divisa no existe");
-            FacesMessage fm = new FacesMessage("La divisa no existe");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaPooled:divisa", fm);
+            showMessage("La divisa no existe");
         } catch (ClienteNoExisteException e) {
             LOGGER.info("El cliente no existe");
-            FacesMessage fm = new FacesMessage("El cliente no existe");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaPooled:divisa", fm);
+            showMessage("El cliente no existe");
         }
 
         return "CrearCuentaPooled.xhtml";
@@ -86,23 +83,25 @@ public class CrearCuenta {
 
         }catch (UsuarioNoEncontradoException e) {
             LOGGER.info("Usuario incorrecto");
-            FacesMessage fm = new FacesMessage("El usuario no se encuentra en la base de datos");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:iban", fm);
+            showMessage("El usuario no puede crear una cuenta porque no es administrador");
         } catch (UsuarioIncorrectoException e) {
             LOGGER.info("No es administrador");
-            FacesMessage fm = new FacesMessage("");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:iban", fm);
+            showMessage("El usuario no puede crear una cuenta porque no es administrador");
         } catch (CuentaExistenteException e) {
             LOGGER.info("La cuenta ya existe");
-            FacesMessage fm = new FacesMessage("La cuenta ya existe");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:iban", fm);
+            showMessage("La cuenta ya existe");
         } catch (ClienteNoExisteException e) {
             LOGGER.info("El cliente no existe");
-            FacesMessage fm = new FacesMessage("El cliente no existe");
-            FacesContext.getCurrentInstance().addMessage("CrearCuentaSegregada:iban", fm);
+            showMessage("El cliente no existe");
         }
 
         return "CrearCuentaSegregada.xhtml";
+    }
+
+    public void showMessage(String msg) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", msg);
+
+        PrimeFaces.current().dialog().showMessageDynamic(message);
     }
 
 }

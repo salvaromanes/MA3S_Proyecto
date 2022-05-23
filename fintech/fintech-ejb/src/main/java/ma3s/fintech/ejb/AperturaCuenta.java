@@ -39,6 +39,15 @@ public class AperturaCuenta implements GestionAperturaCuenta{
 
         Cliente cliente;
         Query query = em.createQuery("select c from Cliente c where c.identificacion like :ident").setParameter("ident", identificacion);
+
+        if(query.getResultList() == null){
+            throw new ClienteNoExisteException("El cliente no existe");
+        }
+
+        if(query.getResultList().size() == 0){
+            throw new ClienteNoExisteException("El cliente no existe");
+        }
+
         cliente = (Cliente )query.getResultList().get(0);
 
         if(cliente == null){
@@ -71,7 +80,16 @@ public class AperturaCuenta implements GestionAperturaCuenta{
 
         Cliente cliente;
         Query query = em.createQuery("select c from Cliente c where c.identificacion like :ident").setParameter("ident", identificacion);
-        cliente = (Cliente )query.getResultList().get(0);
+
+        if(query.getResultList() == null){
+            throw new ClienteNoExisteException("El cliente no existe");
+        }
+
+        if(query.getResultList().size() == 0){
+            throw new ClienteNoExisteException("El cliente no existe");
+        }
+
+        cliente = (Cliente)query.getResultList().get(0);
 
         if(cliente == null){
             throw new ClienteNoExisteException("El cliente no existe");

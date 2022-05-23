@@ -4,8 +4,10 @@ package ma3s.fintech.war;
 import ma3s.fintech.*;
 import ma3s.fintech.ejb.GestionEliminarAutorizados;
 import ma3s.fintech.ejb.GestionGetCuentas;
+import org.primefaces.PrimeFaces;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;

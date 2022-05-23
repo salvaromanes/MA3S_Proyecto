@@ -16,6 +16,29 @@
 
 <h:body>
 
+    <div class="card">
+        <h:form>
+        <h5 class="p-mt-0">Basic</h5>
+        <p:panel id="pnl" header="New User">
+            <h:panelGrid columns="3" cellpadding="7">
+                <h:outputLabel for="firstname" value="Firstname: *"/>
+                <p:inputText id="firstname"  required="true" label="Firstname">
+                    <f:validateLength minimum="2"/>
+                </p:inputText>
+                <p:message for="firstname"/>
+
+                <h:outputLabel for="lastname" value="Lastname: *"/>
+                <p:inputText id="lastname"  required="true" label="Lastname"/>
+                <p:message for="lastname"/>
+            </h:panelGrid>
+
+            <p:commandButton id="saveBtn" value="Save" icon="pi pi-check" action="#{crearCuenta.crearCuentaPooled}"  />
+        </p:panel>
+        </h:form>
+    </div>
+
+
+    <!--
     <div class="center">
 
         <h3>Crear Cuenta Pooled</h3>
@@ -33,19 +56,19 @@
                 <h:outputText class="textoAuxiliar" value="Divisa:"/>
                 <h:inputText class="entradaTexto" id="divisa" required="false" value="#{crearCuenta.divisa}" />
 
+
                 <h:outputText class="textoAuxiliar" value="Identificacion del cliente:"/>
                 <h:inputText class="entradaTexto" id="identificacion" required="false" value="#{crearCuenta.identificacion}" />
 
 
-                <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Crear cuenta pooled" action="#{crearCuenta.crearCuentaPooled(sesionActual.usuario.user)}"/>
-                <h:message for="divisa"/>
+                <h:commandButton class="css-button-rounded-black" id="botonIniciarSesion" value="Crear cuenta pooled" action="#{crearCuenta.crearCuentaPooled(sesion.usuario.user)}"/>
             </h:panelGrid>
 
 
 
         </h:form>
     </div>
-
+    -->
 </h:body>
 
 </html>
