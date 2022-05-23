@@ -22,9 +22,6 @@ public class Sesion implements Serializable {
     @Inject
     private GestionAccesoAplicacion gestionAccesoAplicacion;
 
-    @Inject
-    private SesionActual sesionActual;
-
     private Usuario usuario;
 
     private Pooled pooled;
@@ -60,7 +57,7 @@ public class Sesion implements Serializable {
     public String entrarUsuario() {
         try {
             gestionAccesoAplicacion.entrarAplicacion(usuario.getUser(), usuario.getContrasena());
-            sesionActual.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
+            this.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
             return "principalCliente.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
             LOGGER.info("Campos sin rellenar");
@@ -79,7 +76,7 @@ public class Sesion implements Serializable {
     public String entrarAdmin() {
         try {
             gestionAccesoAplicacion.entrarAplicacionAdministrador(usuario.getUser(), usuario.getContrasena());
-            sesionActual.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
+            this.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
             return "principalAdmin.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
             LOGGER.info("Campos sin rellenar");
@@ -93,5 +90,13 @@ public class Sesion implements Serializable {
             FacesContext.getCurrentInstance().addMessage("admin:user", fm);
         }
         return null;
+    }
+
+    public synchronized String invalidarSesionActual() {
+        if (usuario != null) {
+            usuario = null;
+            FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        }
+        return "login.xhtml";
     }
 }
