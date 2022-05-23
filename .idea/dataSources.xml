@@ -8,11 +8,11 @@
       <jdbc-url>jdbc:mysql://localhost:3306/sii</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="MySQL - sii@localhost" uuid="d361d4f7-4a28-45fc-b7e5-0509368d67e4">
+    <data-source source="LOCAL" name="@localhost" uuid="f118ecca-48fc-4aee-a83b-d9f479ad97c8">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/sii</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
