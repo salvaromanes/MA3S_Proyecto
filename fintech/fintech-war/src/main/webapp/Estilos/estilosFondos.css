@@ -6,19 +6,5 @@ body{
     line-height: 1.6;
     background-color: aqua;
     background-image: url("https://pbs.twimg.com/ext_tw_video_thumb/1363928057032155137/pu/img/1niJPoe7DhhA9DJh?format=jpg&name=large");
-    background-size: cover;;
-}
-
-.contenedor{
-    margin:auto;
-    padding: 35px;
-    width: 35%;
-    text-align: justify;
-    border-radius: 50px;
-
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
+    background-size: cover;
 }

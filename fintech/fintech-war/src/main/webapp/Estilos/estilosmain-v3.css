@@ -11,12 +11,12 @@
     padding: 20px;
     border-width: 20px;
     font-size: 25px;
-    color: #ea8e0f;
+    color: black;
 }
 
 .menu li a{
     text-decoration: none;
-    color: gold;
+    color: black;
     padding: 20px;
     display: inline;
 }
@@ -27,12 +27,14 @@
 }
 
 .menu li a:hover{
-    background: #ea8e0f;
+    background: #3e78f8;
 }
 
 html,body{
     margin: 0;
     padding: 0;
+    background-image: url("https://pbs.twimg.com/ext_tw_video_thumb/1363928057032155137/pu/img/1niJPoe7DhhA9DJh?format=jpg&name=large");
+    background-size: cover;
 }
 
 body{
@@ -42,7 +44,7 @@ body{
     letter-spacing:0.03em ;
     line-height: 1.6;
     background-color: aqua;
-    background-image: url("https://p4.wallpaperbetter.com/wallpaper/761/546/510/blue-gradient-abstract-wallpaper-preview.jpg");
+    background-image: url("https://pbs.twimg.com/ext_tw_video_thumb/1363928057032155137/pu/img/1niJPoe7DhhA9DJh?format=jpg&name=large");
     background-size: cover;
 }
 
