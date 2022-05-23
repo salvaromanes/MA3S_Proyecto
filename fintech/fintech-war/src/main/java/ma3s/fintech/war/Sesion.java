@@ -5,6 +5,7 @@ import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.GestionAccesoAplicacion;
 import ma3s.fintech.ejb.excepciones.AccesoException;
 import ma3s.fintech.ejb.excepciones.CampoVacioException;
+import org.primefaces.PrimeFaces;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -61,11 +62,13 @@ public class Sesion implements Serializable {
             return "principalCliente.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
             LOGGER.info("Campos sin rellenar " + e.getMessage());
+            showMessage("Campos sin rellenar");
             FacesMessage fm = new FacesMessage("Campos sin rellenar");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
             FacesContext.getCurrentInstance().addMessage("admin:user", fm);
         } catch (AccesoException e) {
             LOGGER.info("Usuario incorrecto " + e.getMessage());
+            showMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
             FacesContext.getCurrentInstance().addMessage("admin:user", fm);
@@ -80,11 +83,13 @@ public class Sesion implements Serializable {
             return "principalAdmin.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
             LOGGER.info("Campos sin rellenar");
+            showMessage("Campos sin rellenar");
             FacesMessage fm = new FacesMessage("Campos sin rellenar");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
             FacesContext.getCurrentInstance().addMessage("admin:user", fm);
         } catch (AccesoException e) {
             LOGGER.info("Usuario incorrecto" + e.getMessage());
+            showMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesMessage fm = new FacesMessage("El usuario o la contraseña introducidos son incorrectos");
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
             FacesContext.getCurrentInstance().addMessage("admin:user", fm);
@@ -98,5 +103,11 @@ public class Sesion implements Serializable {
             FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         }
         return "login.xhtml?faces-redirect=true";
+    }
+
+    public void showMessage(String msg) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", msg);
+
+        PrimeFaces.current().dialog().showMessageDynamic(message);
     }
 }

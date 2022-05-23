@@ -47,11 +47,11 @@
     </h:form>
 </div>
 
-    <h1>Cuentas Segregadas que tiene autorización</h1>
+    <h1>Cuentas Segregadas que tiene autorización Lectura</h1>
 
     <div class="card">
     <h:form id="SegregadasAut" >
-            <p:dataTable var="segregadasAut" value="#{listCuenta.segregadasAut}">
+            <p:dataTable var="segregadasAut" value="#{listCuenta.segregadasAutLec}">
 
                 <p:column headerText="IBAN">
                     <h:outputText value="#{segregadasAut.iban}" />
@@ -69,14 +69,40 @@
                     <h:commandButton id="btnver23" class= "buttons" value="historial" action="#{listCuenta.verCuenta(segregadasAut)}"/>
                 </p:column>
 
+            </p:dataTable>
+    </h:form>
+    </div>
+
+
+    <h1>Cuentas Segregadas que tiene autorización Escritura</h1>
+
+    <div class="card">
+        <h:form id="SegregadasAutorizacionEsc" >
+            <p:dataTable var="segregadasAut" value="#{listCuenta.segregadasAutEsc}">
+
+                <p:column headerText="IBAN">
+                    <h:outputText value="#{segregadasAut.iban}" />
+                </p:column>
+
+                <p:column headerText="Fecha Apertura">
+                    <h:outputText value="#{segregadasAut.fechaApertura}" />
+                </p:column>
+
+                <p:column headerText="Estado">
+                    <h:outputText value="#{segregadasAut.estado}" />
+                </p:column>
+
+                <p:column>
+                    <h:commandButton id="btnver23221" class= "buttons" value="historial" action="#{listCuenta.verCuenta(segregadasAut)}"/>
+                </p:column>
+
                 <p:column>
                     <h:commandButton id="btnver2322" class= "buttons" value="Transaccion" rendered="#{listCuenta.ejemplo}" action="#{listCuenta.transS(segregadasAut)}"/>
                 </p:column>
 
             </p:dataTable>
-    </h:form>
+        </h:form>
     </div>
-
 
     <h1>Cuentas Pooled</h1>
     <div class="card">
@@ -113,11 +139,11 @@
     </h:form>
 </div>
 
-    <h1>Cuentas Pooled que tiene autorización</h1>
+    <h1>Cuentas Pooled que tiene autorización Lectura</h1>
     <div class="card">
     <h:form id="PooledAut">
 
-            <p:dataTable var="pooledAut" value="#{listCuenta.pooledAut}">
+            <p:dataTable var="pooledAut" value="#{listCuenta.pooledAutLec}">
 
                 <p:column headerText="IBAN">
                     <h:outputText value="#{pooledAut.iban}" />
@@ -140,14 +166,50 @@
                     <h:commandButton id="btnver22" class= "buttons" value="historial" action="#{listCuenta.verCuenta(pooledAut)}"/>
                 </p:column>
 
+            </p:dataTable>
+
+    </h:form>
+</div>
+
+
+
+    <h1>Cuentas Pooled que tiene autorización Escritura</h1>
+    <div class="card">
+        <h:form id="PooledAutEsc">
+
+            <p:dataTable var="pooledAut" value="#{listCuenta.pooledAutEsc}">
+
+                <p:column headerText="IBAN">
+                    <h:outputText value="#{pooledAut.iban}" />
+                </p:column>
+
+                <p:column headerText="Fecha Apertura">
+                    <h:outputText value="#{pooledAut.fechaApertura}" />
+                </p:column>
+
+                <p:column headerText="Estado">
+                    <h:outputText value="#{pooledAut.estado}" />
+                </p:column>
+
+
+                <p:column headerText="Saldo">
+                    <h:outputText value="#{pooledAut.saldo}" />
+                </p:column>
+
                 <p:column>
-                    <h:commandButton id="btnver232122" class= "buttons" value="Transaccion" action="#{listCuenta.transP(pooledAut)}"/>
+                    <h:commandButton id="btnver22422" class= "buttons" value="historial" action="#{listCuenta.verCuenta(pooledAut)}"/>
+                </p:column>
+
+                <p:column>
+                    <h:commandButton id="btnver23212242" class= "buttons" value="Transaccion" action="#{listCuenta.transP(pooledAut)}"/>
                 </p:column>
 
 
             </p:dataTable>
 
-    </h:form>
-</div>
+        </h:form>
+    </div>
+
+
 </h:body>
 </html>

@@ -79,8 +79,17 @@ public class ListaCuentasPorCliente {
     }
 
 
-    public synchronized List<Segregada> getSegregadasAut(){
-        List<Segregada> cuentasSeg = gestionGetCuentas.getSegregadasAuto(sesion.getUsuario());
+    public synchronized List<Segregada> getSegregadasAutEsc(){
+        List<Segregada> cuentasSeg = gestionGetCuentas.getSegregadasAutoEsc(sesion.getUsuario());
+        if(cuentasSeg != null){
+            return  cuentasSeg;
+        }
+        List<Segregada> aux = new ArrayList<>();
+        return aux;
+    }
+
+    public synchronized List<Segregada> getSegregadasAutLec(){
+        List<Segregada> cuentasSeg = gestionGetCuentas.getSegregadasAutoLec(sesion.getUsuario());
         if(cuentasSeg != null){
             return  cuentasSeg;
         }
@@ -89,9 +98,17 @@ public class ListaCuentasPorCliente {
     }
 
 
+    public synchronized List<Pooled> getPooledAutLec(){
+        List<Pooled> pooledList = gestionGetCuentas.getPooledAutLec(sesion.getUsuario());
+        if(pooledList != null){
+            return  pooledList;
+        }
+        List<Pooled> aux = new ArrayList<>();
+        return aux;
+    }
 
-    public synchronized List<Pooled> getPooledAut(){
-        List<Pooled> pooledList = gestionGetCuentas.getPooledAut(sesion.getUsuario());
+    public synchronized List<Pooled> getPooledAutEsc(){
+        List<Pooled> pooledList = gestionGetCuentas.getPooledAutEsc(sesion.getUsuario());
         if(pooledList != null){
             return  pooledList;
         }
