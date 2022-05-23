@@ -11,10 +11,11 @@
 <h:head>
     <title>Crear Cuenta</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="Estilos/estiloCrearCuentaNueva.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
-
+    <div class="contenedor">
     <div class="card">
         <h:form id="crearCuenta">
             <h5 class="p-mt-0">Basic</h5>
@@ -38,6 +39,7 @@
                 <p:commandButton id="saveBtn" value="Save" icon="pi pi-check" action="#{crearCuenta.crearCuentaSegregada}" />
             </p:panel>
         </h:form>
+    </div>
     </div>
 </h:body>
 
