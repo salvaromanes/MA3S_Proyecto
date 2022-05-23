@@ -41,9 +41,6 @@
                     <h:outputText value="#{segregadas.cuentaOrigen}" />
                 </p:column>
 
-                <p:column>
-                    <h:commandButton id="btnver" class= "buttons" value="Realizar Transaccion" action="#{historial.verCuenta(segregadas)}"/>
-                </p:column>
 
             </p:dataTable>
 
@@ -65,10 +62,6 @@
 
                 <p:column headerText="Cantidad">
                     <h:outputText value="#{pooled.cantidad}" />
-                </p:column>
-
-                <p:column>
-                    <h:commandButton id="btnver2" class= "buttons" value="Realizar Transaccion" action="#{historial.verCuenta(pooled)}"/>
                 </p:column>
 
             </p:dataTable>
