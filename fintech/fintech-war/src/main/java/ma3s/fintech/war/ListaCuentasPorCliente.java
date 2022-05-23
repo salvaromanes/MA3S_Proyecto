@@ -40,6 +40,14 @@ public class ListaCuentasPorCliente {
         return "HistorialTransacciones.xhtml?faces-redirect=true";
     }
 
+    public String transS(Segregada segregada1){
+        segregada = segregada1;
+        return "TransaccionCliente.xhtml";
+    }
+    public String transP(Pooled pooled1){
+        pooled = pooled1;
+        return "TransaccionCliente.xhtml";
+    }
     public Pooled getPooled() {
         return pooled;
     }
