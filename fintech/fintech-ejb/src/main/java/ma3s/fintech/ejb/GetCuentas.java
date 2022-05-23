@@ -43,9 +43,9 @@ public class GetCuentas implements GestionGetCuentas{
             return listaSeg;
 
         for (Fintech f : lista){
-           Segregada s = em.find(Segregada.class, f.getIban());
-           if(s != null)
-               listaSeg.add(s);
+            Segregada s = em.find(Segregada.class, f.getIban());
+            if(s != null)
+                listaSeg.add(s);
         }
         return listaSeg;
     }
@@ -165,7 +165,7 @@ public class GetCuentas implements GestionGetCuentas{
     }
 
     @Override
-    public List<Segregada> getSegregadasAuto(Usuario usuario){
+    public List<Segregada> getSegregadasAutoLec(Usuario usuario){
         Usuario user = em.find(Usuario.class, usuario.getUser());
         if(user == null){
             return null;
@@ -181,7 +181,9 @@ public class GetCuentas implements GestionGetCuentas{
             return listaSeg;
 
         for (Autorizacion f : autorizacionLista){
-            empresaList.add(f.getEmpresaId());
+            if(f.getTipo().equalsIgnoreCase("LECTURA")){
+                empresaList.add(f.getEmpresaId());
+            }
         }
 
         for(Empresa e : empresaList){
@@ -197,8 +199,45 @@ public class GetCuentas implements GestionGetCuentas{
     }
 
 
+
     @Override
-    public List<Pooled> getPooledAut(Usuario usuario){
+    public List<Segregada> getSegregadasAutoEsc(Usuario usuario){
+        Usuario user = em.find(Usuario.class, usuario.getUser());
+        if(user == null){
+            return null;
+        }
+        List<Fintech> lista = new ArrayList<>();
+        List<Empresa> empresaList = new ArrayList<>();
+        List<Segregada> listaSeg = new ArrayList<>();
+        if(user.getAutorizada() == null)
+            return listaSeg;
+        List<Autorizacion> autorizacionLista = user.getAutorizada().getAutorizaciones();
+
+        if(autorizacionLista == null)
+            return listaSeg;
+
+        for (Autorizacion f : autorizacionLista){
+            if(f.getTipo().equalsIgnoreCase("ESCRITURA")){
+                empresaList.add(f.getEmpresaId());
+            }
+        }
+
+        for(Empresa e : empresaList){
+            lista.addAll(e.getCuentasFintech());
+        }
+
+        for(Fintech g: lista){
+            Segregada s = em.find(Segregada.class, g.getIban());
+            if(s != null)
+                listaSeg.add(s);
+        }
+        return listaSeg;
+    }
+
+
+
+    @Override
+    public List<Pooled> getPooledAutLec(Usuario usuario){
         Usuario user = em.find(Usuario.class, usuario.getUser());
         if(user == null){
             return null;
@@ -214,7 +253,9 @@ public class GetCuentas implements GestionGetCuentas{
         if (autorizacionLista == null)
             return listaPooled;
         for (Autorizacion f : autorizacionLista){
-            empresaList.add(f.getEmpresaId());
+            if(f.getTipo().equalsIgnoreCase("LECTURA")){
+                empresaList.add(f.getEmpresaId());
+            }
         }
 
         for(Empresa e : empresaList){
@@ -228,6 +269,42 @@ public class GetCuentas implements GestionGetCuentas{
         }
         return listaPooled;
     }
+
+
+    @Override
+    public List<Pooled> getPooledAutEsc(Usuario usuario){
+        Usuario user = em.find(Usuario.class, usuario.getUser());
+        if(user == null){
+            return null;
+        }
+        List<Fintech> lista = new ArrayList<>();
+        List<Empresa> empresaList = new ArrayList<>();
+        List<Pooled> listaPooled = new ArrayList<>();
+        if(user.getAutorizada() == null)
+            return listaPooled;
+
+        List<Autorizacion> autorizacionLista = user.getAutorizada().getAutorizaciones();
+
+        if (autorizacionLista == null)
+            return listaPooled;
+        for (Autorizacion f : autorizacionLista){
+            if(f.getTipo().equalsIgnoreCase("ESCRITURA")){
+                empresaList.add(f.getEmpresaId());
+            }
+        }
+
+        for(Empresa e : empresaList){
+            lista.addAll(e.getCuentasFintech());
+        }
+
+        for(Fintech g: lista){
+            Pooled s = em.find(Pooled.class, g.getIban());
+            if(s != null)
+                listaPooled.add(s);
+        }
+        return listaPooled;
+    }
+
 
 
 }

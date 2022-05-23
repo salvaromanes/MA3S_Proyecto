@@ -30,10 +30,14 @@ public interface GestionGetCuentas {
 
     public List<DepositadaEn> getReferenciaPooled(String iban);
 
-    public List<Segregada> getSegregadasAuto(Usuario usuario);
+    public List<Segregada> getSegregadasAutoLec(Usuario usuario);
 
-    public List<Pooled> getPooledAut(Usuario usuario);
+    public List<Segregada> getSegregadasAutoEsc(Usuario usuario);
 
+
+    public List<Pooled> getPooledAutLec(Usuario usuario);
+
+    public List<Pooled> getPooledAutEsc(Usuario usuario);
 
     }
 
