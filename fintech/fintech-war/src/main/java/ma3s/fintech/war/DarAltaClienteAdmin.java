@@ -23,7 +23,6 @@ public class DarAltaClienteAdmin {
 
     @Inject
     private GestionAltaCliente gestionAltaCliente;
-    private GestionBajaCliente gestionBajaCliente;
 
     private Individual individual;
 

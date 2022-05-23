@@ -18,38 +18,26 @@
     <p:messages autoUpdate="true"/>
     <h:panelGrid>
 
-      <p:outputLabel for = "Id_txt"  value="Id"/>
-      <p:inputText id = "Id_txt" value="#{DarAltaBajaAdministrador.id}" required="true"/>
-
       <p:outputLabel for = "Identificacion_txt"  value="Identificacion"/>
-      <p:inputText id = "Identificacion_txt" value="#{DarAltaBajaAdministrador.identificacion}" required="true"/>
-
-      <p:outputLabel for = "TipoCliente_txt"  value="TipoCliente"/>
-      <p:inputText id = "TipoCliente_txt" value="#{DarAltaBajaAdministrador.tipoCliente}" required="true"/>
-
-      <p:outputLabel for = "Estado_txt"  value="Estado"/>
-      <p:inputText id = "Estado_txt"  value="#{DarAltaBajaAdministrador.estado}" required="true"/>
-
-      <p:outputLabel for = "FechaAlta_txt"  value="FechaAlta"/>
-      <p:inputText id = "FechaAlta_txt" value="#{DarAltaBajaAdministrador.fechaAlta}" required="true"/>
-
-      <p:outputLabel for = "FechaBaja_txt"  value="FechaBaja"/>
-      <p:inputText id = "FechaBaja_txt" value="#{DarAltaBajaAdministrador.fechaBaja}" required="true"/>
+      <p:inputText id = "Identificacion_txt" value="#{DarAltaBajaAdministrador.empresa.identificacion}" required="true"/>
 
       <p:outputLabel for = "Dirección_txt"  value="Dirección"/>
-      <p:inputText id = "Dirección_txt" value="#{DarAltaBajaAdministrador.direccion}"  required="true"/>
+      <p:inputText id = "Dirección_txt" value="#{DarAltaBajaAdministrador.empresa.direccion}"  required="true"/>
 
       <p:outputLabel for = "Ciudad_txt"  value="Ciudad"/>
-      <p:inputText id = "Ciudad_txt" value="#{DarAltaBajaAdministrador.ciudad}" required="true"/>
+      <p:inputText id = "Ciudad_txt" value="#{DarAltaBajaAdministrador.empresa.ciudad}" required="true"/>
 
       <p:outputLabel for = "CodigoPostal_txt"  value="CodigoPostal"/>
-      <p:inputText id = "CodigoPostal_txt" value="#{DarAltaBajaAdministrador.codigopostal}" required="true"/>
+      <p:inputText id = "CodigoPostal_txt" value="#{DarAltaBajaAdministrador.empresa.codigopostal}" required="true"/>
 
       <p:outputLabel for = "Pais_txt"  value="Pais"/>
-      <p:inputText id = "Pais_txt" value="#{DarAltaBajaAdministrador.pais}" required="true"/>
+      <p:inputText id = "Pais_txt" value="#{DarAltaBajaAdministrador.empresa.pais}" required="true"/>
+
+      <p:outputLabel for = "RazonSocial_txt"  value="RazonSocial"/>
+      <p:inputText id = "RazonSocial_txt" value="#{DarAltaBajaAdministrador.empresa.razonSocial}" required="true"/>
 
 
-      <p:commandButton icon="ui-icon-key" value="Dar Alta"/>
+      <p:commandButton icon="ui-icon-key" id="darAltaEmpresa" value="Dar Alta" action="#{DarAltaBajaAdministrador.darAltaEmpresa}" />
 
     </h:panelGrid>
 

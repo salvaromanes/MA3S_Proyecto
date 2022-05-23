@@ -15,14 +15,18 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
+import java.util.logging.Logger;
 
 @Named(value = "DarAltaEmpresaAdministrador")
 @RequestScoped
 public class DarAltaEmpresaAdmin {
 
+    private static final Logger LOGGER = Logger.getLogger(DarAltaClienteAdmin.class.getCanonicalName());
+
+
     @Inject
     private GestionAltaCliente gestionAltaCliente;
-    private GestionBajaCliente gestionBajaCliente;
+
     private Empresa empresa;
 
     public DarAltaEmpresaAdmin(){
@@ -30,25 +34,29 @@ public class DarAltaEmpresaAdmin {
     }
 
 
-    public String modificar() {
+    public String darAltaEmpresa() {
         try {
+            empresa.setTipoCliente("Jurídico");
+            empresa.setEstado("Abierto");
+            empresa.setFechaAlta(new Date());
             gestionAltaCliente.darAltaEmpresa(empresa);
-            gestionBajaCliente.darBajaCliente(empresa.getId());
 
             return "DarAltasEmpresasAdmin.xhtml";
         } catch (ClienteYaExistenteException e) {
             FacesMessage fm = new FacesMessage("El cliente ya existe");
-            FacesContext.getCurrentInstance().addMessage("admin: ", fm);
-        } catch (ClienteNoExisteException e) {
-            FacesMessage fm = new FacesMessage("El cliente no existe");
-            FacesContext.getCurrentInstance().addMessage("admin: ", fm);
-        } catch (CuentaAbiertaException e) {
-            FacesMessage fm = new FacesMessage("La cuenta está abierta");
             FacesContext.getCurrentInstance().addMessage("admin: ", fm);
         } catch (CampoVacioException e) {
             FacesMessage fm = new FacesMessage("El campo esta vacio");
             FacesContext.getCurrentInstance().addMessage("admin: ", fm);
         }
         return null;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 }
