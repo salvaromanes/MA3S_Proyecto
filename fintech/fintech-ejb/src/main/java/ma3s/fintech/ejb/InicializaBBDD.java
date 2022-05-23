@@ -52,7 +52,6 @@ public class InicializaBBDD {
             return;
         }
         Empresa empresa = new Empresa();
-        empresa.setId(new Long(1));
         empresa.setIdentificacion("P3310693A");
         empresa.setTipoCliente("Jurídico");
         empresa.setEstado("Activo");
@@ -64,7 +63,6 @@ public class InicializaBBDD {
         empresa.setRazonSocial("UMA");
 
         Individual individual = new Individual();
-        individual.setId(new Long(2));
         individual.setIdentificacion("63937528N");
         individual.setTipoCliente("Individual");
         individual.setEstado("Abierto");
@@ -77,7 +75,6 @@ public class InicializaBBDD {
         individual.setApellido("García");
 
         PAutorizada pAutorizada = new PAutorizada();
-        pAutorizada.setId(new Long(1));
         pAutorizada.setIdentificacion("Y4001267V");
         pAutorizada.setNombre("Salva");
         pAutorizada.setApellidos("Ortiz");
@@ -234,7 +231,6 @@ public class InicializaBBDD {
         pooled.setDepositos(listaDepositadas);
 
         Transaccion transaccion = new Transaccion();
-        transaccion.setIdUnico("ASDF546");
         transaccion.setFechaInstruccion(new Date());
         transaccion.setCantidad((double)200);
         transaccion.setTipo("Ingreso");
