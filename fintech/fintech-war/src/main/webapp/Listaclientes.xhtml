@@ -41,9 +41,11 @@
         </p:tabMenu>
     </div>
 
+    <h1>Clientes jurídicos</h1>
+
 <div class="card">
-<h:form id="caja1">
-    <p:dataTable value="#{listaClientes.clientes}" var="a" rows="5"
+<h:form>
+    <p:dataTable value="#{listaClientes.empresas}" var="a" rows="5"
                  paginator="true"
                  paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                  currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
@@ -53,8 +55,8 @@
             <h:outputText value="#{a.identificacion}"/>
         </p:column>
 
-        <p:column headerText="Tipo Cliente" filterBy="#{a.tipoCliente}" filterMatchMode="contains">
-            <h:outputText value="#{a.tipoCliente}" />
+        <p:column headerText="Razon Social" filterBy="#{a.razonSocial}" filterMatchMode="contains">
+            <h:outputText value="#{a.razonSocial}" />
         </p:column>
 
         <p:column  headerText="Estado" filterBy="#{a.estado}" filterMatchMode="contains">
@@ -85,10 +87,68 @@
         </p:column>
         <p:column  headerText="Modificar">
             <p:commandButton  value="Modificar"
-                             action="#{listaClientes.modificar(a)}" />
+                             action="#{listaClientes.modificarEmpresa(a)}" />
         </p:column>
     </p:dataTable>
 </h:form>
 </div>
+
+    <h1>Clientes Individuales</h1>
+
+    <div class="card">
+        <h:form>
+            <p:dataTable value="#{listaClientes.individuales}" var="a" rows="5"
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                         rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+
+                <p:column headerText="Identificación" filterBy="#{a.identificacion}" filterStyle="width: 100px;" filterMatchMode="contains">
+                    <h:outputText value="#{a.identificacion}"/>
+                </p:column>
+
+                <p:column headerText="Nombre" filterBy="#{a.nombre}" filterMatchMode="contains">
+                    <h:outputText value="#{a.nombre}" />
+                </p:column>
+
+                <p:column headerText="Apellidos" filterBy="#{a.apellido}" filterMatchMode="contains">
+                    <h:outputText value="#{a.apellido}" />
+                </p:column>
+
+                <p:column  headerText="Estado" filterBy="#{a.estado}" filterMatchMode="contains">
+                    <h:outputText value="#{a.estado}" />
+                </p:column>
+
+                <p:column  headerText="FechaAlta">
+                    <h:outputText  value="#{listaClientes.fechaSimple(a.fechaAlta)}" />
+                </p:column>
+                <p:column  headerText="FechaBaja">
+                    <h:outputText  value="#{listaClientes.fechaSimple(a.fechaBaja)}" />
+                </p:column>
+                <p:column  headerText="Dirección" filterBy="#{a.direccion}" filterMatchMode="contains">
+                    <h:outputText value="#{a.direccion}" />
+                </p:column>
+                <p:column  headerText="Ciudad" filterBy="#{a.ciudad}" filterMatchMode="contains">
+                    <h:outputText  value="#{a.ciudad}" />
+                </p:column>
+                <p:column  headerText="CodigoPostal" filterBy="#{a.codigopostal}" filterMatchMode="contains">
+                    <h:outputText  value="#{a.codigopostal}" />
+                </p:column>
+                <p:column  headerText="País" filterBy="#{a.pais}" filterMatchMode="contains">
+                    <h:outputText  value="#{a.pais}" />
+                </p:column>
+                <p:column  headerText="Dar Baja">
+                    <p:commandButton  value="Baja"
+                                      action="#{listaClientes.baja(a)}" />
+                </p:column>
+                <p:column  headerText="Modificar">
+                    <p:commandButton  value="Modificar"
+                                      action="#{listaClientes.modificarIndividual(a)}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </div>
+
+
 </h:body>
 </html>

@@ -22,5 +22,9 @@ public interface GestionGetClientes {
 
     public Empresa devolverEmpresa(String identificacion) throws EmpresaNoExistenteException;
 
+    public List<Empresa> getEmpresas();
+
+    public List<Individual> getIndividuales();
+
 
 }

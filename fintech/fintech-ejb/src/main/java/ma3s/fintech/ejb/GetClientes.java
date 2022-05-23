@@ -104,4 +104,18 @@ public class GetClientes implements GestionGetClientes{
 
         return null;
     }
+
+    @Override
+    public List<Empresa> getEmpresas(){
+        Query query = em.createQuery("select e from Empresa e");
+        List<Empresa> lista = query.getResultList();
+        return lista;
+    }
+
+    @Override
+    public List<Individual> getIndividuales(){
+        Query query = em.createQuery("select i from Individual i");
+        List<Individual> lista = query.getResultList();
+        return lista;
+    }
 }
