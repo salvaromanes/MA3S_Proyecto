@@ -7,8 +7,10 @@ import ma3s.fintech.ejb.excepciones.CuentaNoExistenteException;
 import ma3s.fintech.ejb.excepciones.CuentaNoVacia;
 import ma3s.fintech.ejb.excepciones.UsuarioIncorrectoException;
 import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
+import org.primefaces.PrimeFaces;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.text.SimpleDateFormat;
@@ -30,7 +32,7 @@ public class ListaCuentas {
 
     private Cuenta cuenta;
 
-    private final static Logger LOGGER = Logger.getLogger(GestionGetCuentas.class.getCanonicalName());
+    private final static Logger LOGGER = Logger.getLogger(ListaCuentas.class.getCanonicalName());
 
     public ListaCuentas(){
 
@@ -53,15 +55,19 @@ public class ListaCuentas {
     public String cerrar (String iban){
         try{
             gestionCierreCuenta.cerrarCuenta(iban, infosesion.getUsuario().getUser());
-            return "Listacuentas.xhtml";
+            return "Listacuentas.xhtml?faces-redirect=true";
         } catch (CuentaNoExistenteException e) {
-            e.printStackTrace();
+            LOGGER.info("Cuenta no existe");
+            showMessage();
         } catch (UsuarioNoEncontradoException e) {
-            e.printStackTrace();
+            LOGGER.info("Usuario no encontrado");
+            showMessage();
         } catch (CuentaNoVacia cuentaNoVacia) {
-            cuentaNoVacia.printStackTrace();
+            LOGGER.info("Cuenta no vacia");
+            showMessage();
         } catch (UsuarioIncorrectoException e) {
-            e.printStackTrace();
+            LOGGER.info("Usuario Incorrecto");
+            showMessage();
         }
         return null;
     }
@@ -72,6 +78,12 @@ public class ListaCuentas {
             return null;
         }
         return new SimpleDateFormat("dd-MM-yyyy").format(date);
+    }
+
+    public void showMessage() {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Message", " No se ha podido cerrar la cuenta");
+
+        PrimeFaces.current().dialog().showMessageDynamic(message);
     }
 
 }
