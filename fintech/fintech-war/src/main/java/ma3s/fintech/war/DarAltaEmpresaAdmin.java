@@ -41,7 +41,7 @@ public class DarAltaEmpresaAdmin {
             empresa.setFechaAlta(new Date());
             gestionAltaCliente.darAltaEmpresa(empresa);
 
-            return "DarAltasEmpresasAdmin.xhtml";
+            return "Listaclientes.xhtml?faces-redirect=true";
         } catch (ClienteYaExistenteException e) {
             FacesMessage fm = new FacesMessage("El cliente ya existe");
             FacesContext.getCurrentInstance().addMessage("admin: ", fm);
