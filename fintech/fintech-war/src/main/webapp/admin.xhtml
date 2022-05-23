@@ -13,21 +13,19 @@
   <link href="Estilos/iniciosSesion.css" rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
-  <div class="center">
-  <h:form id="admin">
-      <h:panelGrid class="casillas" columns="3">
-          <h:outputText class="salida" value="Nombre de usuario:"/>
-          <h:inputText class="entrada" id="user" required="true" value="#{sesion.usuario.user}"/>
-          <h:message for="user"/>
+    <div class="card">
+        <h:form id="index">
+            <h:panelGrid class="casillas" columns="3">
+                <h:outputText class="salida" value="Nombre de usuario:"/>
+                <p:inputText class="entrada" id="user" required="true" value="#{sesion.usuario.user}"/>
 
-          <h:outputText class="salida" value="Contraseña:"/>
-          <h:inputSecret class="entrada" id="pass" required="true" value="#{sesion.usuario.contrasena}" toggleMask="true" redisplay="true"/>
-          <h:message for="pass"/>
+                <h:outputText class="salida" value="Contraseña:"/>
+                <p:inputText class="entrada" id="pass" required="true" value="#{sesion.usuario.contrasena}" toggleMask="true" redisplay="true"/>
 
-          <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Entrar" action="#{sesion.entrarAdmin}"/>
-      </h:panelGrid>
-  </h:form>
-  </div>
+                <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Entrar" action="#{sesion.entrarAdmin}"/>
+            </h:panelGrid>
+        </h:form>
+    </div>
 </h:body>
 </html>
 
