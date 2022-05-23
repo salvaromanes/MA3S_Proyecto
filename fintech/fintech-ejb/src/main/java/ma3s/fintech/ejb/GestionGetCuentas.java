@@ -29,6 +29,10 @@ public interface GestionGetCuentas {
     public List<Referencia> getReferenciaSegregada(String iban);
 
     public List<DepositadaEn> getReferenciaPooled(String iban);
-}
+
+    public List<Segregada> getSegregadasAuto(Usuario usuario);
+
+
+    }
 
 
