@@ -3,6 +3,7 @@ package ma3s.fintech.ejb;
 import ma3s.fintech.Cliente;
 import ma3s.fintech.Empresa;
 import ma3s.fintech.Individual;
+import ma3s.fintech.PAutorizada;
 import ma3s.fintech.ejb.excepciones.ClienteNoExisteException;
 import ma3s.fintech.ejb.excepciones.EmpresaNoExistenteException;
 import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
@@ -26,5 +27,7 @@ public interface GestionGetClientes {
 
     public List<Individual> getIndividuales();
 
+    public PAutorizada getPAutorizada(String identificacion) throws EmpresaNoExistenteException;
 
+    public List<PAutorizada> getPAutorizadas();
 }

@@ -29,6 +29,9 @@ public class Sesion implements Serializable {
 
     private String identificacion;
 
+    private Boolean sesion_iniciada = false;
+    private Boolean sesion_admin = false;
+
     private String iban;
     private String cliente;
 
@@ -62,6 +65,7 @@ public class Sesion implements Serializable {
         try {
             gestionAccesoAplicacion.entrarAplicacion(usuario.getUser(), usuario.getContrasena());
             this.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
+            sesion_iniciada = true;
             return "principalCliente.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
             LOGGER.info("Campos sin rellenar " + e.getMessage());
@@ -83,6 +87,8 @@ public class Sesion implements Serializable {
         try {
             gestionAccesoAplicacion.entrarAplicacionAdministrador(usuario.getUser(), usuario.getContrasena());
             this.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
+            sesion_iniciada = true;
+            sesion_admin = true;
             return "principalAdmin.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
             LOGGER.info("Campos sin rellenar");
@@ -130,7 +136,8 @@ public class Sesion implements Serializable {
             FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
             view = "index.xhtml?faces-redirect=true";
         }
-
+        sesion_iniciada = false;
+        sesion_admin = false;
         return view;
     }
 
@@ -148,5 +155,21 @@ public class Sesion implements Serializable {
 
     public void setCliente(String cliente) {
         this.cliente = cliente;
+    }
+
+    public Boolean getSesion_iniciada() {
+        return sesion_iniciada;
+    }
+
+    public Boolean getSesion_admin() {
+        return sesion_admin;
+    }
+
+    public void setSesion_iniciada(Boolean sesion_iniciada) {
+        this.sesion_iniciada = sesion_iniciada;
+    }
+
+    public void setSesion_admin(Boolean sesion_admin) {
+        this.sesion_admin = sesion_admin;
     }
 }

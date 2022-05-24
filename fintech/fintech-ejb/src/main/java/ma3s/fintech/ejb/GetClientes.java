@@ -1,9 +1,6 @@
 package ma3s.fintech.ejb;
 
-import ma3s.fintech.Cliente;
-import ma3s.fintech.DepositadaEn;
-import ma3s.fintech.Empresa;
-import ma3s.fintech.Individual;
+import ma3s.fintech.*;
 import ma3s.fintech.ejb.excepciones.*;
 
 import javax.ejb.Stateless;
@@ -116,6 +113,28 @@ public class GetClientes implements GestionGetClientes{
     public List<Individual> getIndividuales(){
         Query query = em.createQuery("select i from Individual i");
         List<Individual> lista = query.getResultList();
+        return lista;
+    }
+
+    @Override
+    public PAutorizada getPAutorizada(String identificacion) throws EmpresaNoExistenteException {
+        Query query = em.createQuery("select p from PAutorizada p");
+        List<PAutorizada> lista = query.getResultList();
+
+        for(PAutorizada pa : lista){
+            // Seleccionamos solo las autorizaciones que pertenezcan a esta empresa
+            if(pa.getIdentificacion().equals(identificacion)){
+                return pa;
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<PAutorizada> getPAutorizadas(){
+        Query query = em.createQuery("select p from PAutorizada p");
+        List<PAutorizada> lista = query.getResultList();
         return lista;
     }
 }
