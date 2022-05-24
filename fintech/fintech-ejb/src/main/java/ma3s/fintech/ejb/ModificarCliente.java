@@ -3,6 +3,7 @@ package ma3s.fintech.ejb;
 import ma3s.fintech.Cliente;
 import ma3s.fintech.Empresa;
 import ma3s.fintech.Individual;
+import ma3s.fintech.PAutorizada;
 import ma3s.fintech.ejb.excepciones.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -226,4 +227,79 @@ public class ModificarCliente implements GestionModificarCliente{
 
         em.merge(individual);
     }
+
+
+    @Override
+    public void modIdentificacionPA(Long id, String identificacion) throws CampoVacioException, PersonaNoExisteException {
+        if(id == null)
+            throw new CampoVacioException();
+        PAutorizada pa = em.find(PAutorizada.class, id);
+
+        if (pa == null){
+            throw new PersonaNoExisteException("La persona autorizada con el id " + id + " no existe");
+        }
+        if(identificacion == null)
+            throw new CampoVacioException();
+
+        pa.setIdentificacion(identificacion);
+
+        em.merge(pa);
+    }
+
+
+    @Override
+    public void modNombrePA(Long id, String nombre) throws CampoVacioException, PersonaNoExisteException {
+        if(id == null)
+            throw new CampoVacioException();
+        PAutorizada pa = em.find(PAutorizada.class, id);
+
+        if (pa == null){
+            throw new PersonaNoExisteException("La persona autorizada con el id " + id + " no existe");
+        }
+        if(nombre == null)
+            throw new CampoVacioException();
+
+        pa.setNombre(nombre);
+
+        em.merge(pa);
+    }
+
+
+    @Override
+    public void modApellidosPA(Long id, String apellidos) throws CampoVacioException, PersonaNoExisteException {
+        if(id == null)
+            throw new CampoVacioException();
+        PAutorizada pa = em.find(PAutorizada.class, id);
+
+        if (pa == null){
+            throw new PersonaNoExisteException("La persona autorizada con el id " + id + " no existe");
+        }
+        if(apellidos == null)
+            throw new CampoVacioException();
+
+        pa.setApellidos(apellidos);
+
+        em.merge(pa);
+    }
+
+
+    @Override
+    public void modDireccionPA(Long id, String direccion) throws CampoVacioException, PersonaNoExisteException {
+        if(id == null)
+            throw new CampoVacioException();
+        PAutorizada pa = em.find(PAutorizada.class, id);
+
+        if (pa == null){
+            throw new PersonaNoExisteException("La persona autorizada con el id " + id + " no existe");
+        }
+        if(direccion == null)
+            throw new CampoVacioException();
+
+        pa.setDireccion(direccion);
+
+        em.merge(pa);
+    }
+
+
+
 }
