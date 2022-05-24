@@ -11,10 +11,33 @@
 <h:head>
     <title>Historial Transacciones</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link href="Estilos/estilosCrearCuenta.css" rel="stylesheet" type="text/css" />
+    <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
+    <div class="card">
+        <h:form>
+            <p:growl id="messages"/>
+
+            <p:menubar>
+                <p:menuitem value="Página Inicio" outcome="principalCliente.xhtml" icon="pi pi-fw pi-home">
+                </p:menuitem>
+
+                <p:divider layout="vertical"/>
+
+                <p:submenu label="Cuentas" icon="pi pi-fw pi-list">
+                    <p:menuitem value="Mis cuentas" outcome="cuentasporUsuario.xhtml" icon="pi pi-fw pi-money-bill"/>
+                </p:submenu>
+
+                <p:divider layout="vertical"/>
+
+                <f:facet name="options">
+                    <p:commandButton value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
+                </f:facet>
+            </p:menubar>
+        </h:form>
+    </div>
+
     <h1>Sus transacciones en las cuentas segregadas</h1>
     <div class="card">
     <h:form id="Segregadas" >

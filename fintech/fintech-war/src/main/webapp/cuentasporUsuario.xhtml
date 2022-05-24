@@ -15,6 +15,28 @@
 </h:head>
 
 <h:body>
+    <div class="card">
+        <h:form>
+            <p:growl id="messages"/>
+
+            <p:menubar>
+                <p:menuitem value="Página Inicio" outcome="principalCliente.xhtml" icon="pi pi-fw pi-home">
+                </p:menuitem>
+
+                <p:divider layout="vertical"/>
+
+                <p:submenu label="Cuentas" icon="pi pi-fw pi-list">
+                    <p:menuitem value="Mis cuentas" outcome="cuentasporUsuario.xhtml" icon="pi pi-fw pi-money-bill"/>
+                </p:submenu>
+
+                <p:divider layout="vertical"/>
+
+                <f:facet name="options">
+                    <p:commandButton value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
+                </f:facet>
+            </p:menubar>
+        </h:form>
+    </div>
 
     <h1>Cuentas Segregadas</h1>
     <div class="card">

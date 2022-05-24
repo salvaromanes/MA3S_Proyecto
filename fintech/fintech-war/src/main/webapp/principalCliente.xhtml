@@ -13,24 +13,27 @@
     <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
-    <h:form id="principalCielte">
-    <div class="inicio">
-        <ui:fragment rendered="#{not empty sesion.usuario}">
-            <p>Hola, <h:outputText id="saludo" value="#{sesion.usuario.user}"/>.</p>
-        </ui:fragment>
+    <div class="card">
+        <h:form>
+            <p:growl id="messages"/>
+
+            <p:menubar>
+                <p:menuitem value="Página Inicio" outcome="principalCliente.xhtml" icon="pi pi-fw pi-home">
+                </p:menuitem>
+
+                <p:divider layout="vertical"/>
+
+                <p:submenu label="Cuentas" icon="pi pi-fw pi-list">
+                    <p:menuitem value="Mis cuentas" outcome="cuentasporUsuario.xhtml" icon="pi pi-fw pi-money-bill"/>
+                </p:submenu>
+
+                <p:divider layout="vertical"/>
+
+                <f:facet name="options">
+                    <p:commandButton value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
+                </f:facet>
+            </p:menubar>
+        </h:form>
     </div>
-    <div class="container">
-        <div class="card">
-            <div>
-                <div>
-                    <p:commandButton class="css-button-rounded--black" id="botonCerrarSesion" value="Cerrar sesión" action="#{sesion.cerrarSesion}"/>
-                </div>
-                <div>
-                    <p:button id="VerCuentas" value="Mis Cuentras" href="cuentasporUsuario.xhtml"/>
-                </div>
-            </div>
-        </div>
-    </div>
-    </h:form>
 </h:body>
 </html>
