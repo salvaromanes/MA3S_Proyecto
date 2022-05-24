@@ -33,10 +33,26 @@ public class MostrarDatosCuentaSegregada {
     private String iban;
     private String id;
 
+    public String getIban() {
+        return iban;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @PostConstruct
     public void mostrarDatosCuentaSegregada(){
         this.iban = sesion.getIban();
-        this.id = sesion.getIdentificacion();
+        this.id = sesion.getCliente();
     }
 
     public synchronized List<Autorizacion> getAutorizaciones() {

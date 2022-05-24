@@ -5,10 +5,8 @@ import ma3s.fintech.Individual;
 import ma3s.fintech.PAutorizada;
 import ma3s.fintech.ejb.GestionGetClientes;
 import ma3s.fintech.ejb.GestionModificarCliente;
-import ma3s.fintech.ejb.excepciones.CampoVacioException;
-import ma3s.fintech.ejb.excepciones.EmpresaNoExistenteException;
-import ma3s.fintech.ejb.excepciones.IndividualNoExistenteException;
-import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
+import ma3s.fintech.ejb.GestionModificarPAutorizada;
+import ma3s.fintech.ejb.excepciones.*;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -33,7 +31,7 @@ public class ModificarPersonaAutorizada {
     private String apellido;
 
     @Inject
-    private GestionModificarCliente gestionModificarCliente;
+    private GestionModificarPAutorizada gestionModificarPA;
     @Inject
     private GestionGetClientes gestionGetClientes;
 
@@ -138,15 +136,18 @@ public class ModificarPersonaAutorizada {
 
         try {
 
-            gestionModificarCliente.modNombrePA(pa.getId(), pa.getNombre());
-            gestionModificarCliente.modApellidosPA(pa.getId(), pa.getApellidos());
-            gestionModificarCliente.modDireccionPA(pa.getId(), pa.getDireccion());
+            gestionModificarPA.modificarNombre(sesion.getUsuario().getUser(), pa.getId(), pa.getNombre());
+            gestionModificarPA.modificarApellidos(sesion.getUsuario().getUser(), pa.getId(), pa.getApellidos());
+            gestionModificarPA.modificarDireccion(sesion.getUsuario().getUser(), pa.getId(), pa.getDireccion());
+            gestionModificarPA.modificarFechaNacimiento(sesion.getUsuario().getUser(), pa.getId(), pa.getFechaNacimiento());
 
             return "Listaclientes.xhtml?faces-redirect=true";
 
         } catch (CampoVacioException e) {
             LOGGER.info("CampoVacioException " + e.getMessage());
         } catch (PersonaNoExisteException e) {
+            throw new RuntimeException(e);
+        } catch (NoEsAdministrativoException e) {
             throw new RuntimeException(e);
         }
         return "Listaclientes.xhtml";

@@ -42,7 +42,20 @@ public class MostrarDatosCuenta {
     @PostConstruct
     public void mostrarDatosCuenta(){
         iban = sesion.getIban();
-        id = sesion.getIdentificacion();
+        id = sesion.getCliente();
+    }
+
+    public String getIban() {
+        return iban;
+    }
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
     }
 
     public synchronized List<Autorizacion> getAutorizaciones() {

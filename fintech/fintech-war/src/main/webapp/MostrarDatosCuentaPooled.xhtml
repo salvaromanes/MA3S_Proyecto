@@ -70,6 +70,14 @@
                         <h:outputText value="#{pooled.cliente.identificacion}" />
                     </p:column>
 
+                    <p:column headerText="Identificacion Adri">
+                        <h:outputText value="#{mostrarDatosCuentaPooled.id}" />
+                    </p:column>
+
+                    <p:column headerText="IBAN Adri">
+                        <h:outputText value="#{mostrarDatosCuentaPooled.iban}" />
+                    </p:column>
+
                     <p:column headerText="IBAN">
                         <h:outputText value="#{pooled.iban}" />
                     </p:column>
@@ -131,6 +139,10 @@
 
                     <p:column headerText="Saldo">
                         <h:outputText value="#{deposito.saldo}" />
+                    </p:column>
+
+                    <p:column headerText="Divisa">
+                        <h:outputText value="#{deposito.referencia.divisa.abreviatura}" />
                     </p:column>
 
                     <p:column headerText="Banco">

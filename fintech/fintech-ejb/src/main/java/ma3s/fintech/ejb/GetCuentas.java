@@ -111,16 +111,18 @@ public class GetCuentas implements GestionGetCuentas{
     public List<Autorizacion> getAutorizaciones (String iban, String ident){
         List<Autorizacion> result = new ArrayList<>();
 
+        //Query query = em.createQuery("Select c from Autorizacion c where c.empresaId.identificacion = :identificacion").setParameter("identificacion", ident);
         Query query = em.createQuery("Select c from Autorizacion c");
         List<Autorizacion> listaAutorizaciones = query.getResultList();
 
         if(listaAutorizaciones != null){
             for(Autorizacion auto : listaAutorizaciones){
-                if(auto.getEmpresaId().getIdentificacion().equals(ident)) result.add(auto);
+                if(auto.getEmpresaId().getIdentificacion().equalsIgnoreCase(ident)) result.add(auto);
             }
         }
 
-        return listaAutorizaciones;
+
+        return result;
     }
 
     @Override
