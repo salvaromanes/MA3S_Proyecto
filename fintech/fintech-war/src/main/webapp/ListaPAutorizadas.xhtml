@@ -30,7 +30,10 @@
             </p:submenu>
           </p:submenu>
 
-
+          <p:submenu label="Personas Autorizadas" icon="pi pi-fw pi-user-plus">
+            <p:menuitem value="Lista" outcome="ListaPAutorizadas.xhtml" icon="pi pi-fw pi-list"/>
+            <p:menuitem value="Crear" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-plus"/>
+          </p:submenu>
 
           <p:divider layout="vertical"/>
 
@@ -57,6 +60,52 @@
         </p:menubar>
       </h:form>
     </div>
+
+    <div class="card">
+      <h:form>
+        <p:dataTable value="#{listaPAutorizadas.PAutorizadas}" var="a" rows="5"
+                     paginator="true"
+                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                     rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+
+          <p:column headerText="Identificación" filterBy="#{a.identificacion}" filterStyle="width: 100px;" filterMatchMode="contains">
+            <h:outputText value="#{a.identificacion}"/>
+          </p:column>
+
+          <p:column headerText="Nombre" filterBy="#{a.nombre}" filterMatchMode="contains">
+            <h:outputText value="#{a.nombre}" />
+          </p:column>
+
+          <p:column headerText="Apellidos" filterBy="#{a.apellidos}" filterMatchMode="contains">
+            <h:outputText value="#{a.apellidos}" />
+          </p:column>
+
+          <p:column  headerText="Estado" filterBy="#{a.estado}" filterMatchMode="contains">
+            <h:outputText value="#{a.estado}" />
+          </p:column>
+
+          <p:column  headerText="Fecha Inicio">
+            <h:outputText  value="#{listaPAutorizadas.fechaSimple(a.fechaInicio)}" />
+          </p:column>
+          <p:column  headerText="Fecha Fin">
+            <h:outputText  value="#{listaPAutorizadas.fechaSimple(a.fechaFin)}" />
+          </p:column>
+          <p:column  headerText="Dirección" filterBy="#{a.direccion}" filterMatchMode="contains">
+            <h:outputText value="#{a.direccion}" />
+          </p:column>
+          <p:column  headerText="Dar Baja">
+            <p:commandButton  value="Baja"
+                              action="#{listaPAutorizadas.baja(a)}" />
+          </p:column>
+          <p:column  headerText="Modificar">
+            <p:commandButton  value="Modificar"
+                              action="#{listaPAutorizadas.modificarPAutorizado(a.identificacion)}" />
+          </p:column>
+        </p:dataTable>
+      </h:form>
+    </div>
+
   </h:panelGroup>
   <h:panelGroup rendered="#{!sesion.sesion_admin}">
     <p>Prueba</p>

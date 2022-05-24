@@ -3,8 +3,10 @@ package ma3s.fintech.ejb;
 import ma3s.fintech.Cliente;
 import ma3s.fintech.Fintech;
 import ma3s.fintech.ejb.excepciones.*;
+import org.primefaces.PrimeFaces;
 
 import javax.ejb.Stateless;
+import javax.faces.application.FacesMessage;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Date;
@@ -28,11 +30,17 @@ public class BajaCliente implements GestionBajaCliente{
 
         List<Fintech> cuentas = cliente.getCuentasFintech();
         for (Fintech f : cuentas){
-            if(f.getEstado().equals("Abierta"))
+            if(f.getEstado().equals("Activa"))
                 throw new CuentaAbiertaException("No se puede dar de baja un cliente que tiene una cuenta abierta");
         }
         cliente.setEstado("Cerrada");
         cliente.setFechaBaja(new Date());
         em.merge(cliente);
+    }
+
+    public void showMessage(String msg) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", msg);
+
+        PrimeFaces.current().dialog().showMessageDynamic(message);
     }
 }

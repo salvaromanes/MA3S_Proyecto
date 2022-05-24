@@ -8,9 +8,11 @@ import ma3s.fintech.ejb.GestionGetClientes;
 import ma3s.fintech.ejb.excepciones.CampoVacioException;
 import ma3s.fintech.ejb.excepciones.ClienteNoExisteException;
 import ma3s.fintech.ejb.excepciones.CuentaAbiertaException;
+import org.primefaces.PrimeFaces;
 import org.primefaces.model.FilterMeta;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.text.SimpleDateFormat;
@@ -77,11 +79,14 @@ public class ListaClientes {
             bajaCliente.darBajaCliente(c.getId());
             return "Listaclientes.xhtml?faces-redirect=true";
         } catch (ClienteNoExisteException e) {
-            e.printStackTrace();
+            LOGGER.info("Cuenta no existe");
+            showMessage("Cuenta no existe");
         } catch (CuentaAbiertaException e) {
-            e.printStackTrace();
+            LOGGER.info("Cuenta Abierta");
+            showMessage("Cuenta abierta, no es posible cerrar la cuenta.");
         } catch (CampoVacioException e) {
-            e.printStackTrace();
+            LOGGER.info("Cuenta Abierta");
+            showMessage("Cuenta abierta, no es posible cerrar la cuenta.");
         }
         return null;
     }
@@ -94,4 +99,9 @@ public class ListaClientes {
         return new SimpleDateFormat("dd-MM-yyyy").format(date);
     }
 
+    public void showMessage(String msg) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", msg);
+
+        PrimeFaces.current().dialog().showMessageDynamic(message);
+    }
 }
