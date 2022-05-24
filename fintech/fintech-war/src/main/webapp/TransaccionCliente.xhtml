@@ -45,16 +45,28 @@
         <h:panelGrid>
 
             <h:outputLabel for = "cuenta_txt2"  value="Cuenta origen"/>
-            <h:outputLabel id = "cuenta_txt2" value="#{transcliente.transaccion.cuentaOrigen}" required="true"/>
+            <h:outputLabel id = "cuenta_txt2" value="#{transcliente.ibanOrigen}" required="true"/>
             <h:message for="cuenta_txt2"/>
 
             <h:outputLabel for = "cuenta_txt"  value="Cuenta destino"/>
-            <h:inputText id = "cuenta_txt" value="#{transcliente.transaccion.cuentaDestino}" required="true"/>
+            <h:inputText id = "cuenta_txt" value="#{transcliente.ibanDestino}" required="true"/>
             <h:message for="cuenta_txt"/>
 
             <h:outputLabel for = "cantidad_txt"  value="Cantidad"/>
-            <h:inputText id = "cantidad_txt" value="#{transcliente.transaccion.cantidad}"  required="true"/>
+            <h:inputText id = "cantidad_txt" value="#{transcliente.cantidad}"  required="true"/>
             <h:message for="cantidad_txt"/>
+
+            <h:outputLabel for = "tipo_txt"  value="Tipo de Transacción"/>
+            <h:inputText id = "tipo_txt" value="#{transcliente.tipo}"  required="true"/>
+            <h:message for="tipo_txt"/>
+
+            <h:outputLabel for = "divisaOrigen_txt"  value="Divisa Origen"/>
+            <h:inputText id = "divisaOrigen_txt" value="#{transcliente.divisaOrigen}"  required="true"/>
+            <h:message for="divisaOrigen_txt"/>
+
+            <h:outputLabel for = "divisaDestino_txt"  value="Divisa Destino"/>
+            <h:inputText id = "divisaDestino_txt" value="#{transcliente.divisaDestino}"  required="true"/>
+            <h:message for="divisaDestino_txt"/>
 
             <h:commandButton id="btnConfirmar" value="Confirmar" action="#{transcliente.realizarTransaccionCliente()}"/>
 

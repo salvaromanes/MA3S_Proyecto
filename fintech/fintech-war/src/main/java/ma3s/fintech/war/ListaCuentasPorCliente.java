@@ -50,13 +50,14 @@ public class ListaCuentasPorCliente {
     }
 
     public String transS(Segregada segregada1){
-        segregada = segregada1;
+        sesion.setIban_transaccion(segregada1.getIban());
         return "TransaccionCliente.xhtml?faces-redirect=true";
     }
     public String transP(Pooled pooled1){
-        pooled = pooled1;
+        sesion.setIban_transaccion(pooled1.getIban());
         return "TransaccionCliente.xhtml?faces-redirect=true";
     }
+
     public Pooled getPooled() {
         return pooled;
     }

@@ -19,5 +19,6 @@ public interface GestionTransferencia {
     public List<Transaccion> verTransferencias(Segregada segregada);
     public List<Transaccion> verTransferencias2(Pooled pooled);
 
+    public void crearTransaccion(Transaccion t) throws CampoVacioException;
 
     }

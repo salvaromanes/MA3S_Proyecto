@@ -1,6 +1,7 @@
 package ma3s.fintech.war;
 
 import ma3s.fintech.Pooled;
+import ma3s.fintech.Segregada;
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.GestionAccesoAplicacion;
 import ma3s.fintech.ejb.excepciones.AccesoException;
@@ -26,6 +27,7 @@ public class Sesion implements Serializable {
     private Usuario usuario;
 
     private Pooled pooled;
+    private String iban_transaccion;
 
     private String identificacion;
 
@@ -171,5 +173,13 @@ public class Sesion implements Serializable {
 
     public void setSesion_admin(Boolean sesion_admin) {
         this.sesion_admin = sesion_admin;
+    }
+
+    public String getIban_transaccion() {
+        return iban_transaccion;
+    }
+
+    public void setIban_transaccion(String iban_transaccion) {
+        this.iban_transaccion = iban_transaccion;
     }
 }
