@@ -8,4 +8,5 @@ import java.util.Date;
 
 public interface GestionGenerarCSV {
     void generarCSV(String usuario, String tipoInforme, Date ultimoReporte) throws PersonaNoExisteException, IOException, UsuarioNoEncontradoException;
+    String generarCSV(String usuario, String tipoInforme) throws PersonaNoExisteException, IOException, UsuarioNoEncontradoException;
 }

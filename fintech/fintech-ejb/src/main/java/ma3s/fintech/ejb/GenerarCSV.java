@@ -51,6 +51,33 @@ public class GenerarCSV implements GestionGenerarCSV{
         String stringCSV = csvString(csv);
     }
 
+    @Override
+    public String generarCSV(String usuario, String tipoInforme) throws PersonaNoExisteException, IOException, UsuarioNoEncontradoException {
+        Usuario user = em.find(Usuario.class, usuario);
+
+        if(user == null){
+            throw new UsuarioNoEncontradoException("generarCSV: usuario no encontrado");
+        }
+
+        Query query = em.createQuery("select c from Cliente c");
+        List<Cliente> listaClientes = query.getResultList();
+
+        if(!isAdministrativo(user.getUser())){
+            throw new PersonaNoExisteException("generarCSV: El administrativo " + usuario + " no existe");
+        }
+
+        CSVPrinter csv = null;
+        if (tipoInforme.equals("Inicial") && listaClientes != null){
+            csv = reporteInicial(listaClientes);
+        }else if (tipoInforme.equals("Periodico") && listaClientes != null){
+            csv = reportesPeriodicos(listaClientes);
+        }
+
+        // pasamos el csv a un string
+        String stringCSV = csvString(csv);
+        return stringCSV;
+    }
+
     private CSVPrinter reporteInicial(List<Cliente> lista) throws IOException {
         final StringWriter stringWriter = new StringWriter();
         CSVPrinter csv = new CSVPrinter(stringWriter,
