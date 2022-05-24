@@ -49,7 +49,7 @@ public class ModificarPersonaAutorizada {
     @PostConstruct
     public void ModificarIndividual(){
        try{
-            pa = gestionGetClientes.devolverPA(sesion.getIdentificacion());
+            pa = gestionGetClientes.getPAutorizada(sesion.getIdentificacion());
         } catch (EmpresaNoExistenteException e) {
            throw new RuntimeException(e);
        }
