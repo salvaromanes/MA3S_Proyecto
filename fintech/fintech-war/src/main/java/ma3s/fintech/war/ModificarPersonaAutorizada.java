@@ -15,7 +15,7 @@ import javax.inject.Named;
 import java.util.logging.Logger;
 
 
-@Named(value = "pa")
+@Named
 @RequestScoped
 public class ModificarPersonaAutorizada {
 
@@ -47,7 +47,7 @@ public class ModificarPersonaAutorizada {
     }
 
     @PostConstruct
-    public void ModificarIndividual(){
+    public void ModificarPersonaAutorizada(){
        try{
             pa = gestionGetClientes.getPAutorizada(sesion.getIdentificacion());
         } catch (EmpresaNoExistenteException e) {
@@ -112,11 +112,11 @@ public class ModificarPersonaAutorizada {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
+    public String getApellidos() {
         return apellido;
     }
 
-    public void setApellido(String apellido) {
+    public void setApellidos(String apellido) {
         this.apellido = apellido;
     }
 
@@ -141,16 +141,18 @@ public class ModificarPersonaAutorizada {
             gestionModificarPA.modificarDireccion(sesion.getUsuario().getUser(), pa.getId(), pa.getDireccion());
             gestionModificarPA.modificarFechaNacimiento(sesion.getUsuario().getUser(), pa.getId(), pa.getFechaNacimiento());
 
-            return "Listaclientes.xhtml?faces-redirect=true";
+            return "ListaPAutorizadas.xhtml?faces-redirect=true";
 
         } catch (CampoVacioException e) {
             LOGGER.info("CampoVacioException " + e.getMessage());
         } catch (PersonaNoExisteException e) {
-            throw new RuntimeException(e);
+            LOGGER.info("PersonaNoExisteException " + e.getMessage());
+
         } catch (NoEsAdministrativoException e) {
-            throw new RuntimeException(e);
+            LOGGER.info("NoEsAdministrativoException " + e.getMessage());
+
         }
-        return "Listaclientes.xhtml";
+        return "ListaPAutorizadas.xhtml";
     }
 
 }

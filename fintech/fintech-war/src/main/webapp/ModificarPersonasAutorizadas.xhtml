@@ -58,28 +58,28 @@
       </p:menubar>
     </h:form>
   </div>
-  <h1 class="pa"> Modificar Cliente </h1>
+  <h1 class="pa"> Modificar Persona Autorizada </h1>
   <h:form id="form">
     <div class="centro">
 
       <h:panelGrid columns="1">
 
         <h:outputText value="Identificacion" />
-        <h:outputText value="#{pa.pa.identificacion}"/>
+        <h:outputText value="#{modificarPersonaAutorizada.pa.identificacion}"/>
 
         <h:outputText value="Nombre"/>
-        <p:inputText required="true" value="#{pa.pa.nombre}"/>
+        <p:inputText required="true" value="#{modificarPersonaAutorizada.pa.nombre}"/>
 
         <h:outputText value="Apellidos"/>
-        <p:inputText required="true" value="#{pa.pa.apellido}"/>
+        <p:inputText required="true" value="#{modificarPersonaAutorizada.pa.apellidos}"/>
 
         <h:outputText value="Direccion"/>
-        <p:inputText required="true" value="#{pa.pa.direccion}"/>
+        <p:inputText required="true" value="#{modificarPersonaAutorizada.pa.direccion}"/>
 
         <h:outputText value="Fecha Nacimiento"/>
-        <p:inputText required="true" value="#{pa.pa.fechaNacimiento}"/>
+        <p:inputText required="true" value="#{modificarPersonaAutorizada.pa.fechaNacimiento}"/>
 
-        <p:commandButton id="modificar" value="Modificar" action="#{pa.modificar()}" />
+        <p:commandButton id="modificar" value="Modificar" action="#{modificarPersonaAutorizada.modificar()}" />
 
       </h:panelGrid>
     </div>
