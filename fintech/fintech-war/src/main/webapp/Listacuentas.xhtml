@@ -100,7 +100,7 @@
 
                 <p:column  headerText="Detalles">
                     <p:commandButton  value="Detalles"
-                                      action="#{listaCuentas.cerrar(a.iban)}" />
+                                      action="#{listaCuentas.verCuentaPooled(a.iban,a.cliente.identificacion)}" />
                 </p:column>
 
             </p:dataTable>
@@ -151,7 +151,7 @@
 
                 <p:column  headerText="Detalles">
                     <p:commandButton  value="Detalles"
-                                      action="#{listaCuentas.cerrar(a.iban)}" />
+                                      action="#{listaCuentas.verCuentaSegregada(a.iban, a.cliente.identificacion)}" />
                 </p:column>
 
             </p:dataTable>

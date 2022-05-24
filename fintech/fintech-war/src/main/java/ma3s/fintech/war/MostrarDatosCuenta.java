@@ -6,6 +6,7 @@ import ma3s.fintech.ejb.GestionEliminarAutorizados;
 import ma3s.fintech.ejb.GestionGetCuentas;
 import org.primefaces.PrimeFaces;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
@@ -31,14 +32,13 @@ public class MostrarDatosCuenta {
 
     private List<Autorizacion> autorizaciones = new ArrayList<Autorizacion>();
     private List<Pooled> listaPooled = new ArrayList<Pooled>();
-    private String iban = "ES8400817251647192321264";
-    private String id = "63937528N";
+    private String iban;
+    private String id;
 
-    public String mostrarDatosCuenta(String iban, String idCliente){
-        this.iban = iban;
-        this.id = idCliente;
-
-        return "MostrarDatosCuentaPooled";
+    @PostConstruct
+    public void mostrarDatosCuenta(){
+        iban = sesion.getIban();
+        id = sesion.getIdentificacion();
     }
 
     public synchronized List<Autorizacion> getAutorizaciones() {

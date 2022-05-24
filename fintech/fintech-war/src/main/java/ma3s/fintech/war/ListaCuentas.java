@@ -86,4 +86,15 @@ public class ListaCuentas {
         PrimeFaces.current().dialog().showMessageDynamic(message);
     }
 
+    public String verCuentaPooled(String iban, String cliente){
+        infosesion.setIban(iban);
+        infosesion.setCliente(cliente);
+        return "MostrarDatosCuentaPooled.xhtml?faces-redirect=true";
+    }
+
+    public String verCuentaSegregada(String iban, String cliente){
+        infosesion.setIban(iban);
+        infosesion.setCliente(cliente);
+        return "MostrarDatosCuentaSegregada.xhtml?faces-redirect=true";
+    }
 }

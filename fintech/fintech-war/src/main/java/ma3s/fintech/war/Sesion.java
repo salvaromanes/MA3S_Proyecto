@@ -29,6 +29,9 @@ public class Sesion implements Serializable {
 
     private String identificacion;
 
+    private String iban;
+    private String cliente;
+
     public String getIdentificacion() {
         return identificacion;
     }
@@ -129,5 +132,21 @@ public class Sesion implements Serializable {
         }
 
         return view;
+    }
+
+    public String getIban() {
+        return iban;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 }

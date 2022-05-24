@@ -5,6 +5,7 @@ import ma3s.fintech.*;
 import ma3s.fintech.ejb.GestionEliminarAutorizados;
 import ma3s.fintech.ejb.GestionGetCuentas;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -29,14 +30,13 @@ public class MostrarDatosCuentaSegregada {
 
     private List<Autorizacion> autorizaciones = new ArrayList<Autorizacion>();
     private List<Segregada> listaSegregada = new ArrayList<Segregada>();
-    private String iban = "FR5514508000502273293129K55";
-    private String id = "P3310693A";
+    private String iban;
+    private String id;
 
-    public String mostrarDatosCuentaSegregada(String iban, String idCliente){
-        this.iban = iban;
-        this.id = idCliente;
-
-        return "MostrarDatosCuentaSegregada.xhtml";
+    @PostConstruct
+    public void mostrarDatosCuentaSegregada(){
+        this.iban = sesion.getIban();
+        this.id = sesion.getIdentificacion();
     }
 
     public synchronized List<Autorizacion> getAutorizaciones() {
