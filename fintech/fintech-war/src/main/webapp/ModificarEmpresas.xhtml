@@ -9,7 +9,7 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-  <title>Mis Datos Cliente</title>
+  <title>Modificar Empresa</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
 </h:head>
@@ -58,32 +58,31 @@
       </p:menubar>
     </h:form>
   </div>
-  <h1 class="cliente"> Modificar Cliente </h1>
+  <h1 class="cliente"> Modificar Empresa </h1>
   <h:form id="form">
     <div class="centro">
 
       <h:panelGrid columns="1">
 
         <h:outputText value="Identificacion:" />
-        <h:outputText value="#{cliente.identificacion}"/>
-
+        <h:outputText value="#{cliente.empresa.identificacion}"/>
 
         <h:outputText value="Direccion"/>
-        <h:inputText required="true" value="#{cliente.empresa.direccion}"/>
+        <p:inputText required="true" value="#{cliente.empresa.direccion}"/>
 
         <h:outputText value="Ciudad"/>
-        <h:inputText required="true" value="#{cliente.empresa.ciudad}"/>
+        <p:inputText required="true" value="#{cliente.empresa.ciudad}"/>
 
         <h:outputText value="Codigo Postal"/>
-        <h:inputText required="true" value="#{cliente.empresa.codigopostal}"/>
+        <p:inputText required="true" value="#{cliente.empresa.codigopostal}"/>
 
         <h:outputText value="Pais"/>
-        <h:inputText required="true" value="#{cliente.empresa.pais}"/>
+        <p:inputText required="true" value="#{cliente.empresa.pais}"/>
 
         <h:outputText value="RazonSocial"/>
-        <h:inputText required="true" value="#{cliente.empresa.razonSocial}"/>
+        <p:inputText required="true" value="#{cliente.empresa.razonSocial}"/>
 
-        <h:commandButton id="modificar" value="Modificar" action="#{cliente.modificar()}" />
+        <p:commandButton id="modificar" value="Modificar" action="#{cliente.modificar()}" />
 
       </h:panelGrid>
     </div>

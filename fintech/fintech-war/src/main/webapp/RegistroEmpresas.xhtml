@@ -9,28 +9,19 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Regristro Clientes</title>
+    <title>Regristro Empresas</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
-    <h1 class="individual"> Registrar Cliente </h1>
+    <h1 class="empresa"> Registrar Empresa </h1>
     <h:form id="form">
         <div class="centro">
 
             <p:panelGrid columns="1">
 
                 <h:outputText value="Identificacion" />
-                <p:inputText required="false"/>
-
-                <h:outputText value="Nombre"/>
-                <p:inputText required="false"/>
-
-                <h:outputText value="Apellidos"/>
-                <p:inputText required="false"/>
-
-                <h:outputText value="Fecha de nacimiento"/>
                 <p:inputText required="false"/>
 
                 <h:outputText value="Direccion"/>
@@ -43,6 +34,9 @@
                 <p:inputText required="false"/>
 
                 <h:outputText value="Pais"/>
+                <p:inputText required="false"/>
+
+                <h:outputText value="RazonSocial"/>
                 <p:inputText required="false"/>
 
                 <p:commandButton id="botonCrear" value="Crear"/>

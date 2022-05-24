@@ -9,7 +9,7 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-  <title>Mis Datos Cliente</title>
+  <title>Modificar Clientes</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
 </h:head>
@@ -65,27 +65,27 @@
       <h:panelGrid columns="1">
 
         <h:outputText value="Identificacion:" />
-        <h:outputText value="#{individual.identificacion}"/>
+        <h:outputText value="#{individual.individual.identificacion}"/>
 
         <h:outputText value="Nombre"/>
-        <h:inputText required="true" value="#{individual.individual.nombre}"/>
+        <p:inputText required="true" value="#{individual.individual.nombre}"/>
 
         <h:outputText value="Apellidos"/>
-        <h:inputText required="true" value="#{individual.individual.apellido}"/>
+        <p:inputText required="true" value="#{individual.individual.apellido}"/>
 
         <h:outputText value="Direccion"/>
-        <h:inputText required="true" value="#{individual.individual.direccion}"/>
+        <p:inputText required="true" value="#{individual.individual.direccion}"/>
 
         <h:outputText value="Ciudad"/>
-        <h:inputText required="true" value="#{individual.individual.ciudad}"/>
+        <p:inputText required="true" value="#{individual.individual.ciudad}"/>
 
         <h:outputText value="Codigo Postal"/>
-        <h:inputText required="true" value="#{individual.individual.codigopostal}"/>
+        <p:inputText required="true" value="#{individual.individual.codigopostal}"/>
 
         <h:outputText value="Pais"/>
-        <h:inputText required="true" value="#{individual.individual.pais}"/>
+        <p:inputText required="true" value="#{individual.individual.pais}"/>
 
-        <h:commandButton id="modificar" value="Modificar" action="#{individual.modificar()}" />
+        <p:commandButton id="modificar" value="Modificar" action="#{individual.modificar()}" />
 
       </h:panelGrid>
     </div>
