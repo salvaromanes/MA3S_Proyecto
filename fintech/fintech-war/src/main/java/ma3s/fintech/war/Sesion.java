@@ -102,12 +102,32 @@ public class Sesion implements Serializable {
             usuario = null;
             FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         }
-        return "login.xhtml?faces-redirect=true";
+        return "mainv2.xhtml?faces-redirect=true";
     }
 
     public void showMessage(String msg) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", msg);
 
         PrimeFaces.current().dialog().showMessageDynamic(message);
+    }
+
+    public String volver(){
+        return "mainv2.xhtml?faces-redirect=true";
+    }
+
+    public String cerrarSesion(){
+        String view = null;
+
+        if (usuario != null && usuario.getEsAdmin()) {
+            usuario = null;
+            FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+            view = "admin.xhtml?faces-redirect=true";
+        }else if(usuario != null && !usuario.getEsAdmin()){
+            usuario = null;
+            FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+            view = "index.xhtml?faces-redirect=true";
+        }
+
+        return view;
     }
 }

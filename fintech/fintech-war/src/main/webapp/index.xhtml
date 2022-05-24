@@ -19,10 +19,10 @@
       <p:panel id="pnl" header="Inicio sesión clientes">
         <h:panelGrid class="casillas" columns="2">
           <h:outputText class="salida" value="Nombre de usuario:"/>
-          <p:inputText class="entrada" id="user" required="true" value="#{sesion.usuario.user}"/>
+          <p:inputText class="entrada" id="user" required="false" value="#{sesion.usuario.user}"/>
 
           <h:outputText class="salida" value="Contraseña:"/>
-          <p:password class="entrada" id="pass" required="true" value="#{sesion.usuario.contrasena}" toggleMask="true" redisplay="true"/>
+          <p:password class="entrada" id="pass" required="false" value="#{sesion.usuario.contrasena}" toggleMask="true" redisplay="true"/>
 
           <p:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Entrar" action="#{sesion.entrarUsuario}"/>
           <a href="recuperarContraseña.xhtml">¿Has olvidado tu contraseña?</a>
@@ -30,6 +30,8 @@
 
       <p class="registro">Si no tiene cuenta puede crear una en la pagina de <h:link outcome="RegistroPersonas.xhtml">registro de clientes</h:link>.</p>
       <p class="registro">Si no tiene cuenta puede crear una en la pagina de <h:link outcome="RegistroPersonas.xhtml">registro de empresas</h:link>.</p>
+
+      <p:commandButton class="css-button-rounded--black" id="botonVolver" value="Volver" action="#{sesion.volver}"/>
       </p:panel>
     </h:form>
   </div>

@@ -13,6 +13,7 @@
     <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
+    <h:form id="principalCielte">
     <div class="inicio">
         <ui:fragment rendered="#{not empty sesion.usuario}">
             <p>Hola, <h:outputText id="saludo" value="#{sesion.usuario.user}"/>.</p>
@@ -22,7 +23,7 @@
         <div class="card">
             <div>
                 <div>
-                    <p:button id="CerrarSesion" value="Cerrar Sesion" href="index.xhtml"/>
+                    <p:commandButton class="css-button-rounded--black" id="botonCerrarSesion" value="Cerrar sesión" action="#{sesion.cerrarSesion}"/>
                 </div>
                 <div>
                     <p:button id="VerCuentas" value="Mis Cuentras" href="cuentasporUsuario.xhtml"/>
@@ -30,5 +31,6 @@
             </div>
         </div>
     </div>
+    </h:form>
 </h:body>
 </html>
