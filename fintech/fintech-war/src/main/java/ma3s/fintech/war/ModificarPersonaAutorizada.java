@@ -6,10 +6,7 @@ import ma3s.fintech.PAutorizada;
 import ma3s.fintech.ejb.GestionGetClientes;
 import ma3s.fintech.ejb.GestionModificarCliente;
 import ma3s.fintech.ejb.GestionModificarPAutorizada;
-import ma3s.fintech.ejb.excepciones.CampoVacioException;
-import ma3s.fintech.ejb.excepciones.EmpresaNoExistenteException;
-import ma3s.fintech.ejb.excepciones.IndividualNoExistenteException;
-import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
+import ma3s.fintech.ejb.excepciones.*;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -139,16 +136,18 @@ public class ModificarPersonaAutorizada {
 
         try {
 
-            gestionModificarPA.modificarNombre(pa.getId(), pa.getNombre());
-            gestionModificarPA.modificarApellidos(pa.getId(), pa.getApellidos());
-            gestionModificarPA.modificarDireccion(pa.getId(), pa.getDireccion());
-            gestionModificarPA.modificarFechaNacimiento(pa.getId(), pa.getFechaNacimiento());
+            gestionModificarPA.modificarNombre(sesion.getUsuario().getUser(), pa.getId(), pa.getNombre());
+            gestionModificarPA.modificarApellidos(sesion.getUsuario().getUser(), pa.getId(), pa.getApellidos());
+            gestionModificarPA.modificarDireccion(sesion.getUsuario().getUser(), pa.getId(), pa.getDireccion());
+            gestionModificarPA.modificarFechaNacimiento(sesion.getUsuario().getUser(), pa.getId(), pa.getFechaNacimiento());
 
             return "Listaclientes.xhtml?faces-redirect=true";
 
         } catch (CampoVacioException e) {
             LOGGER.info("CampoVacioException " + e.getMessage());
         } catch (PersonaNoExisteException e) {
+            throw new RuntimeException(e);
+        } catch (NoEsAdministrativoException e) {
             throw new RuntimeException(e);
         }
         return "Listaclientes.xhtml";
