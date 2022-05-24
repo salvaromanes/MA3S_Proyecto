@@ -44,6 +44,10 @@
     <h:form id = "transcliente">
         <h:panelGrid>
 
+            <h:outputLabel for = "cuenta_txt2"  value="Cuenta origen"/>
+            <h:outputLabel id = "cuenta_txt2" value="#{transcliente.transaccion.cuentaOrigen}" required="true"/>
+            <h:message for="cuenta_txt2"/>
+
             <h:outputLabel for = "cuenta_txt"  value="Cuenta destino"/>
             <h:inputText id = "cuenta_txt" value="#{transcliente.transaccion.cuentaDestino}" required="true"/>
             <h:message for="cuenta_txt"/>
@@ -51,20 +55,6 @@
             <h:outputLabel for = "cantidad_txt"  value="Cantidad"/>
             <h:inputText id = "cantidad_txt" value="#{transcliente.transaccion.cantidad}"  required="true"/>
             <h:message for="cantidad_txt"/>
-
-
-            <h:outputLabel for = "divisa_txt"  value="Divisa"/>
-            <h:inputText id = "divisa_txt" value="#{transcliente.transaccion.divisaReceptor}"  required="true"/>
-            <h:message for="divisa_txt"/>
-
-            <h:outputLabel for = "fecha_txt"  value="Fecha ejecución"/>
-            <h:inputText id = "fecha_txt" value="#{transcliente.transaccion.fechaEjecucion}" required="true"/>
-            <h:message for="fecha_txt"/>
-
-            <h:outputLabel for = "internacional_txt"  value="Internacional"/>
-            <h:inputText id = "internacional_txt" value="#{transcliente.transaccion.internacional}" required="true"/>
-            <h:message for="internacional_txt"/>
-
 
             <h:commandButton id="btnConfirmar" value="Confirmar" action="#{transcliente.realizarTransaccionCliente()}"/>
 

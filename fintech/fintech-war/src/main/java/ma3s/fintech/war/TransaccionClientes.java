@@ -17,9 +17,29 @@ import javax.inject.Named;
 public class TransaccionClientes {
 
     @Inject
+    private Sesion sesion;
+    @Inject
     private GestionTransferencia gestionTransferencia;
 
+    Pooled pooled;
+    Segregada segregada;
     private Transaccion transaccion;
+
+    public Pooled getPooled() {
+        return pooled;
+    }
+
+    public Segregada getSegregada() {
+        return segregada;
+    }
+
+    public void setPooled(Pooled pooled) {
+        this.pooled = pooled;
+    }
+
+    public void setSegregada(Segregada segregada) {
+        this.segregada = segregada;
+    }
 
     public Transaccion getTransaccion() {
         return transaccion;
@@ -29,11 +49,24 @@ public class TransaccionClientes {
         this.transaccion = transaccion;
     }
 
+    public boolean esTipo(){
+        boolean res = true;
+        if(!sesion.getPooled().equals(pooled.getIban())){
+            res = false;
+        }
+        return res;
+    }
+
     public String realizarTransaccionCliente() {
-        Cliente cliente = new Cliente();
         try {
-            gestionTransferencia.transferenciaCliente(transaccion, cliente.getId());
-            return "https://www.diariosur.es/";
+            if(esTipo() == true){
+                transaccion.setCuentaOrigen(pooled);
+                gestionTransferencia.transferenciaCliente(transaccion,sesion.getUsuario().getCliente().getId());
+            }else{
+                transaccion.setCuentaOrigen(segregada);
+                gestionTransferencia.transferenciaCliente(transaccion,sesion.getUsuario().getCliente().getId());
+            }
+
         } catch (PersonaNoExisteException e) {
             throw new RuntimeException(e);
         } catch (CampoVacioException e) {
@@ -43,6 +76,7 @@ public class TransaccionClientes {
         } catch (SaldoNoSuficiente e) {
             throw new RuntimeException(e);
         }
-
+        return null;
     }
+
 }
