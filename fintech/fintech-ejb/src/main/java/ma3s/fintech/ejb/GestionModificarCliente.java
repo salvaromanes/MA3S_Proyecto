@@ -20,4 +20,11 @@ public interface GestionModificarCliente {
     public void modNombreIndividual(Long id, String nombre) throws CampoVacioException, IndividualNoExistenteException;
     public void modApellidoIndividual(Long id, String apellido) throws CampoVacioException, IndividualNoExistenteException;
     public void modFechaNacimientoIndividual(Long id, Date fecha_nacimiento) throws CampoVacioException, IndividualNoExistenteException;
-}
+    public void modIdentificacionPA(Long id, String identificacion) throws CampoVacioException, PersonaNoExisteException;
+    public void modNombrePA(Long id, String nombre) throws CampoVacioException, PersonaNoExisteException;
+    public void modApellidosPA(Long id, String apellidos) throws CampoVacioException, PersonaNoExisteException;
+    public void modDireccionPA(Long id, String direccion) throws CampoVacioException, PersonaNoExisteException;
+
+
+
+    }
