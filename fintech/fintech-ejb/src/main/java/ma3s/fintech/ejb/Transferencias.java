@@ -68,7 +68,211 @@ public class Transferencias implements GestionTransferencia{
 
     }
 
+    @Override
+    public void crearTransaccion(Transaccion t) throws CampoVacioException{
+        if(t.getFechaInstruccion() == null || t.getCantidad() == null || t.getTipo() == null)
+            throw new CampoVacioException();
 
+        String iban_Origen = t.getCuentaOrigen().getIban();
+        String iban_Destino = t.getCuentaDestino().getIban();
+        Divisa divisa_Origen = t.getDivisaEmisor();
+        Divisa divisa_Destino = t.getDivisaReceptor();
+        Double saldo = t.getCantidad();
+        Double saldo_cambioOrigen = saldo;
+        Double saldo_cambioDestino = saldo;
+
+
+        if (t.getTipo().equals("Pago")) {
+            Segregada segregada_origen = em.find(Segregada.class, iban_Origen);
+            Pooled pooled_origen = em.find(Pooled.class, iban_Origen);
+
+            if (segregada_origen != null) {
+                Referencia referencia_Origen = segregada_origen.getReferencia();
+                if (divisa_Origen.equals(referencia_Origen.getDivisa())) {
+                    referencia_Origen.setSaldo(referencia_Origen.getSaldo() - saldo);
+                } else {
+                    saldo_cambioOrigen = saldo * divisa_Origen.getCambioEuro();
+                    referencia_Origen.setSaldo(referencia_Origen.getSaldo() - saldo_cambioOrigen);
+                }
+                em.merge(referencia_Origen);
+            } else if (pooled_origen != null) {
+                Query query = em.createQuery("select d from DepositadaEn d");
+                List<DepositadaEn> listaTodos = query.getResultList();
+                List<DepositadaEn> listaOrigen = new ArrayList<>();
+
+                for (DepositadaEn d : listaTodos) {
+                    if (d.getIbanPooled().getIban().equals(iban_Origen))
+                        listaOrigen.add(d);
+                }
+
+                if (listaOrigen.isEmpty())
+                    throw new CampoVacioException();
+                DepositadaEn depositadaOrigen = null;
+                for (DepositadaEn d : listaOrigen) {
+                    if (d.getIbanReferencia().getDivisa().equals(divisa_Origen))
+                        depositadaOrigen = d;
+                }
+
+                if (depositadaOrigen != null) {
+                    depositadaOrigen.setSaldo(depositadaOrigen.getSaldo() - saldo);
+                    Referencia referenciaOrigen = depositadaOrigen.getIbanReferencia();
+                    referenciaOrigen.setSaldo(referenciaOrigen.getSaldo() - saldo);
+                    em.merge(depositadaOrigen);
+                    em.merge(referenciaOrigen);
+                } else {
+                    depositadaOrigen = listaOrigen.get(0);
+                    saldo_cambioOrigen = saldo * depositadaOrigen.getReferencia().getDivisa().getCambioEuro();
+                    depositadaOrigen.setSaldo(depositadaOrigen.getSaldo() - saldo_cambioOrigen);
+                    Referencia referenciaOrigen = depositadaOrigen.getIbanReferencia();
+                    referenciaOrigen.setSaldo(referenciaOrigen.getSaldo() - saldo);
+                    em.merge(depositadaOrigen);
+                    em.merge(referenciaOrigen);
+                }
+            }
+
+            Segregada segregada_destino = em.find(Segregada.class, iban_Destino);
+            Pooled pooled_destino = em.find(Pooled.class, iban_Destino);
+
+            if (segregada_destino != null) {
+                Referencia referencia_Destino = segregada_destino.getReferencia();
+                if (divisa_Destino.equals(referencia_Destino.getDivisa())) {
+                    referencia_Destino.setSaldo(referencia_Destino.getSaldo() + saldo);
+                } else {
+                    saldo_cambioDestino = saldo * divisa_Destino.getCambioEuro();
+                    referencia_Destino.setSaldo(referencia_Destino.getSaldo() + saldo_cambioDestino);
+                }
+                em.merge(referencia_Destino);
+            } else if (pooled_destino != null) {
+                Query query = em.createQuery("select d from DepositadaEn d");
+                List<DepositadaEn> listaTodos = query.getResultList();
+                List<DepositadaEn> listaDestino = new ArrayList<>();
+
+                for (DepositadaEn d : listaTodos) {
+                    if (d.getIbanPooled().getIban().equals(iban_Destino))
+                        listaDestino.add(d);
+                }
+
+                if (listaDestino.isEmpty())
+                    throw new CampoVacioException();
+                DepositadaEn depositadaDestino = null;
+                for (DepositadaEn d : listaDestino) {
+                    if (d.getIbanReferencia().getDivisa().equals(divisa_Destino))
+                        depositadaDestino = d;
+                }
+
+                if (depositadaDestino != null) {
+                    depositadaDestino.setSaldo(depositadaDestino.getSaldo() + saldo);
+                    Referencia referenciaDestino = depositadaDestino.getIbanReferencia();
+                    referenciaDestino.setSaldo(referenciaDestino.getSaldo() + saldo);
+                    em.merge(depositadaDestino);
+                    em.merge(referenciaDestino);
+                } else {
+                    depositadaDestino = listaDestino.get(0);
+                    saldo_cambioDestino = saldo * depositadaDestino.getReferencia().getDivisa().getCambioEuro();
+                    depositadaDestino.setSaldo(depositadaDestino.getSaldo() + saldo_cambioDestino);
+                    Referencia referenciaDestino = depositadaDestino.getIbanReferencia();
+                    referenciaDestino.setSaldo(referenciaDestino.getSaldo() + saldo);
+                    em.merge(depositadaDestino);
+                    em.merge(referenciaDestino);
+                }
+            }
+        }else if(t.getTipo().equals("Cobro")){
+            Segregada segregada_origen = em.find(Segregada.class, iban_Origen);
+            Pooled pooled_origen = em.find(Pooled.class, iban_Origen);
+
+            if (segregada_origen != null) {
+                Referencia referencia_Origen = segregada_origen.getReferencia();
+                if (divisa_Origen.equals(referencia_Origen.getDivisa())) {
+                    referencia_Origen.setSaldo(referencia_Origen.getSaldo() + saldo);
+                } else {
+                    saldo_cambioOrigen = saldo * divisa_Origen.getCambioEuro();
+                    referencia_Origen.setSaldo(referencia_Origen.getSaldo() + saldo_cambioOrigen);
+                }
+                em.merge(referencia_Origen);
+            } else if (pooled_origen != null) {
+                Query query = em.createQuery("select d from DepositadaEn d");
+                List<DepositadaEn> listaTodos = query.getResultList();
+                List<DepositadaEn> listaOrigen = new ArrayList<>();
+
+                for (DepositadaEn d : listaTodos) {
+                    if (d.getIbanPooled().getIban().equals(iban_Origen))
+                        listaOrigen.add(d);
+                }
+
+                if (listaOrigen.isEmpty())
+                    throw new CampoVacioException();
+                DepositadaEn depositadaOrigen = null;
+                for (DepositadaEn d : listaOrigen) {
+                    if (d.getIbanReferencia().getDivisa().equals(divisa_Origen))
+                        depositadaOrigen = d;
+                }
+
+                if (depositadaOrigen != null) {
+                    depositadaOrigen.setSaldo(depositadaOrigen.getSaldo() + saldo);
+                    Referencia referenciaOrigen = depositadaOrigen.getIbanReferencia();
+                    referenciaOrigen.setSaldo(referenciaOrigen.getSaldo() + saldo);
+                    em.merge(depositadaOrigen);
+                    em.merge(referenciaOrigen);
+                } else {
+                    depositadaOrigen = listaOrigen.get(0);
+                    saldo_cambioOrigen = saldo * depositadaOrigen.getReferencia().getDivisa().getCambioEuro();
+                    depositadaOrigen.setSaldo(depositadaOrigen.getSaldo() + saldo_cambioOrigen);
+                    Referencia referenciaOrigen = depositadaOrigen.getIbanReferencia();
+                    referenciaOrigen.setSaldo(referenciaOrigen.getSaldo() + saldo);
+                    em.merge(depositadaOrigen);
+                    em.merge(referenciaOrigen);
+                }
+            }
+
+            Segregada segregada_destino = em.find(Segregada.class, iban_Destino);
+            Pooled pooled_destino = em.find(Pooled.class, iban_Destino);
+
+            if (segregada_destino != null) {
+                Referencia referencia_Destino = segregada_destino.getReferencia();
+                if (divisa_Destino.equals(referencia_Destino.getDivisa())) {
+                    referencia_Destino.setSaldo(referencia_Destino.getSaldo() - saldo);
+                } else {
+                    saldo_cambioDestino = saldo * divisa_Destino.getCambioEuro();
+                    referencia_Destino.setSaldo(referencia_Destino.getSaldo() - saldo_cambioDestino);
+                }
+                em.merge(referencia_Destino);
+            } else if (pooled_destino != null) {
+                Query query = em.createQuery("select d from DepositadaEn d");
+                List<DepositadaEn> listaTodos = query.getResultList();
+                List<DepositadaEn> listaDestino = new ArrayList<>();
+
+                for (DepositadaEn d : listaTodos) {
+                    if (d.getIbanPooled().getIban().equals(iban_Destino))
+                        listaDestino.add(d);
+                }
+
+                if (listaDestino.isEmpty())
+                    throw new CampoVacioException();
+                DepositadaEn depositadaDestino = null;
+                for (DepositadaEn d : listaDestino) {
+                    if (d.getIbanReferencia().getDivisa().equals(divisa_Destino))
+                        depositadaDestino = d;
+                }
+
+                if (depositadaDestino != null) {
+                    depositadaDestino.setSaldo(depositadaDestino.getSaldo() - saldo);
+                    Referencia referenciaDestino = depositadaDestino.getIbanReferencia();
+                    referenciaDestino.setSaldo(referenciaDestino.getSaldo() - saldo);
+                    em.merge(depositadaDestino);
+                    em.merge(referenciaDestino);
+                } else {
+                    depositadaDestino = listaDestino.get(0);
+                    saldo_cambioDestino = saldo * depositadaDestino.getReferencia().getDivisa().getCambioEuro();
+                    depositadaDestino.setSaldo(depositadaDestino.getSaldo() - saldo_cambioDestino);
+                    Referencia referenciaDestino = depositadaDestino.getIbanReferencia();
+                    referenciaDestino.setSaldo(referenciaDestino.getSaldo() - saldo);
+                    em.merge(depositadaDestino);
+                    em.merge(referenciaDestino);
+                }
+            }
+        }
+        em.persist(t);
+    }
 
     @Override
     public void transferenciaCliente(Transaccion transaccion, Long id) throws PersonaNoExisteException, CampoVacioException, ErrorOrigenTransaccionException, SaldoNoSuficiente {
@@ -78,7 +282,7 @@ public class Transferencias implements GestionTransferencia{
 
 
         // Comprobamos que los campos de la Transferencia nullable = false, no lo sean
-        if ( transaccion.getIdUnico() == null || transaccion.getFechaInstruccion() == null
+        if ( transaccion.getFechaInstruccion() == null
                 || transaccion.getCantidad() == null || transaccion.getTipo() == null){
             throw new CampoVacioException("El objeto transaccion tiene algún campo no null a nulo.");
         }

@@ -1,6 +1,9 @@
 package ma3s.fintech.ejb;
 
 import ma3s.fintech.*;
+import ma3s.fintech.ejb.excepciones.CampoVacioException;
+import ma3s.fintech.ejb.excepciones.ClienteNoExisteException;
+import ma3s.fintech.ejb.excepciones.DatosIncorrectosException;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -20,6 +23,14 @@ public class GetCuentas implements GestionGetCuentas{
         Query query = em.createQuery("select c from Cuenta c");
         List<Cuenta> listaClientes = query.getResultList();
         return listaClientes;
+    }
+
+    @Override
+    public Cuenta getCuenta(String iban) throws ClienteNoExisteException {
+        Cuenta cuenta = em.find(Cuenta.class, iban);
+        if(cuenta == null)
+            throw new ClienteNoExisteException();
+        return cuenta;
     }
 
     @Override
@@ -306,7 +317,29 @@ public class GetCuentas implements GestionGetCuentas{
         return listaPooled;
     }
 
+    @Override
+    public Divisa getDivisa(String di) throws DatosIncorrectosException{
+        Divisa divisa = em.find(Divisa.class, di);
+        if(divisa == null)
+            throw new DatosIncorrectosException();
+        return divisa;
+    }
+
+    @Override
+    public Pooled getUPooled(String iban){
+        Pooled pooled = em.find(Pooled.class, iban);
+        if(pooled == null)
+            return null;
+        return pooled;
+    }
 
 
+    @Override
+    public Segregada getUSegregada(String iban){
+        Segregada segregada = em.find(Segregada.class, iban);
+        if(segregada == null)
+            return null;
+        return segregada;
+    }
 }
 

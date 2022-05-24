@@ -1,12 +1,17 @@
 package ma3s.fintech.ejb;
 
 import ma3s.fintech.*;
+import ma3s.fintech.ejb.excepciones.ClienteNoExisteException;
+import ma3s.fintech.ejb.excepciones.DatosIncorrectosException;
+import ma3s.fintech.ejb.excepciones.DivisaExistenteException;
 
 import javax.persistence.Query;
 import java.util.List;
 
 public interface GestionGetCuentas {
     public List<Cuenta> getCuentas();
+
+    public Cuenta getCuenta(String iban) throws ClienteNoExisteException;
 
     public List<Segregada> getSegregada(String iban);
 
@@ -34,11 +39,15 @@ public interface GestionGetCuentas {
 
     public List<Segregada> getSegregadasAutoEsc(Usuario usuario);
 
-
     public List<Pooled> getPooledAutLec(Usuario usuario);
 
     public List<Pooled> getPooledAutEsc(Usuario usuario);
 
+    public Divisa getDivisa(String divisa) throws DatosIncorrectosException;
+
+    public Pooled getUPooled(String iban);
+
+    public Segregada getUSegregada(String iban);
     }
 
 
