@@ -109,15 +109,14 @@ public class GetCuentas implements GestionGetCuentas{
 
     @Override
     public List<Autorizacion> getAutorizaciones (String iban, String ident){
-        List<Autorizacion> listaAutorizaciones = new ArrayList<>();
+        List<Autorizacion> result = new ArrayList<>();
 
-        // Creamos la consulta para obtener todas las autorizaciones
-        Query query = em.createQuery("select c from Autorizacion c");
+        Query query = em.createQuery("Select c from Autorizacion c");
+        List<Autorizacion> listaAutorizaciones = query.getResultList();
 
-        for(Autorizacion auto : (List<Autorizacion>) query.getResultList()){
-            // Seleccionamos solo las autorizaciones que pertenezcan a esta empresa
-            if(auto.getEmpresaId().getIdentificacion().equals(ident)){
-                listaAutorizaciones.add(auto);
+        if(listaAutorizaciones != null){
+            for(Autorizacion auto : listaAutorizaciones){
+                if(auto.getEmpresaId().getIdentificacion().equals(ident)) result.add(auto);
             }
         }
 

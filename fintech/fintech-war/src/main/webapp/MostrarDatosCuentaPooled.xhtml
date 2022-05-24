@@ -65,7 +65,7 @@
 
         <h:form id="MostrarPooled">
             <div class="card">
-                <p:dataTable var="pooled" value="#{mostrarDatosCuentaPooled.cuentas}">
+                <p:dataTable var="pooled" value="#{mostrarDatosCuentaPooled.cuentas}" emptyMessage="No hay cuentas pooled para mostrar">
                     <p:column headerText="Identificacion Propietario">
                         <h:outputText value="#{pooled.cliente.identificacion}" />
                     </p:column>
@@ -100,7 +100,7 @@
         <h3>Autorizaciones de la cuenta</h3>
         <h:form id="MostarAutorizacion">
             <div class="card">
-                <p:dataTable var="autorizacion" value="#{mostrarDatosCuentaPooled.autorizaciones}">
+                <p:dataTable var="autorizacion" value="#{mostrarDatosCuentaPooled.autorizaciones}" emptyMessage="No hay autorizaciones que mostrar">
                     <p:column headerText="Identificacion">
                         <h:outputText value="#{autorizacion.autorizadaId.identificacion}" />
                     </p:column>
@@ -114,7 +114,8 @@
                     </p:column>
 
                     <p:column headerText="Eliminar Autorizacion">
-                        <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Eliminar Autorizado"/>
+                        <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Eliminar Autorizado"
+                            action="#{mostrarDatosCuentaPooled.eliminarAutorizaciones(autorizacion.autorizadaId.id, autorizacion.empresaId.id)}"/>
                     </p:column>
                 </p:dataTable>
             </div>
@@ -123,7 +124,7 @@
         <h3>Lista de depositos de la cuenta pooled</h3>
         <h:form id="Depositos">
             <div class="card">
-                <p:dataTable var="deposito" value="#{mostrarDatosCuentaPooled.depositos}">
+                <p:dataTable var="deposito" value="#{mostrarDatosCuentaPooled.depositos}" emptyMessage="No hay depósitos que mostrar">
                     <p:column headerText="Iban Referencia">
                         <h:outputText value="#{deposito.referencia.iban}" />
                     </p:column>

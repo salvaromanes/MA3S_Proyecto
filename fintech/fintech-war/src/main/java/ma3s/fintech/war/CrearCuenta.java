@@ -72,7 +72,7 @@ public class CrearCuenta {
             showMessage("El cliente no existe");
         }
 
-        return "CrearCuentaPooled.xhtml";
+        return "CrearCuentaPooled.xhtml?faces-redirect=true";
     }
 
     public String crearCuentaSegregada(){
@@ -95,7 +95,7 @@ public class CrearCuenta {
             showMessage("El cliente no existe");
         }
 
-        return "CrearCuentaSegregada.xhtml";
+        return "CrearCuentaSegregada.xhtml?faces-redirect=true";
     }
 
     public void showMessage(String msg) {

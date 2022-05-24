@@ -65,7 +65,7 @@
 
         <h:form id="MostarSegregada">
             <div class="card">
-                <p:dataTable var="segregada" value="#{mostrarDatosCuentaSegregada.cuentas}">
+                <p:dataTable var="segregada" value="#{mostrarDatosCuentaSegregada.cuentas}" emptyMessage="No hay cuentas segregadas que mostrar">
                     <p:column headerText="Identificacion Propietario">
                         <h:outputText value="#{segregada.cliente.identificacion}" />
                     </p:column>
@@ -105,7 +105,7 @@
 
         <h:form id="MostarAutorizacion">
             <div class="card">
-                <p:dataTable var="autorizacion" value="#{mostrarDatosCuentaSegregada.autorizaciones}">
+                <p:dataTable var="autorizacion" value="#{mostrarDatosCuentaSegregada.autorizaciones}" emptyMessage="No hay autorizaciones que mostrar">
                     <p:column headerText="Identificacion">
                         <h:outputText value="#{autorizacion.autorizadaId.identificacion}" />
                     </p:column>
@@ -119,7 +119,8 @@
                     </p:column>
 
                     <p:column headerText="Eliminar Autorizacion">
-                        <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Eliminar Autorizado"/>
+                        <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Eliminar Autorizado"
+                                         action="#{mostrarDatosCuentaPooled.eliminarAutorizaciones(autorizacion.autorizadaId.id, autorizacion.empresaId.id)}"/>
                     </p:column>
                 </p:dataTable>
             </div>
@@ -129,7 +130,7 @@
 
         <h:form id="MostrarReferencia">
             <div class="card">
-                <p:dataTable var="referencia" value="#{mostrarDatosCuentaSegregada.cuentas}">
+                <p:dataTable var="referencia" value="#{mostrarDatosCuentaSegregada.cuentas}" emptyMessage="No hay depósitos que mostrar">
                     <p:column headerText="Iban cuenta referencia">
                         <h:outputText value="#{referencia.referencia.iban}" />
                     </p:column>

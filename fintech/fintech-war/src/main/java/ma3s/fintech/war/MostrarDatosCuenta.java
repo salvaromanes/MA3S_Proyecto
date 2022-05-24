@@ -4,6 +4,10 @@ package ma3s.fintech.war;
 import ma3s.fintech.*;
 import ma3s.fintech.ejb.GestionEliminarAutorizados;
 import ma3s.fintech.ejb.GestionGetCuentas;
+import ma3s.fintech.ejb.excepciones.DatosIncorrectosException;
+import ma3s.fintech.ejb.excepciones.EmpresaNoExistenteException;
+import ma3s.fintech.ejb.excepciones.NoEsPAutorizadaException;
+import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
 import org.primefaces.PrimeFaces;
 
 import javax.annotation.PostConstruct;
@@ -51,5 +55,31 @@ public class MostrarDatosCuenta {
     }
 
     public synchronized List<DepositadaEn> getDepositos() {return gestionGetCuentas.getReferenciaPooled(iban); }
+
+    public synchronized String eliminarAutorizaciones(Long idPaut, Long idEmp){
+        try {
+            gestionEliminarAutorizados.darBaja(sesion.getUsuario().getUser(), idPaut, idEmp);
+            return "MostrarDatosCuentaPooled.xhtml?faces-redirect";
+        } catch (DatosIncorrectosException e) {
+            LOGGER.info("Los datos introducidos son incorrectos");
+            showMessage("Los datos introducidos son incorrectos");
+        } catch (PersonaNoExisteException e) {
+            LOGGER.info("La persona no existe");
+            showMessage("La persona no existe");
+        } catch (NoEsPAutorizadaException e) {
+            LOGGER.info("No es persona autorizada");
+            showMessage("No es persona autorizada");
+        } catch (EmpresaNoExistenteException e) {
+            LOGGER.info("La empresa no existe");
+            showMessage("La empresa no existe");
+        }
+        return null;
+    }
+
+    public void showMessage(String msg) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", msg);
+
+        PrimeFaces.current().dialog().showMessageDynamic(message);
+    }
 
 }
