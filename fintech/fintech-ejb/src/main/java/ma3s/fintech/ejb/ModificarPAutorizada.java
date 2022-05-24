@@ -79,7 +79,7 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
             throw new CampoVacioException("El campo (dirección) a actualizar no contiene información.");
         }
 
-        pAutorizada.setIdentificacion(direccionNew);
+        pAutorizada.setDireccion(direccionNew);
         em.merge(pAutorizada);
 
     }
@@ -97,10 +97,6 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
         PAutorizada pAutorizada = em.find(PAutorizada.class, id_aut);
 
         if(pAutorizada == null) throw new PersonaNoExisteException("No existe nadie con id: " + id_adm + ".");
-
-        if(fechaNacimientoNew == null){
-            throw new CampoVacioException("El campo (fecha de nacimiento) a actualizar no contiene información.");
-        }
 
         pAutorizada.setFechaNacimiento(fechaNacimientoNew);
         em.merge(pAutorizada);

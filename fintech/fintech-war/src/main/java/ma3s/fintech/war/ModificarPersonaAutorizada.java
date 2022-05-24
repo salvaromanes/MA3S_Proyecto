@@ -152,7 +152,7 @@ public class ModificarPersonaAutorizada {
             LOGGER.info("NoEsAdministrativoException " + e.getMessage());
 
         }
-        return "ListaPAutorizadas.xhtml";
+        return null;
     }
 
 }
