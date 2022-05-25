@@ -49,11 +49,11 @@
             <p:dataTable var="pooled" value="#{historial.transPooled}">
 
 
-                <p:column headerText="cuenta origen">
+                <p:column headerText="Cuenta origen">
                     <h:outputText value="#{pooled.cuentaOrigen.iban}" />
                 </p:column>
 
-                <p:column headerText="cuenta destino">
+                <p:column headerText="Cuenta destino">
                     <h:outputText value="#{pooled.cuentaDestino.iban}" />
                 </p:column>
 
@@ -62,7 +62,7 @@
                 </p:column>
 
                 <p:column headerText="Fecha de instrucción">
-                    <h:outputText value="#{pooled.fechaInstruccion}" />
+                    <h:outputText value="#{historial.fechaSimple(pooled.fechaInstruccion)}" />
                 </p:column>
 
                 <p:column headerText="Tipo">
@@ -91,11 +91,11 @@
             <p:dataTable var="segregadas" value="#{historial.transSeg}">
 
 
-                <p:column headerText="cuenta origen">
+                <p:column headerText="Cuenta origen">
                     <h:outputText value="#{segregadas.cuentaOrigen.iban}" />
                 </p:column>
 
-                <p:column headerText="cuenta destino">
+                <p:column headerText="Cuenta destino">
                     <h:outputText value="#{segregadas.cuentaDestino.iban}" />
                 </p:column>
 
@@ -104,7 +104,7 @@
                 </p:column>
 
                 <p:column headerText="Fecha de instrucción">
-                    <h:outputText value="#{segregadas.fechaInstruccion}" />
+                    <h:outputText value="#{historial.fechaSimple(segregadas.fechaInstruccion)}" />
                 </p:column>
 
                 <p:column headerText="Tipo">

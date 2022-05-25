@@ -14,7 +14,9 @@ import ma3s.fintech.ejb.excepciones.SaldoNoSuficiente;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Named(value = "historial")
@@ -74,6 +76,14 @@ public class HistorialCuentas {
         return aux;
     }
 
+
+    public String fechaSimple(Date date){
+
+        if(date == null){
+            return null;
+        }
+        return new SimpleDateFormat("dd-MM-yyyy").format(date);
+    }
 
 
 }
