@@ -65,18 +65,26 @@
             <p:panel id="pnl" header="Crear cuenta segregada">
                 <h:panelGrid columns="3" cellpadding="7">
                     <h:outputLabel for="firstname" value="IBAN: *"/>
-                    <p:inputText id="firstname"  required="true" label="Firstname" value="#{crearCuenta.IBAN}">
+                    <p:inputText id="firstname"  required="true" label="Firstname" requiredMessage="Este campo es obligatorio" value="#{crearCuenta.IBAN}">
                         <f:validateLength minimum="2"/>
                     </p:inputText>
                     <p:message for="firstname"/>
 
                     <h:outputLabel for="lastname" value="SWIFT: "/>
-                    <p:inputText id="lastname"  required="true" label="Lastname" value="#{crearCuenta.SWIFT}"/>
+                    <p:inputText id="lastname"  required="true" label="Lastname" requiredMessage="Este campo es obligatorio" value="#{crearCuenta.SWIFT}"/>
                     <p:message for="lastname"/>
 
+                    <h:outputLabel for="divisa" value="Divisa: "/>
+                    <p:inputText id="divisa"  required="true" label="Lastname" requiredMessage="Este campo es obligatorio" value="#{crearCuenta.divisa}"/>
+                    <p:message for="divisa"/>
+
                     <h:outputLabel for="identificacion" value="Identificacion: "/>
-                    <p:inputText id="identificacion"  required="true" label="Lastname" value="#{crearCuenta.identificacion}"/>
+                    <p:inputText id="identificacion"  required="true" label="Lastname" requiredMessage="Este campo es obligatorio" value="#{crearCuenta.identificacion}"/>
                     <p:message for="identificacion"/>
+
+                    <h:outputLabel for="referencia" value="IBAN de la cuenta referencia: "/>
+                    <p:inputText id="referencia"  required="true" label="Lastname" requiredMessage="Este campo es obligatorio" value="#{crearCuenta.ibanReferencia}"/>
+                    <p:message for="referencia"/>
                 </h:panelGrid>
 
                 <p:commandButton id="saveBtn" value="Crear Segregada" icon="pi pi-check" action="#{crearCuenta.crearCuentaSegregada}" />

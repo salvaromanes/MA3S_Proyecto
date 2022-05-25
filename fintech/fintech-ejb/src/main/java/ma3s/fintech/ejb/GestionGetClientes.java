@@ -5,6 +5,7 @@ import ma3s.fintech.Empresa;
 import ma3s.fintech.Individual;
 import ma3s.fintech.PAutorizada;
 import ma3s.fintech.ejb.excepciones.ClienteNoExisteException;
+import ma3s.fintech.ejb.excepciones.DatosIncorrectosException;
 import ma3s.fintech.ejb.excepciones.EmpresaNoExistenteException;
 import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
 
@@ -30,4 +31,10 @@ public interface GestionGetClientes {
     public PAutorizada getPAutorizada(String identificacion) throws EmpresaNoExistenteException;
 
     public List<PAutorizada> getPAutorizadas();
+
+    String getFechNac(Long id);
+
+    String getApellidos(Long id);
+
+    String getNombre(Long id) throws DatosIncorrectosException;
 }

@@ -9,6 +9,8 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Logger;
 
@@ -130,16 +132,29 @@ public class ModificarIndividual {
         this.identificacion = identificacion;
     }
 
+    private String fecha;
 
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public void modificarFecha() throws ParseException {
+        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(fecha);
+        individual.setFechaNacimiento(date);
+    }
 
 
     public String modificar() {
 
         try {
-
             gestionModificarCliente.modNombreIndividual(individual.getId(), individual.getNombre());
             gestionModificarCliente.modApellidoIndividual(individual.getId(), individual.getApellido());
             gestionModificarCliente.modDireccionIndividual(individual.getId(), individual.getDireccion());
+            gestionModificarCliente.modFechaNacimientoIndividual(individual.getId(), individual.getFechaNacimiento());
             gestionModificarCliente.modCiudadIndividual(individual.getId(), individual.getCiudad());
             gestionModificarCliente.modCodigoPostalIndividual(individual.getId(), individual.getCodigopostal());
             gestionModificarCliente.modPaisIndividual(individual.getId(), individual.getPais());

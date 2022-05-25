@@ -2,6 +2,7 @@ package ma3s.fintech.war;
 
 
 import ma3s.fintech.Divisa;
+import ma3s.fintech.Referencia;
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.GestionAperturaCuenta;
 import ma3s.fintech.ejb.excepciones.*;
@@ -31,10 +32,19 @@ public class CrearCuenta {
     //private List<String> divisa;
     private String divisa;
     private String identificacion;
+    private String ibanReferencia;
+    private Referencia referencia;
+
+    public Referencia getReferencia(){return referencia;}
+    public void setReferencia(Referencia ref){this.referencia = ref;}
+
 
     public String getIBAN(){return IBAN;}
     public String getSWIFT(){return SWIFT;}
     public String getDivisa(){return divisa;}
+    public String getIbanReferencia() {
+        return ibanReferencia;
+    }
     public String getIdentificacion() {
         return identificacion;
     }
@@ -44,6 +54,9 @@ public class CrearCuenta {
     public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
+    public void setIbanReferencia(String ibanReferencia) {
+        this.ibanReferencia = ibanReferencia;
+    }
 
     public CrearCuenta (){
 
@@ -51,8 +64,9 @@ public class CrearCuenta {
 
     public String crearCuentaPooled(){
         try{
-            LOGGER.info("");
+
             gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, sesion.getUsuario().getUser(), divisa, identificacion);
+            gestionAperturaCuenta.referenciaParaPooled(IBAN, divisa);
             return "Listacuentas.xhtml?faces-redirect=true";
         }catch (UsuarioNoEncontradoException e) {
             LOGGER.info("Usuario incorrecto");
@@ -70,6 +84,12 @@ public class CrearCuenta {
         } catch (ClienteNoExisteException e) {
             LOGGER.info("El cliente no existe");
             showMessage("El cliente no existe");
+        } catch (PooledException e) {
+            LOGGER.info("Error con la cuenta Pooled");
+            showMessage("Error con la cuenta Pooled");
+        } catch (DatosIncorrectosException e) {
+            LOGGER.info("Los datos recibidos como parametros son incorrectos");
+            showMessage("Los datos recibidos como parametros son incorrectos");
         }
 
         return "CrearCuentaPooled.xhtml?faces-redirect=true";
@@ -77,8 +97,10 @@ public class CrearCuenta {
 
     public String crearCuentaSegregada(){
         try{
-            LOGGER.info("");
             gestionAperturaCuenta.abrirCuentaSegregate(IBAN, SWIFT, sesion.getUsuario().getUser(), identificacion);
+            LOGGER.info("Se intenta crear la referencia para la segregada: " + IBAN + " y la referencia: " + ibanReferencia);
+            gestionAperturaCuenta.referenciaParaSegregada(ibanReferencia, IBAN, divisa);
+
             return "Listacuentas.xhtmlfaces-redirect=true";
 
         }catch (UsuarioNoEncontradoException e) {
@@ -93,6 +115,18 @@ public class CrearCuenta {
         } catch (ClienteNoExisteException e) {
             LOGGER.info("El cliente no existe");
             showMessage("El cliente no existe");
+        } catch (ReferenciaException e) {
+            LOGGER.info("La cuenta referencia ya tiene una relacion con una segregada");
+            showMessage("La cuenta referencia ya tiene una relacion con una segregada");
+        } catch (SegregadaException e) {
+            LOGGER.info("La cuenta segregada no existe");
+            showMessage("La cuenta segregada no existe");
+        } catch (DivisaExistenteException e) {
+            LOGGER.info("La divisa no existe");
+            showMessage("La divisa no existe");
+        } catch (DatosIncorrectosException e) {
+            LOGGER.info("Los datos recibidos como parametros son incorrectos");
+            showMessage("Los datos recibidos como parametros son incorrectos");
         }
 
         return "CrearCuentaSegregada.xhtml?faces-redirect=true";

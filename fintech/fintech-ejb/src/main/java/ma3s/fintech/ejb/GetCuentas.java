@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +24,32 @@ public class GetCuentas implements GestionGetCuentas{
         Query query = em.createQuery("select c from Cuenta c");
         List<Cuenta> listaClientes = query.getResultList();
         return listaClientes;
+    }
+
+    @Override
+    public List<Fintech> getFintech(){
+        Query query = em.createQuery("select c from Fintech c");
+        List<Fintech> listaCuentasF = query.getResultList();
+        return listaCuentasF;
+    }
+
+    @Override
+    public List<Fintech> getFintechSemanal(){
+        Query query = em.createQuery("select c from Fintech c");
+        List<Fintech> listaCuentasF = new ArrayList<>();
+        Calendar fechaActual = Calendar.getInstance();
+        fechaActual.add(Calendar.YEAR, -5);
+        Date fechaHace5 = fechaActual.getTime();
+        List<Fintech> aux = query.getResultList();
+        for(Fintech f:aux){
+            if((f.getFechaApertura().compareTo(fechaHace5)>0
+                    || f.getFechaApertura().compareTo(fechaActual.getTime())<0)
+            && (f.getEstado().equalsIgnoreCase("Activo")
+                    || f.getEstado().equalsIgnoreCase("Activa"))){
+                listaCuentasF.add(f);
+            }
+        }
+        return listaCuentasF;
     }
 
     @Override

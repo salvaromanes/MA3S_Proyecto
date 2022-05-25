@@ -12,6 +12,7 @@
   <title>Dar Altas</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
+  <link href="Estilos/estiloCrearCuentaNueva.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
@@ -58,35 +59,37 @@
       </p:menubar>
     </h:form>
   </div>
-  <h1> <strong> Dar Alta a una Empresa </strong> </h1>
-  <h:form id = "DarAltaEmpresaAdministrador">
-    <p:messages autoUpdate="true"/>
-    <h:panelGrid>
+  <div class="contenedor">
+    <div class="card">
+      <h:form id = "DarAltaEmpresaAdministrador">
+        <p:panel id="pnl" header="Crear cuenta pooled">
+          <p:messages autoUpdate="true"/>
+          <h:panelGrid columns="2" cellpadding="7">
 
-      <p:outputLabel for = "Identificacion_txt"  value="Identificacion"/>
-      <p:inputText id = "Identificacion_txt" value="#{DarAltaEmpresaAdministrador.empresa.identificacion}" required="true"/>
+          <p:outputLabel for = "Identificacion_txt"  value="Identificacion"/>
+          <p:inputText id = "Identificacion_txt" value="#{DarAltaEmpresaAdministrador.empresa.identificacion}" required="true"/>
 
-      <p:outputLabel for = "Dirección_txt"  value="Dirección"/>
-      <p:inputText id = "Dirección_txt" value="#{DarAltaEmpresaAdministrador.empresa.direccion}"  required="true"/>
+          <p:outputLabel for = "Dirección_txt"  value="Dirección"/>
+          <p:inputText id = "Dirección_txt" value="#{DarAltaEmpresaAdministrador.empresa.direccion}"  required="true"/>
 
-      <p:outputLabel for = "Ciudad_txt"  value="Ciudad"/>
-      <p:inputText id = "Ciudad_txt" value="#{DarAltaEmpresaAdministrador.empresa.ciudad}" required="true"/>
+          <p:outputLabel for = "Ciudad_txt"  value="Ciudad"/>
+          <p:inputText id = "Ciudad_txt" value="#{DarAltaEmpresaAdministrador.empresa.ciudad}" required="true"/>
 
-      <p:outputLabel for = "CodigoPostal_txt"  value="CodigoPostal"/>
-      <p:inputText id = "CodigoPostal_txt" value="#{DarAltaEmpresaAdministrador.empresa.codigopostal}" required="true"/>
+          <p:outputLabel for = "CodigoPostal_txt"  value="CodigoPostal"/>
+          <p:inputText id = "CodigoPostal_txt" value="#{DarAltaEmpresaAdministrador.empresa.codigopostal}" required="true"/>
 
-      <p:outputLabel for = "Pais_txt"  value="Pais"/>
-      <p:inputText id = "Pais_txt" value="#{DarAltaEmpresaAdministrador.empresa.pais}" required="true"/>
+          <p:outputLabel for = "Pais_txt"  value="Pais"/>
+          <p:inputText id = "Pais_txt" value="#{DarAltaEmpresaAdministrador.empresa.pais}" required="true"/>
 
-      <p:outputLabel for = "RazonSocial_txt"  value="RazonSocial"/>
-      <p:inputText id = "RazonSocial_txt" value="#{DarAltaEmpresaAdministrador.empresa.razonSocial}" required="true"/>
+          <p:outputLabel for = "RazonSocial_txt"  value="RazonSocial"/>
+          <p:inputText id = "RazonSocial_txt" value="#{DarAltaEmpresaAdministrador.empresa.razonSocial}" required="true"/>
+          </h:panelGrid>
 
-
-      <p:commandButton icon="ui-icon-key" id="darAltaEmpresa" value="Dar Alta" action="#{DarAltaEmpresaAdministrador.darAltaEmpresa}" />
-
-    </h:panelGrid>
-
-  </h:form>
+          <p:commandButton icon="ui-icon-key" id="darAltaEmpresa" value="Dar Alta" action="#{DarAltaEmpresaAdministrador.darAltaEmpresa}" />
+        </p:panel>
+      </h:form>
+    </div>
+  </div>
 
 </h:body>
 

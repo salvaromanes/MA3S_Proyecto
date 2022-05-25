@@ -45,7 +45,7 @@
                 <p:divider layout="vertical"/>
 
                 <p:submenu label="Archivos" icon="pi pi-fw pi-file">
-                    <p:menuitem value="Generar CSV Alemania" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-file-excel"/>
+                    <p:menuitem value="Generar CSV Alemania" outcome="csv.xhtml" icon="pi pi-fw pi-file-excel"/>
                     <p:menuitem value="Api Holanda" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-code"/>
                 </p:submenu>
 
@@ -57,11 +57,5 @@
             </p:menubar>
         </h:form>
     </div>
-
-    <h:form>
-        <p:commandButton id="descarga" value="Descargar CSV" icon="pi pi-arrow-down" styleClass="ui-button-outlined">
-            <p:fileDownload id="descargas" value="#{fileDownloadView.file}"/>
-        </p:commandButton>
-    </h:form>
 </h:body>
 </html>
