@@ -50,6 +50,8 @@ public interface GestionGetCuentas {
     public Segregada getUSegregada(String iban);
 
     List<Fintech> getFintech();
+
+    List<Fintech> getFintechSemanal();
     }
 
 
