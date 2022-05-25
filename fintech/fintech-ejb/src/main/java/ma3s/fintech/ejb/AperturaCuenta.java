@@ -196,38 +196,31 @@ public class AperturaCuenta implements GestionAperturaCuenta{
     }
 
     @Override
-    public void referenciaParaSegregada(String ibanReferencia, String ibanSegregada, String divisaAbrev) throws SegregadaException, DivisaExistenteException, ReferenciaException, DatosIncorrectosException {
+    public void referenciaParaSegregada(String ibanSegregada, String divisaAbrev) throws SegregadaException, DivisaExistenteException, ReferenciaException, DatosIncorrectosException {
         Segregada segregada = em.find(Segregada.class, ibanSegregada);
         Divisa divisa = em.find(Divisa.class, divisaAbrev);
         Referencia referencia = new Referencia();
 
-        if(ibanReferencia == null || ibanSegregada == null || divisaAbrev == null){
+        if(ibanSegregada == null || divisaAbrev == null){
             throw new DatosIncorrectosException("Algun dato como parametro es null");
         }
 
         if (segregada == null) throw new SegregadaException("La cuenta segregada no existe");
         if (divisa == null) throw new DivisaExistenteException("La divisa no existe");
 
-        Referencia ref = em.find(Referencia.class, ibanReferencia);
+        referencia = new Referencia();
+        referencia.setIban(getIban());
+        referencia.setFechaApertura(new Date());
+        referencia.setEstado("ABIERTA");
+        referencia.setDivisa(divisa);
+        referencia.setNombreBanco("Ebury");
+        referencia.setSucursal("Ebury Málaga");
+        referencia.setSwift("NMGHJWYT");
+        referencia.setPais("España");
+        em.persist(referencia);
 
-        if(ref == null){
-            Referencia nuevaReferencia = new Referencia();
-            nuevaReferencia.setIban(ibanReferencia);
-            nuevaReferencia.setFechaApertura(new Date());
-            nuevaReferencia.setEstado("ABIERTA");
-            nuevaReferencia.setDivisa(divisa);
-            nuevaReferencia.setNombreBanco("Ebury");
-            nuevaReferencia.setSucursal("Ebury Málaga");
-            nuevaReferencia.setSwift("NMGHJWYT");
-            nuevaReferencia.setPais("España");
-            nuevaReferencia.setSegregada(segregada);
-            em.persist(nuevaReferencia);
-
-            segregada.setReferencia(referencia);
-            em.merge(segregada);
-        }else{
-            throw new ReferenciaException("La cuenta referencia ya tiene una relación con una segregada");
-        }
+        segregada.setReferencia(referencia);
+        em.merge(segregada);
     }
 
     private String getIban(){

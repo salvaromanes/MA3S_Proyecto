@@ -11,7 +11,7 @@ public interface GestionAperturaCuenta {
     public void abrirCuentaSegregate(String iban, String swift, String usuario, String identificacion) throws CuentaExistenteException, UsuarioNoEncontradoException, UsuarioIncorrectoException, ClienteNoExisteException;
 
     public void referenciaParaPooled(String ibanPooled, String divisaAbrev) throws DivisaExistenteException, PooledException, DatosIncorrectosException;
-    public void referenciaParaSegregada(String ibanReferencia, String ibanSegregada, String divisaAbrev) throws SegregadaException, DivisaExistenteException, ReferenciaException, DatosIncorrectosException;
+    public void referenciaParaSegregada(String ibanSegregada, String divisaAbrev) throws SegregadaException, DivisaExistenteException, ReferenciaException, DatosIncorrectosException;
 
     public Pooled obtenerDatosCuentaPooled(String IBAN);
     public Segregada obtenerDatosCuentaSegregada(String IBAN);

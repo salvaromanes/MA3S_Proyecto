@@ -81,10 +81,6 @@
                     <h:outputLabel for="identificacion" value="Identificacion: "/>
                     <p:inputText id="identificacion"  required="true" label="Lastname" requiredMessage="Este campo es obligatorio" value="#{crearCuenta.identificacion}"/>
                     <p:message for="identificacion"/>
-
-                    <h:outputLabel for="referencia" value="IBAN de la cuenta referencia: "/>
-                    <p:inputText id="referencia"  required="true" label="Lastname" requiredMessage="Este campo es obligatorio" value="#{crearCuenta.ibanReferencia}"/>
-                    <p:message for="referencia"/>
                 </h:panelGrid>
 
                 <p:commandButton id="saveBtn" value="Crear Segregada" icon="pi pi-check" action="#{crearCuenta.crearCuentaSegregada}" />

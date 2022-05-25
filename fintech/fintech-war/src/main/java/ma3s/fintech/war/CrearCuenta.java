@@ -29,7 +29,6 @@ public class CrearCuenta {
 
     private String IBAN;
     private String SWIFT;
-    //private List<String> divisa;
     private String divisa;
     private String identificacion;
     private String ibanReferencia;
@@ -99,7 +98,7 @@ public class CrearCuenta {
         try{
             gestionAperturaCuenta.abrirCuentaSegregate(IBAN, SWIFT, sesion.getUsuario().getUser(), identificacion);
             LOGGER.info("Se intenta crear la referencia para la segregada: " + IBAN + " y la referencia: " + ibanReferencia);
-            gestionAperturaCuenta.referenciaParaSegregada(ibanReferencia, IBAN, divisa);
+            gestionAperturaCuenta.referenciaParaSegregada(IBAN, divisa);
 
             return "Listacuentas.xhtmlfaces-redirect=true";
 
