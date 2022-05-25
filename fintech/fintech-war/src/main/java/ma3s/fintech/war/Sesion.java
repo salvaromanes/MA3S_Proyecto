@@ -30,6 +30,8 @@ public class Sesion implements Serializable {
     private Segregada segregada;
     private String iban_transaccion;
 
+    private String ibanViewTrans;
+
     private String identificacion;
 
     private Boolean sesion_iniciada = false;
@@ -37,6 +39,14 @@ public class Sesion implements Serializable {
 
     private String iban;
     private String cliente;
+
+    public String getIbanViewTrans() {
+        return ibanViewTrans;
+    }
+
+    public void setIbanViewTrans(String ibanViewTrans) {
+        this.ibanViewTrans = ibanViewTrans;
+    }
 
     public String getIdentificacion() {
         return identificacion;
