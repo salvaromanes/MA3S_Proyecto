@@ -74,9 +74,17 @@
                     <p:inputText id="lastname"  required="true" label="Lastname" value="#{crearCuenta.SWIFT}"/>
                     <p:message for="lastname"/>
 
+                    <h:outputLabel for="divisa" value="Divisa: "/>
+                    <p:inputText id="divisa"  required="true" label="Lastname" value="#{crearCuenta.divisa}"/>
+                    <p:message for="divisa"/>
+
                     <h:outputLabel for="identificacion" value="Identificacion: "/>
                     <p:inputText id="identificacion"  required="true" label="Lastname" value="#{crearCuenta.identificacion}"/>
                     <p:message for="identificacion"/>
+
+                    <h:outputLabel for="referencia" value="IBAN de la cuenta referencia: "/>
+                    <p:inputText id="referencia"  required="true" label="Lastname" value="#{crearCuenta.ibanReferencia}"/>
+                    <p:message for="referencia"/>
                 </h:panelGrid>
 
                 <p:commandButton id="saveBtn" value="Crear Segregada" icon="pi pi-check" action="#{crearCuenta.crearCuentaSegregada}" />
