@@ -67,8 +67,6 @@ public class CrearCuenta {
 
             gestionAperturaCuenta.abrirCuentaPooled(IBAN, SWIFT, sesion.getUsuario().getUser(), divisa, identificacion);
             gestionAperturaCuenta.referenciaParaPooled(IBAN, divisa);
-
-
             return "Listacuentas.xhtml?faces-redirect=true";
         }catch (UsuarioNoEncontradoException e) {
             LOGGER.info("Usuario incorrecto");
@@ -87,10 +85,10 @@ public class CrearCuenta {
             LOGGER.info("El cliente no existe");
             showMessage("El cliente no existe");
         } catch (PooledException e) {
-            LOGGER.info(e.getMessage());
-            showMessage(e.getMessage());
+            LOGGER.info("Error con la cuenta Pooled");
+            showMessage("Error con la cuenta Pooled");
         } catch (DatosIncorrectosException e) {
-            LOGGER.info(e.getMessage());
+            LOGGER.info("Los datos recibidos como parametros son incorrectos");
             showMessage("Los datos recibidos como parametros son incorrectos");
         }
 
@@ -118,16 +116,16 @@ public class CrearCuenta {
             LOGGER.info("El cliente no existe");
             showMessage("El cliente no existe");
         } catch (ReferenciaException e) {
-            LOGGER.info(e.getMessage());
+            LOGGER.info("La cuenta referencia ya tiene una relacion con una segregada");
             showMessage("La cuenta referencia ya tiene una relacion con una segregada");
         } catch (SegregadaException e) {
-            LOGGER.info(e.getMessage());
+            LOGGER.info("La cuenta segregada no existe");
             showMessage("La cuenta segregada no existe");
         } catch (DivisaExistenteException e) {
-            LOGGER.info(e.getMessage());
+            LOGGER.info("La divisa no existe");
             showMessage("La divisa no existe");
         } catch (DatosIncorrectosException e) {
-            LOGGER.info(e.getMessage());
+            LOGGER.info("Los datos recibidos como parametros son incorrectos");
             showMessage("Los datos recibidos como parametros son incorrectos");
         }
 

@@ -65,21 +65,21 @@
             <p:panel id="pnl" header="Crear cuenta pooled">
                 <h:panelGrid columns="3" cellpadding="7">
                     <h:outputLabel for="firstname" value="IBAN: *"/>
-                    <p:inputText class="entrada" id="firstname"  required="true" label="Firstname" value="#{crearCuenta.IBAN}">
+                    <p:inputText class="entrada" id="firstname" requiredMessage="Este campo es obligatorio" required="true" label="Firstname" value="#{crearCuenta.IBAN}">
                         <f:validateLength minimum="2"/>
                     </p:inputText>
                     <p:message for="firstname"/>
 
                     <h:outputLabel for="lastname" value="SWIFT: "/>
-                    <p:inputText id="lastname"  required="true" label="Lastname" value="#{crearCuenta.SWIFT}"/>
+                    <p:inputText id="lastname"  required="true" requiredMessage="Este campo es obligatorio" label="Lastname" value="#{crearCuenta.SWIFT}"/>
                     <p:message for="lastname"/>
 
                     <h:outputLabel for="divisa" value="Divisa: "/>
-                    <p:inputText id="divisa"  required="true" label="Lastname" value="#{crearCuenta.divisa}"/>
+                    <p:inputText id="divisa"  required="true" label="Lastname" requiredMessage="Este campo es obligatorio" value="#{crearCuenta.divisa}"/>
                     <p:message for="divisa"/>
 
                     <h:outputLabel for="identificacion" value="Identificacion: "/>
-                    <p:inputText id="identificacion"  required="true" label="Lastname" value="#{crearCuenta.identificacion}"/>
+                    <p:inputText id="identificacion"  required="true" label="Lastname" requiredMessage="Este campo es obligatorio" value="#{crearCuenta.identificacion}"/>
                     <p:message for="identificacion"/>
                 </h:panelGrid>
 

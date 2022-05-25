@@ -12,6 +12,7 @@
   <title>Dar Altas</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
+  <link href="Estilos/estiloCrearCuentaNueva.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
@@ -58,39 +59,42 @@
       </p:menubar>
     </h:form>
   </div>
-  <h1> <strong> Dar Alta a un Cliente </strong> </h1>
-  <h:form id = "DarAltaClienteAdministrador">
-    <p:messages autoUpdate="true"/>
-    <h:panelGrid>
 
-      <p:outputLabel for = "Nombre_txt"  value="Nombre"/>
-      <p:inputText id = "Nombre_txt" value="#{DarAltaClienteAdministrador.individual.nombre}" required="true"/>
+<!--  <h1> <strong> Dar Alta a un Cliente </strong> </h1>-->
+  <div class="contenedor">
+    <div class="card">
+      <h:form id = "DarAltaClienteAdministrador">
+        <p:panel id="pnl" header="Dar alta a un cliente">
+        <p:messages autoUpdate="true"/>
+        <h:panelGrid columns="2">
 
-      <p:outputLabel for = "Apellidos_txt"  value="Apellidos"/>
-      <p:inputText id = "Apellidos_txt" value="#{DarAltaClienteAdministrador.individual.apellido}" required="true"/>
+          <p:outputLabel for = "Nombre_txt"  value="Nombre"/>
+          <p:inputText id = "Nombre_txt" value="#{DarAltaClienteAdministrador.individual.nombre}" required="true"/>
 
-      <p:outputLabel for = "Identificacion_txt"  value="Identificacion"/>
-      <p:inputText id = "Identificacion_txt" value="#{DarAltaClienteAdministrador.individual.identificacion}" required="true"/>
+          <p:outputLabel for = "Apellidos_txt"  value="Apellidos"/>
+          <p:inputText id = "Apellidos_txt" value="#{DarAltaClienteAdministrador.individual.apellido}" required="true"/>
 
-      <p:outputLabel for = "Dirección_txt"  value="Dirección"/>
-      <p:inputText id = "Dirección_txt" value="#{DarAltaClienteAdministrador.individual.direccion}"  required="true"/>
+          <p:outputLabel for = "Identificacion_txt"  value="Identificacion"/>
+          <p:inputText id = "Identificacion_txt" value="#{DarAltaClienteAdministrador.individual.identificacion}" required="true"/>
 
-      <p:outputLabel for = "Ciudad_txt"  value="Ciudad"/>
-      <p:inputText id = "Ciudad_txt" value="#{DarAltaClienteAdministrador.individual.ciudad}" required="true"/>
+          <p:outputLabel for = "Dirección_txt"  value="Dirección"/>
+          <p:inputText id = "Dirección_txt" value="#{DarAltaClienteAdministrador.individual.direccion}"  required="true"/>
 
-      <p:outputLabel for = "CodigoPostal_txt"  value="CodigoPostal"/>
-      <p:inputText id = "CodigoPostal_txt" value="#{DarAltaClienteAdministrador.individual.codigopostal}" required="true"/>
+          <p:outputLabel for = "Ciudad_txt"  value="Ciudad"/>
+          <p:inputText id = "Ciudad_txt" value="#{DarAltaClienteAdministrador.individual.ciudad}" required="true"/>
 
-      <p:outputLabel for = "Pais_txt"  value="Pais"/>
-      <p:inputText id = "Pais_txt" value="#{DarAltaClienteAdministrador.individual.pais}" required="true"/>
+          <p:outputLabel for = "CodigoPostal_txt"  value="CodigoPostal"/>
+          <p:inputText id = "CodigoPostal_txt" value="#{DarAltaClienteAdministrador.individual.codigopostal}" required="true"/>
 
+          <p:outputLabel for = "Pais_txt"  value="Pais"/>
+          <p:inputText id = "Pais_txt" value="#{DarAltaClienteAdministrador.individual.pais}" required="true"/>
+        </h:panelGrid>
 
-      <p:commandButton icon="ui-icon-key" id="darAltaIndividual" value="Dar Alta" action="#{DarAltaClienteAdministrador.darAltaIndividual}" />
-
-
-    </h:panelGrid>
-
-  </h:form>
+          <p:commandButton icon="ui-icon-key" id="darAltaIndividual" value="Dar Alta" action="#{DarAltaClienteAdministrador.darAltaIndividual}" />
+        </p:panel>
+        </h:form>
+    </div>
+  </div>
 
 </h:body>
 

@@ -27,7 +27,7 @@ public class cargarCSV {
 
     private int cont = 0;
 
-    public void descargarCSV(){
+    public String descargarCSV(){
         try {
             Path origenPath = FileSystems.getDefault().getPath("/opt/jboss/wildfly/docs/Alemania.csv");
             File file = origenPath.toFile();
@@ -39,6 +39,7 @@ public class cargarCSV {
             }
             cont++;
             fr.close();
+            return "csv.xhtml?faces-redirect=true";
         } catch (FileNotFoundException e) {
             LOGGER.info("Fichero no encontrado " + e.getMessage());
             showMessage("El fichero no se puede descargar");
@@ -64,6 +65,7 @@ public class cargarCSV {
             FacesContext.getCurrentInstance().addMessage("index:user", fm);
             FacesContext.getCurrentInstance().addMessage("admin:user", fm);
         }
+        return "csv.xhtml?faces-redirect=true";
     }
 
     public void showMessage(String msg) {

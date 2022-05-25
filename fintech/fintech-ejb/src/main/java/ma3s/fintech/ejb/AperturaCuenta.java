@@ -57,8 +57,6 @@ public class AperturaCuenta implements GestionAperturaCuenta{
             throw new ClienteNoExisteException("El cliente no existe");
         }
 
-
-
         Pooled pooled = new Pooled();
         pooled.setIban(iban);
         pooled.setSwift(swift);
@@ -230,8 +228,6 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         }else{
             throw new ReferenciaException("La cuenta referencia ya tiene una relación con una segregada");
         }
-
-
     }
 
     private String getIban(){
@@ -243,5 +239,4 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         }
         return res;
     }
-
 }
