@@ -57,7 +57,7 @@ public class HistorialCuentas {
         return "TransaccionCliente.xhtml";
     }
     public synchronized List<Transaccion> getTransSeg(){
-        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias(segregada);
+        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias(sesion.getSegregada());
         if(transaccionList != null){
             return transaccionList;
         }
