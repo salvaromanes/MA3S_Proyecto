@@ -12,15 +12,16 @@
     <title>Regristro Empresas</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
+    <link href="Estilos/estiloCrearCuentaNueva.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
-    <h1 class="empresa"> Registrar Empresa </h1>
-    <h:form id="form">
-        <div class="centro">
 
-            <p:panelGrid columns="1">
-
+    <div class="contenedor">
+    <div class="card">
+        <h:form id="sesion">
+            <p:panel id="pnl" header="Registrar una nueva empesa">
+            <h:panelGrid columns="2" cellpadding="7">
                 <h:outputText value="Identificacion" />
                 <p:inputText required="false"/>
 
@@ -37,15 +38,14 @@
                 <p:inputText required="false"/>
 
                 <h:outputText value="RazonSocial"/>
-                <p:inputText required="false"/>
-
+                <p:inputText  required="false"/>
+            </h:panelGrid>
                 <p:commandButton id="botonCrear" value="Crear"/>
-
                 <p:commandButton class="css-button-rounded--black" id="botonVolver" value="Volver" action="#{sesion.volver}"/>
-            </p:panelGrid>
-        </div>
-    </h:form>
-
+            </p:panel>
+        </h:form>
+    </div>
+    </div>
 </h:body>
 
 </html>
