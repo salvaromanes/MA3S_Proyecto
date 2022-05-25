@@ -42,81 +42,39 @@
 
 
 
-    <h2>Sus transacciones en las cuentas pooled</h2>
+    <h2>Sus transacciones</h2>
     <div class="card">
         <h:form id="Pooled" >
 
-            <p:dataTable var="pooled" value="#{historial.transPooled}">
+            <p:dataTable var="p" value="#{historial.trans}">
 
 
                 <p:column headerText="Cuenta origen">
-                    <h:outputText value="#{pooled.cuentaOrigen.iban}" />
+                    <h:outputText value="#{p.cuentaOrigen.iban}" />
                 </p:column>
 
                 <p:column headerText="Cuenta destino">
-                    <h:outputText value="#{pooled.cuentaDestino.iban}" />
+                    <h:outputText value="#{p.cuentaDestino.iban}" />
                 </p:column>
 
                 <p:column headerText="Cantidad">
-                    <h:outputText value="#{pooled.cantidad}" />
+                    <h:outputText value="#{p.cantidad}" />
                 </p:column>
 
                 <p:column headerText="Fecha de instrucción">
-                    <h:outputText value="#{historial.fechaSimple(pooled.fechaInstruccion)}" />
+                    <h:outputText value="#{historial.fechaSimple(p.fechaInstruccion)}" />
                 </p:column>
 
                 <p:column headerText="Tipo">
-                    <h:outputText value="#{pooled.tipo}" />
+                    <h:outputText value="#{p.tipo}" />
                 </p:column>
 
                 <p:column headerText="Divisa emisor">
-                    <h:outputText value="#{pooled.divisaEmisor.abreviatura}" />
+                    <h:outputText value="#{p.divisaEmisor.abreviatura}" />
                 </p:column>
 
                 <p:column headerText="Divisa receptor">
-                    <h:outputText value="#{pooled.divisaReceptor.abreviatura}" />
-                </p:column>
-
-            </p:dataTable>
-
-        </h:form>
-    </div>
-
-
-
-    <h2>Sus transacciones en las cuentas segregadas</h2>
-    <div class="card">
-        <h:form id="Segregadas" >
-
-            <p:dataTable var="segregadas" value="#{historial.transSeg}">
-
-
-                <p:column headerText="Cuenta origen">
-                    <h:outputText value="#{segregadas.cuentaOrigen.iban}" />
-                </p:column>
-
-                <p:column headerText="Cuenta destino">
-                    <h:outputText value="#{segregadas.cuentaDestino.iban}" />
-                </p:column>
-
-                <p:column headerText="Cantidad">
-                    <h:outputText value="#{segregadas.cantidad}" />
-                </p:column>
-
-                <p:column headerText="Fecha de instrucción">
-                    <h:outputText value="#{historial.fechaSimple(segregadas.fechaInstruccion)}" />
-                </p:column>
-
-                <p:column headerText="Tipo">
-                    <h:outputText value="#{segregadas.tipo}" />
-                </p:column>
-
-                <p:column headerText="Divisa emisor">
-                    <h:outputText value="#{segregadas.divisaEmisor.abreviatura}" />
-                </p:column>
-
-                <p:column headerText="Divisa receptor">
-                    <h:outputText value="#{segregadas.divisaReceptor.abreviatura}" />
+                    <h:outputText value="#{p.divisaReceptor.abreviatura}" />
                 </p:column>
 
             </p:dataTable>

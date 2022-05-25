@@ -44,12 +44,12 @@ public class ListaCuentasPorCliente {
 
 
     public String verCuenta(Segregada segregada1){
-        sesion.setSegregada(segregada1);
+        sesion.setIbanViewTrans(segregada1.getIban());
         return "HistorialTransacciones.xhtml?faces-redirect=true";
     }
 
     public String verCuenta2(Pooled pooled1){
-        sesion.setPooled(pooled1);
+        sesion.setIbanViewTrans(pooled1.getIban());
         return "HistorialTransacciones.xhtml?faces-redirect=true";
     }
 

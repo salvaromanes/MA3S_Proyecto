@@ -16,6 +16,8 @@ public interface GestionTransferencia {
     public void transferenciaAutorizado(Long id, Long idEmpresa, Transaccion transaccion) throws PersonaNoExisteException, ErrorOrigenTransaccionException,
             CampoVacioException, SaldoNoSuficiente, EmpresaNoExistenteException;
 
+    public List<Transaccion> verTransferencias(String iban) throws CuentaNoExistenteException;
+
     public List<Transaccion> verTransferencias(Segregada segregada);
     public List<Transaccion> verTransferencias2(Pooled pooled);
 

@@ -34,19 +34,18 @@ public class Transferencias implements GestionTransferencia{
     }
     */
 
-    /*
 
     @Override
-    public List<Transaccion> verTransferencias(Segregada segregada){
+    public List<Transaccion> verTransferencias(String iban) throws CuentaNoExistenteException{
         Query query = em.createQuery("select t from Transaccion t");
         List<Transaccion> listaT = query.getResultList();
         List<Transaccion> listaux = new ArrayList<>();
-        Segregada aux = em.find(Segregada.class, segregada.getIban());
+        Cuenta aux = em.find(Cuenta.class, iban);
         if(aux == null)
-            return listaux;
+            throw new CuentaNoExistenteException();
+
         for(Transaccion t : listaT){
-            if(t.getCuentaOrigen().equals(segregada.getIban())
-                    || t.getCuentaDestino().equals(segregada.getIban())){
+            if(t.getCuentaOrigen().getIban().equals(iban) || t.getCuentaDestino().getIban().equals(iban)){
                 listaux.add(t);
             }
         }
@@ -54,7 +53,6 @@ public class Transferencias implements GestionTransferencia{
         return listaux;
 
     }
-    */
 
 
     @Override
