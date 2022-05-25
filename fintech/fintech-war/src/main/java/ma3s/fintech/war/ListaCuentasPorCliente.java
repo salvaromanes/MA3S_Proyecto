@@ -40,7 +40,7 @@ public class ListaCuentasPorCliente {
     }
 
     public String verCuenta(Segregada segregada1){
-        segregada = segregada1;
+        sesion.setSegregada(segregada1);
         return "HistorialTransacciones.xhtml?faces-redirect=true";
     }
 
