@@ -64,7 +64,7 @@
 
       <h:panelGrid columns="1">
 
-        <h:outputText value="Identificacion:" />
+        <h:outputText value="Identificación" />
         <h:outputText value="#{individual.individual.identificacion}"/>
 
         <h:outputText value="Nombre"/>
@@ -73,7 +73,10 @@
         <h:outputText value="Apellidos"/>
         <p:inputText required="true" value="#{individual.individual.apellido}"/>
 
-        <h:outputText value="Direccion"/>
+        <h:outputText value="Fecha Nacimiento"/>
+        <p:inputMask id="date" value="#{individual.fecha}" mask="99/99/9999"/>
+
+        <h:outputText value="Dirección"/>
         <p:inputText required="true" value="#{individual.individual.direccion}"/>
 
         <h:outputText value="Ciudad"/>
@@ -82,7 +85,7 @@
         <h:outputText value="Codigo Postal"/>
         <p:inputText required="true" value="#{individual.individual.codigopostal}"/>
 
-        <h:outputText value="Pais"/>
+        <h:outputText value="País"/>
         <p:inputText required="true" value="#{individual.individual.pais}"/>
 
         <p:commandButton id="modificar" value="Modificar" action="#{individual.modificar()}" />

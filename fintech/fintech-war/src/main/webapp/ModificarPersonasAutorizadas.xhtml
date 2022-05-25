@@ -77,7 +77,7 @@
         <p:inputText required="true" value="#{modificarPersonaAutorizada.pa.direccion}"/>
 
         <h:outputText value="Fecha Nacimiento"/>
-        <p:inputText value="#{modificarPersonaAutorizada.pa.fechaNacimiento}"/>
+        <p:inputMask id="date" value="#{individual.fecha}" mask="99/99/9999"/>
 
         <p:commandButton id="modificar" value="Modificar" action="#{modificarPersonaAutorizada.modificar()}" />
 
