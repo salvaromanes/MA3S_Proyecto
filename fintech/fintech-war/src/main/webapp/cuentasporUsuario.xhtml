@@ -42,26 +42,26 @@
     <div class="card">
 
     <h:form id="Segregadas" >
-            <p:dataTable var="segregadas" value="#{listCuenta.segregadas}">
+            <p:dataTable var="s" value="#{listCuenta.segregadas}">
 
                 <p:column headerText="IBAN">
-                    <h:outputText value="#{segregadas.iban}" />
+                    <h:outputText value="#{s.iban}" />
                 </p:column>
 
                 <p:column headerText="Fecha Apertura">
-                    <h:outputText value="#{segregadas.fechaApertura}" />
+                    <h:outputText value="#{s.fechaApertura}" />
                 </p:column>
 
                 <p:column headerText="Estado">
-                    <h:outputText value="#{segregadas.estado}" />
+                    <h:outputText value="#{s.estado}" />
                 </p:column>
 
                 <p:column>
-                    <p:commandButton id="btnver" class= "buttons" value="historial" action="#{listCuenta.verCuenta(segregadas)}"/>
+                    <p:commandButton id="btnver" class= "buttons" value="historial" action="#{listCuenta.verCuenta(s)}"/>
                 </p:column>
 
                 <p:column>
-                    <p:commandButton id="btnver232" class= "buttons" value="Transaccion" action="#{listCuenta.transS(segregadas)}"/>
+                    <p:commandButton id="btnver232" class= "buttons" value="Transaccion" action="#{listCuenta.transS(s)}"/>
                 </p:column>
 
             </p:dataTable>
@@ -73,22 +73,22 @@
 
     <div class="card">
     <h:form id="SegregadasAut" >
-            <p:dataTable var="segregadasAut" value="#{listCuenta.segregadasAutLec}">
+            <p:dataTable var="sau" value="#{listCuenta.segregadasAutLec}">
 
                 <p:column headerText="IBAN">
-                    <h:outputText value="#{segregadasAut.iban}" />
+                    <h:outputText value="#{sau.iban}" />
                 </p:column>
 
                 <p:column headerText="Fecha Apertura">
-                    <h:outputText value="#{segregadasAut.fechaApertura}" />
+                    <h:outputText value="#{sau.fechaApertura}" />
                 </p:column>
 
                 <p:column headerText="Estado">
-                    <h:outputText value="#{segregadasAut.estado}" />
+                    <h:outputText value="#{sau.estado}" />
                 </p:column>
 
                 <p:column>
-                    <p:commandButton id="btnver23" class= "buttons" value="historial" action="#{listCuenta.verCuenta(segregadasAut)}"/>
+                    <p:commandButton id="btnver23" class= "buttons" value="historial" action="#{listCuenta.verCuenta(sau)}"/>
                 </p:column>
 
             </p:dataTable>
@@ -100,26 +100,26 @@
 
     <div class="card">
         <h:form id="SegregadasAutorizacionEsc" >
-            <p:dataTable var="segregadasAut" value="#{listCuenta.segregadasAutEsc}">
+            <p:dataTable var="sae" value="#{listCuenta.segregadasAutEsc}">
 
                 <p:column headerText="IBAN">
-                    <h:outputText value="#{segregadasAut.iban}" />
+                    <h:outputText value="#{sae.iban}" />
                 </p:column>
 
                 <p:column headerText="Fecha Apertura">
-                    <h:outputText value="#{segregadasAut.fechaApertura}" />
+                    <h:outputText value="#{sae.fechaApertura}" />
                 </p:column>
 
                 <p:column headerText="Estado">
-                    <h:outputText value="#{segregadasAut.estado}" />
+                    <h:outputText value="#{sae.estado}" />
                 </p:column>
 
                 <p:column>
-                    <p:commandButton id="btnver23221" class= "buttons" value="historial" action="#{listCuenta.verCuenta(segregadasAut)}"/>
+                    <p:commandButton id="btnver23221" class= "buttons" value="historial" action="#{listCuenta.verCuenta(sae)}"/>
                 </p:column>
 
                 <p:column>
-                    <p:commandButton id="btnver2322" class= "buttons" value="Transaccion"  action="#{listCuenta.transS(segregadasAut)}"/>
+                    <p:commandButton id="btnver2322" class= "buttons" value="Transaccion"  action="#{listCuenta.transS(sae)}"/>
                 </p:column>
 
             </p:dataTable>
@@ -129,31 +129,31 @@
     <h1>Cuentas Pooled</h1>
     <div class="card">
     <h:form id="Pooled" >
-            <p:dataTable var="pooled" value="#{listCuenta.pooleds}">
+            <p:dataTable var="pooled12" value="#{listCuenta.pooleds}">
 
                 <p:column headerText="IBAN">
-                    <h:outputText value="#{pooled.iban}" />
+                    <h:outputText value="#{pooled12.iban}" />
                 </p:column>
 
                 <p:column headerText="Fecha Apertura">
-                    <h:outputText value="#{pooled.fechaApertura}" />
+                    <h:outputText value="#{pooled12.fechaApertura}" />
                 </p:column>
 
                 <p:column headerText="Estado">
-                    <h:outputText value="#{pooled.estado}" />
+                    <h:outputText value="#{pooled12.estado}" />
                 </p:column>
 
 
                 <p:column headerText="Saldo">
-                    <h:outputText value="#{pooled.saldo}" />
+                    <h:outputText value="#{pooled12.saldo}" />
                 </p:column>
 
                 <p:column>
-                    <p:commandButton id="btnver2" class= "buttons" value="historial" action="#{listCuenta.verCuenta(pooled)}"/>
+                    <p:commandButton id="btnver2" class= "buttons" value="historial" action="#{listCuenta.verCuenta2(pooled12)}"/>
                 </p:column>
 
                 <p:column>
-                    <p:commandButton id="btnver23222" class= "buttons" value="Transaccion" action="#{listCuenta.transP(pooled)}"/>
+                    <p:commandButton id="btnver23222" class= "buttons" value="Transaccion" action="#{listCuenta.transP(pooled12)}"/>
                 </p:column>
 
             </p:dataTable>
@@ -165,27 +165,27 @@
     <div class="card">
     <h:form id="PooledAut">
 
-            <p:dataTable var="pooledAut" value="#{listCuenta.pooledAutLec}">
+            <p:dataTable var="pau" value="#{listCuenta.pooledAutLec}">
 
                 <p:column headerText="IBAN">
-                    <h:outputText value="#{pooledAut.iban}" />
+                    <h:outputText value="#{pau.iban}" />
                 </p:column>
 
                 <p:column headerText="Fecha Apertura">
-                    <h:outputText value="#{pooledAut.fechaApertura}" />
+                    <h:outputText value="#{pau.fechaApertura}" />
                 </p:column>
 
                 <p:column headerText="Estado">
-                    <h:outputText value="#{pooledAut.estado}" />
+                    <h:outputText value="#{pau.estado}" />
                 </p:column>
 
 
                 <p:column headerText="Saldo">
-                    <h:outputText value="#{pooledAut.saldo}" />
+                    <h:outputText value="#{pau.saldo}" />
                 </p:column>
 
                 <p:column>
-                    <p:commandButton id="btnver22" class= "buttons" value="historial" action="#{listCuenta.verCuenta(pooledAut)}"/>
+                    <p:commandButton id="btnver22" class= "buttons" value="historial" action="#{listCuenta.verCuenta2(pau)}"/>
                 </p:column>
 
             </p:dataTable>
@@ -199,31 +199,31 @@
     <div class="card">
         <h:form id="PooledAutEsc">
 
-            <p:dataTable var="pooledAut" value="#{listCuenta.pooledAutEsc}">
+            <p:dataTable var="pae" value="#{listCuenta.pooledAutEsc}">
 
                 <p:column headerText="IBAN">
-                    <h:outputText value="#{pooledAut.iban}" />
+                    <h:outputText value="#{pae.iban}" />
                 </p:column>
 
                 <p:column headerText="Fecha Apertura">
-                    <h:outputText value="#{pooledAut.fechaApertura}" />
+                    <h:outputText value="#{pae.fechaApertura}" />
                 </p:column>
 
                 <p:column headerText="Estado">
-                    <h:outputText value="#{pooledAut.estado}" />
+                    <h:outputText value="#{pae.estado}" />
                 </p:column>
 
 
                 <p:column headerText="Saldo">
-                    <h:outputText value="#{pooledAut.saldo}" />
+                    <h:outputText value="#{pae.saldo}" />
                 </p:column>
 
                 <p:column>
-                    <p:commandButton id="btnver22422" class= "buttons" value="historial" action="#{listCuenta.verCuenta(pooledAut)}"/>
+                    <p:commandButton id="btnver22422" class= "buttons" value="historial" action="#{listCuenta.verCuenta2(pae)}"/>
                 </p:column>
 
                 <p:column>
-                    <p:commandButton id="btnver23212242" class= "buttons" value="Transaccion" action="#{listCuenta.transP(pooledAut)}"/>
+                    <p:commandButton id="btnver23212242" class= "buttons" value="Transaccion" action="#{listCuenta.transP(pae)}"/>
                 </p:column>
 
 

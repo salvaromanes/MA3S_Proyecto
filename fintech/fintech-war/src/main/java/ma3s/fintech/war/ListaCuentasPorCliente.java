@@ -29,22 +29,26 @@ public class ListaCuentasPorCliente {
     String iban;
     Segregada segregada;
     Pooled pooled;
-    boolean ejemplo = false;
 
-    public boolean isEjemplo() {
-        return ejemplo;
+    public Segregada getSegregada() {
+        return segregada;
     }
 
-    public void setEjemplo(boolean ejemplo) {
-        this.ejemplo = ejemplo;
+    public void setSegregada(Segregada segregada) {
+        this.segregada = segregada;
     }
+
+    public void setPooled(Pooled pooled) {
+        this.pooled = pooled;
+    }
+
 
     public String verCuenta(Segregada segregada1){
         sesion.setSegregada(segregada1);
         return "HistorialTransacciones.xhtml?faces-redirect=true";
     }
 
-    public String verCuenta(Pooled pooled1){
+    public String verCuenta2(Pooled pooled1){
         sesion.setPooled(pooled1);
         return "HistorialTransacciones.xhtml?faces-redirect=true";
     }
