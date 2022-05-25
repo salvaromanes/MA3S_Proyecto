@@ -197,6 +197,7 @@ public class Transferencias implements GestionTransferencia{
                     em.merge(referenciaDestino);
                 }
             }
+            em.persist(t);
         }else if(t.getTipo().equals("Cobro")){
             Segregada segregada_origen = em.find(Segregada.class, iban_Origen);
             Pooled pooled_origen = em.find(Pooled.class, iban_Origen);
@@ -291,8 +292,9 @@ public class Transferencias implements GestionTransferencia{
                     em.merge(referenciaDestino);
                 }
             }
+            em.persist(t);
         }
-        em.persist(t);
+
     }
 
     @Override

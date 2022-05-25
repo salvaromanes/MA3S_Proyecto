@@ -38,7 +38,7 @@ public class TransaccionClientes {
     private String divisaDestino;
 
     @PostConstruct
-    public void Contructor(){
+    public void TransaccionesClientes(){
         pooled = gestionGetCuentas.getUPooled(sesion.getIban_transaccion());
         segregada = gestionGetCuentas.getUSegregada(sesion.getIban_transaccion());
 
