@@ -137,4 +137,45 @@ public class GetClientes implements GestionGetClientes{
         List<PAutorizada> lista = query.getResultList();
         return lista;
     }
+
+    @Override
+    public String getNombre(Long id) throws DatosIncorrectosException {
+        String nombre;
+        Individual individual = em.find(Individual.class, id);
+        if(individual == null){
+            Empresa empresa = em.find(Empresa.class, id);
+            if(empresa == null){
+                throw new DatosIncorrectosException("No hay cliente asociado a ese id");
+            }else{
+                nombre = empresa.getRazonSocial();
+            }
+        }else{
+            nombre = individual.getNombre();
+        }
+        return nombre;
+    }
+
+    @Override
+    public String getApellidos(Long id){
+        String apellidos;
+        Individual individual = em.find(Individual.class, id);
+        if(individual == null){
+            apellidos = null;
+        }else{
+            apellidos = individual.getApellido();
+        }
+        return apellidos;
+    }
+
+    @Override
+    public String getFechNac(Long id){
+        String fecha;
+        Individual individual = em.find(Individual.class, id);
+        if(individual == null){
+            fecha = "noexitente";
+        }else{
+            fecha = individual.getFechaNacimiento().toString();
+        }
+        return fecha;
+    }
 }

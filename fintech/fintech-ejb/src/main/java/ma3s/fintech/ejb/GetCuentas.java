@@ -26,6 +26,13 @@ public class GetCuentas implements GestionGetCuentas{
     }
 
     @Override
+    public List<Fintech> getFintech(){
+        Query query = em.createQuery("select c from Fintech c");
+        List<Fintech> listaCuentasF = query.getResultList();
+        return listaCuentasF;
+    }
+
+    @Override
     public Cuenta getCuenta(String iban) throws ClienteNoExisteException {
         Cuenta cuenta = em.find(Cuenta.class, iban);
         if(cuenta == null)

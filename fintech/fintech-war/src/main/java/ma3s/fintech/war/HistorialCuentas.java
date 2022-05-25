@@ -14,7 +14,9 @@ import ma3s.fintech.ejb.excepciones.SaldoNoSuficiente;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Named(value = "historial")
@@ -48,16 +50,16 @@ public class HistorialCuentas {
     }
 
     public String verCuenta(Segregada segregada1){
-        segregada = segregada1;
+        sesion.setSegregada(segregada1);
         return "TransaccionCliente.xhtml";
     }
 
     public String verCuenta(Pooled pooled1){
-        pooled = pooled1;
+        sesion.setPooled(pooled1);
         return "TransaccionCliente.xhtml";
     }
     public synchronized List<Transaccion> getTransSeg(){
-        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias(segregada);
+        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias(sesion.getSegregada());
         if(transaccionList != null){
             return transaccionList;
         }
@@ -74,6 +76,14 @@ public class HistorialCuentas {
         return aux;
     }
 
+
+    public String fechaSimple(Date date){
+
+        if(date == null){
+            return null;
+        }
+        return new SimpleDateFormat("dd-MM-yyyy").format(date);
+    }
 
 
 }

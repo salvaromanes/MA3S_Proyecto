@@ -27,6 +27,7 @@ public class Sesion implements Serializable {
     private Usuario usuario;
 
     private Pooled pooled;
+    private Segregada segregada;
     private String iban_transaccion;
 
     private String identificacion;
@@ -51,6 +52,14 @@ public class Sesion implements Serializable {
 
     public void setPooled(Pooled p){
         pooled = p;
+    }
+
+    public Segregada getSegregada() {
+        return segregada;
+    }
+
+    public void setSegregada(Segregada segregada) {
+        this.segregada = segregada;
     }
 
     public Sesion(){ usuario = new Usuario(); }

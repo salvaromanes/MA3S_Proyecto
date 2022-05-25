@@ -34,6 +34,8 @@ public class Transferencias implements GestionTransferencia{
     }
     */
 
+    /*
+
     @Override
     public List<Transaccion> verTransferencias(Segregada segregada){
         Query query = em.createQuery("select t from Transaccion t");
@@ -52,12 +54,33 @@ public class Transferencias implements GestionTransferencia{
         return listaux;
 
     }
+    */
 
+
+    @Override
+    public List<Transaccion> verTransferencias(Segregada segregada){
+        List<Transaccion> aux = new ArrayList<>();
+        List<Transaccion> transaccionList = em.createQuery("select p from Transaccion p", Transaccion.class).getResultList();
+        if(segregada == null){
+            return  aux;
+        }
+        for(Transaccion auxiliar : transaccionList){
+            if(auxiliar.getCuentaOrigen().getIban().equals(segregada.getIban()) ||
+                    auxiliar.getCuentaDestino().getIban().equals(segregada.getIban())){
+                aux.add(auxiliar);
+            }
+        }
+        return aux;
+
+    }
 
     @Override
     public List<Transaccion> verTransferencias2(Pooled pooled){
         List<Transaccion> aux = new ArrayList<>();
         List<Transaccion> transaccionList = em.createQuery("select p from Transaccion p", Transaccion.class).getResultList();
+        if(pooled == null){
+            return aux;
+        }
         for(Transaccion auxiliar : transaccionList){
             if(auxiliar.getCuentaOrigen().getIban().equals(pooled.getIban()) ||
                     auxiliar.getCuentaDestino().getIban().equals(pooled.getIban())){
