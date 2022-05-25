@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,19 +24,58 @@ public class DepositadaEnAcciones implements GestionDepositadaEn {
     @Override
     public void crearDeposito(Pooled pooled, double saldo, Referencia referencia) throws PooledException, SaldoNoSuficiente, ReferenciaException {
 
-        Pooled pooled1 = em.find(Pooled.class, pooled.getIban());
-        Referencia referencia1 = em.find(Referencia.class, referencia.getIban());
+        System.out.println("REFERENCIA2:\n" + referencia.toString());
+        System.out.println("POOLED2:\n" + pooled.toString());
 
-        if(!pooled1.equals(pooled) || pooled1 == null){
-            throw new PooledException("La cuenta: " + pooled + " no existe");
+//        if(pooled.getIban() == null) throw new PooledException("El parametro iban esta nulo");
+//
+//        Pooled pooled1 = em.find(Pooled.class, pooled.getIban());
+//        Referencia referencia1 = em.find(Referencia.class, referencia.getIban());
+//
+//        if(!pooled1.equals(pooled) || pooled1 == null){
+//            throw new PooledException("La cuenta: " + pooled + " no existe");
+//        }
+//
+//        if(saldo < 0){
+//            throw new SaldoNoSuficiente("Saldo errorneo");
+//        }
+//
+//        if(!referencia1.equals(referencia) || referencia1 == null){
+//            throw new ReferenciaException("La referencia no existe");
+//        }
+//
+//        ma3s.fintech.DepositadaEn depositadaEn = new ma3s.fintech.DepositadaEn();
+//        depositadaEn.setIbanPooled(pooled);
+//        depositadaEn.setReferencia(referencia);
+//        depositadaEn.setSaldo(saldo);
+//        em.persist(depositadaEn);
+
+        Query query = em.createQuery("Select c from Pooled c");
+        List<Pooled> pooleds = new ArrayList<>();
+        Pooled pooledA = new Pooled();
+
+        if(pooleds != null){
+            for(Pooled p : pooleds){
+                if(p.getIban().equals(pooled.getIban())) pooledA = p;
+            }
         }
+
+        if(pooledA == null) throw new PooledException("La cuenta pooled no existe");
+
+        query = em.createQuery("Select c from Referencia c");
+        List<Referencia> referencias = new ArrayList<>();
+        Referencia referenciaA = new Referencia();
+
+        if(referencias != null){
+            for(Referencia p : referencias){
+                if(p.getIban().equals(referencia.getIban())) referenciaA = p;
+            }
+        }
+
+        if(referenciaA == null) throw new ReferenciaException("La cuenta pooled no existe");
 
         if(saldo < 0){
             throw new SaldoNoSuficiente("Saldo errorneo");
-        }
-
-        if(!referencia1.equals(referencia) || referencia1 == null){
-            throw new ReferenciaException("La referencia no existe");
         }
 
         ma3s.fintech.DepositadaEn depositadaEn = new ma3s.fintech.DepositadaEn();
@@ -43,6 +83,7 @@ public class DepositadaEnAcciones implements GestionDepositadaEn {
         depositadaEn.setReferencia(referencia);
         depositadaEn.setSaldo(saldo);
         em.persist(depositadaEn);
+
 
     }
 
