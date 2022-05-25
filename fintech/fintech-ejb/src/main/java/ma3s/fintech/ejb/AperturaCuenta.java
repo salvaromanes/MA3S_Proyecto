@@ -235,8 +235,6 @@ public class AperturaCuenta implements GestionAperturaCuenta{
     }
 
     private String getIban(){
-//        double iban = Math.floor(10000000 + Math.random() * 90000000);
-//        return "ES0" + iban + iban + iban;
         String res = "ES";
         Random random = new Random();
         int max = 10;
