@@ -63,7 +63,7 @@
         <h:form>
             <div class="p-d-flex p-jc-between">
                 <div>
-                    <p:commandButton value="DESCARGAR CSV" styleClass="p-mr-2 p-mb-2">
+                    <p:commandButton value="DESCARGAR CSV INICIAL" styleClass="p-mr-2 p-mb-2">
                         <p:dataExporter type="csv" target="tbl" fileName="csv" />
                     </p:commandButton>
                 </div>
@@ -141,6 +141,91 @@
                         <h:outputText value="Date_Of_Birth"/>
                     </f:facet>
                     <h:outputText value="#{dataExporterView.getFechaNac(csv.cliente.id)}">
+                        <f:convertNumber type="currency" />
+                    </h:outputText>
+                </p:column>
+            </p:dataTable>
+
+            <div class="p-d-flex p-jc-between">
+                <div>
+                    <p:commandButton value="DESCARGAR CSV PERIODICO" styleClass="p-mr-2 p-mb-2">
+                        <p:dataExporter type="csv" target="tbl2" fileName="csv2" />
+                    </p:commandButton>
+                </div>
+            </div>
+
+            <p:dataTable id="tbl2" var="csv2" value="#{dataExporterView2.cuentas}"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                         paginator="true" rows="10" styleClass="p-mt-2">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="IBAN"/>
+                    </f:facet>
+                    <h:outputText value="#{csv2.iban}"/>
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Last_Name"/>
+                    </f:facet>
+                    <h:outputText value="#{dataExporterView2.getNombre(csv2.cliente.id)}"/>
+                </p:column>
+
+                <p:column  styleClass="p-text-center">
+                    <f:facet name="header">
+                        <h:outputText value="First_Name"/>
+                    </f:facet>
+                    <h:outputText value="#{dataExporterView2.getApellidos(csv2.cliente.id)}"/>
+                </p:column>
+
+                <p:column styleClass="p-text-right">
+                    <f:facet name="header">
+                        <h:outputText value="Street"/>
+                    </f:facet>
+                    <h:outputText value="#{csv2.cliente.direccion}"/>
+                </p:column>
+
+                <p:column styleClass="p-text-right">
+                    <f:facet name="header">
+                        <h:outputText value="City"/>
+                    </f:facet>
+                    <h:outputText value="#{csv2.cliente.ciudad}">
+                        <f:convertNumber type="currency" />
+                    </h:outputText>
+                </p:column>
+
+                <p:column styleClass="p-text-right">
+                    <f:facet name="header">
+                        <h:outputText value="Post_Code"/>
+                    </f:facet>
+                    <h:outputText value="#{csv2.cliente.codigopostal}">
+                        <f:convertNumber type="currency" />
+                    </h:outputText>
+                </p:column>
+
+                <p:column styleClass="p-text-right">
+                    <f:facet name="header">
+                        <h:outputText value="Country"/>
+                    </f:facet>
+                    <h:outputText value="#{csv2.cliente.pais}">
+                        <f:convertNumber type="currency" />
+                    </h:outputText>
+                </p:column>
+
+                <p:column styleClass="p-text-right">
+                    <f:facet name="header">
+                        <h:outputText value="identification_Number"/>
+                    </f:facet>
+                    <h:outputText value="#{csv2.cliente.identificacion}">
+                        <f:convertNumber type="currency" />
+                    </h:outputText>
+                </p:column>
+
+                <p:column styleClass="p-text-right">
+                    <f:facet name="header">
+                        <h:outputText value="Date_Of_Birth"/>
+                    </f:facet>
+                    <h:outputText value="#{dataExporterView2.getFechaNac(csv2.cliente.id)}">
                         <f:convertNumber type="currency" />
                     </h:outputText>
                 </p:column>
