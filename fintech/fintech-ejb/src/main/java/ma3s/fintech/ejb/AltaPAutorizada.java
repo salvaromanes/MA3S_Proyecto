@@ -28,15 +28,11 @@ public class AltaPAutorizada implements GestionAltaPAutorizada{
         String nombre = pAutorizada.getNombre();
         String apellidos = pAutorizada.getApellidos();
         String estado = pAutorizada.getEstado();
-        Date fecha_nacimiento = pAutorizada.getFechaNacimiento();
         Date fecha_inicio = pAutorizada.getFechaInicio();
-        Date fecha_fin = pAutorizada.getFechaFin();
         String direccion = pAutorizada.getDireccion();
         if( identificacion == null || nombre == null
                 || estado == null || apellidos == null
-                || direccion == null || fecha_nacimiento == null
-                || fecha_inicio == null || fecha_fin == null
-                || direccion == null)
+                || direccion == null || fecha_inicio == null || direccion == null)
             throw new CampoVacioException();
 
         Query query = em.createQuery("select p from PAutorizada p");
@@ -49,5 +45,4 @@ public class AltaPAutorizada implements GestionAltaPAutorizada{
 
         em.persist(pAutorizada);
     }
-
 }

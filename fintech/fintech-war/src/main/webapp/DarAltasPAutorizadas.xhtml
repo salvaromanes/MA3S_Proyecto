@@ -64,19 +64,18 @@
     <h:panelGrid>
 
       <p:outputLabel for = "Nombre_txt"  value="Nombre"/>
-      <p:inputText id = "Nombre_txt" value="#{DarAltaPA.pa.nombre}" required="true"/>
+      <p:inputText id = "Nombre_txt" value="#{DarAltaPAut.pa.nombre}" required="true"/>
 
       <p:outputLabel for = "Apellidos_txt"  value="Apellidos"/>
-      <p:inputText id = "Apellidos_txt" value="#{DarAltaPA.pa.apellidos}" required="true"/>
+      <p:inputText id = "Apellidos_txt" value="#{DarAltaPAut.pa.apellidos}" required="true"/>
 
       <p:outputLabel for = "Identificacion_txt"  value="Identificacion"/>
-      <p:inputText id = "Identificacion_txt" value="#{DarAltaPA.pa.identificacion}" required="true"/>
+      <p:inputText id = "Identificacion_txt" value="#{DarAltaPAut.pa.identificacion}" required="true"/>
 
       <p:outputLabel for = "Dirección_txt"  value="Dirección"/>
-      <p:inputText id = "Dirección_txt" value="#{DarAltaPA.pa.direccion}"  required="true"/>
+      <p:inputText id = "Dirección_txt" value="#{DarAltaPAut.pa.direccion}"  required="true"/>
 
-
-      <p:commandButton icon="ui-icon-key" id="darAltaPAutorizada" value="Dar Alta" action="#{DarAltaPA.darAltaPAutorizada}" />
+      <p:commandButton icon="ui-icon-key" id="darAltaPAutorizada" value="Dar Alta" action="#{DarAltaPAut.darAltaPAutorizada}" />
 
 
     </h:panelGrid>

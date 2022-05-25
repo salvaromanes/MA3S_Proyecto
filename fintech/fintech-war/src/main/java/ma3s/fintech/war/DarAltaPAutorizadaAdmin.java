@@ -17,7 +17,7 @@ import javax.inject.Named;
 import java.util.Date;
 import java.util.logging.Logger;
 
-@Named(value = "DarAltaPA")
+@Named(value = "DarAltaPAut")
 @RequestScoped
 public class DarAltaPAutorizadaAdmin {
 
