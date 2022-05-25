@@ -6,11 +6,9 @@ import ma3s.fintech.Pooled;
 import ma3s.fintech.Segregada;
 import ma3s.fintech.Transaccion;
 import ma3s.fintech.ejb.GestionTransferencia;
-import ma3s.fintech.ejb.excepciones.CampoVacioException;
-import ma3s.fintech.ejb.excepciones.ErrorOrigenTransaccionException;
-import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
-import ma3s.fintech.ejb.excepciones.SaldoNoSuficiente;
+import ma3s.fintech.ejb.excepciones.*;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -18,11 +16,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Named(value = "historial")
 @RequestScoped
 public class HistorialCuentas {
-
+    private static final Logger LOGGER = Logger.getLogger(HistorialCuentas.class.getCanonicalName());
     @Inject
     private Sesion sesion;
 
@@ -32,6 +31,13 @@ public class HistorialCuentas {
 
     Segregada segregada;
     Pooled pooled;
+
+    private String iban;
+
+    @PostConstruct
+    public void HistorialCuentas(){
+        iban = sesion.getIbanViewTrans();
+    }
 
     public Segregada getSegregada() {
         return segregada;
@@ -49,32 +55,27 @@ public class HistorialCuentas {
         this.pooled = pooled;
     }
 
-    public String verCuenta(Segregada segregada1){
-        sesion.setSegregada(segregada1);
-        return "TransaccionCliente.xhtml";
+
+    public synchronized List<Transaccion> getTrans(){
+        LOGGER.info("Transacciones");
+        List<Transaccion> transaccionList = new ArrayList<>();
+        try {
+           transaccionList = gestionTransferencia.verTransferencias(iban);
+        } catch (CuentaNoExistenteException e) {
+            LOGGER.info("CuentaNoExistente");
+        }
+        return transaccionList;
     }
 
-    public String verCuenta(Pooled pooled1){
-        sesion.setPooled(pooled1);
-        return "TransaccionCliente.xhtml";
-    }
-    public synchronized List<Transaccion> getTransSeg(){
-        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias(sesion.getSegregada());
-        if(transaccionList != null){
+    /*public synchronized List<Transaccion> getTransPooled(){
+        LOGGER.info("Pooled");
+        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias2(iban);
+        if(transaccionList.isEmpty()){
+            transaccionList = new ArrayList<>();
             return transaccionList;
         }
-        List<Transaccion> aux = new ArrayList<>();
-        return aux;
-    }
-
-    public synchronized List<Transaccion> getTransPooled(){
-        List<Transaccion> transaccionList = gestionTransferencia.verTransferencias2(sesion.getPooled());
-        if(transaccionList != null){
-            return transaccionList;
-        }
-        List<Transaccion> aux = new ArrayList<>();
-        return aux;
-    }
+        return transaccionList;
+    }*/
 
 
     public String fechaSimple(Date date){

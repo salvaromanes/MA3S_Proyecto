@@ -12,14 +12,15 @@
     <title>Regristro Clientes</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
+    <link href="Estilos/estiloCrearCuentaNueva.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
-    <h1 class="individual"> Registrar Cliente </h1>
+    <div class="contenedor">
+    <div class="card">
     <h:form id="form">
-        <div class="centro">
-
-            <p:panelGrid columns="1">
+        <p:panel  id="pnl" header="Crear cuenta segregada">
+            <h:panelGrid columns="2">
 
                 <h:outputText value="Identificacion" />
                 <p:inputText required="false"/>
@@ -44,13 +45,14 @@
 
                 <h:outputText value="Pais"/>
                 <p:inputText required="false"/>
-
+            </h:panelGrid>
                 <p:commandButton id="botonCrear" value="Crear"/>
-
                 <p:commandButton class="css-button-rounded--black" id="botonVolver" value="Volver" action="#{sesion.volver}"/>
-            </p:panelGrid>
-        </div>
+        </p:panel>
     </h:form>
+
+    </div>
+    </div>
 
 </h:body>
 
