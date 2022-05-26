@@ -1,4 +1,4 @@
-GET http://localhost:8080/fintech-war/fintech/api/healthcheck
+GET http://localhost:8080/fintech-war/api/fintech/api/clients
 Accept: */*
 Cache-Control: no-cache
 ##
