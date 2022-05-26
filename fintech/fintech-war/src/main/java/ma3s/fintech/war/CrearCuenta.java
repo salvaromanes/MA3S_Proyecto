@@ -91,7 +91,7 @@ public class CrearCuenta {
             showMessage("Los datos recibidos como parametros son incorrectos");
         }
 
-        return "CrearCuentaPooled.xhtml?faces-redirect=true";
+        return null;
     }
 
     public String crearCuentaSegregada(){
@@ -128,7 +128,7 @@ public class CrearCuenta {
             showMessage("Los datos recibidos como parametros son incorrectos");
         }
 
-        return "CrearCuentaSegregada.xhtml?faces-redirect=true";
+        return null;
     }
 
     public void showMessage(String msg) {
