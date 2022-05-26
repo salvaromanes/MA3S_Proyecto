@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Clientes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+    <div class="card">
+        <h:form>
+            <p:growl id="messages"/>
+
+            <p:menubar>
+                <p:menuitem value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
+                </p:menuitem>
+
+                <p:divider layout="vertical"/>
+
+                <p:submenu label="Clientes" icon="pi pi-fw pi-users">
+                    <p:menuitem value="Lista" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
+                    <p:submenu label="Dar Alta" icon="pi pi-fw pi-plus">
+                        <p:menuitem value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
+                        <p:menuitem value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
+                    </p:submenu>
+                </p:submenu>
+
+                <p:divider layout="vertical"/>
+
+                <p:submenu label="Cuentas" icon="pi pi-fw pi-wallet">
+                    <p:menuitem value="Lista" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
+                    <p:submenu label="Crear" icon="pi pi-fw pi-plus">
+                        <p:menuitem value="Segregada" outcome="CrearCuentaSegregada.xhtml" />
+                        <p:menuitem value="Pooled" outcome="CrearCuentaPooled.xhtml" />
+                    </p:submenu>
+                </p:submenu>
+
+                <p:divider layout="vertical"/>
+
+                <p:submenu label="Archivos" icon="pi pi-fw pi-file">
+                    <p:menuitem value="Generar CSV Alemania" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-file-excel"/>
+                    <p:menuitem value="Api Holanda" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-code"/>
+                </p:submenu>
+
+                <p:divider layout="vertical"/>
+
+                <f:facet name="options">
+                    <p:commandButton value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
+                </f:facet>
+            </p:menubar>
+        </h:form>
+    </div>
+
+    <h1>Lista de todas las transacciones</h1>
+
+    <div class="card">
+        <h:form>
+            <p:dataTable value="#{listTrans.transacciones}" var="t" rows="5"
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                         rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+
+                <p:column headerText="Identificador">
+                    <h:outputText value="#{t.idUnico}"/>
+                </p:column>
+
+                <p:column headerText="Tipo">
+                    <h:outputText value="#{t.tipo}" />
+                </p:column>
+
+                <p:column headerText="Internacional">
+                    <h:outputText value="#{t.internacional}" />
+                </p:column>
+
+                <p:column  headerText="Cuenta origen">
+                    <h:outputText value="#{t.cuentaOrigen.iban}" />
+                </p:column>
+
+                <p:column  headerText="Cuenta destino">
+                    <h:outputText  value="#{t.cuentaDestino.iban}" />
+                </p:column>
+                <p:column  headerText="Divisa original">
+                    <h:outputText  value="#{t.divisaEmisor.nombre}" />
+                </p:column>
+                <p:column  headerText="Divisa final">
+                    <h:outputText value="#{t.divisaReceptor.nombre}" />
+                </p:column>
+                <p:column  headerText="Comision">
+                    <h:outputText  value="#{t.comision}" />
+                </p:column>
+                <p:column  headerText="Cantidad">
+                    <h:outputText  value="#{t.cantidad}" />
+                </p:column>
+                <p:column  headerText="Fecha de ejecución">
+                    <h:outputText  value="#{t.fechaEjecucion}" />
+                </p:column>
+                <p:column  headerText="Fecha de instrucción">
+                    <h:outputText  value="#{t.fechaInstruccion}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </div>
+
+
+</h:body>
+</html>

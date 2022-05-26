@@ -726,4 +726,12 @@ public class Transferencias implements GestionTransferencia{
         em.persist(trans);
     }
     */
+
+    @Override
+    public List<Transaccion> getAllTransacciones() {
+        List<Transaccion> transacciones = new ArrayList<>();
+        Query query = em.createQuery("select t from Transaccion t", Transaccion.class);
+        transacciones = query.getResultList();
+        return transacciones;
+    }
 }

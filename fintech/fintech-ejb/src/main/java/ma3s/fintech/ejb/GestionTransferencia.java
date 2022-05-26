@@ -23,4 +23,5 @@ public interface GestionTransferencia {
 
     public void crearTransaccion(Transaccion t) throws CampoVacioException;
 
+    List<Transaccion> getAllTransacciones();
     }
