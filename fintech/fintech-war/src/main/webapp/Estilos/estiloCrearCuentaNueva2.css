@@ -25,3 +25,25 @@ body{
     transform: translate(-50%, -50%);
 }
 
+
+.datos{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.center{
+    padding-top: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.titulo{
+    text-align: center;
+}
+
