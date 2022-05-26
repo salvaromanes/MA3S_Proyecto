@@ -72,41 +72,33 @@
                          currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                          rowsPerPageTemplate="5,10,{ShowAll|'All'}">
 
-                <p:column headerText="Identificador">
-                    <h:outputText value="#{t.idUnico}"/>
-                </p:column>
-
-                <p:column headerText="Tipo">
+                <p:column headerText="Tipo" style="width:auto;text-align: left;">
                     <h:outputText value="#{t.tipo}" />
                 </p:column>
 
-                <p:column headerText="Internacional">
-                    <h:outputText value="#{t.internacional}" />
-                </p:column>
-
-                <p:column  headerText="Cuenta origen">
+                <p:column  headerText="Cuenta origen" style="width:auto;text-align: left;">
                     <h:outputText value="#{t.cuentaOrigen.iban}" />
                 </p:column>
 
-                <p:column  headerText="Cuenta destino">
+                <p:column  headerText="Cuenta destino" style="width:auto;text-align: left;">
                     <h:outputText  value="#{t.cuentaDestino.iban}" />
                 </p:column>
-                <p:column  headerText="Divisa original">
-                    <h:outputText  value="#{t.divisaEmisor.nombre}" />
+                <p:column  headerText="Divisa original" style="width:auto;text-align: left;">
+                    <h:outputText  value="#{t.divisaEmisor.abreviatura}" />
                 </p:column>
-                <p:column  headerText="Divisa final">
-                    <h:outputText value="#{t.divisaReceptor.nombre}" />
+                <p:column  headerText="Divisa final" style="width:auto;text-align: left;">
+                    <h:outputText value="#{t.divisaReceptor.abreviatura}" />
                 </p:column>
-                <p:column  headerText="Comision">
+                <p:column  headerText="Comision" style="width:auto;text-align: left;">
                     <h:outputText  value="#{t.comision}" />
                 </p:column>
-                <p:column  headerText="Cantidad">
+                <p:column  headerText="Cantidad" style="width:auto;text-align: left;">
                     <h:outputText  value="#{t.cantidad}" />
                 </p:column>
-                <p:column  headerText="Fecha de ejecución">
+                <p:column  headerText="Fecha de ejecución" style="width:auto;text-align: left;">
                     <h:outputText  value="#{t.fechaEjecucion}" />
                 </p:column>
-                <p:column  headerText="Fecha de instrucción">
+                <p:column  headerText="Fecha de instrucción" style="width:auto;text-align: left;">
                     <h:outputText  value="#{t.fechaInstruccion}" />
                 </p:column>
             </p:dataTable>
