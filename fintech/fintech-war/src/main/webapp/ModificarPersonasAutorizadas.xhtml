@@ -16,55 +16,58 @@
 
 <h:body>
   <h:panelGroup rendered="#{sesion.sesion_admin}">
-  <div class="card">
-    <h:form>
-      <p:growl id="messages"/>
+    <div class="card">
+      <h:form>
+        <p:growl id="messages"/>
 
-      <p:menubar>
-        <p:menuitem value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
-        </p:menuitem>
+        <p:menubar>
+          <p:menuitem value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
+          </p:menuitem>
 
-        <p:divider layout="vertical"/>
+          <p:divider layout="vertical"/>
 
-        <p:submenu label="Clientes" icon="pi pi-fw pi-users">
-          <p:menuitem value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
-          <p:menuitem value="Lista personas autorizadas" outcome="ListaPAutorizadas.xhtml" icon="pi pi-fw pi-list"/>
-          <p:submenu label="Dar Alta" icon="pi pi-fw pi-plus">
-            <p:menuitem value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
-            <p:menuitem value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
-            <p:menuitem value="Persona autorizada" outcome="DarAltasPAutorizadas.xhtml" icon="pi pi-fw pi-id-card"/>
+          <p:submenu label="Clientes" icon="pi pi-fw pi-users">
+            <p:menuitem value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
+            <p:submenu label="Dar Alta" icon="pi pi-fw pi-plus">
+              <p:menuitem value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
+              <p:menuitem value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
+            </p:submenu>
           </p:submenu>
-        </p:submenu>
 
-        <p:divider layout="vertical"/>
-
-        <p:submenu label="Cuentas" icon="pi pi-fw pi-wallet">
-          <p:menuitem value="Lista" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
-          <p:submenu label="Crear" icon="pi pi-fw pi-plus">
-            <p:menuitem value="Segregada" outcome="CrearCuentaSegregada.xhtml" />
-            <p:menuitem value="Pooled" outcome="CrearCuentaPooled.xhtml" />
+          <p:submenu label="Personas Autorizadas" icon="pi pi-fw pi-user-plus">
+            <p:menuitem value="Lista" outcome="ListaPAutorizadas.xhtml" icon="pi pi-fw pi-list"/>
+            <p:menuitem value="Crear" outcome="DarAltasPAutorizadas.xhtml" icon="pi pi-fw pi-plus"/>
           </p:submenu>
-        </p:submenu>
 
-        <p:submenu label="Transacciones" icon="pi pi-fw pi-money-bill">
-          <p:menuitem value="Lista" outcome="ListaTransacciones.xhtml" icon="pi pi-fw pi-list"/>
-        </p:submenu>
+          <p:divider layout="vertical"/>
 
-        <p:divider layout="vertical"/>
+          <p:submenu label="Cuentas" icon="pi pi-fw pi-wallet">
+            <p:menuitem value="Lista" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
+            <p:submenu label="Crear" icon="pi pi-fw pi-plus">
+              <p:menuitem value="Segregada" outcome="CrearCuentaSegregada.xhtml" />
+              <p:menuitem value="Pooled" outcome="CrearCuentaPooled.xhtml" />
+            </p:submenu>
+          </p:submenu>
 
-        <p:submenu label="Archivos" icon="pi pi-fw pi-file">
-          <p:menuitem value="Generar CSV Alemania" outcome="csv.xhtml" icon="pi pi-fw pi-file-excel"/>
-          <p:menuitem value="Api Holanda" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-code"/>
-        </p:submenu>
+          <p:submenu label="Transacciones" icon="pi pi-fw pi-money-bill">
+            <p:menuitem value="Lista" outcome="ListaTransacciones.xhtml" icon="pi pi-fw pi-list"/>
+          </p:submenu>
 
-        <p:divider layout="vertical"/>
+          <p:divider layout="vertical"/>
 
-        <f:facet name="options">
-          <p:commandButton value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
-        </f:facet>
-      </p:menubar>
-    </h:form>
-  </div>
+          <p:submenu label="Archivos" icon="pi pi-fw pi-file">
+            <p:menuitem value="Generar CSV Alemania" outcome="csv.xhtml" icon="pi pi-fw pi-file-excel"/>
+            <p:menuitem value="Api Holanda" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-code"/>
+          </p:submenu>
+
+          <p:divider layout="vertical"/>
+
+          <f:facet name="options">
+            <p:commandButton value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
+          </f:facet>
+        </p:menubar>
+      </h:form>
+    </div>
   <h1 class="pa"> Modificar Persona Autorizada </h1>
   <h:form id="form">
     <div class="centro">
