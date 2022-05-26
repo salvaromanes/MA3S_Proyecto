@@ -132,6 +132,11 @@
         </h:form>
 
         <h3>Lista de depositos de la cuenta pooled</h3>
+
+        <a href="NuevaDivisaPooled.xhtml">
+            <p:commandButton type="button" value="Nueva Divisa"/>
+        </a>
+
         <h:form id="Depositos">
             <div class="card">
                 <p:dataTable var="deposito" value="#{mostrarDatosCuentaPooled.depositos}" emptyMessage="No hay depósitos que mostrar">

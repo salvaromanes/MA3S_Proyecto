@@ -223,6 +223,43 @@ public class AperturaCuenta implements GestionAperturaCuenta{
         em.merge(segregada);
     }
 
+    @Override
+    public void addDivisaPooled (Pooled pooled, Divisa divisa) throws DivisaExistenteException {
+        List<DepositadaEn> depositos = pooled.getDepositos();
+        for(DepositadaEn d : depositos){
+            if(d.getIbanReferencia().getDivisa().equals(divisa))
+                throw new DivisaExistenteException();
+        }
+        DepositadaEn aux = new DepositadaEn();
+        aux.setSaldo((double)0);
+        aux.setIbanPooled(pooled);
+        Query query = em.createQuery("select p from Referencia p");
+        List<Referencia> listaref = query.getResultList();
+        Referencia res = new Referencia();
+        for(Referencia r : listaref){
+            if(r.getSegregada() == null && divisa.equals(r.getDivisa()))
+                res = r;
+        }
+        if(res == null){
+            res.setIban(getIban());
+            res.setFechaApertura(new Date());
+            res.setEstado("ABIERTA");
+            res.setDivisa(divisa);
+            res.setNombreBanco("Ebury");
+            res.setSucursal("Ebury Málaga");
+            res.setSwift("NMGHJWYT");
+            res.setPais("España");
+            em.persist(res);
+        }
+
+        aux.setReferencia(res);
+        depositos.add(aux);
+        Pooled pool = pooled;
+        pool.setDepositos(depositos);
+        em.persist(aux);
+        em.merge(pool);
+    }
+
     private String getIban(){
         String res = "ES";
         Random random = new Random();
