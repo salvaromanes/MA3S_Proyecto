@@ -89,6 +89,10 @@ public class MostrarDatosCuenta {
         return null;
     }
 
+    public String nuevaDivisa(){
+        return "NuevaDivisaPooled.xhtml?faces-redirect";
+    }
+
     public void showMessage(String msg) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", msg);
 
