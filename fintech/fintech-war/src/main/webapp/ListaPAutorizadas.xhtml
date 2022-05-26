@@ -104,6 +104,10 @@
             <p:commandButton  value="Baja"
                               action="#{listaPAutorizadas.baja(a)}" />
           </p:column>
+          <p:column  headerText="Bloquear">
+            <p:commandButton  value="Bloquear"
+                              action="#{listaPAutorizadas.bloquear(a)}" />
+          </p:column>
           <p:column  headerText="Modificar">
             <p:commandButton  value="Modificar"
                               action="#{listaPAutorizadas.modificarPAutorizado(a.identificacion)}" />

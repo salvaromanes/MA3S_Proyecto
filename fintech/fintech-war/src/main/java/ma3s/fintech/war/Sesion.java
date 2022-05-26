@@ -42,6 +42,9 @@ public class Sesion implements Serializable {
     private Boolean sesion_iniciada = false;
     private Boolean sesion_admin = false;
 
+    private Boolean es_cliente = false;
+    private Boolean es_PAutorizada = false;
+
     private String iban;
     private String cliente;
 
@@ -92,6 +95,10 @@ public class Sesion implements Serializable {
             gestionAccesoAplicacion.entrarAplicacion(usuario.getUser(), usuario.getContrasena());
             this.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
             sesion_iniciada = true;
+            if (usuario.getCliente()!= null)
+                es_cliente = true;
+            if(usuario.getpAutorizada()!= null)
+                es_PAutorizada = true;
             return "principalCliente.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
             LOGGER.info("Campos sin rellenar " + e.getMessage());
@@ -115,6 +122,10 @@ public class Sesion implements Serializable {
             this.setUsuario(gestionAccesoAplicacion.refrescarUsuario(usuario));
             sesion_iniciada = true;
             sesion_admin = true;
+            if (usuario.getCliente()!= null)
+                es_cliente = true;
+            if(usuario.getpAutorizada()!= null)
+                es_PAutorizada = true;
             return "principalAdmin.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
             LOGGER.info("Campos sin rellenar");
@@ -164,6 +175,8 @@ public class Sesion implements Serializable {
         }
         sesion_iniciada = false;
         sesion_admin = false;
+        es_PAutorizada = false;
+        es_cliente = false;
         return view;
     }
 
@@ -231,5 +244,21 @@ public class Sesion implements Serializable {
         String fecha;
         fecha = gestionGetClientes.getFechNac(id);
         return fecha;
+    }
+
+    public Boolean getEs_cliente() {
+        return es_cliente;
+    }
+
+    public void setEs_cliente(Boolean es_cliente) {
+        this.es_cliente = es_cliente;
+    }
+
+    public Boolean getEs_PAutorizada() {
+        return es_PAutorizada;
+    }
+
+    public void setEs_PAutorizada(Boolean es_PAutorizada) {
+        this.es_PAutorizada = es_PAutorizada;
     }
 }

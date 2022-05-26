@@ -39,8 +39,29 @@ public class ListaPAutorizadas {
 
     public String baja(PAutorizada p){
         try{
-            gestionModificarPAutorizada.modificarEstado(sesion.getUsuario().getUser(), p.getId(), "inactivo");
-            return "Listaclientes.xhtml?faces-redirect=true";
+            gestionModificarPAutorizada.modificarEstado(sesion.getUsuario().getUser(), p.getId(), "Inactivo");
+            return "ListaPAutorizadas.xhtml?faces-redirect=true";
+        } catch (EstadoNoValidoException e) {
+            LOGGER.info("Estado no valido");
+            showMessage("Estado no valido, son: activo, inactivo y bloqueado ");
+        } catch (NoEsAdministrativoException e) {
+            LOGGER.info("Cuenta Abierta");
+            showMessage("Cuenta abierta, no es posible cerrar la cuenta.");
+        } catch (PersonaNoExisteException e) {
+            LOGGER.info("Persona no existe");
+            showMessage("Persona no existe");;
+        } catch (CampoVacioException e) {
+            LOGGER.info("Campo vacio");
+            showMessage("Campo vacio");
+        }
+        return null;
+    }
+
+
+    public String bloquear(PAutorizada p){
+        try{
+            gestionModificarPAutorizada.modificarEstado(sesion.getUsuario().getUser(), p.getId(), "Bloqueado");
+            return "ListaPAutorizadas.xhtml?faces-redirect=true";
         } catch (EstadoNoValidoException e) {
             LOGGER.info("Estado no valido");
             showMessage("Estado no valido, son: activo, inactivo y bloqueado ");

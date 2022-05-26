@@ -175,7 +175,7 @@ public class ModificarPAutorizada implements GestionModificarPAutorizada{
             throw new CampoVacioException("El campo (estado) a actualizar no contiene información.");
         }
 
-        if(estadoNew != "activo" || estadoNew != "inactivo" || estadoNew != "bloqueado"){
+        if(!estadoNew.equals("Activo") && !estadoNew.equals("Inactivo") && !estadoNew.equals("Bloqueado")){
             throw new EstadoNoValidoException("El estado " + estadoNew + " no es un estado válido.");
         }
 
