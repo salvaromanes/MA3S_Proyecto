@@ -13,6 +13,7 @@ import rest.classes.SearchParameters;
 import javax.ejb.EJB;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 
 @Path("/fintech")
@@ -25,15 +26,15 @@ public class ServicioREST {
     @GET
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response getEstado(){
-        String str = "OK";
-        return  Response.ok(str).build();
+      return  Response.ok().build();
     }
 
 
     @Path("/api/clients")
     @POST
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response infoCliente(Cliente cliente){
+
         return Response.ok(searchParameters.toString()).build();
     }
 
