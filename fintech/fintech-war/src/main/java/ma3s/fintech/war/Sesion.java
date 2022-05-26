@@ -4,8 +4,10 @@ import ma3s.fintech.Pooled;
 import ma3s.fintech.Segregada;
 import ma3s.fintech.Usuario;
 import ma3s.fintech.ejb.GestionAccesoAplicacion;
+import ma3s.fintech.ejb.GestionGetClientes;
 import ma3s.fintech.ejb.excepciones.AccesoException;
 import ma3s.fintech.ejb.excepciones.CampoVacioException;
+import ma3s.fintech.ejb.excepciones.DatosIncorrectosException;
 import org.primefaces.PrimeFaces;
 
 import javax.enterprise.context.SessionScoped;
@@ -23,6 +25,9 @@ public class Sesion implements Serializable {
 
     @Inject
     private GestionAccesoAplicacion gestionAccesoAplicacion;
+
+    @Inject
+    private GestionGetClientes gestionGetClientes;
 
     private Usuario usuario;
 
@@ -204,5 +209,27 @@ public class Sesion implements Serializable {
 
     public void setIban_transaccion(String iban_transaccion) {
         this.iban_transaccion = iban_transaccion;
+    }
+
+    public String getNombre(Long id){
+        String nombre = null;
+        try {
+            nombre = gestionGetClientes.getNombre(id);
+        } catch (DatosIncorrectosException e) {
+            showMessage("Datos incorrectos");
+        }
+        return nombre;
+    }
+
+    public String getApellidos(Long id){
+        String apellidos;
+        apellidos = gestionGetClientes.getApellidos(id);
+        return apellidos;
+    }
+
+    public String getFechaNac(Long id){
+        String fecha;
+        fecha = gestionGetClientes.getFechNac(id);
+        return fecha;
     }
 }

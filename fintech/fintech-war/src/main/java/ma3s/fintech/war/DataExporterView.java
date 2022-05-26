@@ -71,7 +71,7 @@ public class DataExporterView implements Serializable {
 
     public String getFechaNac(Long id){
         String fecha;
-        fecha = gestionGetClientes.getApellidos(id);
+        fecha = gestionGetClientes.getFechNac(id);
         return fecha;
     }
 

@@ -174,7 +174,11 @@ public class GetClientes implements GestionGetClientes{
         if(individual == null){
             fecha = "noexitente";
         }else{
-            fecha = individual.getFechaNacimiento().toString();
+            if(individual.getFechaNacimiento() == null){
+                fecha = "noexitente";
+            }else{
+                fecha = individual.getFechaNacimiento().toString();
+            }
         }
         return fecha;
     }

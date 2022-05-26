@@ -34,6 +34,26 @@
                     <p:commandButton value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
                 </f:facet>
             </p:menubar>
+
+            <div class="card">
+                <p:panelGrid columns="2">
+                    <f:facet name="header">
+                        <img src="imagenes/user.jpg" alt=""/>
+                    </f:facet>
+
+                    <h:outputText value="Usuario:"/>
+                    <h:outputText value="#{sesion.usuario.user}"/>
+
+                    <h:outputText value="Nombre:"/>
+                    <h:outputText value="#{sesion.getNombre(sesion.usuario.cliente.id)}"/>
+
+                    <h:outputText value="Apellidos:"/>
+                    <h:outputText value="#{sesion.getApellidos(sesion.usuario.cliente.id)}"/>
+
+                    <h:outputText value="Fecha de nacimiento:"/>
+                    <h:outputText value="#{sesion.getFechaNac(sesion.usuario.cliente.id)}"/>
+                </p:panelGrid>
+            </div>
         </h:form>
     </div>
     </h:panelGroup>
