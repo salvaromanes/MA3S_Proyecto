@@ -68,10 +68,11 @@
         </p:menubar>
       </h:form>
     </div>
-  <h1> <strong> Dar Alta a una Persona Autorizada </strong> </h1>
-  <h:form id = "DarAltaPA">
-    <p:messages autoUpdate="true"/>
-    <h:panelGrid>
+  <h1 class="titulo"> <strong> Dar Alta a una Persona Autorizada </strong> </h1>
+  <h:form id = "center">
+    <div class="center">
+      <p:messages autoUpdate="true"/>
+      <h:panelGrid>
 
       <p:outputLabel for = "Nombre_txt"  value="Nombre"/>
       <p:inputText id = "Nombre_txt" value="#{DarAltaPAut.pa.nombre}" required="true"/>
@@ -86,9 +87,8 @@
       <p:inputText id = "Dirección_txt" value="#{DarAltaPAut.pa.direccion}"  required="true"/>
 
       <p:commandButton icon="ui-icon-key" id="darAltaPAutorizada" value="Dar Alta" action="#{DarAltaPAut.darAltaPAutorizada}" />
-
-
-    </h:panelGrid>
+      </h:panelGrid>
+    </div>
 
   </h:form>
 
