@@ -1,4 +1,4 @@
-GET http://localhost:8080/fintech-war/api/fintech/api/clients
+POST http://localhost:8080/fintech-war/api/fintech/api/clients?name=Jose&lastName=Martin&startPeriod=a&endPeriod=b
 Accept: */*
 Cache-Control: no-cache
 ##

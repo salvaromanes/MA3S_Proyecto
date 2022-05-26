@@ -1,31 +1,44 @@
 package rest.classes;
 
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
 import java.util.Date;
 
 public class SearchParameters {
 
-    private Date startPeriod;
-    private Date endPeriod;
-
+    private String startPeriod;
+    private String endPeriod;
     private Name name;
 
-
-    public Date getStartPeriod() {
+    public String getStartPeriod() {
         return startPeriod;
     }
 
-    public void setStartPeriod(Date startPeriod) {
+    public void setStartPeriod(String startPeriod) {
         this.startPeriod = startPeriod;
     }
 
-    public Date getEndPeriod() {
+    public String getEndPeriod() {
         return endPeriod;
     }
 
-    public void setEndPeriod(Date endPeriod) {
+    public void setEndPeriod(String endPeriod) {
         this.endPeriod = endPeriod;
     }
 
+    public Name getName() {
+        return name;
+    }
+
+    public void setName(Name name) {
+        this.name = name;
+    }
+
+    public String getJson(){
+        Jsonb builder = JsonbBuilder.create();
+        String str = builder.toJson(this);
+        return str;
+    }
 
     @Override
     public String toString() {
