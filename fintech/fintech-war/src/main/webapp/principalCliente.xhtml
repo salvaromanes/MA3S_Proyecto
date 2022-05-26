@@ -36,7 +36,7 @@
             </p:menubar>
 
             <div class="datos">
-                <p:panelGrid columns="2">
+                <p:panelGrid columns="2" rendered="#{sesion.es_cliente}">
                     <f:facet name="header">
                         <img src="imagenes/user.png" alt="" width="100"/>
                     </f:facet>
@@ -52,6 +52,25 @@
 
                     <h:outputText value="Fecha de nacimiento:"/>
                     <h:outputText value="#{sesion.getFechaNac(sesion.usuario.cliente.id)}"/>
+                </p:panelGrid>
+            </div>
+            <div class="datos">
+                <p:panelGrid columns="2" rendered="#{sesion.es_PAutorizada}">
+                    <f:facet name="header">
+                        <img src="imagenes/user.png" alt="" width="100"/>
+                    </f:facet>
+
+                    <h:outputText value="Identificación:"/>
+                    <h:outputText value="#{sesion.usuario.pAutorizada.identificacion}"/>
+
+                    <h:outputText value="Nombre:"/>
+                    <h:outputText value="#{sesion.usuario.pAutorizada.nombre}"/>
+
+                    <h:outputText value="Apellidos:"/>
+                    <h:outputText value="#{sesion.usuario.pAutorizada.apellidos}"/>
+
+                    <h:outputText value="Fecha de nacimiento:"/>
+                    <h:outputText value="#{sesion.usuario.pAutorizada.fechaNacimiento}"/>
                 </p:panelGrid>
             </div>
         </h:form>
