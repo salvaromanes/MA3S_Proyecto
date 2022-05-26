@@ -13,6 +13,7 @@
     <link href="Estilos/estiloCrearCuentaNueva2.css" rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
+    <h:panelGroup rendered="#{sesion.sesion_iniciada}">
     <div class="card">
         <h:form>
             <p:growl id="messages"/>
@@ -35,5 +36,14 @@
             </p:menubar>
         </h:form>
     </div>
+    </h:panelGroup>
+    <h:panelGroup rendered="#{!sesion.sesion_iniciada}">
+        <h:form>
+            <h1>NO SE HA INICIADO SESIÓN</h1>
+            <a href="mainv2.xhtml">
+                <p:commandButton type="button" value="Volver"/>
+            </a>
+        </h:form>
+    </h:panelGroup>
 </h:body>
 </html>

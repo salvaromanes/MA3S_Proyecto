@@ -162,6 +162,10 @@ public class Sesion implements Serializable {
         return view;
     }
 
+    public String sinInicio(){
+        return "mainv2.xhtml?faces-redirect=true";
+    }
+
     public String getIban() {
         return iban;
     }

@@ -108,7 +108,12 @@
       </h:form>
     </div>
   <h:panelGroup rendered="#{!sesion.sesion_admin}">
-    <p>Prueba</p>
+    <h:form>
+      <h1>NO SE HA INICIADO SESIÓN</h1>
+      <a href="mainv2.xhtml">
+        <p:commandButton type="button" value="Volver"/>
+      </a>
+    </h:form>
   </h:panelGroup>
 </h:body>
 </html>
