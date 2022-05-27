@@ -1,0 +1,253 @@
+{
+  "id": "be30fa67-228d-423a-bac1-48f37e84e7f1",
+  "version": "2.0",
+  "name": "FintechRF5",
+  "url": "http://localhost:8080/fintech-war/",
+  "tests": [{
+    "id": "0507867c-6aa9-4f00-b2ac-fe691e3ebfd1",
+    "name": "RF5",
+    "commands": [{
+      "id": "b48c7b17-ebea-4dff-b00b-9bc51fe6e45a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/fintech-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a0666540-2d48-4ece-a2e3-86a47909089f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "961x818",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f0b0f9e8-a8ab-4714-9e6b-f75954149b11",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inicio Sesión Administrador",
+      "targets": [
+        ["linkText=Inicio Sesión Administrador", "linkText"],
+        ["css=li:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(@href, 'admin.xhtml')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b807894c-4202-408e-875c-895a7a032eaf",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "66baf3b4-9f24-4ac6-bbe9-b874ab56e35b",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "b2d2a3b4-0a5f-47d1-ae96-816bb27ab386",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e75d7128-ee97-43fb-ae9f-1efc1413e1f6",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "2d33da71-7374-45e6-a920-eb3001625f83",
+      "comment": "",
+      "command": "click",
+      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "targets": [
+        ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "209d8aa1-76c8-41ef-9a87-78331c858876",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Pooled",
+      "targets": [
+        ["linkText=Pooled", "linkText"],
+        ["css=a:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Pooled')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, 'CrearCuentaPooled.xhtml')])[2]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6522cf04-2cd5-42bc-97b8-d8ae09586794",
+      "comment": "",
+      "command": "click",
+      "target": "id=crearCuenta:firstname",
+      "targets": [
+        ["id=crearCuenta:firstname", "id"],
+        ["name=crearCuenta:firstname", "name"],
+        ["css=#crearCuenta\\3A firstname", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:firstname']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec44e07a-d705-4020-afc4-e468d3b53fbe",
+      "comment": "",
+      "command": "type",
+      "target": "id=crearCuenta:firstname",
+      "targets": [
+        ["id=crearCuenta:firstname", "id"],
+        ["name=crearCuenta:firstname", "name"],
+        ["css=#crearCuenta\\3A firstname", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:firstname']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "767657575756"
+    }, {
+      "id": "28bfe7d0-491c-4c34-bf72-2f35bcd804ef",
+      "comment": "",
+      "command": "click",
+      "target": "id=crearCuenta:lastname",
+      "targets": [
+        ["id=crearCuenta:lastname", "id"],
+        ["name=crearCuenta:lastname", "name"],
+        ["css=#crearCuenta\\3Alastname", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:lastname']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr[2]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbeb21b4-3a84-4c62-a96b-5fe8810a01c9",
+      "comment": "",
+      "command": "type",
+      "target": "id=crearCuenta:lastname",
+      "targets": [
+        ["id=crearCuenta:lastname", "id"],
+        ["name=crearCuenta:lastname", "name"],
+        ["css=#crearCuenta\\3Alastname", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:lastname']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr[2]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+      ],
+      "value": "2232323"
+    }, {
+      "id": "c4fd24cb-6cb3-4ec7-a7ce-9a8edc344f67",
+      "comment": "",
+      "command": "click",
+      "target": "id=crearCuenta:divisa",
+      "targets": [
+        ["id=crearCuenta:divisa", "id"],
+        ["name=crearCuenta:divisa", "name"],
+        ["css=#crearCuenta\\3A divisa", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:divisa']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr[3]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "43283e40-c060-48ec-9f81-4aa5c43cd030",
+      "comment": "",
+      "command": "type",
+      "target": "id=crearCuenta:divisa",
+      "targets": [
+        ["id=crearCuenta:divisa", "id"],
+        ["name=crearCuenta:divisa", "name"],
+        ["css=#crearCuenta\\3A divisa", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:divisa']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr[3]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "eur"
+    }, {
+      "id": "39ec0529-2770-40f3-90c3-9468d2eb91c5",
+      "comment": "",
+      "command": "click",
+      "target": "id=crearCuenta:identificacion",
+      "targets": [
+        ["id=crearCuenta:identificacion", "id"],
+        ["name=crearCuenta:identificacion", "name"],
+        ["css=#crearCuenta\\3Aidentificacion", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:identificacion']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr[4]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[4]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "49bb3b66-8aaf-46ff-bc9d-dfaaae21cf3b",
+      "comment": "",
+      "command": "type",
+      "target": "id=crearCuenta:identificacion",
+      "targets": [
+        ["id=crearCuenta:identificacion", "id"],
+        ["name=crearCuenta:identificacion", "name"],
+        ["css=#crearCuenta\\3Aidentificacion", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:identificacion']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr[4]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[4]/td[2]/input", "xpath:position"]
+      ],
+      "value": "63937528N"
+    }, {
+      "id": "fcecbde5-0ced-4cef-b6b1-5fe37cd92905",
+      "comment": "",
+      "command": "click",
+      "target": "css=#crearCuenta\\3AsaveBtn > .ui-button-text",
+      "targets": [
+        ["css=#crearCuenta\\3AsaveBtn > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='crearCuenta:saveBtn']/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/button/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Crear Pooled')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "e71a21f0-f1c1-468e-a33c-9afd80dee027",
+    "name": "RequisitoRF5",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["0507867c-6aa9-4f00-b2ac-fe691e3ebfd1"]
+  }],
+  "urls": ["http://localhost:8080/fintech-war/"],
+  "plugins": []
+}
