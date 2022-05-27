@@ -25,11 +25,11 @@
           <p:password class="entrada" id="pass" required="false" value="#{sesion.usuario.contrasena}" toggleMask="true" redisplay="true"/>
 
           <p:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Entrar" action="#{sesion.entrarUsuario}"/>
-          <a href="recuperarContraseña.xhtml">¿Has olvidado tu contraseña?</a>
+          <a id="recuperar_contraseña" href="recuperarContraseña.xhtml">¿Has olvidado tu contraseña?</a>
         </h:panelGrid>
 
-      <p class="registro">Si no tiene cuenta puede crear una en la pagina de <h:link outcome="RegistroPersonas.xhtml">registro de clientes</h:link>.</p>
-      <p class="registro">Si no tiene cuenta puede crear una en la pagina de <h:link outcome="RegistroPersonas.xhtml">registro de empresas</h:link>.</p>
+      <p class="registro" id="registro_clientes">Si no tiene cuenta puede crear una en la pagina de <h:link outcome="RegistroPersonas.xhtml">registro de clientes</h:link>.</p>
+      <p class="registro" id="registro_empresas">Si no tiene cuenta puede crear una en la pagina de <h:link outcome="RegistroPersonas.xhtml">registro de empresas</h:link>.</p>
 
       <p:commandButton class="css-button-rounded--black" id="botonVolver" value="Volver" action="#{sesion.volver}"/>
       </p:panel>
