@@ -15,20 +15,20 @@
 <h:body>
     <h:panelGroup rendered="#{sesion.sesion_admin}">
         <div class="card">
-            <h:form>
+            <h:form id = "f">
                 <p:growl id="messages"/>
 
-                <p:menubar>
+                <p:menubar id = "m">
                     <p:menuitem value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
                     </p:menuitem>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id = "v" layout="vertical"/>
 
-                    <p:submenu label="Clientes" icon="pi pi-fw pi-users">
-                        <p:menuitem value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:submenu label="Dar Alta" icon="pi pi-fw pi-plus">
-                            <p:menuitem value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
-                            <p:menuitem value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
+                    <p:submenu id = "c" label="Clientes" icon="pi pi-fw pi-users">
+                        <p:menuitem id = "lc" value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:submenu id = "da" label="Dar Alta" icon="pi pi-fw pi-plus">
+                            <p:menuitem  id = "daindi" value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
+                            <p:menuitem  value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
                         </p:submenu>
                     </p:submenu>
 
@@ -66,6 +66,9 @@
                 </p:menubar>
             </h:form>
         </div>
+
+        <a href="Listaclientes.xhtml">Test</a>
+        <a href="CrearCuentaPooled.xhtml">Pooled</a>
 
     </h:panelGroup>
     <h:panelGroup rendered="#{!sesion.sesion_admin}">
