@@ -13,7 +13,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.*;
 
-public class FintechITTestInicioSesionCIT {
+public class FintechRF10TestIT {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
@@ -28,12 +28,13 @@ public class FintechITTestInicioSesionCIT {
     driver.quit();
   }
   @Test
-  public void inicioSesionCliente() {
+  public void rF10() {
     driver.get("http://localhost:8080/fintech-war/");
-    driver.manage().window().setSize(new Dimension(974, 824));
+    driver.manage().window().setSize(new Dimension(961, 818));
     driver.findElement(By.cssSelector("li:nth-child(4) b")).click();
     driver.findElement(By.id("index:user")).click();
     driver.findElement(By.id("index:user")).sendKeys("juan");
+    driver.findElement(By.id("index:pass")).click();
     driver.findElement(By.id("index:pass")).sendKeys("juan");
     driver.findElement(By.cssSelector("#index\\3A botonIniciarSesion > .ui-button-text")).click();
   }

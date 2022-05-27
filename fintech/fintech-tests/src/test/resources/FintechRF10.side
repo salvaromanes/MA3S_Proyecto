@@ -1,27 +1,27 @@
 {
-  "id": "c4bdda95-64e3-4ed1-84d3-7dba264b1d75",
+  "id": "a2c8e7bf-0900-4bec-8abc-f684b8036c80",
   "version": "2.0",
-  "name": "Fintech-Inico-Sesion-Cliente",
+  "name": "Fintech",
   "url": "http://localhost:8080/fintech-war/",
   "tests": [{
-    "id": "c15eeb16-18fa-4d1a-818a-728c49a96d86",
-    "name": "InicioSesionCliente",
+    "id": "d6caf17c-428b-4871-8abd-f1ed69d561a5",
+    "name": "RF10",
     "commands": [{
-      "id": "512bc321-44a1-470d-8180-9f296c843c29",
+      "id": "eba72aeb-4d49-4308-9bc1-b1fc41b2bf03",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/fintech-war/",
       "targets": [],
       "value": ""
     }, {
-      "id": "283acc9d-8063-4bef-a9e9-85b161457b9a",
+      "id": "141c5dee-c1ba-48ee-ae0a-a11e90ecd0ec",
       "comment": "",
       "command": "setWindowSize",
-      "target": "974x824",
+      "target": "961x818",
       "targets": [],
       "value": ""
     }, {
-      "id": "08a758d4-0743-4102-b89d-f87dd2af75cb",
+      "id": "89fae760-4ef5-406f-97ed-b8e37b920a59",
       "comment": "",
       "command": "click",
       "target": "css=li:nth-child(4) b",
@@ -32,7 +32,7 @@
       ],
       "value": ""
     }, {
-      "id": "e3dc7893-b660-483f-bfe3-6a128439a796",
+      "id": "09a4cd55-17f7-43b0-9c14-0918ade01f02",
       "comment": "",
       "command": "click",
       "target": "id=index:user",
@@ -46,7 +46,7 @@
       ],
       "value": ""
     }, {
-      "id": "9e105b90-af48-4d1b-8ce7-08a4d1860f57",
+      "id": "15663fee-c626-420d-8e8c-ff5811d8cdfa",
       "comment": "",
       "command": "type",
       "target": "id=index:user",
@@ -60,7 +60,21 @@
       ],
       "value": "juan"
     }, {
-      "id": "a3671969-bbe4-47f0-9330-48fa92b521e7",
+      "id": "ad2dad4a-45c1-4173-b400-9f9167b7974b",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2bdadc54-32c6-4cbc-bff0-2404796eaba7",
       "comment": "",
       "command": "type",
       "target": "id=index:pass",
@@ -74,7 +88,7 @@
       ],
       "value": "juan"
     }, {
-      "id": "517473b8-072b-4bd1-8191-ef8504f15dcf",
+      "id": "e89d5901-9e15-4b45-a875-8bc41c1cdfd4",
       "comment": "",
       "command": "click",
       "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
@@ -88,12 +102,12 @@
     }]
   }],
   "suites": [{
-    "id": "51e60615-983e-475a-bc86-1fc72ebd2f7d",
-    "name": "FintechSesionCIT",
+    "id": "59fe8f4c-2d96-4aec-bfb7-21fabfc7e425",
+    "name": "FintechRF10",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["c15eeb16-18fa-4d1a-818a-728c49a96d86"]
+    "tests": ["d6caf17c-428b-4871-8abd-f1ed69d561a5"]
   }],
   "urls": [],
   "plugins": []
