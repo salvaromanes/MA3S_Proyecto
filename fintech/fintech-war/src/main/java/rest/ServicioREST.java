@@ -1,6 +1,8 @@
 package rest;
 
 import rest.classes.Name;
+import rest.classes.PadreIndividual;
+import rest.classes.PadreSearchParameters;
 import rest.classes.SearchParameters;
 
 import javax.ws.rs.*;
@@ -14,26 +16,24 @@ public class ServicioREST {
 
     @Context
     private UriInfo uriInfo;
-    
+
     @Path("/api/healthcheck")
     @GET
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Response getEstado(){
-      return  Response.ok().build();
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response getEstado() {
+        String ok = "ok a todos";
+        return Response.ok(ok, MediaType.APPLICATION_JSON).build();
     }
 
     @Path("/api/clients")
     @POST
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Response infoCliente(@QueryParam("name") String name, @QueryParam("lastName") String lastName,
-                                @QueryParam("startPeriod") String startPeriod, @QueryParam("endPeriod") String endPeriod){
-        searchParameters = new SearchParameters();
-        Name n = new Name(name, lastName);
-        searchParameters.setName(n);
-        searchParameters.setStartPeriod(startPeriod);
-        searchParameters.setEndPeriod(endPeriod);
-        URI uri = uriInfo.getBaseUriBuilder().path("fintech/api/clients/"+searchParameters.getJson()).build();
-        return Response.created(uri).build();
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    public Response infoCliente(PadreSearchParameters padreSearchParameters) {
+
+        PadreIndividual padreIndividual = new PadreIndividual();
+        padreIndividual.rellenarCampos(padreSearchParameters.getSearchParameters());
+
+        return Response.ok(padreIndividual, MediaType.APPLICATION_JSON).build();
     }
 }
-

@@ -3,51 +3,47 @@ package rest.classes;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import java.util.Date;
+import javax.json.bind.annotation.JsonbCreator;
+import javax.json.bind.annotation.JsonbDateFormat;
+import javax.json.bind.annotation.JsonbTransient;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class SearchParameters {
 
-    private String startPeriod;
-    private String endPeriod;
+    //@XmlTransient
+    //@JsonbTransient
     private Name name;
 
-    public String getStartPeriod() {
+    //private SearchParameters searchParameters;
+
+    @JsonbDateFormat("yyyy-MM-dd")
+    private Date startPeriod;
+    @JsonbDateFormat("yyyy-MM-dd")
+    private Date endPeriod;
+
+    public Date getStartPeriod() {
         return startPeriod;
     }
-
-    public void setStartPeriod(String startPeriod) {
+    public void setStartPeriod(Date startPeriod) {
         this.startPeriod = startPeriod;
     }
 
-    public String getEndPeriod() {
+    public Date getEndPeriod() {
         return endPeriod;
     }
-
-    public void setEndPeriod(String endPeriod) {
+    public void setEndPeriod(Date endPeriod) {
         this.endPeriod = endPeriod;
     }
 
     public Name getName() {
         return name;
     }
-
     public void setName(Name name) {
         this.name = name;
-    }
-
-    public String getJson(){
-        Jsonb builder = JsonbBuilder.create();
-        String str = builder.toJson(this);
-        return str;
-    }
-
-    @Override
-    public String toString() {
-        return "{ \n" +
-                "\"SearchParameters\": {" + "\n" +
-                "\t" + name.toString() +",\n" +
-                "\"startPeriod\": " + "\"" + startPeriod +"\"" +
-                ",\n"+
-                "\"endPeriod\": " +"\"" + endPeriod + "\"" +"\n" +
-                '}';
     }
 }
