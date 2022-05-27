@@ -7,6 +7,7 @@ import ma3s.fintech.ejb.excepciones.DatosIncorrectosException;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.FieldResult;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.ArrayList;
@@ -160,6 +161,22 @@ public class GetCuentas implements GestionGetCuentas{
         }
 
 
+        return result;
+    }
+
+    @Override
+    public List<Fintech> getAutorizacionesCliente (String ident){
+        List<Fintech> result = new ArrayList<>();
+
+        //Query query = em.createQuery("Select c from Autorizacion c where c.empresaId.identificacion = :identificacion").setParameter("identificacion", ident);
+        Query query = em.createQuery("Select c from Autorizacion c");
+        List<Autorizacion> listaAutorizaciones = query.getResultList();
+
+        if(listaAutorizaciones != null){
+            for(Autorizacion auto : listaAutorizaciones){
+                if(auto.getAutorizadaId().getIdentificacion().equals(ident)) result.addAll(auto.getEmpresaId().getCuentasFintech());
+            }
+        }
         return result;
     }
 

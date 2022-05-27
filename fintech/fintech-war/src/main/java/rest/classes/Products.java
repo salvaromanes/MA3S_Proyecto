@@ -3,13 +3,15 @@ package rest.classes;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Date;
 
 
 /*
 *   Clase para guardar los datos de una cuenta del cliente
- */
+*/
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+//@JsonInclude(Include.NON_NULL)
 public class Products {
 
     // IBAN de la cuenta
@@ -20,6 +22,29 @@ public class Products {
 
     // La relación entre el cliente y la cuenta "propietaria" o "autorizada"
     private String relationship;
+
+    // Fecha inicio de la cuenta
+    private Date startDate;
+
+    // Fecha fin de la cuenta
+    private Date endDate;
+
+    // Propietario de la cuenta
+    private AccountHolder accountHolder;
+
+    public Date getStartDate() {
+        return startDate;
+    }
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
 
     public String getProductNumber() {
         return productNumber;

@@ -1,5 +1,11 @@
 package rest.classes;
 
+import ma3s.fintech.Cuenta;
+import ma3s.fintech.Fintech;
+import ma3s.fintech.ejb.GestionGetCuentas;
+import ma3s.fintech.ejb.GestionGetCuentasUnCliente;
+
+import javax.ejb.EJB;
 import javax.print.attribute.standard.MediaSize;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -17,7 +23,6 @@ import java.util.List;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Individual {
-
 //  Lista de objetos products, es decir lista con todas las cuentas a las que el cliente tiene acceso
     List<Products> products = new ArrayList<>();
 
@@ -78,4 +83,28 @@ public class Individual {
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
     }
+
+//    public void completarCampos(){
+//        List<Fintech> cuentas = getCuentasUnicoCliente.getCuentas(identificacion);
+//        // Aqui estoy recorriendo las propietarias
+//        for(Fintech cuenta : cuentas){
+//            Products product = new Products();
+//            product.setProductNumber(cuenta.getIban());
+//            product.setStatus(cuenta.getEstado());
+//            product.setRelationship("propietaria");
+//            products.add(product);
+//        }
+//
+//        List<Fintech> cuentasAuto = getCuentas.getAutorizacionesCliente(identificacion);
+//        // Cuentas donde tiene autorizacion
+//        for(Fintech cuenta : cuentasAuto){
+//            Products product = new Products();
+//            product.setRelationship("autorizada");
+//            product.setProductNumber(cuenta.getIban());
+//            product.setStatus(cuenta.getEstado());
+//        }
+
+
 }
+
+

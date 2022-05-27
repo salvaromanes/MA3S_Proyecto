@@ -31,6 +31,8 @@ public interface GestionGetCuentas {
 
     public List<Autorizacion> getAutorizaciones (String iban, String ident);
 
+    public List<Fintech> getAutorizacionesCliente (String ident);
+
     public List<Referencia> getReferenciaSegregada(String iban);
 
     public List<DepositadaEn> getReferenciaPooled(String iban);
