@@ -1,38 +1,40 @@
 {
-  "id": "c2fb32e4-dda4-48ad-a3b5-1807347f1fce",
+  "id": "1f289611-f3c1-43bb-a379-2d3f71997cf0",
   "version": "2.0",
-  "name": "Test1",
+  "name": "FintechRF1",
   "url": "http://localhost:8080/fintech-war/",
   "tests": [{
-    "id": "af36d48c-0371-4ada-8f2c-6fbab3b07523",
-    "name": "TESTR1",
+    "id": "72c402ef-6064-4a8b-9527-7a522d1a4c6e",
+    "name": "RF1",
     "commands": [{
-      "id": "3a79dcec-4f62-4cff-9e09-3898bafdd303",
+      "id": "ccf6c22a-6bdd-49dd-b158-c63e8a2dc634",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/fintech-war/",
       "targets": [],
       "value": ""
     }, {
-      "id": "ce9b2351-2778-48cf-9f0e-2324e6b027e4",
+      "id": "8d95c8a6-2353-4970-8b60-45cdee26335a",
       "comment": "",
       "command": "setWindowSize",
-      "target": "781x652",
+      "target": "961x818",
       "targets": [],
       "value": ""
     }, {
-      "id": "280664e2-e8a9-4345-8902-c0584bdebf05",
+      "id": "d7819d46-29db-4e4e-9249-f8960ed865c4",
       "comment": "",
       "command": "click",
-      "target": "css=li:nth-child(5) b",
+      "target": "linkText=Inicio Sesión Administrador",
       "targets": [
-        ["css=li:nth-child(5) b", "css:finder"],
-        ["xpath=//li[5]/a/b", "xpath:position"],
-        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+        ["linkText=Inicio Sesión Administrador", "linkText"],
+        ["css=li:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(@href, 'admin.xhtml')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "cf5780f2-4bd5-4eb2-8da5-c173fd972cf1",
+      "id": "0f8cb9d6-c07c-4c22-bb55-411a927cb9b7",
       "comment": "",
       "command": "click",
       "target": "id=index:user",
@@ -46,7 +48,7 @@
       ],
       "value": ""
     }, {
-      "id": "a189e8e3-bdce-4482-8624-6b7493b845a5",
+      "id": "34551384-88dc-4d70-8734-538960d877dc",
       "comment": "",
       "command": "type",
       "target": "id=index:user",
@@ -60,7 +62,7 @@
       ],
       "value": "ponciano"
     }, {
-      "id": "e035886d-7dc0-4725-8f94-fcffab055291",
+      "id": "0ea5a361-478c-44ce-a765-dd067ec58c3a",
       "comment": "",
       "command": "click",
       "target": "id=index:pass",
@@ -74,7 +76,7 @@
       ],
       "value": ""
     }, {
-      "id": "fde63f9f-0a90-495c-b19c-19a8e4d09bb8",
+      "id": "8db32fbb-dd0c-4ef4-ba45-5952e81a7959",
       "comment": "",
       "command": "type",
       "target": "id=index:pass",
@@ -88,7 +90,7 @@
       ],
       "value": "ponciano"
     }, {
-      "id": "a0395928-1496-4d28-a0fd-252383ee51c6",
+      "id": "54fa1fa8-7a5a-42d3-87d9-74d58f6394b5",
       "comment": "",
       "command": "click",
       "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
@@ -102,12 +104,12 @@
     }]
   }],
   "suites": [{
-    "id": "13d79736-8c57-4385-a8bf-7766b0bc209d",
-    "name": "Default Suite",
+    "id": "91b5f8e6-be35-4c26-876e-44dccd949fb8",
+    "name": "RequisitoRF1",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["af36d48c-0371-4ada-8f2c-6fbab3b07523"]
+    "tests": ["72c402ef-6064-4a8b-9527-7a522d1a4c6e"]
   }],
   "urls": [],
   "plugins": []

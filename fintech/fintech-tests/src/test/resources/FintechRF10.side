@@ -1,27 +1,27 @@
 {
-  "id": "c2ce377d-0756-469f-bac7-303e94463e02",
+  "id": "a2c8e7bf-0900-4bec-8abc-f684b8036c80",
   "version": "2.0",
-  "name": "Test",
+  "name": "Fintech",
   "url": "http://localhost:8080/fintech-war/",
   "tests": [{
-    "id": "08d80c38-cf12-4977-a2d0-3183e4bb4bed",
-    "name": "TESTR10",
+    "id": "d6caf17c-428b-4871-8abd-f1ed69d561a5",
+    "name": "RF10",
     "commands": [{
-      "id": "2b9de019-e70d-4b5d-a707-23550edae4e6",
+      "id": "eba72aeb-4d49-4308-9bc1-b1fc41b2bf03",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/fintech-war/",
       "targets": [],
       "value": ""
     }, {
-      "id": "35f2f16d-3500-492d-88c6-c9d52037d41d",
+      "id": "141c5dee-c1ba-48ee-ae0a-a11e90ecd0ec",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1536x824",
+      "target": "961x818",
       "targets": [],
       "value": ""
     }, {
-      "id": "d3d54205-f111-403f-9c38-8c2153350b1d",
+      "id": "89fae760-4ef5-406f-97ed-b8e37b920a59",
       "comment": "",
       "command": "click",
       "target": "css=li:nth-child(4) b",
@@ -32,7 +32,7 @@
       ],
       "value": ""
     }, {
-      "id": "43d13752-632c-4e0e-892c-7a041795f962",
+      "id": "09a4cd55-17f7-43b0-9c14-0918ade01f02",
       "comment": "",
       "command": "click",
       "target": "id=index:user",
@@ -46,7 +46,7 @@
       ],
       "value": ""
     }, {
-      "id": "049a84ee-b91b-4fee-95d1-9a31352c2579",
+      "id": "15663fee-c626-420d-8e8c-ff5811d8cdfa",
       "comment": "",
       "command": "type",
       "target": "id=index:user",
@@ -58,9 +58,9 @@
         ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
         ["xpath=//td[2]/input", "xpath:position"]
       ],
-      "value": "ana"
+      "value": "juan"
     }, {
-      "id": "4cd54bca-022b-425a-8f3f-ef4e3e62897f",
+      "id": "ad2dad4a-45c1-4173-b400-9f9167b7974b",
       "comment": "",
       "command": "click",
       "target": "id=index:pass",
@@ -74,7 +74,7 @@
       ],
       "value": ""
     }, {
-      "id": "c9f379c1-67cd-4160-9947-a479c07d1f6a",
+      "id": "2bdadc54-32c6-4cbc-bff0-2404796eaba7",
       "comment": "",
       "command": "type",
       "target": "id=index:pass",
@@ -86,9 +86,9 @@
         ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
         ["xpath=//span/input", "xpath:position"]
       ],
-      "value": "ana"
+      "value": "juan"
     }, {
-      "id": "887207e3-a416-4df8-89ec-1478ec80d3b0",
+      "id": "e89d5901-9e15-4b45-a875-8bc41c1cdfd4",
       "comment": "",
       "command": "click",
       "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
@@ -102,13 +102,13 @@
     }]
   }],
   "suites": [{
-    "id": "a5f87ede-72bc-4e7e-9e37-a777b9dd7be8",
-    "name": "TESTR10T",
+    "id": "59fe8f4c-2d96-4aec-bfb7-21fabfc7e425",
+    "name": "FintechRF10",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["08d80c38-cf12-4977-a2d0-3183e4bb4bed"]
+    "tests": ["d6caf17c-428b-4871-8abd-f1ed69d561a5"]
   }],
-  "urls": ["http://localhost:8080/fintech-war/"],
+  "urls": [],
   "plugins": []
 }
