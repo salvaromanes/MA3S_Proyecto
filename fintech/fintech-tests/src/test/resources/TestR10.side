@@ -1,38 +1,38 @@
 {
-  "id": "7a284b2c-db4b-4f14-a545-b5649ecb6244",
+  "id": "c2ce377d-0756-469f-bac7-303e94463e02",
   "version": "2.0",
-  "name": "FintechRF4",
+  "name": "Test",
   "url": "http://localhost:8080/fintech-war/",
   "tests": [{
-    "id": "2568481a-6240-45d1-84ef-7bcc03a17d8a",
-    "name": "RF4",
+    "id": "08d80c38-cf12-4977-a2d0-3183e4bb4bed",
+    "name": "TESTR10",
     "commands": [{
-      "id": "562020e7-c85c-46df-93c2-726eb45b62f3",
+      "id": "2b9de019-e70d-4b5d-a707-23550edae4e6",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/fintech-war/",
       "targets": [],
       "value": ""
     }, {
-      "id": "70c61ba8-442d-41d4-9c86-08adfebef95f",
+      "id": "35f2f16d-3500-492d-88c6-c9d52037d41d",
       "comment": "",
       "command": "setWindowSize",
-      "target": "961x818",
+      "target": "1536x824",
       "targets": [],
       "value": ""
     }, {
-      "id": "dd9fdf9d-95d6-48f8-8cd5-a29db743d86c",
+      "id": "d3d54205-f111-403f-9c38-8c2153350b1d",
       "comment": "",
       "command": "click",
-      "target": "css=li:nth-child(5) b",
+      "target": "css=li:nth-child(4) b",
       "targets": [
-        ["css=li:nth-child(5) b", "css:finder"],
-        ["xpath=//li[5]/a/b", "xpath:position"],
-        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+        ["css=li:nth-child(4) b", "css:finder"],
+        ["xpath=//li[4]/a/b", "xpath:position"],
+        ["xpath=//b[contains(.,'Inicio Sesión Cliente')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "2719fa92-4799-4210-b638-fe63ca02d0e1",
+      "id": "43d13752-632c-4e0e-892c-7a041795f962",
       "comment": "",
       "command": "click",
       "target": "id=index:user",
@@ -46,7 +46,7 @@
       ],
       "value": ""
     }, {
-      "id": "86d169f6-26a1-46ec-b721-144f9c6562d4",
+      "id": "049a84ee-b91b-4fee-95d1-9a31352c2579",
       "comment": "",
       "command": "type",
       "target": "id=index:user",
@@ -58,9 +58,23 @@
         ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
         ["xpath=//td[2]/input", "xpath:position"]
       ],
-      "value": "ponciano"
+      "value": "ana"
     }, {
-      "id": "56397406-49e5-4ae1-9319-915b8c8557c0",
+      "id": "4cd54bca-022b-425a-8f3f-ef4e3e62897f",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9f379c1-67cd-4160-9947-a479c07d1f6a",
       "comment": "",
       "command": "type",
       "target": "id=index:pass",
@@ -72,9 +86,9 @@
         ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
         ["xpath=//span/input", "xpath:position"]
       ],
-      "value": "ponciano"
+      "value": "ana"
     }, {
-      "id": "2ce3a8b6-d249-4a6d-9501-55b6a18cef07",
+      "id": "887207e3-a416-4df8-89ec-1478ec80d3b0",
       "comment": "",
       "command": "click",
       "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
@@ -85,40 +99,15 @@
         ["xpath=//span[contains(.,'Entrar')]", "xpath:innerText"]
       ],
       "value": ""
-    }, {
-      "id": "89f7fc1d-1966-4d14-932c-7ed6d0a5c2fd",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Test",
-      "targets": [
-        ["linkText=Test", "linkText"],
-        ["css=a:nth-child(2)", "css:finder"],
-        ["xpath=//a[contains(text(),'Test')]", "xpath:link"],
-        ["xpath=(//a[contains(@href, 'Listaclientes.xhtml')])[2]", "xpath:href"],
-        ["xpath=//body/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Test')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "3c9b1806-3276-4e26-8517-12c16d1e595f",
-      "comment": "",
-      "command": "click",
-      "target": "css=#j_idt59\\3Aj_idt60\\3A 0\\3Aj_idt82 > .ui-button-text",
-      "targets": [
-        ["css=#j_idt59\\3Aj_idt60\\3A 0\\3Aj_idt82 > .ui-button-text", "css:finder"],
-        ["xpath=//button[@id='j_idt59:j_idt60:0:j_idt82']/span", "xpath:idRelative"],
-        ["xpath=//div[3]/form/div/div[2]/table/tbody/tr/td[11]/button/span", "xpath:position"]
-      ],
-      "value": ""
     }]
   }],
   "suites": [{
-    "id": "e8423604-9c95-47da-bb6c-83c102a04078",
-    "name": "RequisitoRF4",
+    "id": "a5f87ede-72bc-4e7e-9e37-a777b9dd7be8",
+    "name": "TESTR10T",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["2568481a-6240-45d1-84ef-7bcc03a17d8a"]
+    "tests": ["08d80c38-cf12-4977-a2d0-3183e4bb4bed"]
   }],
   "urls": ["http://localhost:8080/fintech-war/"],
   "plugins": []
