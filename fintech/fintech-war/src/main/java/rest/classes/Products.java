@@ -68,4 +68,11 @@ public class Products {
     public void setRelationship(String relationship) {
         this.relationship = relationship;
     }
+
+    public AccountHolder getAccountHolder() {
+        return accountHolder;
+    }
+    public void setAccountHolder(AccountHolder accountHolder) {
+        this.accountHolder = accountHolder;
+    }
 }

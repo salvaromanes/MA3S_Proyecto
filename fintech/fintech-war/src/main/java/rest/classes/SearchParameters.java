@@ -7,11 +7,10 @@ import javax.json.bind.JsonbBuilder;
 import java.util.Date;
 import javax.json.bind.annotation.JsonbCreator;
 import javax.json.bind.annotation.JsonbDateFormat;
-import javax.json.bind.annotation.JsonbTransient;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -24,10 +23,10 @@ public class SearchParameters {
 
     //private SearchParameters searchParameters;
 
-    @JsonbDateFormat("yyyy-MM-dd")
-    private Date startPeriod;
-    @JsonbDateFormat("yyyy-MM-dd")
-    private Date endPeriod;
+    @JsonbDateFormat("yyyy-mm-dd")
+    private String startPeriod;
+    @JsonbDateFormat("yyyy-mm-dd")
+    private String endPeriod;
 
     private String status;
 
@@ -47,17 +46,17 @@ public class SearchParameters {
         this.productNumber = productNumber;
     }
 
-    public Date getStartPeriod() {
+    public String getStartPeriod() {
         return startPeriod;
     }
-    public void setStartPeriod(Date startPeriod) {
+    public void setStartPeriod(String startPeriod) {
         this.startPeriod = startPeriod;
     }
 
-    public Date getEndPeriod() {
+    public String getEndPeriod() {
         return endPeriod;
     }
-    public void setEndPeriod(Date endPeriod) {
+    public void setEndPeriod(String endPeriod) {
         this.endPeriod = endPeriod;
     }
 
@@ -70,7 +69,7 @@ public class SearchParameters {
 
     @Override
     public String toString(){
-        return "Nombre = " + name.getFirstName() + "; Apellidos = " + name.getLastName() + "; Fecha inicio = " + startPeriod.toString()
-                + "; Fecha fin = " + endPeriod.toString();
+        return "Nombre = " + name.getFirstName() + "; Apellidos = " + name.getLastName() + "; Fecha inicio = " + startPeriod
+                + "; Fecha fin = " + endPeriod;
     }
 }
