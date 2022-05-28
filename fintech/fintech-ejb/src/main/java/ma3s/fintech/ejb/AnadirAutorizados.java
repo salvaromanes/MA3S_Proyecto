@@ -73,4 +73,52 @@ public class AnadirAutorizados implements GestionAnadirAutorizados {
         em.persist(autorizar);
 
     }
+    @Override
+    public void anadirPAut(PAutorizada autorizada, Empresa empresa, String usuario, String op) throws NoEsPAutorizadaException, EmpresaNoExistenteException, PersonaNoExisteException, EmpresaNoRelacException, NoEsAdministrativoException, UsuarioNoEncontradoException, OperacionNoValida {
+        if(autorizada == null){
+            throw new PersonaNoExisteException("La persona " + autorizada + " no existe");
+        }else if (empresa == null){
+            throw new EmpresaNoExistenteException("La empresa " + empresa + " no existe ");
+        }else if(usuario == null){
+            throw  new UsuarioNoEncontradoException("El usuario " + usuario + " no existe");
+        }
+
+
+        PAutorizada p = em.find(PAutorizada.class,autorizada.getId());
+
+
+        if(p == null){
+            throw  new NoEsPAutorizadaException("La persona no es persona autorizada");
+        }
+
+
+        Empresa e = em.find(Empresa.class,empresa.getId());
+
+        if(e == null){
+            throw  new EmpresaNoExistenteException("La empresa  no se encuentra");
+        }
+
+        AutorizadaId aux = new AutorizadaId();
+        aux.setEmpresaId(e.getId());
+        aux.setIdAutorizado(p.getId());
+
+        Autorizacion a = em.find(Autorizacion.class , aux);
+
+        if(a != null){
+            throw new EmpresaNoRelacException( "La persona autorizada ya tiene autorizacion");
+        }
+
+        comprobarAdministrador(usuario);
+
+        if(!op.equals("Lectura") && !op.equals("Escritura"))
+            throw new OperacionNoValida();
+
+        Autorizacion autorizar = new Autorizacion();
+        autorizar.setAutorizadaId(p);
+        autorizar.setEmpresaId(e);
+        autorizar.setTipo(op);
+        em.persist(autorizar);
+
+    }
+
 }

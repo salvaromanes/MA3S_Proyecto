@@ -74,6 +74,11 @@ public class ListaClientes {
         return "ModificarEmpresas.xhtml?faces-redirect=true";
     }
 
+    public String anadirAutorizado(Empresa e){
+        infosesion.setIdentificacion(e.getIdentificacion());
+        return "AnadirPAutorizadaCuenta.xhtml?faces-redirect=true";
+    }
+
     public String baja(Cliente c){
         try{
             bajaCliente.darBajaCliente(c.getId());
