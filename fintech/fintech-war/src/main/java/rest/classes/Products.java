@@ -26,25 +26,25 @@ public class Products {
     private String relationship;
 
     // Fecha inicio de la cuenta
-    private Date startDate;
+    private String startDate;
 
     // Fecha fin de la cuenta
-    private Date endDate;
+    private String endDate;
 
     // Propietario de la cuenta
     private AccountHolder accountHolder;
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
