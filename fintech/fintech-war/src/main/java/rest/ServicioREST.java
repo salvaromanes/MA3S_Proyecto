@@ -18,6 +18,7 @@ import javax.ejb.EJB;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import java.net.URI;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -46,6 +47,19 @@ public class ServicioREST {
         return Response.ok(ok, MediaType.APPLICATION_JSON).build();
     }
 
+/*
+{
+  "searchParameters" : {
+    "name" : {
+      "firstName" : "Manolo",
+      "lastName" : "Garcia"
+    },
+    "startPeriod" : "2015-04-25",
+    "endPeriod" : "2023-04-25"
+  }
+}
+
+ */
     @Path("/api/clients")
     @POST
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
@@ -127,6 +141,16 @@ public class ServicioREST {
         return Response.ok(padreIndividual, MediaType.APPLICATION_JSON).build();
     }
 
+
+/*
+{
+  "searchParameters" : {
+    "status" : "Activa",
+    "productNumber" : "NL63ABNA6548268733",
+  }
+}
+Si no se pasa algún parámetro la búsqueda se hace ignorando estos parámetros
+ */
     @Path("/api/products")
     @POST
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
@@ -163,8 +187,16 @@ public class ServicioREST {
             Products product = new Products();
             product.setProductNumber(cuenta.getIban());
             product.setStatus(cuenta.getEstado());
-            product.setStartDate(cuenta.getFechaApertura());
-            product.setEndDate(cuenta.getFechaCierre());
+
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+            String fechaApertura = null;
+            if(cuenta.getFechaApertura() != null) fechaApertura = dateFormat.format(cuenta.getFechaApertura());
+            product.setStartDate(fechaApertura);
+
+            String fechaCierre = null;
+            if(cuenta.getFechaCierre() != null) fechaCierre = dateFormat.format(cuenta.getFechaCierre());
+            product.setEndDate(fechaCierre);
+
             product.setAccountHolder(crearAccountHolder(cuenta.getCliente()));
             padreProducts.getProducts().add(product);
         }
@@ -222,6 +254,7 @@ public class ServicioREST {
             if(indi != null){
                 accountHolder.setName(crearNombre(indi.getNombre(), indi.getApellido()));
                 accountHolder.setDireccion(establecerDireccion(indi));
+                accountHolder.setAccounttype("Fisica");
             }
             Empresa empre = gestionGetClientes.devolverEmpresa(id);
             if(empre != null){
@@ -229,6 +262,7 @@ public class ServicioREST {
                 name.setName(empre.getRazonSocial());
                 accountHolder.setName(name);
                 accountHolder.setDireccion(establecerDireccion(empre));
+                accountHolder.setAccounttype("Empresa");
             }
         } catch (PersonaNoExisteException | EmpresaNoExistenteException e) {
             e.printStackTrace();
