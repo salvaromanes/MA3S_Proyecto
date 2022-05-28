@@ -13,70 +13,67 @@
     <link href="Estilos/estiloCrearCuentaNueva2.css" rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
-    <h:panelGroup rendered="#{sesion.sesion_admin}">
-        <div class="card">
-            <h:form id = "f">
-                <p:growl id="messages"/>
+    <h:panelGroup id="panelSesion" rendered="#{sesion.sesion_admin}">
+        <div id="divisionExterior" class="card">
+            <h:form id = "formExterior">
+                <p:growl id="mensajeAlerta"/>
 
-                <p:menubar id = "m">
-                    <p:menuitem value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
+                <p:menubar id = "barraTareas">
+                    <p:menuitem id="Inicio" value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
                     </p:menuitem>
 
-                    <p:divider id = "v" layout="vertical"/>
+                    <p:divider id = "barra1" layout="vertical"/>
 
-                    <p:submenu id = "c" label="Clientes" icon="pi pi-fw pi-users">
-                        <p:menuitem id = "lc" value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:submenu id = "da" label="Dar Alta" icon="pi pi-fw pi-plus">
-                            <p:menuitem  id = "daindi" value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
-                            <p:menuitem  value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
+                    <p:submenu id = "submenuClientes" label="Clientes" icon="pi pi-fw pi-users">
+                        <p:menuitem id = "listaClientes" value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:submenu id = "submenuAlta" label="Dar Alta" icon="pi pi-fw pi-plus">
+                            <p:menuitem  id = "altaIndividual" value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
+                            <p:menuitem  value="altaJuridico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
                         </p:submenu>
                     </p:submenu>
 
-                    <p:submenu label="Personas Autorizadas" icon="pi pi-fw pi-user-plus">
-                        <p:menuitem value="Lista" outcome="ListaPAutorizadas.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:menuitem value="Crear" outcome="DarAltasPAutorizadas.xhtml" icon="pi pi-fw pi-plus"/>
+                    <p:submenu id="submenuPAutorizadas" label="Personas Autorizadas" icon="pi pi-fw pi-user-plus">
+                        <p:menuitem id="listaPAutorizadas" value="Lista" outcome="ListaPAutorizadas.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:menuitem id="altaPAutorizada" value="Crear" outcome="DarAltasPAutorizadas.xhtml" icon="pi pi-fw pi-plus"/>
                     </p:submenu>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id="barra2" layout="vertical"/>
 
-                    <p:submenu label="Cuentas" icon="pi pi-fw pi-wallet">
-                        <p:menuitem value="Lista" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:submenu label="Crear" icon="pi pi-fw pi-plus">
-                            <p:menuitem value="Segregada" outcome="CrearCuentaSegregada.xhtml" />
-                            <p:menuitem value="Pooled" outcome="CrearCuentaPooled.xhtml" />
+                    <p:submenu id="submenuCuentas" label="Cuentas" icon="pi pi-fw pi-wallet">
+                        <p:menuitem id="listaCuentas" value="Lista" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:submenu id="submenuCrear" label="Crear" icon="pi pi-fw pi-plus">
+                            <p:menuitem id="crearSegregada" value="Segregada" outcome="CrearCuentaSegregada.xhtml" />
+                            <p:menuitem id="crearPooled" value="Pooled" outcome="CrearCuentaPooled.xhtml" />
                         </p:submenu>
                     </p:submenu>
 
-                    <p:submenu label="Transacciones" icon="pi pi-fw pi-money-bill">
-                        <p:menuitem value="Lista" outcome="ListaTransacciones.xhtml" icon="pi pi-fw pi-list"/>
+                    <p:submenu id="submenuTransaccion" label="Transacciones" icon="pi pi-fw pi-money-bill">
+                        <p:menuitem id="listaTransaccion" value="Lista" outcome="ListaTransacciones.xhtml" icon="pi pi-fw pi-list"/>
                     </p:submenu>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id="barra3" layout="vertical"/>
 
-                    <p:submenu label="Archivos" icon="pi pi-fw pi-file">
-                        <p:menuitem value="Generar CSV Alemania" outcome="csv.xhtml" icon="pi pi-fw pi-file-excel"/>
-                        <p:menuitem value="Api Holanda" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-code"/>
+                    <p:submenu id="submenuArchivos" label="Archivos" icon="pi pi-fw pi-file">
+                        <p:menuitem id="CSV" value="Generar CSV Alemania" outcome="csv.xhtml" icon="pi pi-fw pi-file-excel"/>
+                        <p:menuitem id="API" value="Api Holanda" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-code"/>
                     </p:submenu>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id="barra4" layout="vertical"/>
 
-                    <f:facet name="options">
-                        <p:commandButton value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
+                    <f:facet id="opciones" name="options">
+                        <p:commandButton id="cerrarSesion" value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
                     </f:facet>
                 </p:menubar>
             </h:form>
         </div>
 
-        <a href="Listaclientes.xhtml">Test</a>
-        <a href="CrearCuentaPooled.xhtml">Pooled</a>
-        <a href="Listacuentas.xhtml">Cuentas</a>
-
     </h:panelGroup>
-    <h:panelGroup rendered="#{!sesion.sesion_admin}">
-        <h:form>
-            <h1>NO SE HA INICIADO SESIÓN</h1>
-            <a href="mainv2.xhtml">
-                <p:commandButton type="button" value="Volver"/>
+
+    <h:panelGroup id="panelnoSesion" rendered="#{!sesion.sesion_admin}">
+        <h:form id="formnoSesion">
+            <h1 id="mensajenoSesion">NO SE HA INICIADO SESIÓN</h1>
+            <a id="hrefIniciaSesion" href="mainv2.xhtml">
+                <p:commandButton id="botonVolver" type="button" value="Volver"/>
             </a>
         </h:form>
     </h:panelGroup>
