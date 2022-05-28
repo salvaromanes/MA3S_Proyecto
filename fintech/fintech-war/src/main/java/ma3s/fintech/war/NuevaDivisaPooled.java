@@ -1,6 +1,7 @@
 package ma3s.fintech.war;
 
 import ma3s.fintech.Divisa;
+import ma3s.fintech.Pooled;
 import ma3s.fintech.ejb.GestionAperturaCuenta;
 import ma3s.fintech.ejb.GestionGetCuentas;
 import ma3s.fintech.ejb.excepciones.DatosIncorrectosException;
@@ -27,7 +28,8 @@ public class NuevaDivisaPooled {
     public String addDivisa(){
         try {
             Divisa div = getCuentas.getDivisa(divisa);
-            aperturaCuenta.addDivisaPooled(sesion.getPooled(), div);
+            Pooled p = getCuentas.getUPooled(sesion.getIban());
+            aperturaCuenta.addDivisaPooled(p, div);
         } catch (DatosIncorrectosException | DivisaExistenteException e) {
             e.printStackTrace();
         }
