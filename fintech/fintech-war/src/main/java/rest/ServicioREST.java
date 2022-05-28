@@ -194,7 +194,11 @@ Si no se pasa algún parámetro la búsqueda se hace ignorando estos parámetros
             product.setStartDate(fechaApertura);
 
             String fechaCierre = null;
-            if(cuenta.getFechaCierre() != null) fechaCierre = dateFormat.format(cuenta.getFechaCierre());
+            if(cuenta.getFechaCierre() != null){
+                fechaCierre = dateFormat.format(cuenta.getFechaCierre());
+            }else{
+                fechaCierre = "non-existent";
+            }
             product.setEndDate(fechaCierre);
 
             product.setAccountHolder(crearAccountHolder(cuenta.getCliente()));
@@ -249,22 +253,30 @@ Si no se pasa algún parámetro la búsqueda se hace ignorando estos parámetros
         AccountHolder accountHolder = new AccountHolder();
         accountHolder.setDireccion(establecerDireccion(cliente));
         Long id = cliente.getId();
-        try{
+        Name name = new Name();
+        try {
             Individual indi = gestionGetClientes.devolverIndividual(id);
-            if(indi != null){
+            if (indi != null) {
                 accountHolder.setName(crearNombre(indi.getNombre(), indi.getApellido()));
                 accountHolder.setDireccion(establecerDireccion(indi));
                 accountHolder.setAccounttype("Fisica");
+                accountHolder.setActiveCustomer(pasarABooleanoActiveCostumer(indi.getEstado()));
             }
+        } catch (PersonaNoExisteException e) {
+                e.printStackTrace();
+        }
+        try{
             Empresa empre = gestionGetClientes.devolverEmpresa(id);
             if(empre != null){
-                Name name = new Name();
                 name.setName(empre.getRazonSocial());
                 accountHolder.setName(name);
+                System.out.println(accountHolder.getName().getName());
                 accountHolder.setDireccion(establecerDireccion(empre));
                 accountHolder.setAccounttype("Empresa");
+                accountHolder.setActiveCustomer(pasarABooleanoActiveCostumer(empre.getEstado()));
+                System.out.println("He llegado al final de accountholder empresa");
             }
-        } catch (PersonaNoExisteException | EmpresaNoExistenteException e) {
+        } catch (EmpresaNoExistenteException e) {
             e.printStackTrace();
         }
         return accountHolder;
