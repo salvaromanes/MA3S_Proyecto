@@ -80,6 +80,12 @@ public class InicializaBBDD {
         pAutorizada.setApellidos("Ortiz");
         pAutorizada.setDireccion("Romanes");
 
+        PAutorizada pAutorizada2 = new PAutorizada();
+        pAutorizada2.setIdentificacion("GEFRS45621");
+        pAutorizada2.setNombre("Adrian");
+        pAutorizada2.setApellidos("Gonzalez");
+        pAutorizada2.setDireccion("Malaga");
+
         Autorizacion autorizacion = new Autorizacion();
         autorizacion.setAutorizadaId(pAutorizada);
         autorizacion.setEmpresaId(empresa);
@@ -265,7 +271,7 @@ public class InicializaBBDD {
             em.persist(i);
         }
 
-        for (PAutorizada p : new PAutorizada[]{pAutorizada}){
+        for (PAutorizada p : new PAutorizada[]{pAutorizada, pAutorizada2}){
             em.persist(p);
         }
 
