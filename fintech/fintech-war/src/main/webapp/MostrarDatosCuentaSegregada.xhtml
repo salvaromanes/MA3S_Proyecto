@@ -11,8 +11,6 @@
 <h:head>
   <title>Crear Cuenta</title>
     <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
-    <link href="Estilos/estiloCrearCuentaNueva2.css" rel="stylesheet" type="text/css" />
-
 </h:head>
 
 <h:body>
@@ -130,7 +128,7 @@
 
                     <p:column headerText="Eliminar Autorizacion">
                         <p:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Eliminar Autorizado"
-                                         action="#{mostrarDatosCuentaPooled.eliminarAutorizaciones(autorizacion.autorizadaId.id, autorizacion.empresaId.id)}"/>
+                                         action="#{mostrarDatosCuentaSegregada.eliminarAutorizaciones(autorizacion.autorizadaId.id, autorizacion.empresaId.id)}"/>
                     </p:column>
                 </p:dataTable>
             </div>

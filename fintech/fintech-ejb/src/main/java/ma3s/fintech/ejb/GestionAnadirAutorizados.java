@@ -7,4 +7,5 @@ import ma3s.fintech.ejb.excepciones.*;
 
 public interface GestionAnadirAutorizados {
     void anadirPAut(PAutorizada autorizada, Empresa empresa, String usuario) throws NoEsPAutorizadaException, UsuarioNoEncontradoException,EmpresaNoExistenteException, PersonaNoExisteException, EmpresaNoRelacException, NoEsAdministrativoException;
+    void anadirPAut(PAutorizada autorizada, Empresa empresa, String usuario, String op) throws NoEsPAutorizadaException, UsuarioNoEncontradoException,EmpresaNoExistenteException, PersonaNoExisteException, EmpresaNoRelacException, NoEsAdministrativoException, OperacionNoValida;
 }

@@ -11,7 +11,6 @@
 <h:head>
     <title>Crear Cuenta</title>
     <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
-    <link href="Estilos/estiloCrearCuentaNueva2.css" rel="stylesheet" type="text/css" />
 
 </h:head>
 
@@ -132,11 +131,11 @@
         </h:form>
 
         <h3>Lista de depositos de la cuenta pooled</h3>
-
-        <a href="NuevaDivisaPooled.xhtml">
-            <p:commandButton type="button" value="Nueva Divisa"/>
-        </a>
-
+        <h:form>
+            <a href="NuevaDivisaPooled.xhtml">
+                <p:commandButton type="button" value="Nueva Divisa"/>
+            </a>
+        </h:form>
         <h:form id="Depositos">
             <div class="card">
                 <p:dataTable var="deposito" value="#{mostrarDatosCuentaPooled.depositos}" emptyMessage="No hay depósitos que mostrar">

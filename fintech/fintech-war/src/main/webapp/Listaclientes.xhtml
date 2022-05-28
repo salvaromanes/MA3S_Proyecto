@@ -92,9 +92,6 @@
         <p:column  headerText="FechaAlta">
             <h:outputText  value="#{listaClientes.fechaSimple(a.fechaAlta)}" />
         </p:column>
-        <p:column  headerText="FechaBaja">
-            <h:outputText  value="#{listaClientes.fechaSimple(a.fechaBaja)}" />
-        </p:column>
         <p:column  headerText="Dirección" filterBy="#{a.direccion}" filterMatchMode="contains">
             <h:outputText value="#{a.direccion}" />
         </p:column>
@@ -110,6 +107,10 @@
         <p:column  headerText="Dar Baja">
             <p:commandButton  value="Baja"
                              action="#{listaClientes.baja(a)}" />
+        </p:column>
+        <p:column  headerText="Nuevo Autorizado">
+            <p:commandButton  value="Autorizar"
+                              action="#{listaClientes.anadirAutorizado(a)}" />
         </p:column>
         <p:column  headerText="Modificar">
             <p:commandButton  value="Modificar"
