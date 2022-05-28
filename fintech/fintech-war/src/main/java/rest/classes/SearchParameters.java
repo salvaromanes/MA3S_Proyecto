@@ -1,5 +1,7 @@
 package rest.classes;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import java.util.Date;
@@ -13,7 +15,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-//@JsonInclude(Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SearchParameters {
 
     //@XmlTransient

@@ -2,6 +2,7 @@ package rest.classes;
 
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import ma3s.fintech.ejb.GestionGetClientes;
 import ma3s.fintech.ejb.excepciones.ErrorInternoException;
 
@@ -19,6 +20,7 @@ import java.util.List;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PadreIndividual {
 
     // Lista con el cliente Individual
