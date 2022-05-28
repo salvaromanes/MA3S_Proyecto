@@ -13,7 +13,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.*;
 
-public class RequisitoRF5TestIT {
+public class TESTR1TTestIT {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
@@ -28,24 +28,14 @@ public class RequisitoRF5TestIT {
     driver.quit();
   }
   @Test
-  public void rF5() {
+  public void tESTR1() {
     driver.get("http://localhost:8080/fintech-war/");
-    driver.manage().window().setSize(new Dimension(961, 818));
-    driver.findElement(By.linkText("Inicio Sesión Administrador")).click();
+    driver.manage().window().setSize(new Dimension(781, 652));
+    driver.findElement(By.cssSelector("li:nth-child(5) b")).click();
     driver.findElement(By.id("index:user")).click();
     driver.findElement(By.id("index:user")).sendKeys("ponciano");
     driver.findElement(By.id("index:pass")).click();
     driver.findElement(By.id("index:pass")).sendKeys("ponciano");
     driver.findElement(By.cssSelector("#index\\3A botonIniciarSesion > .ui-button-text")).click();
-    driver.findElement(By.linkText("Pooled")).click();
-    driver.findElement(By.id("crearCuenta:firstname")).click();
-    driver.findElement(By.id("crearCuenta:firstname")).sendKeys("767657575756");
-    driver.findElement(By.id("crearCuenta:lastname")).click();
-    driver.findElement(By.id("crearCuenta:lastname")).sendKeys("2232323");
-    driver.findElement(By.id("crearCuenta:divisa")).click();
-    driver.findElement(By.id("crearCuenta:divisa")).sendKeys("eur");
-    driver.findElement(By.id("crearCuenta:identificacion")).click();
-    driver.findElement(By.id("crearCuenta:identificacion")).sendKeys("63937528N");
-    driver.findElement(By.cssSelector("#crearCuenta\\3AsaveBtn > .ui-button-text")).click();
   }
 }
