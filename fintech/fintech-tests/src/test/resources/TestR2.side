@@ -91,8 +91,9 @@
       "id": "c5374a3d-0c30-4161-a8ec-e058de7816a5",
       "comment": "",
       "command": "click",
-      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "target": "index:botonIniciarSesion",
       "targets": [
+        ["index:botonIniciarSesion", "id"],
         ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
         ["xpath=//button/span", "xpath:position"],
@@ -102,20 +103,22 @@
     }, {
       "id": "c01afa88-519b-4974-90ec-b63aa1b38493",
       "comment": "",
-      "command": "doubleClick",
-      "target": "xpath=//li[@id='formExterior:submenuClientes']/a/span",
+      "command": "click",
+      "target": "id=formExterior:submenuClientes",
       "targets": [
-        ["css=.pi-users", "css:finder"],
-        ["xpath=//li[@id='formExterior:submenuClientes']/a/span", "xpath:idRelative"],
-        ["xpath=//li[3]/a/span", "xpath:position"]
+      ["id=formExterior:submenuClientes", "id"],
+      ["css=#formExterior\\3AlistaClientes > .ui-menuitem-text", "css:finder"],
+      ["xpath=//a[@id='formExterior:listaClientes']/span[2]", "xpath:idRelative"],
+      ["xpath=//li[3]/ul/li/a/span[2]", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "d528be33-4d50-4644-92f1-52e085b7db0a",
       "comment": "",
       "command": "click",
-      "target": "xpath=//a[@id='formExterior:listaClientes']/span[2]",
+      "target": "id=formExterior:listaClientes",
       "targets": [
+        ["id=formExterior:listaClientes", "id"],
         ["css=#formExterior\\3AlistaClientes > .ui-menuitem-text", "css:finder"],
         ["xpath=//a[@id='formExterior:listaClientes']/span[2]", "xpath:idRelative"],
         ["xpath=//li[3]/ul/li/a/span[2]", "xpath:position"]

@@ -38,14 +38,14 @@ public class TESTR2TTestIT {
     driver.findElement(By.id("index:user")).sendKeys("ponciano");
     driver.findElement(By.id("index:pass")).click();
     driver.findElement(By.id("index:pass")).sendKeys("ponciano");
-    driver.findElement(By.cssSelector("#index\\3A botonIniciarSesion > .ui-button-text")).click();
+    driver.findElement(By.id("index:botonIniciarSesion")).click();
     {
       WebElement element = driver.findElement(By.id("formExterior:submenuClientes"));
       Actions builder = new Actions(driver);
       builder.doubleClick(element).perform();
     }
     driver.findElement(By.id("formExterior:listaClientes")).click();
-    driver.findElement(By.xpath("//button[@id=\'formularioParaIndividuales:tablaConListaIndividuales:0:campoBotonModificar\']/span")).click();
+    driver.findElement(By.xpath("formularioParaIndividuales:tablaConListaIndividuales:0:campoBotonModificar")).click();
     driver.findElement(By.id("form:Dirección1")).click();
     driver.findElement(By.id("form:Dirección1")).sendKeys("Madrid");
     driver.findElement(By.xpath("//button[@id=\'form:modificar\']/span")).click();
