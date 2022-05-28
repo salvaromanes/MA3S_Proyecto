@@ -1,5 +1,6 @@
 package rest.classes;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import ma3s.fintech.Cuenta;
 import ma3s.fintech.Fintech;
 import ma3s.fintech.ejb.GestionGetCuentas;
@@ -22,6 +23,7 @@ import java.util.List;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Individual {
 //  Lista de objetos products, es decir lista con todas las cuentas a las que el cliente tiene acceso
     List<Products> products = new ArrayList<>();

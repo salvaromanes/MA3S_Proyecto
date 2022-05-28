@@ -1,5 +1,7 @@
 package rest.classes;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -11,7 +13,7 @@ import java.util.Date;
 */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-//@JsonInclude(Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Products {
 
     // IBAN de la cuenta
