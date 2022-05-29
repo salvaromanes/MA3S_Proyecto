@@ -17,11 +17,11 @@
   <div class="card">
     <h:form id="index">
       <p:panel id="pnl" header="Inicio sesión clientes">
-        <h:panelGrid class="casillas" columns="2">
-          <h:outputText class="salida" value="Nombre de usuario:"/>
+        <h:panelGrid id="casillas" class="casillas" columns="2">
+          <h:outputText id="salida" class="salida" value="Nombre de usuario:"/>
           <p:inputText class="entrada" id="user" required="false" value="#{sesion.usuario.user}"/>
 
-          <h:outputText class="salida" value="Contraseña:"/>
+          <h:outputText id="salida1" class="salida" value="Contraseña:"/>
           <p:password class="entrada" id="pass" required="false" value="#{sesion.usuario.contrasena}" toggleMask="true" redisplay="true"/>
 
           <p:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Entrar" action="#{sesion.entrarUsuario}"/>
