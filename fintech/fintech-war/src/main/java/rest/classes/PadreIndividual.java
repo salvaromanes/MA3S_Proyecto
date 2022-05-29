@@ -3,11 +3,7 @@ package rest.classes;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import ma3s.fintech.ejb.GestionGetClientes;
-import ma3s.fintech.ejb.excepciones.ErrorInternoException;
 
-import javax.ejb.EJB;
-import javax.inject.Inject;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -24,13 +20,13 @@ import java.util.List;
 public class PadreIndividual {
 
     // Lista con el cliente Individual
-    List<Individual> individual = new ArrayList<>();
+    List<Individual> Individual = new ArrayList<>();
 
     public List<Individual> getIndividual() {
-        return individual;
+        return Individual;
     }
     public void setIndividual(List<Individual> individual) {
-        this.individual = individual;
+        this.Individual = individual;
     }
 
     // Metodo para rellenar la lista de individuales con los datos que se piden en la consulta post

@@ -24,7 +24,7 @@ public class AccountHolder {
     // private String name;
 
     // Direccion del cliente
-    private Direccion direccion;
+    private Direccion address;
 
     public boolean getActiveCustomer() {
         return activeCustomer;
@@ -47,10 +47,10 @@ public class AccountHolder {
         this.name = name;
     }
 
-    public Direccion getDireccion() {
-        return direccion;
+    public Direccion getAddress() {
+        return address;
     }
-    public void setDireccion(Direccion direccion) {
-        this.direccion = direccion;
+    public void setAddress(Direccion address) {
+        this.address = address;
     }
 }

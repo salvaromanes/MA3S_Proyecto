@@ -1,13 +1,7 @@
 package rest.classes;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import ma3s.fintech.Cuenta;
-import ma3s.fintech.Fintech;
-import ma3s.fintech.ejb.GestionGetCuentas;
-import ma3s.fintech.ejb.GestionGetCuentasUnCliente;
 
-import javax.ejb.EJB;
-import javax.print.attribute.standard.MediaSize;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -33,7 +27,7 @@ public class Individual {
     private Boolean activeCustomer;
 
 //  Identificacion del cliente
-    private String identificacion;
+    private String indentificationNumber;
 
 //  Fecha de cumpleaños
     private Date dateOfBirth;
@@ -42,7 +36,7 @@ public class Individual {
     private Name name;
 
 //  Dirección del cliente
-    private Direccion direccion;
+    private Direccion address;
 
     public List<Products> getProducts() {
         return products;
@@ -58,11 +52,11 @@ public class Individual {
         this.activeCustomer = activeCustomer;
     }
 
-    public String getIdentificacion() {
-        return identificacion;
+    public String getIndentificationNumber() {
+        return indentificationNumber;
     }
-    public void setIdentificacion(String identificacion) {
-        this.identificacion = identificacion;
+    public void setIndentificationNumber(String indentificationNumber) {
+        this.indentificationNumber = indentificationNumber;
     }
 
     public Date getDateOfBirth() {
@@ -79,11 +73,11 @@ public class Individual {
         this.name = name;
     }
 
-    public Direccion getDireccion() {
-        return direccion;
+    public Direccion getAddress() {
+        return address;
     }
-    public void setDireccion(Direccion direccion) {
-        this.direccion = direccion;
+    public void setAddress(Direccion address) {
+        this.address = address;
     }
 
 //    public void completarCampos(){
