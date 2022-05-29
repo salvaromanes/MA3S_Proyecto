@@ -77,22 +77,22 @@
 
           <h:panelGrid columns="1" cellpadding="7">
 
-            <h:outputText value="Identificacion:" />
+            <h:outputText value="Identificación:" />
             <h:outputText value="#{cliente.empresa.identificacion}"/>
 
-            <h:outputText value="Direccion"/>
+            <h:outputText value="Dirección"/>
             <p:inputText required="true" value="#{cliente.empresa.direccion}"/>
 
             <h:outputText value="Ciudad"/>
             <p:inputText required="true" value="#{cliente.empresa.ciudad}"/>
 
-            <h:outputText value="Codigo Postal"/>
+            <h:outputText value="Código postal"/>
             <p:inputText required="true" value="#{cliente.empresa.codigopostal}"/>
 
-            <h:outputText value="Pais"/>
+            <h:outputText value="País"/>
             <p:inputText required="true" value="#{cliente.empresa.pais}"/>
 
-            <h:outputText value="RazonSocial"/>
+            <h:outputText value="Razón social"/>
             <p:inputText required="true" value="#{cliente.empresa.razonSocial}"/>
           </h:panelGrid>
             <p:commandButton id="modificar" value="Modificar" action="#{cliente.modificar()}" />

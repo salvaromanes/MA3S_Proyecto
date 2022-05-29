@@ -31,7 +31,7 @@
             <p:menuitem id = "listaClientes" value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
             <p:submenu id = "submenuAlta" label="Dar alta" icon="pi pi-fw pi-plus">
               <p:menuitem  id = "Individual" value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
-              <p:menuitem  value="Juridico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
+              <p:menuitem  value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
             </p:submenu>
           </p:submenu>
 
@@ -84,7 +84,7 @@
           <p:outputLabel id="apellidos" for = "Apellidos_txt"  value="Apellidos"/>
           <p:inputText id="Apellidos_txt" value="#{DarAltaClienteAdministrador.individual.apellido}" required="true"/>
 
-          <p:outputLabel id="identicicacion" for = "Identificacion_txt"  value="Identificacion"/>
+          <p:outputLabel id="identicicacion" for = "Identificacion_txt"  value="Identificación"/>
           <p:inputText id="Identificacion_txt" value="#{DarAltaClienteAdministrador.individual.identificacion}" required="true"/>
 
           <p:outputLabel id="direccion" for = "Dirección_txt"  value="Dirección"/>
@@ -93,10 +93,10 @@
           <p:outputLabel id="ciudad" for = "Ciudad_txt"  value="Ciudad"/>
           <p:inputText id="Ciudad_txt" value="#{DarAltaClienteAdministrador.individual.ciudad}" required="true"/>
 
-          <p:outputLabel id="codPostal" for = "CodigoPostal_txt"  value="CodigoPostal"/>
+          <p:outputLabel id="codPostal" for = "CodigoPostal_txt"  value="Código postal"/>
           <p:inputText id="CodigoPostal_txt" value="#{DarAltaClienteAdministrador.individual.codigopostal}" required="true"/>
 
-          <p:outputLabel id="pais" for = "Pais_txt"  value="Pais"/>
+          <p:outputLabel id="pais" for = "Pais_txt"  value="País"/>
           <p:inputText id="Pais_txt" value="#{DarAltaClienteAdministrador.individual.pais}" required="true"/>
         </h:panelGrid>
 

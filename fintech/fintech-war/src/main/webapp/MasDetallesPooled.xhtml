@@ -45,7 +45,7 @@
         <h:form id="MostrarPooled">
             <div class="card">
                 <p:dataTable var="pooled" value="#{mostrarDatosCuentaPooled.cuentas}" emptyMessage="No hay cuentas pooled para mostrar">
-                    <p:column headerText="Identificacion Propietario">
+                    <p:column headerText="Identificación propietario">
                         <h:outputText value="#{pooled.cliente.identificacion}" />
                     </p:column>
 
@@ -61,15 +61,15 @@
                         <h:outputText value="#{pooled.estado}" />
                     </p:column>
 
-                    <p:column headerText="Fecha Apertura">
+                    <p:column headerText="Fecha apertura">
                         <h:outputText value="#{pooled.fechaApertura}" />
                     </p:column>
 
-                    <p:column headerText="Fecha Cierre">
+                    <p:column headerText="Fecha cierre">
                         <h:outputText value="#{pooled.fechaCierre}" />
                     </p:column>
 
-                    <p:column headerText="Clasificacion">
+                    <p:column headerText="Clasificación">
                         <h:outputText value="Pooled" />
                     </p:column>
                 </p:dataTable>
@@ -77,11 +77,11 @@
         </h:form>
     </div>
 
-    <h3>Sus depositos de la cuenta</h3>
+    <h3>Sus depósitos de la cuenta</h3>
     <h:form id="Depositos">
         <div class="card">
             <p:dataTable var="deposito" value="#{mostrarDatosCuentaPooled.depositos}" emptyMessage="No hay depósitos que mostrar">
-                <p:column headerText="Iban Referencia">
+                <p:column headerText="Iban referencia">
                     <h:outputText value="#{deposito.referencia.iban}" />
                 </p:column>
 

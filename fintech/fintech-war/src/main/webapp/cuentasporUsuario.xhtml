@@ -41,7 +41,7 @@
 
         <h:panelGroup rendered="#{listCuenta.listaSegregadas()}">
 
-    <h1>Cuentas Segregadas</h1>
+    <h1>Cuentas segregadas</h1>
     <div class="card">
 
     <h:form id="Segregadas" >
@@ -51,7 +51,7 @@
                     <h:outputText value="#{s.iban}" />
                 </p:column>
 
-                <p:column headerText="Fecha Apertura">
+                <p:column headerText="Fecha apertura">
                     <h:outputText value="#{s.fechaApertura}" />
                 </p:column>
 
@@ -74,7 +74,7 @@
         </h:panelGroup>
 
         <h:panelGroup rendered="#{listCuenta.listaSegregadaLectura()}">
-    <h1>Cuentas Segregadas que tiene autorización Lectura</h1>
+    <h1>Cuentas segregadas que tiene autorización lectura</h1>
 
     <div class="card">
     <h:form id="SegregadasAut" >
@@ -84,7 +84,7 @@
                     <h:outputText value="#{sau.iban}" />
                 </p:column>
 
-                <p:column headerText="Fecha Apertura">
+                <p:column headerText="Fecha apertura">
                     <h:outputText value="#{sau.fechaApertura}" />
                 </p:column>
 
@@ -104,7 +104,7 @@
 
         <h:panelGroup rendered="#{listCuenta.listaSegregadaEscritura()}">
 
-    <h1>Cuentas Segregadas que tiene autorización Escritura</h1>
+    <h1>Cuentas segregadas que tiene autorización escritura</h1>
 
     <div class="card">
         <h:form id="SegregadasAutorizacionEsc" >
@@ -114,7 +114,7 @@
                     <h:outputText value="#{sae.iban}" />
                 </p:column>
 
-                <p:column headerText="Fecha Apertura">
+                <p:column headerText="Fecha apertura">
                     <h:outputText value="#{sae.fechaApertura}" />
                 </p:column>
 
@@ -137,7 +137,7 @@
 
         <h:panelGroup rendered="#{listCuenta.listaPooled()}">
 
-    <h1>Cuentas Pooled</h1>
+    <h1>Cuentas pooled</h1>
     <div class="card">
     <h:form id="Pooled" >
             <p:dataTable var="pooled12" value="#{listCuenta.pooleds}">
@@ -146,7 +146,7 @@
                     <h:outputText value="#{pooled12.iban}" />
                 </p:column>
 
-                <p:column headerText="Fecha Apertura">
+                <p:column headerText="Fecha apertura">
                     <h:outputText value="#{pooled12.fechaApertura}" />
                 </p:column>
 
@@ -175,7 +175,7 @@
 
         <h:panelGroup rendered="#{listCuenta.listaPooledLectura()}">
 
-    <h1>Cuentas Pooled que tiene autorización Lectura</h1>
+    <h1>Cuentas pooled que tiene autorización lectura</h1>
     <div class="card">
     <h:form id="PooledAut">
 
@@ -185,7 +185,7 @@
                     <h:outputText value="#{pau.iban}" />
                 </p:column>
 
-                <p:column headerText="Fecha Apertura">
+                <p:column headerText="Fecha apertura">
                     <h:outputText value="#{pau.fechaApertura}" />
                 </p:column>
 
@@ -211,7 +211,7 @@
 
 
         <h:panelGroup rendered="#{listCuenta.listaPooledEscritura()}">
-    <h1>Cuentas Pooled que tiene autorización Escritura</h1>
+    <h1>Cuentas pooled que tiene autorización escritura</h1>
     <div class="card">
         <h:form id="PooledAutEsc">
 
@@ -221,7 +221,7 @@
                     <h:outputText value="#{pae.iban}" />
                 </p:column>
 
-                <p:column headerText="Fecha Apertura">
+                <p:column headerText="Fecha apertura">
                     <h:outputText value="#{pae.fechaApertura}" />
                 </p:column>
 

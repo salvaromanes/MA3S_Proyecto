@@ -30,7 +30,7 @@
             <p:menuitem id = "listaClientes" value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
             <p:submenu id = "submenuAlta" label="Dar alta" icon="pi pi-fw pi-plus">
               <p:menuitem  id = "Individual" value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
-              <p:menuitem  value="Juridico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
+              <p:menuitem  value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
             </p:submenu>
           </p:submenu>
 
@@ -95,7 +95,7 @@
             <h:outputText id="Ciudad" value="Ciudad"/>
             <p:inputText id="Ciudad1" required="true" value="#{individual.individual.ciudad}"/>
 
-            <h:outputText id="cp" value="Codigo Postal"/>
+            <h:outputText id="cp" value="Código Postal"/>
             <p:inputText id="cp1" required="true" value="#{individual.individual.codigopostal}"/>
 
             <h:outputText id="pais" value="País"/>

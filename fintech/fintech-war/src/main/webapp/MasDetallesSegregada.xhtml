@@ -45,7 +45,7 @@
         <h:form id="MostarSegregada">
             <div class="card">
                 <p:dataTable var="segregada" value="#{mostrarDatosCuentaSegregada.cuentas}" emptyMessage="No hay cuentas segregadas que mostrar">
-                    <p:column headerText="Identificacion Propietario">
+                    <p:column headerText="Identificación propietario">
                         <h:outputText value="#{segregada.cliente.identificacion}" />
                     </p:column>
 
@@ -61,19 +61,19 @@
                         <h:outputText value="#{segregada.estado}" />
                     </p:column>
 
-                    <p:column headerText="Fecha Apertura">
+                    <p:column headerText="Fecha apertura">
                         <h:outputText value="#{segregada.fechaApertura}" />
                     </p:column>
 
-                    <p:column headerText="Fecha Cierre">
+                    <p:column headerText="Fecha cierre">
                         <h:outputText value="#{segregada.fechaCierre}" />
                     </p:column>
 
-                    <p:column headerText="Clasificacion">
+                    <p:column headerText="Clasificación">
                         <h:outputText value="Segregada" />
                     </p:column>
 
-                    <p:column headerText="Comision">
+                    <p:column headerText="Comisión">
                         <h:outputText value="#{segregada.comision}" />
                     </p:column>
                 </p:dataTable>
