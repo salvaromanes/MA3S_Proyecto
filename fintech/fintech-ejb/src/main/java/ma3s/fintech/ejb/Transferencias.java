@@ -99,8 +99,11 @@ public class Transferencias implements GestionTransferencia{
         Divisa divisa_Origen = t.getDivisaEmisor();
         Divisa divisa_Destino = t.getDivisaReceptor();
         Double saldo = t.getCantidad();
-        Double saldo_cambioOrigen = saldo;
-        Double saldo_cambioDestino = saldo;
+        Double comision = 0.01;
+        if(t.getComision() != null)
+            comision = t.getComision();
+        Double saldo_cambioOrigen = saldo - saldo*comision;
+        Double saldo_cambioDestino = saldo - saldo*comision;
 
 
         if (t.getTipo().equals("Pago")) {

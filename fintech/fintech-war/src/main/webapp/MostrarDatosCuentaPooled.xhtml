@@ -17,53 +17,53 @@
 <h:body>
     <h:panelGroup rendered="#{sesion.sesion_admin}">
         <div class="card">
-            <h:form>
+            <h:form id="form">
                 <p:growl id="messages"/>
 
-                <p:menubar>
-                    <p:menuitem value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
+                <p:menubar id="menubar">
+                    <p:menuitem id="inicio" value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
                     </p:menuitem>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id="Layout_vertical" layout="vertical"/>
 
-                    <p:submenu label="Clientes" icon="pi pi-fw pi-users">
-                        <p:menuitem value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:submenu label="Dar alta" icon="pi pi-fw pi-plus">
-                            <p:menuitem value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
-                            <p:menuitem value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
+                    <p:submenu id="Clientes" label="Clientes" icon="pi pi-fw pi-users">
+                        <p:menuitem id="ListaClientes" value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:submenu id="darAlta" label="Dar alta" icon="pi pi-fw pi-plus">
+                            <p:menuitem id="Individual" value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
+                            <p:menuitem id="Jurídico" value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
                         </p:submenu>
                     </p:submenu>
 
-                    <p:submenu label="Personas Autorizadas" icon="pi pi-fw pi-user-plus">
-                        <p:menuitem value="Lista" outcome="ListaPAutorizadas.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:menuitem value="Crear" outcome="DarAltasPAutorizadas.xhtml" icon="pi pi-fw pi-plus"/>
+                    <p:submenu id="pa" label="Personas Autorizadas" icon="pi pi-fw pi-user-plus">
+                        <p:menuitem id="ListaPA" value="Lista" outcome="ListaPAutorizadas.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:menuitem id="Crear" value="Crear" outcome="DarAltasPAutorizadas.xhtml" icon="pi pi-fw pi-plus"/>
                     </p:submenu>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id="Layout_vertical1" layout="vertical"/>
 
-                    <p:submenu label="Cuentas" icon="pi pi-fw pi-wallet">
-                        <p:menuitem value="Lista" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:submenu label="Crear" icon="pi pi-fw pi-plus">
-                            <p:menuitem value="Segregada" outcome="CrearCuentaSegregada.xhtml" />
-                            <p:menuitem value="Pooled" outcome="CrearCuentaPooled.xhtml" />
+                    <p:submenu id="Cuentas" label="Cuentas" icon="pi pi-fw pi-wallet">
+                        <p:menuitem id="ListaCuentas" value="Lista" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:submenu id="crearlista" label="Crear" icon="pi pi-fw pi-plus">
+                            <p:menuitem id="Segregada" value="Segregada" outcome="CrearCuentaSegregada.xhtml" />
+                            <p:menuitem id="Pooled" value="Pooled" outcome="CrearCuentaPooled.xhtml" />
                         </p:submenu>
                     </p:submenu>
 
-                    <p:submenu label="Transacciones" icon="pi pi-fw pi-money-bill">
-                        <p:menuitem value="Lista" outcome="ListaTransacciones.xhtml" icon="pi pi-fw pi-list"/>
+                    <p:submenu id="Transacciones" label="Transacciones" icon="pi pi-fw pi-money-bill">
+                        <p:menuitem id="ListaTransacciones" value="Lista" outcome="ListaTransacciones.xhtml" icon="pi pi-fw pi-list"/>
                     </p:submenu>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id="Layout_vertical2" layout="vertical"/>
 
-                    <p:submenu label="Archivos" icon="pi pi-fw pi-file">
-                        <p:menuitem value="Generar CSV Alemania" outcome="csv.xhtml" icon="pi pi-fw pi-file-excel"/>
-                        <p:menuitem value="Api Holanda" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-code"/>
+                    <p:submenu id="Archivos" label="Archivos" icon="pi pi-fw pi-file">
+                        <p:menuitem id="csv" value="Generar CSV Alemania" outcome="csv.xhtml" icon="pi pi-fw pi-file-excel"/>
+                        <p:menuitem id="api" value="Api Holanda" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-code"/>
                     </p:submenu>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id="Layout_vertical3" layout="vertical"/>
 
-                    <f:facet name="options">
-                        <p:commandButton value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
+                    <f:facet id="messages" name="options">
+                        <p:commandButton id="cerrar_Sesion" value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
                     </f:facet>
                 </p:menubar>
             </h:form>
@@ -73,34 +73,34 @@
         <h2>Datos de una cuenta Pooled</h2>
 
         <h:form id="MostrarPooled">
-            <div class="card">
-                <p:dataTable var="pooled" value="#{mostrarDatosCuentaPooled.cuentas}" emptyMessage="No hay cuentas pooled para mostrar">
-                    <p:column headerText="Identificación propietario">
-                        <h:outputText value="#{pooled.cliente.identificacion}" />
+            <div id="div" class="card">
+                <p:dataTable id="pooled" var="pooled" value="#{mostrarDatosCuentaPooled.cuentas}" emptyMessage="No hay cuentas pooled para mostrar">
+                    <p:column id="Ident" headerText="Identificación propietario">
+                        <h:outputText id="valuePooled" value="#{pooled.cliente.identificacion}" />
                     </p:column>
 
-                    <p:column headerText="IBAN">
-                        <h:outputText value="#{pooled.iban}" />
+                    <p:column id="IBAN" headerText="IBAN">
+                        <h:outputText id="valuePooled1" value="#{pooled.iban}" />
                     </p:column>
 
-                    <p:column headerText="SWIFT">
-                        <h:outputText value="#{pooled.swift}" />
+                    <p:column id="SWIFT" headerText="SWIFT">
+                        <h:outputText id="valuePooled2" value="#{pooled.swift}" />
                     </p:column>
 
-                    <p:column headerText="Estado">
-                        <h:outputText value="#{pooled.estado}" />
+                    <p:column id="Estado" headerText="Estado">
+                        <h:outputText id="valuePooled3" value="#{pooled.estado}" />
                     </p:column>
 
-                    <p:column headerText="Fecha apertura">
-                        <h:outputText value="#{pooled.fechaApertura}" />
+                    <p:column id="apertura" headerText="Fecha apertura">
+                        <h:outputText id="valuePooled4" value="#{pooled.fechaApertura}" />
                     </p:column>
 
-                    <p:column headerText="Fecha cierre">
-                        <h:outputText value="#{pooled.fechaCierre}" />
+                    <p:column id="cierre" headerText="Fecha cierre">
+                        <h:outputText id="valuePooled5" value="#{pooled.fechaCierre}" />
                     </p:column>
 
-                    <p:column headerText="Clasificación">
-                        <h:outputText value="Pooled" />
+                    <p:column id="clasificacion" headerText="Clasificación">
+                        <h:outputText id="valuePooled6" value="Pooled" />
                     </p:column>
                 </p:dataTable>
             </div>
@@ -108,21 +108,21 @@
 
         <h3>Autorizaciones de la cuenta</h3>
         <h:form id="MostarAutorizacion">
-            <div class="card">
-                <p:dataTable var="autorizacion" value="#{mostrarDatosCuentaPooled.autorizaciones}" emptyMessage="No hay autorizaciones que mostrar">
-                    <p:column headerText="Identificación">
-                        <h:outputText value="#{autorizacion.autorizadaId.identificacion}" />
+            <div id="card2" class="card">
+                <p:dataTable id="autorizacion" var="autorizacion" value="#{mostrarDatosCuentaPooled.autorizaciones}" emptyMessage="No hay autorizaciones que mostrar">
+                    <p:column id="Identificación" headerText="Identificación">
+                        <h:outputText id="valueAutorizacion" value="#{autorizacion.autorizadaId.identificacion}" />
                     </p:column>
 
-                    <p:column headerText="Tipo">
-                        <h:outputText value="#{autorizacion.tipo}" />
+                    <p:column id="Tipo" headerText="Tipo">
+                        <h:outputText id="valueAutorizacion1" value="#{autorizacion.tipo}" />
                     </p:column>
 
-                    <p:column headerText="Empresa">
-                        <h:outputText value="#{autorizacion.empresaId.identificacion}" />
+                    <p:column id="Empresa" headerText="Empresa">
+                        <h:outputText id="valueAutorizacion2" value="#{autorizacion.empresaId.identificacion}" />
                     </p:column>
 
-                    <p:column headerText="Eliminar autorización">
+                    <p:column id="eliminarAutorizacion" headerText="Eliminar autorización">
                         <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Eliminar Autorizado"
                             action="#{mostrarDatosCuentaPooled.eliminarAutorizaciones(autorizacion.autorizadaId.id, autorizacion.empresaId.id)}"/>
                     </p:column>
@@ -131,32 +131,32 @@
         </h:form>
 
         <h3>Lista de depositos de la cuenta pooled</h3>
-        <h:form>
-            <a href="NuevaDivisaPooled.xhtml">
-                <p:commandButton type="button" value="Nueva Divisa"/>
+        <h:form id="form2" >
+            <a id="nuevaDivisaPooled" href="NuevaDivisaPooled.xhtml">
+                <p:commandButton id="boton" type="button" value="Nueva Divisa"/>
             </a>
         </h:form>
         <h:form id="Depositos">
-            <div class="card">
-                <p:dataTable var="deposito" value="#{mostrarDatosCuentaPooled.depositos}" emptyMessage="No hay depósitos que mostrar">
-                    <p:column headerText="Iban Referencia">
-                        <h:outputText value="#{deposito.referencia.iban}" />
+            <div id="card3" class="card">
+                <p:dataTable id="deposito" var="deposito" value="#{mostrarDatosCuentaPooled.depositos}" emptyMessage="No hay depósitos que mostrar">
+                    <p:column id="IbanRef" headerText="Iban Referencia">
+                        <h:outputText id="valueDeposito" value="#{deposito.referencia.iban}" />
                     </p:column>
 
-                    <p:column headerText="Saldo">
-                        <h:outputText value="#{deposito.saldo}" />
+                    <p:column id="Saldo" headerText="Saldo">
+                        <h:outputText id="valueDeposito1" value="#{deposito.saldo}" />
                     </p:column>
 
-                    <p:column headerText="Divisa">
-                        <h:outputText value="#{deposito.referencia.divisa.abreviatura}" />
+                    <p:column id="Divisa" headerText="Divisa">
+                        <h:outputText id="valueDeposito2" value="#{deposito.referencia.divisa.abreviatura}" />
                     </p:column>
 
-                    <p:column headerText="Banco">
-                        <h:outputText value="#{deposito.referencia.nombreBanco}" />
+                    <p:column id="Banco" headerText="Banco">
+                        <h:outputText id="valueDeposito3" value="#{deposito.referencia.nombreBanco}" />
                     </p:column>
 
-                    <p:column headerText="Sucursal">
-                        <h:outputText value="#{deposito.referencia.sucursal}" />
+                    <p:column id="Sucursal" headerText="Sucursal">
+                        <h:outputText id="valueDeposito4" value="#{deposito.referencia.sucursal}" />
                     </p:column>
                 </p:dataTable>
             </div>

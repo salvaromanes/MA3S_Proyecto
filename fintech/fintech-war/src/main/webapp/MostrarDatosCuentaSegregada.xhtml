@@ -16,94 +16,94 @@
 <h:body>
     <h:panelGroup rendered="#{sesion.sesion_admin}">
         <div class="card">
-            <h:form>
+            <h:form id = "form">
                 <p:growl id="messages"/>
 
-                <p:menubar>
-                    <p:menuitem value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
+                <p:menubar id = "menubar" >
+                    <p:menuitem id = "inicio" value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
                     </p:menuitem>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id = "layout_vertical" layout="vertical"/>
 
-                    <p:submenu label="Clientes" icon="pi pi-fw pi-users">
-                        <p:menuitem value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:submenu label="Dar alta" icon="pi pi-fw pi-plus">
-                            <p:menuitem value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
-                            <p:menuitem value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
+                    <p:submenu id = "Clientes" label="Clientes" icon="pi pi-fw pi-users">
+                        <p:menuitem id = "ListaClientes" value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:submenu id = "alta" label="Dar alta" icon="pi pi-fw pi-plus">
+                            <p:menuitem id = "Individual" value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
+                            <p:menuitem id = "Jurídico" value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
                         </p:submenu>
                     </p:submenu>
 
-                    <p:submenu label="Personas Autorizadas" icon="pi pi-fw pi-user-plus">
-                        <p:menuitem value="Lista" outcome="ListaPAutorizadas.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:menuitem value="Crear" outcome="DarAltasPAutorizadas.xhtml" icon="pi pi-fw pi-plus"/>
+                    <p:submenu id = "pa" label="Personas Autorizadas" icon="pi pi-fw pi-user-plus">
+                        <p:menuitem id = "ListaPA" value="Lista" outcome="ListaPAutorizadas.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:menuitem id = "crear" value="Crear" outcome="DarAltasPAutorizadas.xhtml" icon="pi pi-fw pi-plus"/>
                     </p:submenu>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id = "layout_vertical2" layout="vertical"/>
 
-                    <p:submenu label="Cuentas" icon="pi pi-fw pi-wallet">
-                        <p:menuitem value="Lista" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:submenu label="Crear" icon="pi pi-fw pi-plus">
-                            <p:menuitem value="Segregada" outcome="CrearCuentaSegregada.xhtml" />
-                            <p:menuitem value="Pooled" outcome="CrearCuentaPooled.xhtml" />
+                    <p:submenu id = "Cuentas" label="Cuentas" icon="pi pi-fw pi-wallet">
+                        <p:menuitem id = "ListaCuentas" value="Lista" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:submenu id = "crear1" label="Crear" icon="pi pi-fw pi-plus">
+                            <p:menuitem id = "Segregada" value="Segregada" outcome="CrearCuentaSegregada.xhtml" />
+                            <p:menuitem id = "Pooled" value="Pooled" outcome="CrearCuentaPooled.xhtml" />
                         </p:submenu>
                     </p:submenu>
 
-                    <p:submenu label="Transacciones" icon="pi pi-fw pi-money-bill">
-                        <p:menuitem value="Lista" outcome="ListaTransacciones.xhtml" icon="pi pi-fw pi-list"/>
+                    <p:submenu id = "Transacciones" label="Transacciones" icon="pi pi-fw pi-money-bill">
+                        <p:menuitem id = "ListaTransacciones" value="Lista" outcome="ListaTransacciones.xhtml" icon="pi pi-fw pi-list"/>
                     </p:submenu>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id = "layout_vertical3" layout="vertical"/>
 
-                    <p:submenu label="Archivos" icon="pi pi-fw pi-file">
-                        <p:menuitem value="Generar CSV Alemania" outcome="csv.xhtml" icon="pi pi-fw pi-file-excel"/>
-                        <p:menuitem value="Api Holanda" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-code"/>
+                    <p:submenu id = "Archivos" label="Archivos" icon="pi pi-fw pi-file">
+                        <p:menuitem id = "csv" value="Generar CSV Alemania" outcome="csv.xhtml" icon="pi pi-fw pi-file-excel"/>
+                        <p:menuitem id = "api" value="Api Holanda" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-code"/>
                     </p:submenu>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id = "layout_vertical4" layout="vertical"/>
 
-                    <f:facet name="options">
-                        <p:commandButton value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
+                    <f:facet id = "options" name="options">
+                        <p:commandButton id = "cerrarSesion" value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
                     </f:facet>
                 </p:menubar>
             </h:form>
         </div>
-    <div class="center">
+    <div id = "div" class="center">
 
         <h2>Datos de una cuenta Segregada</h2>
 
         <h:form id="MostarSegregada">
-            <div class="card">
-                <p:dataTable var="segregada" value="#{mostrarDatosCuentaSegregada.cuentas}" emptyMessage="No hay cuentas segregadas que mostrar">
-                    <p:column headerText="Identificacion Propietario">
-                        <h:outputText value="#{segregada.cliente.identificacion}" />
+            <div id = "div2" class="card">
+                <p:dataTable id = "segregada" var="segregada" value="#{mostrarDatosCuentaSegregada.cuentas}" emptyMessage="No hay cuentas segregadas que mostrar">
+                    <p:column id = "Identificacion" headerText="Identificacion Propietario">
+                        <h:outputText id = "valueSegregado" value="#{segregada.cliente.identificacion}" />
                     </p:column>
 
-                    <p:column headerText="IBAN">
-                        <h:outputText value="#{segregada.iban}" />
+                    <p:column id = "IBAN" headerText="IBAN">
+                        <h:outputText id = "valueSegregado2" value="#{segregada.iban}" />
                     </p:column>
 
-                    <p:column headerText="SWIFT">
-                        <h:outputText value="#{segregada.swift}" />
+                    <p:column id = "SWIFT" headerText="SWIFT">
+                        <h:outputText id = "valueSegregado3" value="#{segregada.swift}" />
                     </p:column>
 
-                    <p:column headerText="Estado">
-                        <h:outputText value="#{segregada.estado}" />
+                    <p:column id = "Estado" headerText="Estado">
+                        <h:outputText id = "valueSegregado4" value="#{segregada.estado}" />
                     </p:column>
 
-                    <p:column headerText="Fecha Apertura">
-                        <h:outputText value="#{segregada.fechaApertura}" />
+                    <p:column id = "Apertura" headerText="Fecha Apertura">
+                        <h:outputText id = "valueSegregado5" value="#{segregada.fechaApertura}" />
                     </p:column>
 
-                    <p:column headerText="Fecha Cierre">
-                        <h:outputText value="#{segregada.fechaCierre}" />
+                    <p:column id = "Cierre" headerText="Fecha Cierre">
+                        <h:outputText id = "valueSegregado6" value="#{segregada.fechaCierre}" />
                     </p:column>
 
-                    <p:column headerText="Clasificacion">
-                        <h:outputText value="Segregada" />
+                    <p:column id = "Clasificacion" headerText="Clasificacion">
+                        <h:outputText id = "valueSegregado7" value="Segregada" />
                     </p:column>
 
-                    <p:column headerText="Comision">
-                        <h:outputText value="#{segregada.comision}" />
+                    <p:column id = "Comision" headerText="Comision">
+                        <h:outputText id = "valueSegregado8" value="#{segregada.comision}" />
                     </p:column>
                 </p:dataTable>
             </div>
@@ -112,21 +112,21 @@
         <h3>Autorizaciones de la cuenta</h3>
 
         <h:form id="MostarAutorizacion">
-            <div class="card">
-                <p:dataTable var="autorizacion" value="#{mostrarDatosCuentaSegregada.autorizaciones}" emptyMessage="No hay autorizaciones que mostrar">
-                    <p:column headerText="Identificacion">
-                        <h:outputText value="#{autorizacion.autorizadaId.identificacion}" />
+            <div id = "div4" class="card">
+                <p:dataTable id = "autorizacion" var="autorizacion" value="#{mostrarDatosCuentaSegregada.autorizaciones}" emptyMessage="No hay autorizaciones que mostrar">
+                    <p:column id = "Identificacion1" headerText="Identificacion">
+                        <h:outputText id = "valueAutorizacion" value="#{autorizacion.autorizadaId.identificacion}" />
                     </p:column>
 
-                    <p:column headerText="Tipo">
-                        <h:outputText value="#{autorizacion.tipo}" />
+                    <p:column id = "Tipo" headerText="Tipo">
+                        <h:outputText id = "valueAutorizacion1" value="#{autorizacion.tipo}" />
                     </p:column>
 
-                    <p:column headerText="Empresa">
-                        <h:outputText value="#{autorizacion.empresaId.identificacion}" />
+                    <p:column id = "Empresa" headerText="Empresa">
+                        <h:outputText id = "valueAutorizacion2" value="#{autorizacion.empresaId.identificacion}" />
                     </p:column>
 
-                    <p:column headerText="Eliminar Autorizacion">
+                    <p:column id = "eliminarAutorizacion" headerText="Eliminar Autorizacion">
                         <p:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Eliminar Autorizado"
                                          action="#{mostrarDatosCuentaSegregada.eliminarAutorizaciones(autorizacion.autorizadaId.id, autorizacion.empresaId.id)}"/>
                     </p:column>
@@ -137,26 +137,26 @@
         <h3>Cuenta de referencia</h3>
 
         <h:form id="MostrarReferencia">
-            <div class="card">
-                <p:dataTable var="referencia" value="#{mostrarDatosCuentaSegregada.cuentas}" emptyMessage="No hay depósitos que mostrar">
-                    <p:column headerText="Iban cuenta referencia">
-                        <h:outputText value="#{referencia.referencia.iban}" />
+            <div id = "div3" class="card">
+                <p:dataTable id = "referencia" var="referencia" value="#{mostrarDatosCuentaSegregada.cuentas}" emptyMessage="No hay depósitos que mostrar">
+                    <p:column id = "Iban" headerText="Iban cuenta referencia">
+                        <h:outputText id = "valueReferencia" value="#{referencia.referencia.iban}" />
                     </p:column>
 
-                    <p:column headerText="Saldo">
-                        <h:outputText value="#{referencia.referencia.saldo}" />
+                    <p:column id = "Saldo" headerText="Saldo">
+                        <h:outputText id = "valueReferencia2" value="#{referencia.referencia.saldo}" />
                     </p:column>
 
-                    <p:column headerText="Divisa">
-                        <h:outputText value="#{referencia.referencia.divisa.abreviatura}" />
+                    <p:column id = "Divisa" headerText="Divisa">
+                        <h:outputText id = "valueReferencia3" value="#{referencia.referencia.divisa.abreviatura}" />
                     </p:column>
 
-                    <p:column headerText="Banco">
-                        <h:outputText value="#{referencia.referencia.nombreBanco}" />
+                    <p:column id = "Banco" headerText="Banco">
+                        <h:outputText id = "valueReferencia4" value="#{referencia.referencia.nombreBanco}" />
                     </p:column>
 
-                    <p:column headerText="Sucursal">
-                        <h:outputText value="#{referencia.referencia.sucursal}" />
+                    <p:column id = "Sucursal" headerText="Sucursal">
+                        <h:outputText id = "valueReferencia5" value="#{referencia.referencia.sucursal}" />
                     </p:column>
                 </p:dataTable>
             </div>
