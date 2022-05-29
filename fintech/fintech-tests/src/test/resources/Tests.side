@@ -24,11 +24,15 @@
       "id": "ef970831-616d-4a11-9dc5-8f13a12a738b",
       "comment": "",
       "command": "click",
-      "target": "css=li:nth-child(5) b",
+      "target": "id=admin",
       "targets": [
-        ["css=li:nth-child(5) b", "css:finder"],
-        ["xpath=//li[5]/a/b", "xpath:position"],
-        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+        ["id=admin", "id"],
+        ["linkText=Inicio Sesión Administrador", "linkText"],
+        ["css=#admin", "css:finder"],
+        ["xpath=//a[@id='admin']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'admin.xhtml')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -41,7 +45,7 @@
         ["name=index:user", "name"],
         ["css=#index\\3Auser", "css:finder"],
         ["xpath=//input[@id='index:user']", "xpath:attributes"],
-        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//table[@id='index:casillas']/tbody/tr/td[2]/input", "xpath:idRelative"],
         ["xpath=//td[2]/input", "xpath:position"]
       ],
       "value": ""
@@ -91,7 +95,7 @@
       "id": "694e1577-996d-470d-80e1-0ca42808d26b",
       "comment": "",
       "command": "click",
-      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "target": "id=index:botonIniciarSesion",
       "targets": [
         ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
@@ -121,11 +125,15 @@
       "id": "9d2b4542-927b-4802-a75d-010dcc394bbc",
       "comment": "",
       "command": "click",
-      "target": "css=li:nth-child(5) b",
+      "target": "id=admin",
       "targets": [
-        ["css=li:nth-child(5) b", "css:finder"],
-        ["xpath=//li[5]/a/b", "xpath:position"],
-        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+        ["id=admin", "id"],
+        ["linkText=Inicio Sesión Administrador", "linkText"],
+        ["css=#admin", "css:finder"],
+        ["xpath=//a[@id='admin']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'admin.xhtml')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -188,7 +196,7 @@
       "id": "cd84d6d8-5334-457f-93ea-fd2bfc3b7cd1",
       "comment": "",
       "command": "click",
-      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "target": "id=index:botonIniciarSesion",
       "targets": [
         ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
@@ -204,7 +212,7 @@
       "targets": [
         ["linkText=Clientes", "linkText"],
         ["css=.ui-state-hover", "css:finder"],
-        ["xpath=//li[@id='f:c']/a", "xpath:idRelative"],
+        ["xpath=//li[@id='formExterior:submenuClientes']/a", "xpath:idRelative"],
         ["xpath=//a[contains(@href, '#')]", "xpath:href"],
         ["xpath=//li[3]/a", "xpath:position"],
         ["xpath=//a[contains(.,'Clientes')]", "xpath:innerText"]
@@ -213,12 +221,12 @@
     }, {
       "id": "30513285-6688-43e9-ad95-5a800a5eec6d",
       "comment": "",
-      "command": "clickAt",
+      "command": "click",
       "target": "linkText=Dar alta",
       "targets": [
         ["linkText=Dar alta", "linkText"],
-        ["css=#f\\3A da > .ui-menuitem-link", "css:finder"],
-        ["xpath=//li[@id='f:da']/a", "xpath:idRelative"],
+        ["css=#formExterior\\3AsubmenuAlta > .ui-menuitem-link", "css:finder"],
+        ["xpath=//li[@id='formExterior:submenuAlta']/a", "xpath:idRelative"],
         ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
         ["xpath=//li[2]/a", "xpath:position"],
         ["xpath=//a[contains(.,'Dar alta')]", "xpath:innerText"]
@@ -228,13 +236,13 @@
       "id": "ceb32b17-b3b6-4dbb-ade6-46fe2124edfd",
       "comment": "",
       "command": "click",
-      "target": "id=f:daindi",
+      "target": "id=formExterior:Individual",
       "targets": [
-        ["id=f:daindi", "id"],
+        ["id=formExterior:Individual", "id"],
         ["linkText=Individual", "linkText"],
-        ["css=#f\\3A daindi", "css:finder"],
-        ["xpath=//a[@id='f:daindi']", "xpath:attributes"],
-        ["xpath=//li[@id='f:da']/ul/li/a", "xpath:idRelative"],
+        ["css=#formExterior\\3AIndividual", "css:finder"],
+        ["xpath=//a[@id='formExterior:Individual']", "xpath:attributes"],
+        ["xpath=//li[@id='formExterior:submenuAlta']/ul/li/a", "xpath:idRelative"],
         ["xpath=//a[contains(@href, '/fintech-war/DarAltasClientesAdmin.xhtml')]", "xpath:href"],
         ["xpath=//li[2]/ul/li/a", "xpath:position"],
         ["xpath=//a[contains(.,'Individual')]", "xpath:innerText"]
@@ -440,7 +448,7 @@
       "id": "7360beaa-3ee1-4f30-91a7-411fa5c2da26",
       "comment": "",
       "command": "click",
-      "target": "css=#DarAltaClienteAdministrador\\3A darAltaIndividual > .ui-button-text",
+      "target": "id=DarAltaClienteAdministrador:darAltaIndividual",
       "targets": [
         ["css=#DarAltaClienteAdministrador\\3A darAltaIndividual > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='DarAltaClienteAdministrador:darAltaIndividual']/span[2]", "xpath:idRelative"],
@@ -469,11 +477,15 @@
       "id": "2f61a36d-0202-4153-b295-378381cdee0f",
       "comment": "",
       "command": "click",
-      "target": "css=li:nth-child(5) b",
+      "target": "id=admin",
       "targets": [
-        ["css=li:nth-child(5) b", "css:finder"],
-        ["xpath=//li[5]/a/b", "xpath:position"],
-        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+        ["id=admin", "id"],
+        ["linkText=Inicio Sesión Administrador", "linkText"],
+        ["css=#admin", "css:finder"],
+        ["xpath=//a[@id='admin']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'admin.xhtml')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -536,7 +548,7 @@
       "id": "3bab0b9e-c5f8-4cb9-bb82-e449d18e63c7",
       "comment": "",
       "command": "click",
-      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "target": "id=index:botonIniciarSesion",
       "targets": [
         ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
@@ -561,14 +573,14 @@
     }, {
       "id": "8d12854e-3485-45f7-8f15-11ead3b0291c",
       "comment": "",
-      "command": "clickAt",
-      "target": "id=f:lc",
+      "command": "click",
+      "target": "id=formExterior:listaClientes",
       "targets": [
-        ["id=f:lc", "id"],
+        ["id=formExterior:listaClientes", "id"],
         ["linkText=Lista clientes", "linkText"],
-        ["css=#f\\3Alc", "css:finder"],
-        ["xpath=//a[@id='f:lc']", "xpath:attributes"],
-        ["xpath=//li[@id='f:c']/ul/li/a", "xpath:idRelative"],
+        ["css=#formExterior\\3AlistaClientes", "css:finder"],
+        ["xpath=//a[@id='formExterior:listaClientes']", "xpath:attributes"],
+        ["xpath=//li[@id='formExterior:submenuClientes']/ul/li/a", "xpath:idRelative"],
         ["xpath=//a[contains(@href, '/fintech-war/Listaclientes.xhtml')]", "xpath:href"],
         ["xpath=//li[3]/ul/li/a", "xpath:position"],
         ["xpath=//a[contains(.,'Lista clientes')]", "xpath:innerText"]
@@ -577,47 +589,47 @@
     }, {
       "id": "263126a0-1e24-4c6e-b332-19254e66087e",
       "comment": "",
-      "command": "clickAt",
-      "target": "css=#formularioParaIndividuales\\3AtablaConListaIndividuales\\3A 1\\3A campoBotonModificar > .ui-button-text",
+      "command": "click",
+      "target": "id=formularioParaEmpresas:tablaConListaEmpresa:0:botonModificarEmpresa",
       "targets": [
-        ["css=#formularioParaIndividuales\\3AtablaConListaIndividuales\\3A 1\\3A campoBotonModificar > .ui-button-text", "css:finder"],
-        ["xpath=//button[@id='formularioParaIndividuales:tablaConListaIndividuales:1:campoBotonModificar']/span", "xpath:idRelative"],
-        ["xpath=//tr[2]/td[12]/button/span", "xpath:position"]
+        ["css=#formularioParaEmpresas\\3AtablaConListaEmpresa\\3A 0\\3A botonModificarEmpresa > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='formularioParaEmpresas:tablaConListaEmpresa:0:botonModificarEmpresa']/span", "xpath:idRelative"],
+        ["xpath=//td[11]/button/span", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "8a080fce-6d67-4c69-990c-e084b65d97d5",
       "comment": "",
       "command": "click",
-      "target": "id=form:Dirección1",
+      "target": "id=form:j_idt40",
       "targets": [
-        ["id=form:Dirección1", "id"],
-        ["name=form:Dirección1", "name"],
-        ["css=#form\\3A Direcci\\F3n1", "css:finder"],
-        ["xpath=//input[@id='form:Dirección1']", "xpath:attributes"],
-        ["xpath=//table[@id='form:datos']/tbody/tr[10]/td/input", "xpath:idRelative"],
-        ["xpath=//tr[10]/td/input", "xpath:position"]
+        ["id=form:j_idt40", "id"],
+        ["name=form:j_idt40", "name"],
+        ["css=#form\\3Aj_idt40", "css:finder"],
+        ["xpath=//input[@id='form:j_idt40']", "xpath:attributes"],
+        ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[6]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[6]/td/input", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "2ef8fb63-edbb-4f4c-8f17-b1b82eaa0618",
       "comment": "",
       "command": "type",
-      "target": "id=form:Dirección1",
+      "target": "id=form:j_idt40",
       "targets": [
-        ["id=form:Dirección1", "id"],
-        ["name=form:Dirección1", "name"],
-        ["css=#form\\3A Direcci\\F3n1", "css:finder"],
-        ["xpath=//input[@id='form:Dirección1']", "xpath:attributes"],
-        ["xpath=//table[@id='form:datos']/tbody/tr[10]/td/input", "xpath:idRelative"],
-        ["xpath=//tr[10]/td/input", "xpath:position"]
+        ["id=form:j_idt40", "id"],
+        ["name=form:j_idt40", "name"],
+        ["css=#form\\3Aj_idt40", "css:finder"],
+        ["xpath=//input[@id='form:j_idt40']", "xpath:attributes"],
+        ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[6]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[6]/td/input", "xpath:position"]
       ],
       "value": "Mijas"
     }, {
       "id": "6cfef671-0ad1-464f-8fbf-fc4688639391",
       "comment": "",
       "command": "click",
-      "target": "css=.ui-button-text:nth-child(1)",
+      "target": "id=form:modificar",
       "targets": [
         ["css=.ui-button-text:nth-child(1)", "css:finder"],
         ["xpath=//button[@id='form:modificar']/span", "xpath:idRelative"],
@@ -646,11 +658,15 @@
       "id": "01ca7b21-de26-476c-9d50-fd0071f1b941",
       "comment": "",
       "command": "click",
-      "target": "css=li:nth-child(5) b",
+      "target": "id=admin",
       "targets": [
-        ["css=li:nth-child(5) b", "css:finder"],
-        ["xpath=//li[5]/a/b", "xpath:position"],
-        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+        ["id=admin", "id"],
+        ["linkText=Inicio Sesión Administrador", "linkText"],
+        ["css=#admin", "css:finder"],
+        ["xpath=//a[@id='admin']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'admin.xhtml')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -713,7 +729,7 @@
       "id": "b5cc2741-d158-4c2e-81df-20c5e79a6120",
       "comment": "",
       "command": "click",
-      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "target": "id=index:botonIniciarSesion",
       "targets": [
         ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
@@ -738,14 +754,14 @@
     }, {
       "id": "d121e898-10c4-40f8-9bb5-05bbad331c10",
       "comment": "",
-      "command": "clickAt",
-      "target": "id=f:lc",
+      "command": "click",
+      "target": "id=formExterior:listaClientes",
       "targets": [
-        ["id=f:lc", "id"],
+        ["id=formExterior:listaClientes", "id"],
         ["linkText=Lista clientes", "linkText"],
-        ["css=#f\\3Alc", "css:finder"],
-        ["xpath=//a[@id='f:lc']", "xpath:attributes"],
-        ["xpath=//li[@id='f:c']/ul/li/a", "xpath:idRelative"],
+        ["css=#formExterior\\3AlistaClientes", "css:finder"],
+        ["xpath=//a[@id='formExterior:listaClientes']", "xpath:attributes"],
+        ["xpath=//li[@id='formExterior:submenuClientes']/ul/li/a", "xpath:idRelative"],
         ["xpath=//a[contains(@href, '/fintech-war/Listaclientes.xhtml')]", "xpath:href"],
         ["xpath=//li[3]/ul/li/a", "xpath:position"],
         ["xpath=//a[contains(.,'Lista clientes')]", "xpath:innerText"]
@@ -754,8 +770,8 @@
     }, {
       "id": "2e7929f6-c06d-4c52-b417-8f2ca6e05072",
       "comment": "",
-      "command": "clickAt",
-      "target": "css=#formularioParaIndividuales\\3AtablaConListaIndividuales\\3A 1\\3A campoBotonDarBaja2 > .ui-button-text",
+      "command": "click",
+      "target": "xpath=//button[@id='formularioParaIndividuales:tablaConListaIndividuales:1:campoBotonDarBaja2']/span",
       "targets": [
         ["css=#formularioParaIndividuales\\3AtablaConListaIndividuales\\3A 1\\3A campoBotonDarBaja2 > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='formularioParaIndividuales:tablaConListaIndividuales:1:campoBotonDarBaja2']/span", "xpath:idRelative"],
@@ -784,10 +800,12 @@
       "id": "7915e516-fefa-4bc6-95d3-3e5d4ebfbb95",
       "comment": "",
       "command": "click",
-      "target": "linkText=Inicio Sesión Administrador",
+      "target": "id=admin",
       "targets": [
+        ["id=admin", "id"],
         ["linkText=Inicio Sesión Administrador", "linkText"],
-        ["css=li:nth-child(5) > a", "css:finder"],
+        ["css=#admin", "css:finder"],
+        ["xpath=//a[@id='admin']", "xpath:attributes"],
         ["xpath=//a[contains(@href, 'admin.xhtml')]", "xpath:href"],
         ["xpath=//li[5]/a", "xpath:position"],
         ["xpath=//a[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
@@ -853,7 +871,7 @@
       "id": "a04fe23a-7c75-48a2-a907-75921509fb18",
       "comment": "",
       "command": "click",
-      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "target": "id=index:botonIniciarSesion",
       "targets": [
         ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
@@ -878,7 +896,7 @@
     }, {
       "id": "b35032ab-7bd0-453d-8e7f-e3ec6de467b1",
       "comment": "",
-      "command": "clickAt",
+      "command": "click",
       "target": "linkText=Crear",
       "targets": [
         ["linkText=Crear", "linkText"],
@@ -891,12 +909,14 @@
     }, {
       "id": "30ea4f8e-9e94-4afa-85f2-82d21ba926a9",
       "comment": "",
-      "command": "clickAt",
-      "target": "linkText=Segregada",
+      "command": "click",
+      "target": "id=formExterior:crearSegregada",
       "targets": [
+        ["id=formExterior:crearSegregada", "id"],
         ["linkText=Segregada", "linkText"],
-        ["css=.ui-menuitem-active:nth-child(1) > .ui-menuitem-link", "css:finder"],
-        ["xpath=//div[@id='f:m']/ul/li[6]/ul/li[2]/ul/li/a", "xpath:idRelative"],
+        ["css=#formExterior\\3A crearSegregada", "css:finder"],
+        ["xpath=//a[@id='formExterior:crearSegregada']", "xpath:attributes"],
+        ["xpath=//li[@id='formExterior:submenuCrear']/ul/li/a", "xpath:idRelative"],
         ["xpath=//a[contains(@href, '/fintech-war/CrearCuentaSegregada.xhtml')]", "xpath:href"],
         ["xpath=//li[6]/ul/li[2]/ul/li/a", "xpath:position"],
         ["xpath=//a[contains(.,'Segregada')]", "xpath:innerText"]
@@ -1018,7 +1038,7 @@
       "id": "6d286286-22b2-4214-acca-4594400f684a",
       "comment": "",
       "command": "click",
-      "target": "css=#crearCuenta\\3AsaveBtn > .ui-button-text",
+      "target": "id=crearCuenta:saveBtn",
       "targets": [
         ["css=#crearCuenta\\3AsaveBtn > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='crearCuenta:saveBtn']/span[2]", "xpath:idRelative"],
@@ -1048,11 +1068,15 @@
       "id": "49c747ea-cd69-41cc-820d-2a9d384ec010",
       "comment": "",
       "command": "click",
-      "target": "css=li:nth-child(5) b",
+      "target": "id=admin",
       "targets": [
-        ["css=li:nth-child(5) b", "css:finder"],
-        ["xpath=//li[5]/a/b", "xpath:position"],
-        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+        ["id=admin", "id"],
+        ["linkText=Inicio Sesión Administrador", "linkText"],
+        ["css=#admin", "css:finder"],
+        ["xpath=//a[@id='admin']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'admin.xhtml')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -1115,7 +1139,7 @@
       "id": "01d9ac71-07d2-4e4c-9bf6-605b7a09a9ca",
       "comment": "",
       "command": "click",
-      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "target": "id=index:botonIniciarSesion",
       "targets": [
         ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
@@ -1140,14 +1164,14 @@
     }, {
       "id": "6e5ec875-710e-47f8-8303-4f331ae3aa23",
       "comment": "",
-      "command": "clickAt",
-      "target": "id=f:lc",
+      "command": "click",
+      "target": "id=formExterior:listaClientes",
       "targets": [
-        ["id=f:lc", "id"],
+        ["id=formExterior:listaClientes", "id"],
         ["linkText=Lista clientes", "linkText"],
-        ["css=#f\\3Alc", "css:finder"],
-        ["xpath=//a[@id='f:lc']", "xpath:attributes"],
-        ["xpath=//li[@id='f:c']/ul/li/a", "xpath:idRelative"],
+        ["css=#formExterior\\3AlistaClientes", "css:finder"],
+        ["xpath=//a[@id='formExterior:listaClientes']", "xpath:attributes"],
+        ["xpath=//li[@id='formExterior:submenuClientes']/ul/li/a", "xpath:idRelative"],
         ["xpath=//a[contains(@href, '/fintech-war/Listaclientes.xhtml')]", "xpath:href"],
         ["xpath=//li[3]/ul/li/a", "xpath:position"],
         ["xpath=//a[contains(.,'Lista clientes')]", "xpath:innerText"]
@@ -1156,8 +1180,8 @@
     }, {
       "id": "d56a0089-d774-4cf4-9158-0786966b4811",
       "comment": "",
-      "command": "clickAt",
-      "target": "css=#formularioParaEmpresas\\3AtablaConListaEmpresa\\3A 0\\3A botonAnadirAutorizado > .ui-button-text",
+      "command": "click",
+      "target": "id=formularioParaEmpresas:tablaConListaEmpresa:0:botonAnadirAutorizado",
       "targets": [
         ["css=#formularioParaEmpresas\\3AtablaConListaEmpresa\\3A 0\\3A botonAnadirAutorizado > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='formularioParaEmpresas:tablaConListaEmpresa:0:botonAnadirAutorizado']/span", "xpath:idRelative"],
@@ -1168,12 +1192,12 @@
       "id": "9dbd91f6-f5f3-46e2-8f6a-590258add2c3",
       "comment": "",
       "command": "click",
-      "target": "id=form:j_idt38",
+      "target": "id=form:idaut3",
       "targets": [
-        ["id=form:j_idt38", "id"],
-        ["name=form:j_idt38", "name"],
-        ["css=#form\\3Aj_idt38", "css:finder"],
-        ["xpath=//input[@id='form:j_idt38']", "xpath:attributes"],
+        ["id=form:idaut3", "id"],
+        ["name=form:idaut3", "name"],
+        ["css=#form\\3Aidaut3", "css:finder"],
+        ["xpath=//input[@id='form:idaut3']", "xpath:attributes"],
         ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[4]/td/input", "xpath:idRelative"],
         ["xpath=//td/input", "xpath:position"]
       ],
@@ -1182,12 +1206,12 @@
       "id": "6261ea89-68e9-4014-a8d3-cb6683a84a0f",
       "comment": "",
       "command": "type",
-      "target": "id=form:j_idt38",
+      "target": "id=form:idaut3",
       "targets": [
-        ["id=form:j_idt38", "id"],
-        ["name=form:j_idt38", "name"],
-        ["css=#form\\3Aj_idt38", "css:finder"],
-        ["xpath=//input[@id='form:j_idt38']", "xpath:attributes"],
+        ["id=form:idaut3", "id"],
+        ["name=form:idaut3", "name"],
+        ["css=#form\\3Aidaut3", "css:finder"],
+        ["xpath=//input[@id='form:idaut3']", "xpath:attributes"],
         ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[4]/td/input", "xpath:idRelative"],
         ["xpath=//td/input", "xpath:position"]
       ],
@@ -1196,12 +1220,12 @@
       "id": "22c8933d-ad4b-40b6-92e9-23fd35d00525",
       "comment": "",
       "command": "click",
-      "target": "id=form:j_idt40",
+      "target": "id=form:modo3",
       "targets": [
-        ["id=form:j_idt40", "id"],
-        ["name=form:j_idt40", "name"],
-        ["css=#form\\3Aj_idt40", "css:finder"],
-        ["xpath=//input[@id='form:j_idt40']", "xpath:attributes"],
+        ["id=form:modo3", "id"],
+        ["name=form:modo3", "name"],
+        ["css=#form\\3Amodo3", "css:finder"],
+        ["xpath=//input[@id='form:modo3']", "xpath:attributes"],
         ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[6]/td/input", "xpath:idRelative"],
         ["xpath=//tr[6]/td/input", "xpath:position"]
       ],
@@ -1210,12 +1234,12 @@
       "id": "c7090324-6ab4-4331-a749-06b500bd4af4",
       "comment": "",
       "command": "type",
-      "target": "id=form:j_idt40",
+      "target": "id=form:modo3",
       "targets": [
-        ["id=form:j_idt40", "id"],
-        ["name=form:j_idt40", "name"],
-        ["css=#form\\3Aj_idt40", "css:finder"],
-        ["xpath=//input[@id='form:j_idt40']", "xpath:attributes"],
+        ["id=form:modo3", "id"],
+        ["name=form:modo3", "name"],
+        ["css=#form\\3Amodo3", "css:finder"],
+        ["xpath=//input[@id='form:modo3']", "xpath:attributes"],
         ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[6]/td/input", "xpath:idRelative"],
         ["xpath=//tr[6]/td/input", "xpath:position"]
       ],
@@ -1224,7 +1248,7 @@
       "id": "eb051579-343f-4c27-8397-a61937d00872",
       "comment": "",
       "command": "click",
-      "target": "css=.ui-button-text:nth-child(1)",
+      "target": "id=form:modificar",
       "targets": [
         ["css=.ui-button-text:nth-child(1)", "css:finder"],
         ["xpath=//button[@id='form:modificar']/span", "xpath:idRelative"],
@@ -1254,11 +1278,15 @@
       "id": "08278861-f4bb-4e8e-a748-c230f9cc03ee",
       "comment": "",
       "command": "click",
-      "target": "css=li:nth-child(5) b",
+      "target": "id=admin",
       "targets": [
-        ["css=li:nth-child(5) b", "css:finder"],
-        ["xpath=//li[5]/a/b", "xpath:position"],
-        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+        ["id=admin", "id"],
+        ["linkText=Inicio Sesión Administrador", "linkText"],
+        ["css=#admin", "css:finder"],
+        ["xpath=//a[@id='admin']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'admin.xhtml')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -1321,7 +1349,7 @@
       "id": "fe385a34-b612-4610-9463-9c25688a7b0b",
       "comment": "",
       "command": "click",
-      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "target": "id=index:botonIniciarSesion",
       "targets": [
         ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
@@ -1346,12 +1374,14 @@
     }, {
       "id": "808cb7b5-c21d-41d2-8168-f335910a2e6c",
       "comment": "",
-      "command": "clickAt",
-      "target": "linkText=Lista",
+      "command": "click",
+      "target": "id=formExterior:listaPAutorizadas",
       "targets": [
+        ["id=formExterior:listaPAutorizadas", "id"],
         ["linkText=Lista", "linkText"],
-        ["css=.ui-menuitem-active:nth-child(1) > .ui-menuitem-link", "css:finder"],
-        ["xpath=//div[@id='f:m']/ul/li[4]/ul/li/a", "xpath:idRelative"],
+        ["css=#formExterior\\3AlistaPAutorizadas", "css:finder"],
+        ["xpath=//a[@id='formExterior:listaPAutorizadas']", "xpath:attributes"],
+        ["xpath=//li[@id='formExterior:submenuPAutorizadas']/ul/li/a", "xpath:idRelative"],
         ["xpath=//a[contains(@href, '/fintech-war/ListaPAutorizadas.xhtml')]", "xpath:href"],
         ["xpath=//li[4]/ul/li/a", "xpath:position"]
       ],
@@ -1360,23 +1390,23 @@
       "id": "067e95a6-7258-4b14-a934-812c7a08403a",
       "comment": "",
       "command": "click",
-      "target": "css=#j_idt34\\3Aj_idt35\\3A 1\\3Aj_idt55 > .ui-button-text",
+      "target": "id=form:paut:0:botMod",
       "targets": [
-        ["css=#j_idt34\\3Aj_idt35\\3A 1\\3Aj_idt55 > .ui-button-text", "css:finder"],
-        ["xpath=//button[@id='j_idt34:j_idt35:1:j_idt55']/span", "xpath:idRelative"],
-        ["xpath=//tr[2]/td[10]/button/span", "xpath:position"]
+        ["css=#form\\3Apaut\\3A 0\\3A botMod > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='form:paut:0:botMod']/span", "xpath:idRelative"],
+        ["xpath=//td[10]/button/span", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "238771e0-7bbf-47b8-9aa1-8bfd59db038c",
       "comment": "",
       "command": "click",
-      "target": "id=form:j_idt42",
+      "target": "id=form:s1",
       "targets": [
-        ["id=form:j_idt42", "id"],
-        ["name=form:j_idt42", "name"],
-        ["css=#form\\3Aj_idt42", "css:finder"],
-        ["xpath=//input[@id='form:j_idt42']", "xpath:attributes"],
+        ["id=form:s1", "id"],
+        ["name=form:s1", "name"],
+        ["css=#form\\3As1", "css:finder"],
+        ["xpath=//input[@id='form:s1']", "xpath:attributes"],
         ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[8]/td/input", "xpath:idRelative"],
         ["xpath=//tr[8]/td/input", "xpath:position"]
       ],
@@ -1385,12 +1415,12 @@
       "id": "8736207d-8525-4da5-ae7a-1751cfc728b6",
       "comment": "",
       "command": "type",
-      "target": "id=form:j_idt42",
+      "target": "id=form:s1",
       "targets": [
-        ["id=form:j_idt42", "id"],
-        ["name=form:j_idt42", "name"],
-        ["css=#form\\3Aj_idt42", "css:finder"],
-        ["xpath=//input[@id='form:j_idt42']", "xpath:attributes"],
+        ["id=form:s1", "id"],
+        ["name=form:s1", "name"],
+        ["css=#form\\3As1", "css:finder"],
+        ["xpath=//input[@id='form:s1']", "xpath:attributes"],
         ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[8]/td/input", "xpath:idRelative"],
         ["xpath=//tr[8]/td/input", "xpath:position"]
       ],
@@ -1399,7 +1429,7 @@
       "id": "4d9718bc-fdba-4ef4-a2f8-7b0f4d4d9648",
       "comment": "",
       "command": "click",
-      "target": "css=.ui-button-text:nth-child(1)",
+      "target": "id=form:modificar",
       "targets": [
         ["css=.ui-button-text:nth-child(1)", "css:finder"],
         ["xpath=//button[@id='form:modificar']/span", "xpath:idRelative"],
@@ -1428,11 +1458,15 @@
       "id": "d7750069-a156-4936-8b7b-c6b2095506da",
       "comment": "",
       "command": "click",
-      "target": "css=li:nth-child(5) b",
+      "target": "id=admin",
       "targets": [
-        ["css=li:nth-child(5) b", "css:finder"],
-        ["xpath=//li[5]/a/b", "xpath:position"],
-        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+        ["id=admin", "id"],
+        ["linkText=Inicio Sesión Administrador", "linkText"],
+        ["css=#admin", "css:finder"],
+        ["xpath=//a[@id='admin']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'admin.xhtml')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -1495,7 +1529,7 @@
       "id": "5c2fbaa3-5db3-4a14-bebe-102f05f475d8",
       "comment": "",
       "command": "click",
-      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "target": "id=index:botonIniciarSesion",
       "targets": [
         ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
@@ -1520,12 +1554,14 @@
     }, {
       "id": "3835037f-e178-439f-8247-5a9e41ad21d5",
       "comment": "",
-      "command": "clickAt",
-      "target": "linkText=Lista",
+      "command": "click",
+      "target": "id=formExterior:listaCuentas",
       "targets": [
+        ["id=formExterior:listaCuentas", "id"],
         ["linkText=Lista", "linkText"],
-        ["css=.ui-menuitem-active:nth-child(1) > .ui-menuitem-link", "css:finder"],
-        ["xpath=//div[@id='f:m']/ul/li[6]/ul/li/a", "xpath:idRelative"],
+        ["css=#formExterior\\3AlistaCuentas", "css:finder"],
+        ["xpath=//a[@id='formExterior:listaCuentas']", "xpath:attributes"],
+        ["xpath=//li[@id='formExterior:submenuCuentas']/ul/li/a", "xpath:idRelative"],
         ["xpath=//a[contains(@href, '/fintech-war/Listacuentas.xhtml')]", "xpath:href"],
         ["xpath=//li[6]/ul/li/a", "xpath:position"]
       ],
@@ -1534,22 +1570,23 @@
       "id": "446c0ce8-07e3-4e17-8012-bf75cc6b365d",
       "comment": "",
       "command": "click",
-      "target": "css=#j_idt55\\3Aj_idt56\\3A 0\\3Aj_idt74 > .ui-button-text",
+      "target": "id=form2:segr:0:det",
       "targets": [
-        ["css=#j_idt55\\3Aj_idt56\\3A 0\\3Aj_idt74 > .ui-button-text", "css:finder"],
-        ["xpath=//button[@id='j_idt55:j_idt56:0:j_idt74']/span", "xpath:idRelative"],
-        ["xpath=//div[3]/form/div/div[2]/table/tbody/tr/td[9]/button/span", "xpath:position"]
+        ["css=#form2\\3Asegr\\3A 0\\3A det > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='form2:segr:0:det']/span", "xpath:idRelative"],
+        ["xpath=//div[3]/form/div/div/table/tbody/tr/td[9]/button/span", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "709c4f9c-4e08-436a-bf84-eb47a6902f95",
       "comment": "",
       "command": "click",
-      "target": "css=#MostarAutorizacion\\3Aj_idt55\\3A 1\\3A botonIniciarSesion > .ui-button-text",
+      "target": "id=MostarAutorizacion:autorizacion:0:botonIniciarSesion",
       "targets": [
-        ["css=#MostarAutorizacion\\3Aj_idt55\\3A 1\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
-        ["xpath=//button[@id='MostarAutorizacion:j_idt55:1:botonIniciarSesion']/span", "xpath:idRelative"],
-        ["xpath=//tr[2]/td[4]/button/span", "xpath:position"]
+        ["css=#MostarAutorizacion\\3A autorizacion\\3A 0\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='MostarAutorizacion:autorizacion:0:botonIniciarSesion']/span", "xpath:idRelative"],
+        ["xpath=//td[4]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Eliminar Autorizado')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -1574,10 +1611,12 @@
       "id": "71d58a85-75e7-4afc-a4cb-e0d1b4006b0c",
       "comment": "",
       "command": "click",
-      "target": "linkText=Inicio Sesión Administrador",
+      "target": "id=admin",
       "targets": [
+        ["id=admin", "id"],
         ["linkText=Inicio Sesión Administrador", "linkText"],
-        ["css=li:nth-child(5) > a", "css:finder"],
+        ["css=#admin", "css:finder"],
+        ["xpath=//a[@id='admin']", "xpath:attributes"],
         ["xpath=//a[contains(@href, 'admin.xhtml')]", "xpath:href"],
         ["xpath=//li[5]/a", "xpath:position"],
         ["xpath=//a[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
@@ -1643,7 +1682,7 @@
       "id": "7de37a18-1206-495b-991b-d76d99244c83",
       "comment": "",
       "command": "click",
-      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "target": "id=index:botonIniciarSesion",
       "targets": [
         ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
@@ -1668,12 +1707,14 @@
     }, {
       "id": "9ff03536-628b-4b1c-b7dd-60c800db5dbd",
       "comment": "",
-      "command": "clickAt",
-      "target": "linkText=Lista",
+      "command": "click",
+      "target": "id=formExterior:listaCuentas",
       "targets": [
+        ["id=formExterior:listaCuentas", "id"],
         ["linkText=Lista", "linkText"],
-        ["css=.ui-menuitem-active:nth-child(1) > .ui-menuitem-link", "css:finder"],
-        ["xpath=//div[@id='f:m']/ul/li[6]/ul/li/a", "xpath:idRelative"],
+        ["css=#formExterior\\3AlistaCuentas", "css:finder"],
+        ["xpath=//a[@id='formExterior:listaCuentas']", "xpath:attributes"],
+        ["xpath=//li[@id='formExterior:submenuCuentas']/ul/li/a", "xpath:idRelative"],
         ["xpath=//a[contains(@href, '/fintech-war/Listacuentas.xhtml')]", "xpath:href"],
         ["xpath=//li[6]/ul/li/a", "xpath:position"]
       ],
@@ -1682,10 +1723,10 @@
       "id": "6cbd1f35-af9c-4e0e-84ff-65daded80643",
       "comment": "",
       "command": "click",
-      "target": "css=#j_idt55\\3Aj_idt56\\3A 1\\3Aj_idt72 > .ui-button-text",
+      "target": "xpath=//button[@id='form2:segr:1:cerr']/span",
       "targets": [
-        ["css=#j_idt55\\3Aj_idt56\\3A 1\\3Aj_idt72 > .ui-button-text", "css:finder"],
-        ["xpath=//button[@id='j_idt55:j_idt56:1:j_idt72']/span", "xpath:idRelative"],
+        ["css=#form2\\3Asegr\\3A 1\\3A cerr > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='form2:segr:1:cerr']/span", "xpath:idRelative"],
         ["xpath=//tr[2]/td[8]/button/span", "xpath:position"]
       ],
       "value": ""
@@ -1711,10 +1752,12 @@
       "id": "d8352fff-e001-4507-af49-d32f2ba90742",
       "comment": "",
       "command": "click",
-      "target": "linkText=Inicio Sesión Cliente",
+      "target": "id=index",
       "targets": [
+        ["id=index", "id"],
         ["linkText=Inicio Sesión Cliente", "linkText"],
-        ["css=li:nth-child(4) > a", "css:finder"],
+        ["css=#index", "css:finder"],
+        ["xpath=//a[@id='index']", "xpath:attributes"],
         ["xpath=//a[contains(@href, 'index.xhtml')]", "xpath:href"],
         ["xpath=//li[4]/a", "xpath:position"],
         ["xpath=//a[contains(.,'Inicio Sesión Cliente')]", "xpath:innerText"]
@@ -1780,7 +1823,7 @@
       "id": "f222bce8-0b2f-4906-aed3-8bda6c54ff45",
       "comment": "",
       "command": "click",
-      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "target": "id=index:botonIniciarSesion",
       "targets": [
         ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
         ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
