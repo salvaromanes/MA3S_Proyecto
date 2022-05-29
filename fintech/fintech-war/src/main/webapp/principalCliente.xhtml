@@ -37,10 +37,12 @@
 
         <div class="contenedor">
             <div class="datos">
-                <h3>Cliente</h3>
                 <p:panelGrid columns="2" rendered="#{sesion.es_cliente}">
                     <f:facet name="header">
                         <img src="imagenes/user.png" alt="" width="100"/>
+                    </f:facet>
+                    <f:facet name="header">
+                        <h:outputText value="Cliente"/>
                     </f:facet>
 
                     <h:outputText value="Usuario:"/>
@@ -57,10 +59,12 @@
                 </p:panelGrid>
             </div>
             <div class="datos">
-                <h3>Persona autorizada</h3>
                 <p:panelGrid columns="2" rendered="#{sesion.es_PAutorizada}">
                     <f:facet name="header">
                         <img src="imagenes/user.png" alt="" width="100"/>
+                    </f:facet>
+                    <f:facet name="header">
+                        <h:outputText value="Persona autorizada"/>
                     </f:facet>
 
                     <h:outputText value="Identificación:"/>
