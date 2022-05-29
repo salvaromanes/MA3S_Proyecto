@@ -39,214 +39,323 @@ public class TESTTTestIT {
   }
   @Requisitos({"RF1"})
   @Test
-  public void tESTR1() {
+  public void tESTR1() throws InterruptedException {
     driver.get("http://localhost:8080/fintech-war/");
-    driver.manage().window().setSize(new Dimension(806, 818));
+    Thread.sleep(1000);
     driver.findElement(By.id("admin")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:botonIniciarSesion")).click();
   }
   @Requisitos({"RF2"})
   @Test
-  public void tESTR2() {
+  public void tESTR2() throws InterruptedException {
     driver.get("http://localhost:8080/fintech-war/");
-    driver.manage().window().setSize(new Dimension(806, 818));
+    Thread.sleep(1000);
     driver.findElement(By.id("admin")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:botonIniciarSesion")).click();
+    Thread.sleep(1000);
     {
       WebElement element = driver.findElement(By.linkText("Clientes"));
       Actions builder = new Actions(driver);
       builder.doubleClick(element).perform();
     }
+    Thread.sleep(1000);
     driver.findElement(By.linkText("Dar alta")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("formExterior:Individual")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:Nombre_txt")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:Nombre_txt")).sendKeys("Felipe");
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:Apellidos_txt")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:Apellidos_txt")).sendKeys("Sanchez");
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:Identificacion_txt")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:Identificacion_txt")).sendKeys("123456789P");
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:Dirección_txt")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:Dirección_txt")).sendKeys("La Vinuela");
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:Ciudad_txt")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:Ciudad_txt")).sendKeys("Malaga");
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:CodigoPostal_txt")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:CodigoPostal_txt")).sendKeys("29712");
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:Pais_txt")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:Pais_txt")).sendKeys("Espana");
+    Thread.sleep(1000);
     driver.findElement(By.id("DarAltaClienteAdministrador:darAltaIndividual")).click();
   }
   @Requisitos({"RF3"})
   @Test
-  public void tESTR3() {
+  public void tESTR3() throws InterruptedException {
     driver.get("http://localhost:8080/fintech-war/");
-    driver.manage().window().setSize(new Dimension(806, 818));
+    Thread.sleep(1000);
     driver.findElement(By.id("admin")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:botonIniciarSesion")).click();
+    Thread.sleep(1000);
     {
+      Thread.sleep(1000);
       WebElement element = driver.findElement(By.linkText("Clientes"));
       Actions builder = new Actions(driver);
       builder.doubleClick(element).perform();
     }
+    Thread.sleep(1000);
     driver.findElement(By.id("formExterior:listaClientes")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("formularioParaEmpresas:tablaConListaEmpresa:0:botonModificarEmpresa")).click();
-    driver.findElement(By.id("form:j_idt40")).click();
+    Thread.sleep(1000);driver.findElement(By.id("form:j_idt40")).click();
     driver.findElement(By.id("form:j_idt40")).sendKeys("Mijas");
+    Thread.sleep(1000);
     driver.findElement(By.id("form:modificar")).click();
   }
   @Requisitos({"RF4"})
   @Test
-  public void tESTR4() {
+  public void tESTR4() throws InterruptedException {
     driver.get("http://localhost:8080/fintech-war/");
-    driver.manage().window().setSize(new Dimension(806, 818));
+    Thread.sleep(1000);
     driver.findElement(By.id("admin")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:botonIniciarSesion")).click();
+    Thread.sleep(1000);
     {
       WebElement element = driver.findElement(By.linkText("Clientes"));
       Actions builder = new Actions(driver);
       builder.doubleClick(element).perform();
     }
+    Thread.sleep(1000);
     driver.findElement(By.id("formExterior:listaClientes")).click();
+    Thread.sleep(1000);
     driver.findElement(By.xpath("//button[@id=\'formularioParaIndividuales:tablaConListaIndividuales:1:campoBotonDarBaja2\']/span")).click();
   }
   @Requisitos({"RF5"})
   @Test
-  public void tESTR5() {
+  public void tESTR5() throws InterruptedException {
     driver.get("http://localhost:8080/fintech-war/");
-    driver.manage().window().setSize(new Dimension(806, 818));
+    Thread.sleep(1000);
     driver.findElement(By.id("admin")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:botonIniciarSesion")).click();
+    Thread.sleep(1000);
     {
       WebElement element = driver.findElement(By.linkText("Cuentas"));
       Actions builder = new Actions(driver);
       builder.doubleClick(element).perform();
     }
+    Thread.sleep(1000);
     driver.findElement(By.linkText("Crear")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("formExterior:crearSegregada")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("crearCuenta:firstname")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("crearCuenta:firstname")).sendKeys("ES19051999");
+    Thread.sleep(1000);
     driver.findElement(By.id("crearCuenta:lastname")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("crearCuenta:lastname")).sendKeys("1234");
+    Thread.sleep(1000);
     driver.findElement(By.id("crearCuenta:divisa")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("crearCuenta:divisa")).sendKeys("EUR");
+    Thread.sleep(1000);
     driver.findElement(By.id("crearCuenta:identificacion")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("crearCuenta:identificacion")).sendKeys("63937528N");
+    Thread.sleep(1000);
     driver.findElement(By.id("crearCuenta:saveBtn")).click();
   }
   @Requisitos({"RF6"})
   @Test
-  public void tESTR6() {
+  public void tESTR6() throws InterruptedException {
     driver.get("http://localhost:8080/fintech-war/");
-    driver.manage().window().setSize(new Dimension(806, 818));
+    Thread.sleep(1000);
     driver.findElement(By.id("admin")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:botonIniciarSesion")).click();
+    Thread.sleep(1000);
     {
       WebElement element = driver.findElement(By.linkText("Clientes"));
       Actions builder = new Actions(driver);
       builder.doubleClick(element).perform();
     }
+    Thread.sleep(1000);
     driver.findElement(By.id("formExterior:listaClientes")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("formularioParaEmpresas:tablaConListaEmpresa:0:botonAnadirAutorizado")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("form:idaut3")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("form:idaut3")).sendKeys("GEFRS45621");
+    Thread.sleep(1000);
     driver.findElement(By.id("form:modo3")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("form:modo3")).sendKeys("Escritura");
+    Thread.sleep(1000);
     driver.findElement(By.id("form:modificar")).click();
   }
   @Requisitos({"RF7"})
   @Test
-  public void tESTR7() {
+  public void tESTR7() throws InterruptedException {
     driver.get("http://localhost:8080/fintech-war/");
-    driver.manage().window().setSize(new Dimension(804, 816));
+    Thread.sleep(1000);
     driver.findElement(By.id("admin")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:botonIniciarSesion")).click();
+    Thread.sleep(1000);
     {
       WebElement element = driver.findElement(By.linkText("Personas Autorizadas"));
       Actions builder = new Actions(driver);
       builder.doubleClick(element).perform();
     }
+    Thread.sleep(1000);
     driver.findElement(By.id("formExterior:listaPAutorizadas")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("form:paut:0:botMod")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("form:s1")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("form:s1")).sendKeys("Campanillas");
+    Thread.sleep(1000);
     driver.findElement(By.id("form:modificar")).click();
   }
   @Requisitos({"RF8"})
   @Test
-  public void tESTR8() {
+  public void tESTR8() throws InterruptedException {
     driver.get("http://localhost:8080/fintech-war/");
-    driver.manage().window().setSize(new Dimension(803, 816));
+    Thread.sleep(1000);
     driver.findElement(By.id("admin")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:botonIniciarSesion")).click();
+    Thread.sleep(1000);
     {
       WebElement element = driver.findElement(By.linkText("Cuentas"));
       Actions builder = new Actions(driver);
       builder.doubleClick(element).perform();
     }
+    Thread.sleep(1000);
     driver.findElement(By.id("formExterior:listaCuentas")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("form2:segr:0:det")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("MostarAutorizacion:autorizacion:0:botonIniciarSesion")).click();
   }
   @Requisitos({"RF9"})
   @Test
-  public void tESTR9() {
+  public void tESTR9() throws InterruptedException {
     driver.get("http://localhost:8080/fintech-war/");
-    driver.manage().window().setSize(new Dimension(806, 818));
+    Thread.sleep(1000);
     driver.findElement(By.id("admin")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).sendKeys("ponciano");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:botonIniciarSesion")).click();
+    Thread.sleep(1000);
     {
       WebElement element = driver.findElement(By.linkText("Cuentas"));
       Actions builder = new Actions(driver);
       builder.doubleClick(element).perform();
     }
+    Thread.sleep(1000);
     driver.findElement(By.id("formExterior:listaCuentas")).click();
+    Thread.sleep(1000);
     driver.findElement(By.xpath("//button[@id=\'form2:segr:1:cerr\']/span")).click();
   }
   @Requisitos({"RF10"})
   @Test
-  public void tESTR10() {
+  public void tESTR10() throws InterruptedException {
     driver.get("http://localhost:8080/fintech-war/");
-    driver.manage().window().setSize(new Dimension(806, 818));
+    Thread.sleep(1000);
     driver.findElement(By.id("index")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:user")).sendKeys("juan");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).click();
+    Thread.sleep(1000);
     driver.findElement(By.id("index:pass")).sendKeys("juan");
+    Thread.sleep(1000);
     driver.findElement(By.id("index:botonIniciarSesion")).click();
   }
 }
