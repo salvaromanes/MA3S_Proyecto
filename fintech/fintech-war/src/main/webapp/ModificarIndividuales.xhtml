@@ -28,9 +28,9 @@
 
           <p:submenu id = "submenuClientes" label="Clientes" icon="pi pi-fw pi-users">
             <p:menuitem id = "listaClientes" value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
-            <p:submenu id = "submenuAlta" label="Dar Alta" icon="pi pi-fw pi-plus">
-              <p:menuitem  id = "altaIndividual" value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
-              <p:menuitem  value="altaJuridico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
+            <p:submenu id = "submenuAlta" label="Dar alta" icon="pi pi-fw pi-plus">
+              <p:menuitem  id = "Individual" value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
+              <p:menuitem  value="Juridico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
             </p:submenu>
           </p:submenu>
 
@@ -70,41 +70,42 @@
     </div>
 
 
-  <h1 id="titulo" class="titulo"> Modificar Cliente </h1>
-  <h:form id="form">
-    <div id="centro" class="centro">
+<!--  <h1 id="titulo" class="titulo"> Modificar Cliente </h1>-->
+  <div class="contenedor">
+    <div class="card">
+      <h:form id="form">
+        <p:panel id="pnl" header="Modificar individual">
+          <h:panelGrid id="datos" columns="1">
 
-      <h:panelGrid id="datos" columns="1">
+            <h:outputText id="Identificación" value="Identificación" />
+            <h:outputText id="Identificación1" value="#{individual.individual.identificacion}"/>
 
-        <h:outputText id="Identificación" value="Identificación" />
-        <h:outputText id="Identificación1" value="#{individual.individual.identificacion}"/>
+            <h:outputText id="Nombre" value="Nombre"/>
+            <p:inputText id="Nombre1" required="true" value="#{individual.individual.nombre}"/>
 
-        <h:outputText id="Nombre" value="Nombre"/>
-        <p:inputText id="Nombre1" required="true" value="#{individual.individual.nombre}"/>
+            <h:outputText id="Apellidos" value="Apellidos"/>
+            <p:inputText id="Apellidos1" required="true" value="#{individual.individual.apellido}"/>
 
-        <h:outputText id="Apellidos" value="Apellidos"/>
-        <p:inputText id="Apellidos1" required="true" value="#{individual.individual.apellido}"/>
+            <h:outputText id="fechaNacimiento" value="Fecha Nacimiento"/>
+            <p:inputMask id="fechaNacimiento1" value="#{individual.fecha}" mask="99/99/9999"/>
 
-        <h:outputText id="fechaNacimiento" value="Fecha Nacimiento"/>
-        <p:inputMask id="fechaNacimiento1" value="#{individual.fecha}" mask="99/99/9999"/>
+            <h:outputText id="Dirección" value="Dirección"/>
+            <p:inputText id="Dirección1" required="true" value="#{individual.individual.direccion}"/>
 
-        <h:outputText id="Dirección" value="Dirección"/>
-        <p:inputText id="Dirección1" required="true" value="#{individual.individual.direccion}"/>
+            <h:outputText id="Ciudad" value="Ciudad"/>
+            <p:inputText id="Ciudad1" required="true" value="#{individual.individual.ciudad}"/>
 
-        <h:outputText id="Ciudad" value="Ciudad"/>
-        <p:inputText id="Ciudad1" required="true" value="#{individual.individual.ciudad}"/>
+            <h:outputText id="cp" value="Codigo Postal"/>
+            <p:inputText id="cp1" required="true" value="#{individual.individual.codigopostal}"/>
 
-        <h:outputText id="cp" value="Codigo Postal"/>
-        <p:inputText id="cp1" required="true" value="#{individual.individual.codigopostal}"/>
-
-        <h:outputText id="pais" value="País"/>
-        <p:inputText id="pais1" required="true" value="#{individual.individual.pais}"/>
-
-        <p:commandButton id="modificar" value="Modificar" action="#{individual.modificar()}" />
-
-      </h:panelGrid>
+            <h:outputText id="pais" value="País"/>
+            <p:inputText id="pais1" required="true" value="#{individual.individual.pais}"/>
+          </h:panelGrid>
+            <p:commandButton id="modificar" value="Modificar" action="#{individual.modificar()}" />
+        </p:panel>
+      </h:form>
     </div>
-  </h:form>
+  </div>
 
 
   </h:panelGroup>

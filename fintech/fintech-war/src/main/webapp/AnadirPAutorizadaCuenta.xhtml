@@ -28,7 +28,7 @@
 
                     <p:submenu label="Clientes" icon="pi pi-fw pi-users">
                         <p:menuitem value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:submenu label="Dar Alta" icon="pi pi-fw pi-plus">
+                        <p:submenu label="Dar alta" icon="pi pi-fw pi-plus">
                             <p:menuitem value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
                             <p:menuitem value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
                         </p:submenu>
@@ -42,7 +42,7 @@
                     <p:divider layout="vertical"/>
 
                     <p:submenu label="Cuentas" icon="pi pi-fw pi-wallet">
-                        <p:menuitem value="Lista" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:menuitem value="Lista cuentas" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
                         <p:submenu label="Crear" icon="pi pi-fw pi-plus">
                             <p:menuitem value="Segregada" outcome="CrearCuentaSegregada.xhtml" />
                             <p:menuitem value="Pooled" outcome="CrearCuentaPooled.xhtml" />
@@ -68,26 +68,29 @@
                 </p:menubar>
             </h:form>
         </div>
-        <h1 class="titulo"> Modificar Empresa </h1>
-        <h:form id="form">
-            <div class="center100">
 
+
+<!--        <h1 class="titulo"> Modificar Empresa </h1>-->
+    <div class="contenedor">
+        <div class="card">
+            <h:form id="form">
+                <p:panel id="pnl" header="Autorizar persona a una cuenta">
                 <h:panelGrid columns="1">
 
-                    <h:outputText value="Identificacion de la empresa:" />
-                    <h:outputText value="#{sesion.identificacion}"/>
+                <h:outputText value="Identificacion de la empresa:" />
+                <h:outputText value="#{sesion.identificacion}"/>
 
-                    <h:outputText value="Identificación del autorizado:"/>
-                    <p:inputText required="true" value="#{addAutorizado.iden_pAutorizada}"/>
+                <h:outputText value="Identificación del autorizado:"/>
+                <p:inputText required="true" value="#{addAutorizado.iden_pAutorizada}"/>
 
-                    <h:outputText value="Modo de operación:"/>
-                    <p:inputText required="true" value="#{addAutorizado.operacion}"/>
-
-                    <p:commandButton id="modificar" value="Modificar" action="#{addAutorizado.anadirAutorizado}" />
-
+                <h:outputText value="Modo de operación:"/>
+                <p:inputText required="true" value="#{addAutorizado.operacion}"/>
                 </h:panelGrid>
-            </div>
-        </h:form>
+                <p:commandButton id="modificar" value="Modificar" action="#{addAutorizado.anadirAutorizado}" />
+                </p:panel>
+            </h:form>
+        </div>
+    </div>
 
     </h:panelGroup>
     <h:panelGroup rendered="#{!sesion.sesion_admin}">

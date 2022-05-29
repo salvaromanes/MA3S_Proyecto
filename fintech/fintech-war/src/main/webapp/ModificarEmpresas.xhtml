@@ -28,7 +28,7 @@
 
           <p:submenu label="Clientes" icon="pi pi-fw pi-users">
             <p:menuitem value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
-            <p:submenu label="Dar Alta" icon="pi pi-fw pi-plus">
+            <p:submenu label="Dar alta" icon="pi pi-fw pi-plus">
               <p:menuitem value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
               <p:menuitem value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
             </p:submenu>
@@ -68,35 +68,38 @@
         </p:menubar>
       </h:form>
     </div>
-  <h1 class="titulo"> Modificar Empresa </h1>
-  <h:form id="form">
-    <div class="center100">
 
-      <h:panelGrid columns="1">
+<!--  <h1 class="titulo"> Modificar Empresa </h1>-->
+  <div class="contenedor">
+    <div class="card">
+      <h:form id="form">
+        <p:panel id="pnl" header="Modificar Empresa">
 
-        <h:outputText value="Identificacion:" />
-        <h:outputText value="#{cliente.empresa.identificacion}"/>
+          <h:panelGrid columns="1" cellpadding="7">
 
-        <h:outputText value="Direccion"/>
-        <p:inputText required="true" value="#{cliente.empresa.direccion}"/>
+            <h:outputText value="Identificacion:" />
+            <h:outputText value="#{cliente.empresa.identificacion}"/>
 
-        <h:outputText value="Ciudad"/>
-        <p:inputText required="true" value="#{cliente.empresa.ciudad}"/>
+            <h:outputText value="Direccion"/>
+            <p:inputText required="true" value="#{cliente.empresa.direccion}"/>
 
-        <h:outputText value="Codigo Postal"/>
-        <p:inputText required="true" value="#{cliente.empresa.codigopostal}"/>
+            <h:outputText value="Ciudad"/>
+            <p:inputText required="true" value="#{cliente.empresa.ciudad}"/>
 
-        <h:outputText value="Pais"/>
-        <p:inputText required="true" value="#{cliente.empresa.pais}"/>
+            <h:outputText value="Codigo Postal"/>
+            <p:inputText required="true" value="#{cliente.empresa.codigopostal}"/>
 
-        <h:outputText value="RazonSocial"/>
-        <p:inputText required="true" value="#{cliente.empresa.razonSocial}"/>
+            <h:outputText value="Pais"/>
+            <p:inputText required="true" value="#{cliente.empresa.pais}"/>
 
-        <p:commandButton id="modificar" value="Modificar" action="#{cliente.modificar()}" />
-
-      </h:panelGrid>
+            <h:outputText value="RazonSocial"/>
+            <p:inputText required="true" value="#{cliente.empresa.razonSocial}"/>
+          </h:panelGrid>
+            <p:commandButton id="modificar" value="Modificar" action="#{cliente.modificar()}" />
+        </p:panel>
+      </h:form>
     </div>
-  </h:form>
+  </div>
 
   </h:panelGroup>
   <h:panelGroup rendered="#{!sesion.sesion_admin}">

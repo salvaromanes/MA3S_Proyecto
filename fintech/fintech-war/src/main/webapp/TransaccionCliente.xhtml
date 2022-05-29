@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -39,43 +38,50 @@
         </h:form>
     </div>
 
-    <h1 class="titulo"> <strong>Transaccion como cliente  </strong> </h1>
+<!--    <h1 class="titulo"> <strong>Transaccion como cliente  </strong> </h1>-->
+    <div class="contenedor">
+        <div class="card">
+            <h:form id = "transcliente">
+                <p:panel id="pnl" header="Transaccion">
+                <h:panelGrid>
 
-    <div class="center">
-    <h:form id = "transcliente">
-        <h:panelGrid>
+                <h:outputLabel for = "cuenta_txt2"  value="Cuenta origen"/>
+                <h:outputLabel id = "cuenta_txt2" value="#{transcliente.ibanOrigen}" required="true"/>
+                <h:message for="cuenta_txt2"/>
 
-            <h:outputLabel for = "cuenta_txt2"  value="Cuenta origen"/>
-            <h:outputLabel id = "cuenta_txt2" value="#{transcliente.ibanOrigen}" required="true"/>
-            <h:message for="cuenta_txt2"/>
+                <h:outputLabel for = "cuenta_txt"  value="Cuenta destino"/>
+                <p:inputText id = "cuenta_txt" value="#{transcliente.ibanDestino}" required="true"/>
+                <h:message for="cuenta_txt"/>
 
-            <h:outputLabel for = "cuenta_txt"  value="Cuenta destino"/>
-            <h:inputText id = "cuenta_txt" value="#{transcliente.ibanDestino}" required="true"/>
-            <h:message for="cuenta_txt"/>
+                <h:outputLabel for = "cantidad_txt"  value="Cantidad"/>
+                <p:inputText id = "cantidad_txt" value="#{transcliente.cantidad}"  required="true"/>
+                <h:message for="cantidad_txt"/>
 
-            <h:outputLabel for = "cantidad_txt"  value="Cantidad"/>
-            <h:inputText id = "cantidad_txt" value="#{transcliente.cantidad}"  required="true"/>
-            <h:message for="cantidad_txt"/>
+                <h:outputLabel for = "tipo_txt"  value="Tipo de Transacción"/>
+                <p:inputText id = "tipo_txt" value="#{transcliente.tipo}"  required="true"/>
+                <h:message for="tipo_txt"/>
 
-            <h:outputLabel for = "tipo_txt"  value="Tipo de Transacción"/>
-            <h:inputText id = "tipo_txt" value="#{transcliente.tipo}"  required="true"/>
-            <h:message for="tipo_txt"/>
+                <h:outputLabel for = "divisaOrigen_txt"  value="Divisa Origen"/>
+                <p:inputText id = "divisaOrigen_txt" value="#{transcliente.divisaOrigen}"  required="true"/>
+                <h:message for="divisaOrigen_txt"/>
 
-            <h:outputLabel for = "divisaOrigen_txt"  value="Divisa Origen"/>
-            <h:inputText id = "divisaOrigen_txt" value="#{transcliente.divisaOrigen}"  required="true"/>
-            <h:message for="divisaOrigen_txt"/>
+                <h:outputLabel for = "divisaDestino_txt"  value="Divisa Destino"/>
+                <p:inputText id = "divisaDestino_txt" value="#{transcliente.divisaDestino}"  required="true"/>
+                <h:message for="divisaDestino_txt"/>
+                </h:panelGrid>
 
-            <h:outputLabel for = "divisaDestino_txt"  value="Divisa Destino"/>
-            <h:inputText id = "divisaDestino_txt" value="#{transcliente.divisaDestino}"  required="true"/>
-            <h:message for="divisaDestino_txt"/>
+                <p:commandButton id="btnConfirmar" value="Confirmar" action="#{transcliente.realizarTransaccionCliente()}"/>
 
-            <h:commandButton id="btnConfirmar" value="Confirmar" action="#{transcliente.realizarTransaccionCliente()}"/>
-
-        </h:panelGrid>
-
-    </h:form>
+                </p:panel>
+            </h:form>
+        </div>
     </div>
+
+
 </h:panelGroup>
+
+
+
 <h:panelGroup rendered="#{!sesion.sesion_iniciada}">
     <h:form>
         <h1>NO SE HA INICIADO SESIÓN</h1>

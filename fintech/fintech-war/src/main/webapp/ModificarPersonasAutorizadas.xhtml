@@ -28,7 +28,7 @@
 
           <p:submenu label="Clientes" icon="pi pi-fw pi-users">
             <p:menuitem value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
-            <p:submenu label="Dar Alta" icon="pi pi-fw pi-plus">
+            <p:submenu label="Dar alta" icon="pi pi-fw pi-plus">
               <p:menuitem value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
               <p:menuitem value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
             </p:submenu>
@@ -68,32 +68,35 @@
         </p:menubar>
       </h:form>
     </div>
-  <h1 class="titulo"> Modificar Persona Autorizada </h1>
-  <h:form id="form">
-    <div class="center">
 
-      <h:panelGrid columns="1">
 
-        <h:outputText value="Identificacion" />
-        <h:outputText value="#{modificarPersonaAutorizada.pa.identificacion}"/>
+<!--<h1 class="titulo"> Modificar Persona Autorizada </h1>-->
+  <div class="contenedor">
+    <div class="card">
+      <h:form id="form">
+        <p:panel id="pnl" header="Modificar persona autorizada">
+          <h:panelGrid columns="1">
 
-        <h:outputText value="Nombre"/>
-        <p:inputText required="true" value="#{modificarPersonaAutorizada.pa.nombre}"/>
+          <h:outputText value="Identificacion" />
+          <h:outputText value="#{modificarPersonaAutorizada.pa.identificacion}"/>
 
-        <h:outputText value="Apellidos"/>
-        <p:inputText required="true" value="#{modificarPersonaAutorizada.pa.apellidos}"/>
+          <h:outputText value="Nombre"/>
+          <p:inputText required="true" value="#{modificarPersonaAutorizada.pa.nombre}"/>
 
-        <h:outputText value="Direccion"/>
-        <p:inputText required="true" value="#{modificarPersonaAutorizada.pa.direccion}"/>
+          <h:outputText value="Apellidos"/>
+          <p:inputText required="true" value="#{modificarPersonaAutorizada.pa.apellidos}"/>
 
-        <h:outputText value="Fecha Nacimiento"/>
-        <p:inputMask id="date" value="#{individual.fecha}" mask="99/99/9999"/>
+          <h:outputText value="Direccion"/>
+          <p:inputText required="true" value="#{modificarPersonaAutorizada.pa.direccion}"/>
 
-        <p:commandButton id="modificar" value="Modificar" action="#{modificarPersonaAutorizada.modificar()}" />
-
-      </h:panelGrid>
+          <h:outputText value="Fecha Nacimiento"/>
+          <p:inputMask id="date" value="#{individual.fecha}" mask="99/99/9999"/>
+          </h:panelGrid>
+          <p:commandButton id="modificar" value="Modificar" action="#{modificarPersonaAutorizada.modificar()}" />
+        </p:panel>
+      </h:form>
     </div>
-  </h:form>
+  </div>
 
   </h:panelGroup>
   <h:panelGroup rendered="#{!sesion.sesion_admin}">
