@@ -125,4 +125,52 @@ public class ListaCuentasPorCliente {
         return aux;
     }
 
+    public Boolean listaSegregadas(){
+        List<Segregada> cuentasSeg = gestionGetCuentas.getSegregadas(sesion.getUsuario());
+        if(cuentasSeg.isEmpty()){
+            return  false;
+        }
+        return true;
+    }
+
+    public Boolean listaSegregadaLectura(){
+        List<Segregada> cuentasSeg = gestionGetCuentas.getSegregadasAutoLec(sesion.getUsuario());
+        if(cuentasSeg.isEmpty()){
+            return  false;
+        }
+        return true;
+    }
+
+    public Boolean listaSegregadaEscritura(){
+        List<Segregada> cuentasSeg = gestionGetCuentas.getSegregadasAutoEsc(sesion.getUsuario());
+        if(cuentasSeg.isEmpty()){
+            return  false;
+        }
+        return true;
+    }
+
+    public Boolean listaPooled(){
+        List<Pooled> cuentasPoo = gestionGetCuentas.getPooleds(sesion.getUsuario());
+        if(cuentasPoo.isEmpty()){
+            return  false;
+        }
+        return true;
+    }
+
+    public Boolean listaPooledLectura(){
+        List<Pooled> pooledList = gestionGetCuentas.getPooledAutLec(sesion.getUsuario());
+        if(pooledList.isEmpty()){
+            return  false;
+        }
+        return true;
+    }
+
+    public Boolean listaPooledEscritura(){
+        List<Pooled> pooledList = gestionGetCuentas.getPooledAutEsc(sesion.getUsuario());
+        if(pooledList.isEmpty()){
+            return  false;
+        }
+        return true;
+    }
+
 }

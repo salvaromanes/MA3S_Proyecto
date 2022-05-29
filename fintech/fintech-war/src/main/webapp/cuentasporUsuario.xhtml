@@ -39,6 +39,8 @@
         </h:form>
     </div>
 
+        <h:panelGroup rendered="#{listCuenta.listaSegregadas()}">
+
     <h1>Cuentas Segregadas</h1>
     <div class="card">
 
@@ -69,7 +71,9 @@
 
     </h:form>
 </div>
+        </h:panelGroup>
 
+        <h:panelGroup rendered="#{listCuenta.listaSegregadaLectura()}">
     <h1>Cuentas Segregadas que tiene autorización Lectura</h1>
 
     <div class="card">
@@ -96,6 +100,9 @@
     </h:form>
     </div>
 
+        </h:panelGroup>
+
+        <h:panelGroup rendered="#{listCuenta.listaSegregadaEscritura()}">
 
     <h1>Cuentas Segregadas que tiene autorización Escritura</h1>
 
@@ -126,6 +133,9 @@
             </p:dataTable>
         </h:form>
     </div>
+        </h:panelGroup>
+
+        <h:panelGroup rendered="#{listCuenta.listaPooled()}">
 
     <h1>Cuentas Pooled</h1>
     <div class="card">
@@ -161,6 +171,9 @@
 
     </h:form>
 </div>
+        </h:panelGroup>
+
+        <h:panelGroup rendered="#{listCuenta.listaPooledLectura()}">
 
     <h1>Cuentas Pooled que tiene autorización Lectura</h1>
     <div class="card">
@@ -194,8 +207,10 @@
     </h:form>
 </div>
 
+        </h:panelGroup>
 
 
+        <h:panelGroup rendered="#{listCuenta.listaPooledEscritura()}">
     <h1>Cuentas Pooled que tiene autorización Escritura</h1>
     <div class="card">
         <h:form id="PooledAutEsc">
@@ -232,6 +247,7 @@
 
         </h:form>
     </div>
+        </h:panelGroup>
 </h:panelGroup>
     <h:panelGroup rendered="#{!sesion.sesion_iniciada}">
         <h:form>
