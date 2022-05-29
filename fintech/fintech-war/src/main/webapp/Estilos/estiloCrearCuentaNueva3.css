@@ -13,7 +13,7 @@ body{
 .contenedor{
     margin:auto;
     padding: 35px;
-    width: 35%;
+    width: 60%;
     text-align: justify;
     border-radius: 50px;
     position: fixed;
@@ -26,10 +26,7 @@ body{
 
 .datos{
     display: inline;
-    top: 50%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
+
 }
 
 .center{
