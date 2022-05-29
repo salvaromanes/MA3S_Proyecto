@@ -33,7 +33,7 @@ public class ServicioREST {
     @Context
     private UriInfo uriInfo;
 
-    @Path("healthcheck")
+    @Path("/healthcheck")
     @GET
     @Produces({MediaType.TEXT_PLAIN})
     public Response getEstado() {

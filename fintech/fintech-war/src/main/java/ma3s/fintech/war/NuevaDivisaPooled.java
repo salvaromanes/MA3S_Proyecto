@@ -18,7 +18,7 @@ public class NuevaDivisaPooled {
     private GestionGetCuentas getCuentas;
 
     @Inject
-    GestionAperturaCuenta aperturaCuenta;
+    private GestionAperturaCuenta aperturaCuenta;
 
     @Inject
     private Sesion sesion;

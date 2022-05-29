@@ -17,7 +17,7 @@ import java.util.List;
 public class ListaCuentasPorCliente {
 
     @Inject
-    GestionGetCuentas gestionGetCuentas;
+    private GestionGetCuentas gestionGetCuentas;
 
     @Inject
     private Sesion sesion;
@@ -25,10 +25,10 @@ public class ListaCuentasPorCliente {
     @Inject
     private HistorialCuentas historialCuentas;
 
-    Cliente cliente;
-    String iban;
-    Segregada segregada;
-    Pooled pooled;
+    private Cliente cliente;
+    private String iban;
+    private Segregada segregada;
+    private Pooled pooled;
 
     public Segregada getSegregada() {
         return segregada;

@@ -29,8 +29,8 @@ public class HistorialCuentas {
     private GestionTransferencia gestionTransferencia;
 
 
-    Segregada segregada;
-    Pooled pooled;
+    private Segregada segregada;
+    private Pooled pooled;
 
     private String iban;
 

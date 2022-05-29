@@ -26,8 +26,8 @@ public class TransaccionClientes {
     @Inject
     private GestionTransferencia gestionTransferencia;
 
-    Pooled pooled;
-    Segregada segregada;
+    private Pooled pooled;
+    private Segregada segregada;
     private Transaccion transaccion;
 
     private String ibanOrigen;

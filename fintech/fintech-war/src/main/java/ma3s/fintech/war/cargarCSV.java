@@ -5,9 +5,11 @@ import ma3s.fintech.ejb.excepciones.PersonaNoExisteException;
 import ma3s.fintech.ejb.excepciones.UsuarioNoEncontradoException;
 import org.primefaces.PrimeFaces;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
