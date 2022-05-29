@@ -1,0 +1,1803 @@
+{
+  "id": "abe2f1b7-ac62-4460-a18f-2daebb7132d5",
+  "version": "2.0",
+  "name": "Test",
+  "url": "http://localhost:8080/fintech-war/",
+  "tests": [{
+    "id": "3fb6ad6f-f59a-4742-bd5a-131ca0c9a08a",
+    "name": "TESTR1",
+    "commands": [{
+      "id": "1a8f9496-93f0-44f1-8adf-9ca256d67593",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/fintech-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5d3a7a57-952a-488f-9abd-08ae72000d24",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "806x818",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ef970831-616d-4a11-9dc5-8f13a12a738b",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(5) b",
+      "targets": [
+        ["css=li:nth-child(5) b", "css:finder"],
+        ["xpath=//li[5]/a/b", "xpath:position"],
+        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a49f4e9-780d-474d-9d3d-4300bbb71cf1",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "18080f5c-babd-4f03-b1bd-257e8b06d9b2",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "762300ff-c6b2-4618-b64e-5220729693dd",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d497d56-0a1d-4a9d-a686-e4f9c7d96831",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "694e1577-996d-470d-80e1-0ca42808d26b",
+      "comment": "",
+      "command": "click",
+      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "targets": [
+        ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "fbe1ed49-cfc2-4417-8391-236378e83698",
+    "name": "TESTR2",
+    "commands": [{
+      "id": "de83bab0-a94d-4611-94e1-7b54b7912b00",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/fintech-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8605c52c-48b6-4391-82e5-4e17cf86bb5d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "806x818",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9d2b4542-927b-4802-a75d-010dcc394bbc",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(5) b",
+      "targets": [
+        ["css=li:nth-child(5) b", "css:finder"],
+        ["xpath=//li[5]/a/b", "xpath:position"],
+        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f6d310c3-0be7-45c3-aba4-fe6719f90ecd",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "91a47177-0465-4ffc-ae92-f4c5b002febf",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "4f969928-baa4-48c4-9c3c-3b40b9cdb11b",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8af235b-1f2a-4fad-883c-3cf1009bc470",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "cd84d6d8-5334-457f-93ea-fd2bfc3b7cd1",
+      "comment": "",
+      "command": "click",
+      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "targets": [
+        ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "434d12eb-b0f0-4572-96be-2e5a4b5f792e",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Clientes",
+      "targets": [
+        ["linkText=Clientes", "linkText"],
+        ["css=.ui-state-hover", "css:finder"],
+        ["xpath=//li[@id='f:c']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Clientes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "30513285-6688-43e9-ad95-5a800a5eec6d",
+      "comment": "",
+      "command": "clickAt",
+      "target": "linkText=Dar alta",
+      "targets": [
+        ["linkText=Dar alta", "linkText"],
+        ["css=#f\\3A da > .ui-menuitem-link", "css:finder"],
+        ["xpath=//li[@id='f:da']/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Dar alta')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ceb32b17-b3b6-4dbb-ade6-46fe2124edfd",
+      "comment": "",
+      "command": "click",
+      "target": "id=f:daindi",
+      "targets": [
+        ["id=f:daindi", "id"],
+        ["linkText=Individual", "linkText"],
+        ["css=#f\\3A daindi", "css:finder"],
+        ["xpath=//a[@id='f:daindi']", "xpath:attributes"],
+        ["xpath=//li[@id='f:da']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/fintech-war/DarAltasClientesAdmin.xhtml')]", "xpath:href"],
+        ["xpath=//li[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Individual')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c2bcba63-549f-4b01-a116-c88b6c06a19c",
+      "comment": "",
+      "command": "click",
+      "target": "id=DarAltaClienteAdministrador:Nombre_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:Nombre_txt", "id"],
+        ["name=DarAltaClienteAdministrador:Nombre_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3ANombre_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:Nombre_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "95bd203f-4f7c-4cfd-8ecb-5d4fad9cd823",
+      "comment": "",
+      "command": "type",
+      "target": "id=DarAltaClienteAdministrador:Nombre_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:Nombre_txt", "id"],
+        ["name=DarAltaClienteAdministrador:Nombre_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3ANombre_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:Nombre_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "Felipe"
+    }, {
+      "id": "313dd21a-cb73-4687-9970-fdb0cd518e81",
+      "comment": "",
+      "command": "click",
+      "target": "id=DarAltaClienteAdministrador:Apellidos_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:Apellidos_txt", "id"],
+        ["name=DarAltaClienteAdministrador:Apellidos_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3A Apellidos_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:Apellidos_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr[2]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "08b78c43-9664-48aa-8140-bab474be0489",
+      "comment": "",
+      "command": "type",
+      "target": "id=DarAltaClienteAdministrador:Apellidos_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:Apellidos_txt", "id"],
+        ["name=DarAltaClienteAdministrador:Apellidos_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3A Apellidos_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:Apellidos_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr[2]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+      ],
+      "value": "Sanchez"
+    }, {
+      "id": "cd86d7c7-2f53-46c7-ad4f-3cc573b8a8b9",
+      "comment": "",
+      "command": "click",
+      "target": "id=DarAltaClienteAdministrador:Identificacion_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:Identificacion_txt", "id"],
+        ["name=DarAltaClienteAdministrador:Identificacion_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3AIdentificacion_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:Identificacion_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr[3]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b44919f6-4cfb-4bd9-83bc-cee7d20cbe5e",
+      "comment": "",
+      "command": "type",
+      "target": "id=DarAltaClienteAdministrador:Identificacion_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:Identificacion_txt", "id"],
+        ["name=DarAltaClienteAdministrador:Identificacion_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3AIdentificacion_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:Identificacion_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr[3]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "123456789P"
+    }, {
+      "id": "1be3c875-0208-4133-894f-7ea1f3cc3299",
+      "comment": "",
+      "command": "click",
+      "target": "id=DarAltaClienteAdministrador:Dirección_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:Dirección_txt", "id"],
+        ["name=DarAltaClienteAdministrador:Dirección_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3A Direcci\\F3n_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:Dirección_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr[4]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[4]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "54c4b510-dfde-442a-8134-a369d96fff97",
+      "comment": "",
+      "command": "type",
+      "target": "id=DarAltaClienteAdministrador:Dirección_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:Dirección_txt", "id"],
+        ["name=DarAltaClienteAdministrador:Dirección_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3A Direcci\\F3n_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:Dirección_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr[4]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[4]/td[2]/input", "xpath:position"]
+      ],
+      "value": "La Vinuela"
+    }, {
+      "id": "4ed3a085-76dd-4a81-8d0c-d6edd00357f2",
+      "comment": "",
+      "command": "click",
+      "target": "id=DarAltaClienteAdministrador:Ciudad_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:Ciudad_txt", "id"],
+        ["name=DarAltaClienteAdministrador:Ciudad_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3A Ciudad_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:Ciudad_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr[5]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[5]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3df4f2b-e70a-49e8-8df0-f02148a0e500",
+      "comment": "",
+      "command": "type",
+      "target": "id=DarAltaClienteAdministrador:Ciudad_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:Ciudad_txt", "id"],
+        ["name=DarAltaClienteAdministrador:Ciudad_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3A Ciudad_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:Ciudad_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr[5]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[5]/td[2]/input", "xpath:position"]
+      ],
+      "value": "Malaga"
+    }, {
+      "id": "1742297d-34cc-4852-99c1-35f480401b42",
+      "comment": "",
+      "command": "click",
+      "target": "id=DarAltaClienteAdministrador:CodigoPostal_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:CodigoPostal_txt", "id"],
+        ["name=DarAltaClienteAdministrador:CodigoPostal_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3A CodigoPostal_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:CodigoPostal_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr[6]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[6]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e22f098e-2052-4a6b-a723-ef545e1b29fd",
+      "comment": "",
+      "command": "type",
+      "target": "id=DarAltaClienteAdministrador:CodigoPostal_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:CodigoPostal_txt", "id"],
+        ["name=DarAltaClienteAdministrador:CodigoPostal_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3A CodigoPostal_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:CodigoPostal_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr[6]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[6]/td[2]/input", "xpath:position"]
+      ],
+      "value": "29712"
+    }, {
+      "id": "e654f03f-9caa-44cc-9b04-a60f0f793906",
+      "comment": "",
+      "command": "click",
+      "target": "id=DarAltaClienteAdministrador:Pais_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:Pais_txt", "id"],
+        ["name=DarAltaClienteAdministrador:Pais_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3APais_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:Pais_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr[7]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[7]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3801f4a-34e6-40bb-b376-71f30bf93629",
+      "comment": "",
+      "command": "type",
+      "target": "id=DarAltaClienteAdministrador:Pais_txt",
+      "targets": [
+        ["id=DarAltaClienteAdministrador:Pais_txt", "id"],
+        ["name=DarAltaClienteAdministrador:Pais_txt", "name"],
+        ["css=#DarAltaClienteAdministrador\\3APais_txt", "css:finder"],
+        ["xpath=//input[@id='DarAltaClienteAdministrador:Pais_txt']", "xpath:attributes"],
+        ["xpath=//table[@id='DarAltaClienteAdministrador:cuerpoDarAltaClientes']/tbody/tr[7]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[7]/td[2]/input", "xpath:position"]
+      ],
+      "value": "Espana"
+    }, {
+      "id": "7360beaa-3ee1-4f30-91a7-411fa5c2da26",
+      "comment": "",
+      "command": "click",
+      "target": "css=#DarAltaClienteAdministrador\\3A darAltaIndividual > .ui-button-text",
+      "targets": [
+        ["css=#DarAltaClienteAdministrador\\3A darAltaIndividual > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='DarAltaClienteAdministrador:darAltaIndividual']/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/button/span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "8b5a2ccd-f684-438c-801e-45a79514c2e2",
+    "name": "TESTR3",
+    "commands": [{
+      "id": "1a50da21-6c49-4061-918a-82518ce3d563",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/fintech-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "18f9a80b-91e0-4f24-b0bd-1e6087443765",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "806x818",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2f61a36d-0202-4153-b295-378381cdee0f",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(5) b",
+      "targets": [
+        ["css=li:nth-child(5) b", "css:finder"],
+        ["xpath=//li[5]/a/b", "xpath:position"],
+        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ffc82344-5490-4bf7-b164-2a9d08d37b8c",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "31a8269d-3bd6-4228-ad10-367bdab02575",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "857b80d4-d780-4571-84d3-71496e962bdc",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e2b5a38a-c799-4b98-8c87-fb4ae4c455f1",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "3bab0b9e-c5f8-4cb9-bb82-e449d18e63c7",
+      "comment": "",
+      "command": "click",
+      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "targets": [
+        ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1ffc6e46-ec45-4968-9ad2-dcaaefc231c8",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Clientes",
+      "targets": [
+        ["linkText=Clientes", "linkText"],
+        ["css=.ui-state-hover", "css:finder"],
+        ["xpath=//li[@id='f:c']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Clientes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d12854e-3485-45f7-8f15-11ead3b0291c",
+      "comment": "",
+      "command": "clickAt",
+      "target": "id=f:lc",
+      "targets": [
+        ["id=f:lc", "id"],
+        ["linkText=Lista clientes", "linkText"],
+        ["css=#f\\3Alc", "css:finder"],
+        ["xpath=//a[@id='f:lc']", "xpath:attributes"],
+        ["xpath=//li[@id='f:c']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/fintech-war/Listaclientes.xhtml')]", "xpath:href"],
+        ["xpath=//li[3]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Lista clientes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "263126a0-1e24-4c6e-b332-19254e66087e",
+      "comment": "",
+      "command": "clickAt",
+      "target": "css=#formularioParaIndividuales\\3AtablaConListaIndividuales\\3A 1\\3A campoBotonModificar > .ui-button-text",
+      "targets": [
+        ["css=#formularioParaIndividuales\\3AtablaConListaIndividuales\\3A 1\\3A campoBotonModificar > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='formularioParaIndividuales:tablaConListaIndividuales:1:campoBotonModificar']/span", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[12]/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a080fce-6d67-4c69-990c-e084b65d97d5",
+      "comment": "",
+      "command": "click",
+      "target": "id=form:Dirección1",
+      "targets": [
+        ["id=form:Dirección1", "id"],
+        ["name=form:Dirección1", "name"],
+        ["css=#form\\3A Direcci\\F3n1", "css:finder"],
+        ["xpath=//input[@id='form:Dirección1']", "xpath:attributes"],
+        ["xpath=//table[@id='form:datos']/tbody/tr[10]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[10]/td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ef8fb63-edbb-4f4c-8f17-b1b82eaa0618",
+      "comment": "",
+      "command": "type",
+      "target": "id=form:Dirección1",
+      "targets": [
+        ["id=form:Dirección1", "id"],
+        ["name=form:Dirección1", "name"],
+        ["css=#form\\3A Direcci\\F3n1", "css:finder"],
+        ["xpath=//input[@id='form:Dirección1']", "xpath:attributes"],
+        ["xpath=//table[@id='form:datos']/tbody/tr[10]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[10]/td/input", "xpath:position"]
+      ],
+      "value": "Mijas"
+    }, {
+      "id": "6cfef671-0ad1-464f-8fbf-fc4688639391",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ui-button-text:nth-child(1)",
+      "targets": [
+        ["css=.ui-button-text:nth-child(1)", "css:finder"],
+        ["xpath=//button[@id='form:modificar']/span", "xpath:idRelative"],
+        ["xpath=//div[2]/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "398a8193-a322-4ba2-886d-c320a135e307",
+    "name": "TESTR4",
+    "commands": [{
+      "id": "23be19d2-5e14-4516-9132-b4347dbbcbae",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/fintech-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9fe86012-b5d0-42c7-b5d8-7aa4cf064b93",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "806x818",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "01ca7b21-de26-476c-9d50-fd0071f1b941",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(5) b",
+      "targets": [
+        ["css=li:nth-child(5) b", "css:finder"],
+        ["xpath=//li[5]/a/b", "xpath:position"],
+        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea683a96-bbeb-4a14-a3cc-94105352ead3",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ed8c1ba9-e04e-4eff-938f-183f95a99f8d",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "8d92d32a-2346-4c67-aa88-b61819c95968",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6edc3d5a-6962-4506-91db-17eae66f6431",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "b5cc2741-d158-4c2e-81df-20c5e79a6120",
+      "comment": "",
+      "command": "click",
+      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "targets": [
+        ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4158104d-7ed1-48d2-91a9-7564a39fb4e7",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Clientes",
+      "targets": [
+        ["linkText=Clientes", "linkText"],
+        ["css=.ui-state-hover", "css:finder"],
+        ["xpath=//li[@id='f:c']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Clientes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d121e898-10c4-40f8-9bb5-05bbad331c10",
+      "comment": "",
+      "command": "clickAt",
+      "target": "id=f:lc",
+      "targets": [
+        ["id=f:lc", "id"],
+        ["linkText=Lista clientes", "linkText"],
+        ["css=#f\\3Alc", "css:finder"],
+        ["xpath=//a[@id='f:lc']", "xpath:attributes"],
+        ["xpath=//li[@id='f:c']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/fintech-war/Listaclientes.xhtml')]", "xpath:href"],
+        ["xpath=//li[3]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Lista clientes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2e7929f6-c06d-4c52-b417-8f2ca6e05072",
+      "comment": "",
+      "command": "clickAt",
+      "target": "css=#formularioParaIndividuales\\3AtablaConListaIndividuales\\3A 1\\3A campoBotonDarBaja2 > .ui-button-text",
+      "targets": [
+        ["css=#formularioParaIndividuales\\3AtablaConListaIndividuales\\3A 1\\3A campoBotonDarBaja2 > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='formularioParaIndividuales:tablaConListaIndividuales:1:campoBotonDarBaja2']/span", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[11]/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "2d00788e-fe32-4458-8099-a1ec625df170",
+    "name": "TESTR5",
+    "commands": [{
+      "id": "7af82888-0b30-4825-92b0-7a204bc42474",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/fintech-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7a9c7c7c-da13-4c69-a612-80917ec4db5d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "806x818",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7915e516-fefa-4bc6-95d3-3e5d4ebfbb95",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inicio Sesión Administrador",
+      "targets": [
+        ["linkText=Inicio Sesión Administrador", "linkText"],
+        ["css=li:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(@href, 'admin.xhtml')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "16a58b41-4496-42c1-9ae0-e6ea896c82d4",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbfcc17a-781d-4bb1-86ee-f1c4978bc50d",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "3fa9d165-d06e-4012-a7d0-5f0e66d7d476",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1ae65ed4-728f-4285-86d6-b35a851faef6",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "a04fe23a-7c75-48a2-a907-75921509fb18",
+      "comment": "",
+      "command": "click",
+      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "targets": [
+        ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c78c521-88d9-4637-9b17-749d59eb3c1c",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Cuentas",
+      "targets": [
+        ["linkText=Cuentas", "linkText"],
+        ["css=.ui-state-hover", "css:finder"],
+        ["xpath=//div[@id='f:m']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[4]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Cuentas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b35032ab-7bd0-453d-8e7f-e3ec6de467b1",
+      "comment": "",
+      "command": "clickAt",
+      "target": "linkText=Crear",
+      "targets": [
+        ["linkText=Crear", "linkText"],
+        ["css=.ui-menuitem-active:nth-child(2) > .ui-menuitem-link", "css:finder"],
+        ["xpath=//div[@id='f:m']/ul/li[6]/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[5]", "xpath:href"],
+        ["xpath=//li[6]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "30ea4f8e-9e94-4afa-85f2-82d21ba926a9",
+      "comment": "",
+      "command": "clickAt",
+      "target": "linkText=Segregada",
+      "targets": [
+        ["linkText=Segregada", "linkText"],
+        ["css=.ui-menuitem-active:nth-child(1) > .ui-menuitem-link", "css:finder"],
+        ["xpath=//div[@id='f:m']/ul/li[6]/ul/li[2]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/fintech-war/CrearCuentaSegregada.xhtml')]", "xpath:href"],
+        ["xpath=//li[6]/ul/li[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Segregada')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f5a9de84-1fe4-4b12-90cb-c1ddc7a0ae0f",
+      "comment": "",
+      "command": "click",
+      "target": "id=crearCuenta:firstname",
+      "targets": [
+        ["id=crearCuenta:firstname", "id"],
+        ["name=crearCuenta:firstname", "name"],
+        ["css=#crearCuenta\\3A firstname", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:firstname']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1146af01-6da4-4d9c-a9d0-676c15055a69",
+      "comment": "",
+      "command": "type",
+      "target": "id=crearCuenta:firstname",
+      "targets": [
+        ["id=crearCuenta:firstname", "id"],
+        ["name=crearCuenta:firstname", "name"],
+        ["css=#crearCuenta\\3A firstname", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:firstname']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "ES19051999"
+    }, {
+      "id": "fb93a03e-9c0b-47c6-94c8-e8f60f566e8c",
+      "comment": "",
+      "command": "click",
+      "target": "id=crearCuenta:lastname",
+      "targets": [
+        ["id=crearCuenta:lastname", "id"],
+        ["name=crearCuenta:lastname", "name"],
+        ["css=#crearCuenta\\3Alastname", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:lastname']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr[2]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "390998f8-c2d8-46fd-8a21-1d8e66b8f690",
+      "comment": "",
+      "command": "type",
+      "target": "id=crearCuenta:lastname",
+      "targets": [
+        ["id=crearCuenta:lastname", "id"],
+        ["name=crearCuenta:lastname", "name"],
+        ["css=#crearCuenta\\3Alastname", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:lastname']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr[2]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+      ],
+      "value": "1234"
+    }, {
+      "id": "594e805e-be2e-48d3-9ed9-102c00d63499",
+      "comment": "",
+      "command": "click",
+      "target": "id=crearCuenta:divisa",
+      "targets": [
+        ["id=crearCuenta:divisa", "id"],
+        ["name=crearCuenta:divisa", "name"],
+        ["css=#crearCuenta\\3A divisa", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:divisa']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr[3]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5f5728e-a888-4701-83b1-00e4a516fde4",
+      "comment": "",
+      "command": "type",
+      "target": "id=crearCuenta:divisa",
+      "targets": [
+        ["id=crearCuenta:divisa", "id"],
+        ["name=crearCuenta:divisa", "name"],
+        ["css=#crearCuenta\\3A divisa", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:divisa']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr[3]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "EUR"
+    }, {
+      "id": "6a98f200-995a-4eb6-b5e1-7a31fd6a7307",
+      "comment": "",
+      "command": "click",
+      "target": "id=crearCuenta:identificacion",
+      "targets": [
+        ["id=crearCuenta:identificacion", "id"],
+        ["name=crearCuenta:identificacion", "name"],
+        ["css=#crearCuenta\\3Aidentificacion", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:identificacion']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr[4]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[4]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "887be366-e4ac-4882-b8b9-316818a0fa65",
+      "comment": "",
+      "command": "type",
+      "target": "id=crearCuenta:identificacion",
+      "targets": [
+        ["id=crearCuenta:identificacion", "id"],
+        ["name=crearCuenta:identificacion", "name"],
+        ["css=#crearCuenta\\3Aidentificacion", "css:finder"],
+        ["xpath=//input[@id='crearCuenta:identificacion']", "xpath:attributes"],
+        ["xpath=//div[@id='crearCuenta:pnl_content']/table/tbody/tr[4]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[4]/td[2]/input", "xpath:position"]
+      ],
+      "value": "63937528N"
+    }, {
+      "id": "6d286286-22b2-4214-acca-4594400f684a",
+      "comment": "",
+      "command": "click",
+      "target": "css=#crearCuenta\\3AsaveBtn > .ui-button-text",
+      "targets": [
+        ["css=#crearCuenta\\3AsaveBtn > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='crearCuenta:saveBtn']/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/button/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Crear Segregada')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "4efb1012-6c41-45f1-8ec2-2da3ae1c0042",
+    "name": "TESTR6",
+    "commands": [{
+      "id": "e4c4727b-cd9c-4fea-9030-1bc4bdbac6db",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/fintech-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "64b18fc1-61a4-4da2-b9bf-352dff70b6d6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "806x818",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "49c747ea-cd69-41cc-820d-2a9d384ec010",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(5) b",
+      "targets": [
+        ["css=li:nth-child(5) b", "css:finder"],
+        ["xpath=//li[5]/a/b", "xpath:position"],
+        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "065a5d98-e123-4684-8b95-ca51c877443a",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b9ee96e4-d0f5-4dd5-bb3b-7750d95c2102",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "bf7798ea-0c3a-4b08-8c52-1361b145b21a",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5da7d285-6c86-46a4-bc64-41f4425131f9",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "01d9ac71-07d2-4e4c-9bf6-605b7a09a9ca",
+      "comment": "",
+      "command": "click",
+      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "targets": [
+        ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "77cdd4c2-426f-4c88-b10e-c421c4259991",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Clientes",
+      "targets": [
+        ["linkText=Clientes", "linkText"],
+        ["css=.ui-state-hover", "css:finder"],
+        ["xpath=//li[@id='f:c']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Clientes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6e5ec875-710e-47f8-8303-4f331ae3aa23",
+      "comment": "",
+      "command": "clickAt",
+      "target": "id=f:lc",
+      "targets": [
+        ["id=f:lc", "id"],
+        ["linkText=Lista clientes", "linkText"],
+        ["css=#f\\3Alc", "css:finder"],
+        ["xpath=//a[@id='f:lc']", "xpath:attributes"],
+        ["xpath=//li[@id='f:c']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/fintech-war/Listaclientes.xhtml')]", "xpath:href"],
+        ["xpath=//li[3]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Lista clientes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d56a0089-d774-4cf4-9158-0786966b4811",
+      "comment": "",
+      "command": "clickAt",
+      "target": "css=#formularioParaEmpresas\\3AtablaConListaEmpresa\\3A 0\\3A botonAnadirAutorizado > .ui-button-text",
+      "targets": [
+        ["css=#formularioParaEmpresas\\3AtablaConListaEmpresa\\3A 0\\3A botonAnadirAutorizado > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='formularioParaEmpresas:tablaConListaEmpresa:0:botonAnadirAutorizado']/span", "xpath:idRelative"],
+        ["xpath=//td[10]/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9dbd91f6-f5f3-46e2-8f6a-590258add2c3",
+      "comment": "",
+      "command": "click",
+      "target": "id=form:j_idt38",
+      "targets": [
+        ["id=form:j_idt38", "id"],
+        ["name=form:j_idt38", "name"],
+        ["css=#form\\3Aj_idt38", "css:finder"],
+        ["xpath=//input[@id='form:j_idt38']", "xpath:attributes"],
+        ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[4]/td/input", "xpath:idRelative"],
+        ["xpath=//td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6261ea89-68e9-4014-a8d3-cb6683a84a0f",
+      "comment": "",
+      "command": "type",
+      "target": "id=form:j_idt38",
+      "targets": [
+        ["id=form:j_idt38", "id"],
+        ["name=form:j_idt38", "name"],
+        ["css=#form\\3Aj_idt38", "css:finder"],
+        ["xpath=//input[@id='form:j_idt38']", "xpath:attributes"],
+        ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[4]/td/input", "xpath:idRelative"],
+        ["xpath=//td/input", "xpath:position"]
+      ],
+      "value": "GEFRS45621"
+    }, {
+      "id": "22c8933d-ad4b-40b6-92e9-23fd35d00525",
+      "comment": "",
+      "command": "click",
+      "target": "id=form:j_idt40",
+      "targets": [
+        ["id=form:j_idt40", "id"],
+        ["name=form:j_idt40", "name"],
+        ["css=#form\\3Aj_idt40", "css:finder"],
+        ["xpath=//input[@id='form:j_idt40']", "xpath:attributes"],
+        ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[6]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[6]/td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7090324-6ab4-4331-a749-06b500bd4af4",
+      "comment": "",
+      "command": "type",
+      "target": "id=form:j_idt40",
+      "targets": [
+        ["id=form:j_idt40", "id"],
+        ["name=form:j_idt40", "name"],
+        ["css=#form\\3Aj_idt40", "css:finder"],
+        ["xpath=//input[@id='form:j_idt40']", "xpath:attributes"],
+        ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[6]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[6]/td/input", "xpath:position"]
+      ],
+      "value": "Escritura"
+    }, {
+      "id": "eb051579-343f-4c27-8397-a61937d00872",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ui-button-text:nth-child(1)",
+      "targets": [
+        ["css=.ui-button-text:nth-child(1)", "css:finder"],
+        ["xpath=//button[@id='form:modificar']/span", "xpath:idRelative"],
+        ["xpath=//div[2]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Modificar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "4ff6f36c-b8e5-456e-8408-c1e00a338066",
+    "name": "TESTR7",
+    "commands": [{
+      "id": "74101892-aa4e-47cd-a91e-a873cb035fa0",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/fintech-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "828d3432-bf8c-4012-9643-ee15cb00e7b4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "804x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "08278861-f4bb-4e8e-a748-c230f9cc03ee",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(5) b",
+      "targets": [
+        ["css=li:nth-child(5) b", "css:finder"],
+        ["xpath=//li[5]/a/b", "xpath:position"],
+        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "abd9c52c-78a2-4f5c-ba16-dd23a643f127",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6151a1c2-1469-4955-bb09-ff52a7294bd3",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "5bd1ac8c-ec7a-40c1-9007-6578f2404b84",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "077ab7e3-67ec-4cfa-890c-f70bd820fb2b",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "fe385a34-b612-4610-9463-9c25688a7b0b",
+      "comment": "",
+      "command": "click",
+      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "targets": [
+        ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9efe5d62-c648-44c0-8031-60f4c4a070fa",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Personas Autorizadas",
+      "targets": [
+        ["linkText=Personas Autorizadas", "linkText"],
+        ["css=.ui-state-hover", "css:finder"],
+        ["xpath=//div[@id='f:m']/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[3]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Personas Autorizadas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "808cb7b5-c21d-41d2-8168-f335910a2e6c",
+      "comment": "",
+      "command": "clickAt",
+      "target": "linkText=Lista",
+      "targets": [
+        ["linkText=Lista", "linkText"],
+        ["css=.ui-menuitem-active:nth-child(1) > .ui-menuitem-link", "css:finder"],
+        ["xpath=//div[@id='f:m']/ul/li[4]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/fintech-war/ListaPAutorizadas.xhtml')]", "xpath:href"],
+        ["xpath=//li[4]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "067e95a6-7258-4b14-a934-812c7a08403a",
+      "comment": "",
+      "command": "click",
+      "target": "css=#j_idt34\\3Aj_idt35\\3A 1\\3Aj_idt55 > .ui-button-text",
+      "targets": [
+        ["css=#j_idt34\\3Aj_idt35\\3A 1\\3Aj_idt55 > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='j_idt34:j_idt35:1:j_idt55']/span", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[10]/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "238771e0-7bbf-47b8-9aa1-8bfd59db038c",
+      "comment": "",
+      "command": "click",
+      "target": "id=form:j_idt42",
+      "targets": [
+        ["id=form:j_idt42", "id"],
+        ["name=form:j_idt42", "name"],
+        ["css=#form\\3Aj_idt42", "css:finder"],
+        ["xpath=//input[@id='form:j_idt42']", "xpath:attributes"],
+        ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[8]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[8]/td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8736207d-8525-4da5-ae7a-1751cfc728b6",
+      "comment": "",
+      "command": "type",
+      "target": "id=form:j_idt42",
+      "targets": [
+        ["id=form:j_idt42", "id"],
+        ["name=form:j_idt42", "name"],
+        ["css=#form\\3Aj_idt42", "css:finder"],
+        ["xpath=//input[@id='form:j_idt42']", "xpath:attributes"],
+        ["xpath=//div[@id='form:pnl_content']/table/tbody/tr[8]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[8]/td/input", "xpath:position"]
+      ],
+      "value": "Campanillas"
+    }, {
+      "id": "4d9718bc-fdba-4ef4-a2f8-7b0f4d4d9648",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ui-button-text:nth-child(1)",
+      "targets": [
+        ["css=.ui-button-text:nth-child(1)", "css:finder"],
+        ["xpath=//button[@id='form:modificar']/span", "xpath:idRelative"],
+        ["xpath=//div[2]/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "44717c17-9013-4994-a409-a9a51ba9885f",
+    "name": "TESTR8",
+    "commands": [{
+      "id": "fe972781-0575-4cda-b88e-42eaf9643862",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/fintech-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "32719222-0625-4569-8e34-52083499c346",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "803x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d7750069-a156-4936-8b7b-c6b2095506da",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(5) b",
+      "targets": [
+        ["css=li:nth-child(5) b", "css:finder"],
+        ["xpath=//li[5]/a/b", "xpath:position"],
+        ["xpath=//b[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4e88e9d0-218f-4921-b6e9-b2c04757eaba",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dcd20508-74d8-4c0c-836f-7c6476f25006",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "dac5ec5e-021f-4660-bd27-d87fd7829f78",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "058209ec-895f-4769-b0d2-11efef40eb88",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "5c2fbaa3-5db3-4a14-bebe-102f05f475d8",
+      "comment": "",
+      "command": "click",
+      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "targets": [
+        ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c5f7118-a223-4df4-b833-23dd8b5b569e",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Cuentas",
+      "targets": [
+        ["linkText=Cuentas", "linkText"],
+        ["css=.ui-state-hover", "css:finder"],
+        ["xpath=//div[@id='f:m']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[4]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Cuentas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3835037f-e178-439f-8247-5a9e41ad21d5",
+      "comment": "",
+      "command": "clickAt",
+      "target": "linkText=Lista",
+      "targets": [
+        ["linkText=Lista", "linkText"],
+        ["css=.ui-menuitem-active:nth-child(1) > .ui-menuitem-link", "css:finder"],
+        ["xpath=//div[@id='f:m']/ul/li[6]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/fintech-war/Listacuentas.xhtml')]", "xpath:href"],
+        ["xpath=//li[6]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "446c0ce8-07e3-4e17-8012-bf75cc6b365d",
+      "comment": "",
+      "command": "click",
+      "target": "css=#j_idt55\\3Aj_idt56\\3A 0\\3Aj_idt74 > .ui-button-text",
+      "targets": [
+        ["css=#j_idt55\\3Aj_idt56\\3A 0\\3Aj_idt74 > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='j_idt55:j_idt56:0:j_idt74']/span", "xpath:idRelative"],
+        ["xpath=//div[3]/form/div/div[2]/table/tbody/tr/td[9]/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "709c4f9c-4e08-436a-bf84-eb47a6902f95",
+      "comment": "",
+      "command": "click",
+      "target": "css=#MostarAutorizacion\\3Aj_idt55\\3A 1\\3A botonIniciarSesion > .ui-button-text",
+      "targets": [
+        ["css=#MostarAutorizacion\\3Aj_idt55\\3A 1\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='MostarAutorizacion:j_idt55:1:botonIniciarSesion']/span", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[4]/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "b90fd399-3cd8-494b-9a82-9a086a61db4b",
+    "name": "TESTR9",
+    "commands": [{
+      "id": "d21de5b0-16c7-480c-b22b-81077fd4da4d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/fintech-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f367ea43-127d-4b6c-8649-42c3591e3de5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "806x818",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "71d58a85-75e7-4afc-a4cb-e0d1b4006b0c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inicio Sesión Administrador",
+      "targets": [
+        ["linkText=Inicio Sesión Administrador", "linkText"],
+        ["css=li:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(@href, 'admin.xhtml')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inicio Sesión Administrador')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f3b7145-f3ab-4871-892a-4e1a4daa8925",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "97614b1a-5bac-4eb1-98f0-4a0c95d54137",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "302f5091-f880-4675-9c4c-3b75c036aea1",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7ce71e48-3cc7-48fd-a300-13e80934be0c",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "ponciano"
+    }, {
+      "id": "7de37a18-1206-495b-991b-d76d99244c83",
+      "comment": "",
+      "command": "click",
+      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "targets": [
+        ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3076f6c5-3026-4ccf-a543-cb75a8064bec",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Cuentas",
+      "targets": [
+        ["linkText=Cuentas", "linkText"],
+        ["css=.ui-state-hover", "css:finder"],
+        ["xpath=//div[@id='f:m']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[4]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Cuentas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ff03536-628b-4b1c-b7dd-60c800db5dbd",
+      "comment": "",
+      "command": "clickAt",
+      "target": "linkText=Lista",
+      "targets": [
+        ["linkText=Lista", "linkText"],
+        ["css=.ui-menuitem-active:nth-child(1) > .ui-menuitem-link", "css:finder"],
+        ["xpath=//div[@id='f:m']/ul/li[6]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/fintech-war/Listacuentas.xhtml')]", "xpath:href"],
+        ["xpath=//li[6]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6cbd1f35-af9c-4e0e-84ff-65daded80643",
+      "comment": "",
+      "command": "click",
+      "target": "css=#j_idt55\\3Aj_idt56\\3A 1\\3Aj_idt72 > .ui-button-text",
+      "targets": [
+        ["css=#j_idt55\\3Aj_idt56\\3A 1\\3Aj_idt72 > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='j_idt55:j_idt56:1:j_idt72']/span", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[8]/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "1df22414-3c6a-4296-8197-29cb9afefb8f",
+    "name": "TESTR10",
+    "commands": [{
+      "id": "8b190815-5d90-4402-a3ad-246e867697d9",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/fintech-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "639e2fed-55a1-4c17-84ab-88893b1c5d9d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "806x818",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d8352fff-e001-4507-af49-d32f2ba90742",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inicio Sesión Cliente",
+      "targets": [
+        ["linkText=Inicio Sesión Cliente", "linkText"],
+        ["css=li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(@href, 'index.xhtml')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inicio Sesión Cliente')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "47db61a3-540d-40ca-96a4-0f87f1edd9a9",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab448278-c7e8-4d35-8baf-72f67f7499eb",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:user",
+      "targets": [
+        ["id=index:user", "id"],
+        ["name=index:user", "name"],
+        ["css=#index\\3Auser", "css:finder"],
+        ["xpath=//input[@id='index:user']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "juan"
+    }, {
+      "id": "a9f079b3-1769-40b0-b453-b1852f5a8bb9",
+      "comment": "",
+      "command": "click",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a304bb25-69b1-4fb4-8391-7d7f6e49adee",
+      "comment": "",
+      "command": "type",
+      "target": "id=index:pass",
+      "targets": [
+        ["id=index:pass", "id"],
+        ["name=index:pass", "name"],
+        ["css=#index\\3Apass", "css:finder"],
+        ["xpath=//input[@id='index:pass']", "xpath:attributes"],
+        ["xpath=//div[@id='index:pnl_content']/table/tbody/tr[2]/td[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "juan"
+    }, {
+      "id": "f222bce8-0b2f-4906-aed3-8bda6c54ff45",
+      "comment": "",
+      "command": "click",
+      "target": "css=#index\\3A botonIniciarSesion > .ui-button-text",
+      "targets": [
+        ["css=#index\\3A botonIniciarSesion > .ui-button-text", "css:finder"],
+        ["xpath=//button[@id='index:botonIniciarSesion']/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "21e694c1-3304-466e-83a4-6f17630971d9",
+    "name": "TESTT",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["3fb6ad6f-f59a-4742-bd5a-131ca0c9a08a", "fbe1ed49-cfc2-4417-8391-236378e83698", "8b5a2ccd-f684-438c-801e-45a79514c2e2", "398a8193-a322-4ba2-886d-c320a135e307", "2d00788e-fe32-4458-8099-a1ec625df170", "4efb1012-6c41-45f1-8ec2-2da3ae1c0042", "4ff6f36c-b8e5-456e-8408-c1e00a338066", "44717c17-9013-4994-a409-a9a51ba9885f", "b90fd399-3cd8-494b-9a82-9a086a61db4b", "1df22414-3c6a-4296-8197-29cb9afefb8f"]
+  }],
+  "urls": ["http://localhost:8080/fintech-war/"],
+  "plugins": []
+}
