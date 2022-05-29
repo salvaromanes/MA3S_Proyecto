@@ -6,11 +6,10 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-
 <h:head>
     <title>Pagina principal del cliente</title>
     <link href="Estilos/estilosFondos.css" rel="stylesheet" type="text/css" />
-    <link href="Estilos/estiloCrearCuentaNueva2.css" rel="stylesheet" type="text/css" />
+    <link href="Estilos/estiloCrearCuentaNueva3.css" rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
     <h:panelGroup rendered="#{sesion.sesion_iniciada}">
@@ -33,9 +32,12 @@
                 <f:facet name="options">
                     <p:commandButton value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
                 </f:facet>
-            </p:menubar>
+                </p:menubar>
+        </h:form>
 
+        <div class="contenedor">
             <div class="datos">
+                <h3>Cliente</h3>
                 <p:panelGrid columns="2" rendered="#{sesion.es_cliente}">
                     <f:facet name="header">
                         <img src="imagenes/user.png" alt="" width="100"/>
@@ -55,6 +57,7 @@
                 </p:panelGrid>
             </div>
             <div class="datos">
+                <h3>Persona autorizada</h3>
                 <p:panelGrid columns="2" rendered="#{sesion.es_PAutorizada}">
                     <f:facet name="header">
                         <img src="imagenes/user.png" alt="" width="100"/>
@@ -73,9 +76,11 @@
                     <h:outputText value="#{sesion.usuario.pAutorizada.fechaNacimiento}"/>
                 </p:panelGrid>
             </div>
-        </h:form>
+        </div>
+
     </div>
     </h:panelGroup>
+
     <h:panelGroup rendered="#{!sesion.sesion_iniciada}">
         <h:form>
             <h1>NO SE HA INICIADO SESIÓN</h1>
