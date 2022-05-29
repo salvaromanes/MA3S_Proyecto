@@ -16,59 +16,58 @@
 
 <h:body>
     <h:panelGroup rendered="#{sesion.sesion_admin}">
-        <div class="card">
-            <h:form>
-                <p:growl id="messages"/>
+        <div id="divisionExterior" class="card">
+            <h:form id = "formExterior">
+                <p:growl id="mensajeAlerta"/>
 
-                <p:menubar>
-                    <p:menuitem value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
+                <p:menubar id = "barraTareas">
+                    <p:menuitem id="Inicio" value="Página Inicio" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-home">
                     </p:menuitem>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id = "barra1" layout="vertical"/>
 
-                    <p:submenu label="Clientes" icon="pi pi-fw pi-users">
-                        <p:menuitem value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:submenu label="Dar alta" icon="pi pi-fw pi-plus">
-                            <p:menuitem value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
-                            <p:menuitem value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
+                    <p:submenu id = "submenuClientes" label="Clientes" icon="pi pi-fw pi-users">
+                        <p:menuitem id = "listaClientes" value="Lista clientes" outcome="Listaclientes.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:submenu id = "submenuAlta" label="Dar alta" icon="pi pi-fw pi-plus">
+                            <p:menuitem  id = "Individual" value="Individual" outcome="DarAltasClientesAdmin.xhtml" icon="pi pi-fw pi-user"/>
+                            <p:menuitem  value="Jurídico" outcome="DarAltasEmpresasAdmin.xhtml" icon="pi pi-fw pi-briefcase"/>
                         </p:submenu>
                     </p:submenu>
 
-                    <p:submenu label="Personas Autorizadas" icon="pi pi-fw pi-user-plus">
-                        <p:menuitem value="Lista" outcome="ListaPAutorizadas.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:menuitem value="Crear" outcome="DarAltasPAutorizadas.xhtml" icon="pi pi-fw pi-plus"/>
+                    <p:submenu id="submenuPAutorizadas" label="Personas Autorizadas" icon="pi pi-fw pi-user-plus">
+                        <p:menuitem id="listaPAutorizadas" value="Lista" outcome="ListaPAutorizadas.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:menuitem id="altaPAutorizada" value="Crear" outcome="DarAltasPAutorizadas.xhtml" icon="pi pi-fw pi-plus"/>
                     </p:submenu>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id="barra2" layout="vertical"/>
 
-                    <p:submenu label="Cuentas" icon="pi pi-fw pi-wallet">
-                        <p:menuitem value="Lista cuentas" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
-                        <p:submenu label="Crear" icon="pi pi-fw pi-plus">
-                            <p:menuitem value="Segregada" outcome="CrearCuentaSegregada.xhtml" />
-                            <p:menuitem value="Pooled" outcome="CrearCuentaPooled.xhtml" />
+                    <p:submenu id="submenuCuentas" label="Cuentas" icon="pi pi-fw pi-wallet">
+                        <p:menuitem id="listaCuentas" value="Lista" outcome="Listacuentas.xhtml" icon="pi pi-fw pi-list"/>
+                        <p:submenu id="submenuCrear" label="Crear" icon="pi pi-fw pi-plus">
+                            <p:menuitem id="crearSegregada" value="Segregada" outcome="CrearCuentaSegregada.xhtml" />
+                            <p:menuitem id="crearPooled" value="Pooled" outcome="CrearCuentaPooled.xhtml" />
                         </p:submenu>
                     </p:submenu>
 
-                    <p:submenu label="Transacciones" icon="pi pi-fw pi-money-bill">
-                        <p:menuitem value="Lista" outcome="ListaTransacciones.xhtml" icon="pi pi-fw pi-list"/>
+                    <p:submenu id="submenuTransaccion" label="Transacciones" icon="pi pi-fw pi-money-bill">
+                        <p:menuitem id="listaTransaccion" value="Lista" outcome="ListaTransacciones.xhtml" icon="pi pi-fw pi-list"/>
                     </p:submenu>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id="barra3" layout="vertical"/>
 
-                    <p:submenu label="Archivos" icon="pi pi-fw pi-file">
-                        <p:menuitem value="Generar CSV Alemania" outcome="csv.xhtml" icon="pi pi-fw pi-file-excel"/>
-                        <p:menuitem value="Api Holanda" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-code"/>
+                    <p:submenu id="submenuArchivos" label="Archivos" icon="pi pi-fw pi-file">
+                        <p:menuitem id="CSV" value="Generar CSV Alemania" outcome="csv.xhtml" icon="pi pi-fw pi-file-excel"/>
+                        <p:menuitem id="API" value="Api Holanda" outcome="principalAdmin.xhtml" icon="pi pi-fw pi-code"/>
                     </p:submenu>
 
-                    <p:divider layout="vertical"/>
+                    <p:divider id="barra4" layout="vertical"/>
 
-                    <f:facet name="options">
-                        <p:commandButton value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
+                    <f:facet id="opciones" name="options">
+                        <p:commandButton id="cerrarSesion" value="Cerrar Sesión" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{sesion.cerrarSesion}"/>
                     </f:facet>
                 </p:menubar>
             </h:form>
         </div>
-
 
 <!--        <h1 class="titulo"> Modificar Empresa </h1>-->
     <div class="contenedor">
@@ -77,14 +76,14 @@
                 <p:panel id="pnl" header="Autorizar persona a una cuenta">
                 <h:panelGrid columns="1">
 
-                <h:outputText value="Identificacion de la empresa:" />
-                <h:outputText value="#{sesion.identificacion}"/>
+                <h:outputText id="idempresa" value="Identificacion de la empresa:" />
+                <h:outputText id="idempresa3" value="#{sesion.identificacion}"/>
 
-                <h:outputText value="Identificación del autorizado:"/>
-                <p:inputText required="true" value="#{addAutorizado.iden_pAutorizada}"/>
+                <h:outputText id="idaut"  value="Identificación del autorizado:"/>
+                <p:inputText id="idaut3"  required="true" value="#{addAutorizado.iden_pAutorizada}"/>
 
-                <h:outputText value="Modo de operación:"/>
-                <p:inputText required="true" value="#{addAutorizado.operacion}"/>
+                <h:outputText id="modo" value="Modo de operación:"/>
+                <p:inputText id="modo3"  required="true" value="#{addAutorizado.operacion}"/>
                 </h:panelGrid>
                 <p:commandButton id="modificar" value="Modificar" action="#{addAutorizado.anadirAutorizado}" />
                 </p:panel>
@@ -93,11 +92,11 @@
     </div>
 
     </h:panelGroup>
-    <h:panelGroup rendered="#{!sesion.sesion_admin}">
-        <h:form>
-            <h1>NO SE HA INICIADO SESIÓN</h1>
-            <a href="mainv2.xhtml">
-                <p:commandButton type="button" value="Volver"/>
+    <h:panelGroup id="pg" rendered="#{!sesion.sesion_admin}">
+        <h:form id="formh">
+            <h1 id="res">NO SE HA INICIADO SESIÓN</h1>
+            <a id="id" href="mainv2.xhtml">
+                <p:commandButton id="but" type="button" value="Volver"/>
             </a>
         </h:form>
     </h:panelGroup>

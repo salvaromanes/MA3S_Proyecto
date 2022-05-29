@@ -76,7 +76,8 @@
                  paginator="true"
                  paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                  currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
-                 rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+                 rowsPerPageTemplate="5,10,{ShowAll|'All'}"
+                 paginatorPosition="bottom" >
 
         <p:column id = "columnIdentificacion" headerText="Identificación" filterBy="#{a.identificacion}" filterStyle="width: 100px;" filterMatchMode="contains">
             <h:outputText id="campoIdentificacion" value="#{a.identificacion}"/>
@@ -130,7 +131,8 @@
                          paginator="true"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                          currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
-                         rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+                         rowsPerPageTemplate="5,10,{ShowAll|'All'}"
+                         paginatorPosition="bottom"   >
 
                 <p:column id = "columnIdentificacion2" headerText="Identificación" filterBy="#{a.identificacion}" filterStyle="width: 100px;" filterMatchMode="contains">
                     <h:outputText id="campoIdentificaion2" value="#{a.identificacion}"/>
