@@ -66,7 +66,7 @@
                 </p:menubar>
             </h:form>
         </div>
-    <h1>Cuentas Pooleds</h1>
+    <h1>Cuentas pooleds</h1>
     <div class="card">
         <h:form>
             <p:dataTable value="#{listaCuentas.pooleds}" var="a" rows="5"
@@ -87,11 +87,11 @@
                     <h:outputText value="#{a.estado}" />
                 </p:column>
 
-                <p:column headerText="fechaApertura">
+                <p:column headerText="Fecha apertura">
                     <h:outputText value="#{listaCuentas.fechaSimple(a.fechaApertura)}" />
                 </p:column>
 
-                <p:column headerText="fechaCierre">
+                <p:column headerText="Fecha cierre">
                     <h:outputText value="#{listaCuentas.fechaSimple(a.fechaCierre)}" />
                 </p:column>
 
@@ -117,7 +117,7 @@
         </h:form>
     </div>
 
-    <h1>Cuentas Segregadas</h1>
+    <h1>Cuentas segregadas</h1>
     <div class="card">
         <h:form>
             <p:dataTable value="#{listaCuentas.segregadas}" var="a" rows="5"
@@ -138,11 +138,11 @@
                     <h:outputText value="#{a.estado}" />
                 </p:column>
 
-                <p:column headerText="Fecha Apertura">
+                <p:column headerText="Fecha apertura">
                     <h:outputText value="#{listaCuentas.fechaSimple(a.fechaApertura)}" />
                 </p:column>
 
-                <p:column headerText="Fecha Cierre">
+                <p:column headerText="Fecha cierre">
                     <h:outputText value="#{listaCuentas.fechaSimple(a.fechaCierre)}" />
                 </p:column>
 
@@ -150,7 +150,7 @@
                     <h:outputText value="#{a.cliente.identificacion}" />
                 </p:column>
 
-                <p:column  headerText="Comision">
+                <p:column  headerText="Comisión">
                     <h:outputText value="#{a.comision}" />
                 </p:column>
 
@@ -168,7 +168,7 @@
         </h:form>
     </div>
 
-    <h1>Cuentas Referencias</h1>
+    <h1>Cuentas referencias</h1>
     <div class="card">
         <h:form>
             <p:dataTable value="#{listaCuentas.referencias}" var="a" rows="5"
@@ -185,7 +185,7 @@
                     <h:outputText value="#{a.swift}" />
                 </p:column>
 
-                <p:column headerText="Nombre Banco" filterBy="#{a.nombreBanco}" filterMatchMode="contains">
+                <p:column headerText="Nombre banco" filterBy="#{a.nombreBanco}" filterMatchMode="contains">
                     <h:outputText value="#{a.nombreBanco}" />
                 </p:column>
 
@@ -193,7 +193,7 @@
                     <h:outputText value="#{a.sucursal}" />
                 </p:column>
 
-                <p:column headerText="Pais" filterBy="#{a.pais}" filterMatchMode="contains">
+                <p:column headerText="País" filterBy="#{a.pais}" filterMatchMode="contains">
                     <h:outputText value="#{a.pais}" />
                 </p:column>
 

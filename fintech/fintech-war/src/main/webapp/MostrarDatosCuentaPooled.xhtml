@@ -75,7 +75,7 @@
         <h:form id="MostrarPooled">
             <div class="card">
                 <p:dataTable var="pooled" value="#{mostrarDatosCuentaPooled.cuentas}" emptyMessage="No hay cuentas pooled para mostrar">
-                    <p:column headerText="Identificacion Propietario">
+                    <p:column headerText="Identificación propietario">
                         <h:outputText value="#{pooled.cliente.identificacion}" />
                     </p:column>
 
@@ -91,15 +91,15 @@
                         <h:outputText value="#{pooled.estado}" />
                     </p:column>
 
-                    <p:column headerText="Fecha Apertura">
+                    <p:column headerText="Fecha apertura">
                         <h:outputText value="#{pooled.fechaApertura}" />
                     </p:column>
 
-                    <p:column headerText="Fecha Cierre">
+                    <p:column headerText="Fecha cierre">
                         <h:outputText value="#{pooled.fechaCierre}" />
                     </p:column>
 
-                    <p:column headerText="Clasificacion">
+                    <p:column headerText="Clasificación">
                         <h:outputText value="Pooled" />
                     </p:column>
                 </p:dataTable>
@@ -110,7 +110,7 @@
         <h:form id="MostarAutorizacion">
             <div class="card">
                 <p:dataTable var="autorizacion" value="#{mostrarDatosCuentaPooled.autorizaciones}" emptyMessage="No hay autorizaciones que mostrar">
-                    <p:column headerText="Identificacion">
+                    <p:column headerText="Identificación">
                         <h:outputText value="#{autorizacion.autorizadaId.identificacion}" />
                     </p:column>
 
@@ -122,7 +122,7 @@
                         <h:outputText value="#{autorizacion.empresaId.identificacion}" />
                     </p:column>
 
-                    <p:column headerText="Eliminar Autorizacion">
+                    <p:column headerText="Eliminar autorización">
                         <h:commandButton class="css-button-rounded--black" id="botonIniciarSesion" value="Eliminar Autorizado"
                             action="#{mostrarDatosCuentaPooled.eliminarAutorizaciones(autorizacion.autorizadaId.id, autorizacion.empresaId.id)}"/>
                     </p:column>

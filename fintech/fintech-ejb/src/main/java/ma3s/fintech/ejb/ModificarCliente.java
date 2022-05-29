@@ -220,8 +220,6 @@ public class ModificarCliente implements GestionModificarCliente{
         if (individual == null){
             throw new IndividualNoExistenteException("El individual con el id " + id + " no existe");
         }
-        if(fecha_nacimiento == null)
-            throw new CampoVacioException();
 
         individual.setFechaNacimiento(fecha_nacimiento);
 
