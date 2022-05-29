@@ -82,7 +82,7 @@
             <h:outputText id="campoIdentificacion" value="#{a.identificacion}"/>
         </p:column>
 
-        <p:column id="columnaRazonSocial" headerText="Razon Social" filterBy="#{a.razonSocial}" filterMatchMode="contains">
+        <p:column id="columnaRazonSocial" headerText="Razón Social" filterBy="#{a.razonSocial}" filterMatchMode="contains">
             <h:outputText id="campoRazonSocial" value="#{a.razonSocial}" />
         </p:column>
 
@@ -90,7 +90,7 @@
             <h:outputText id="campoEstado" value="#{a.estado}" />
         </p:column>
 
-        <p:column id="columnFechaAlta" headerText="FechaAlta">
+        <p:column id="columnFechaAlta" headerText="Fecha alta">
             <h:outputText id="campoFechaAlta" value="#{listaClientes.fechaSimple(a.fechaAlta)}" />
         </p:column>
         <p:column id="columnDireccion" headerText="Dirección" filterBy="#{a.direccion}" filterMatchMode="contains">
@@ -99,13 +99,13 @@
         <p:column id="columnCiudad" headerText="Ciudad" filterBy="#{a.ciudad}" filterMatchMode="contains">
             <h:outputText id="campoCiudad" value="#{a.ciudad}" />
         </p:column>
-        <p:column id="columnCodigoPostal" headerText="CodigoPostal" filterBy="#{a.codigopostal}" filterMatchMode="contains">
+        <p:column id="columnCodigoPostal" headerText="Código postal" filterBy="#{a.codigopostal}" filterMatchMode="contains">
             <h:outputText id="campoCodigoPostal" value="#{a.codigopostal}" />
         </p:column>
         <p:column id="columnPais" headerText="País" filterBy="#{a.pais}" filterMatchMode="contains">
             <h:outputText id="campPais" value="#{a.pais}" />
         </p:column>
-        <p:column id="columnBotonBaja" headerText="Dar Baja">
+        <p:column id="columnBotonBaja" headerText="Dar baja">
             <p:commandButton id="BotonDarBaja" value="Baja"
                              action="#{listaClientes.baja(a)}" />
         </p:column>
@@ -148,10 +148,10 @@
                     <h:outputText id="campoEstado2" value="#{a.estado}" />
                 </p:column>
 
-                <p:column id="columnFechaAlta2" headerText="FechaAlta">
+                <p:column id="columnFechaAlta2" headerText="Fecha alta">
                     <h:outputText id="campoFechaAlta2" value="#{listaClientes.fechaSimple(a.fechaAlta)}" />
                 </p:column>
-                <p:column id="columnFechaBaja" headerText="FechaBaja">
+                <p:column id="columnFechaBaja" headerText="Fecha baja">
                     <h:outputText id="campoFechaBaja" value="#{listaClientes.fechaSimple(a.fechaBaja)}" />
                 </p:column>
                 <p:column id="columnDireccion2" headerText="Dirección" filterBy="#{a.direccion}" filterMatchMode="contains">
@@ -160,13 +160,13 @@
                 <p:column id="columnCiudad2" headerText="Ciudad" filterBy="#{a.ciudad}" filterMatchMode="contains">
                     <h:outputText id="campoCiudad2" value="#{a.ciudad}" />
                 </p:column>
-                <p:column id="columnCodigoPostal2" headerText="CodigoPostal" filterBy="#{a.codigopostal}" filterMatchMode="contains">
+                <p:column id="columnCodigoPostal2" headerText="Código postal" filterBy="#{a.codigopostal}" filterMatchMode="contains">
                     <h:outputText id="campoCodigoPostal2" value="#{a.codigopostal}" />
                 </p:column>
                 <p:column id="columnPais2" headerText="País" filterBy="#{a.pais}" filterMatchMode="contains">
                     <h:outputText id="campoPais2" value="#{a.pais}" />
                 </p:column>
-                <p:column id="columnaBotonDarBaja2" headerText="Dar Baja">
+                <p:column id="columnaBotonDarBaja2" headerText="Dar baja">
                     <p:commandButton id="campoBotonDarBaja2" value="Baja"
                                       action="#{listaClientes.baja(a)}" />
                 </p:column>
