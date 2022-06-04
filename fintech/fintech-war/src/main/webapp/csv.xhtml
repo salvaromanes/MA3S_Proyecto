@@ -81,7 +81,8 @@
 
             <p:dataTable id="tbl" var="csv" value="#{dataExporterView.cuentas}"
                          paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-                         paginator="true" rows="10" styleClass="p-mt-2">
+                         paginator="true" rows="10" styleClass="p-mt-2"
+                         paginatorPosition="bottom">
                 <p:column>
                     <f:facet name="header">
                         <h:outputText value="IBAN"/>
@@ -166,7 +167,8 @@
 
             <p:dataTable id="tbl2" var="csv2" value="#{dataExporterView2.cuentas}"
                          paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-                         paginator="true" rows="10" styleClass="p-mt-2">
+                         paginator="true" rows="10" styleClass="p-mt-2"
+                         paginatorPosition="bottom">
                 <p:column>
                     <f:facet name="header">
                         <h:outputText value="IBAN"/>

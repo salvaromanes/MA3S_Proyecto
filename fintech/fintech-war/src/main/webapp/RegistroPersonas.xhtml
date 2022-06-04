@@ -19,10 +19,10 @@
     <div class="contenedor">
     <div class="card">
     <h:form id="form">
-        <p:panel  id="pnl" header="Crear cuenta segregada">
+        <p:panel  id="pnl" header="Registrar un nuevo cliente">
             <h:panelGrid columns="2">
 
-                <h:outputText value="Identificacion" />
+                <h:outputText value="Identificación" />
                 <p:inputText required="false"/>
 
                 <h:outputText value="Nombre"/>
@@ -34,19 +34,19 @@
                 <h:outputText value="Fecha de nacimiento"/>
                 <p:inputText required="false"/>
 
-                <h:outputText value="Direccion"/>
+                <h:outputText value="Dirección"/>
                 <p:inputText required="false"/>
 
                 <h:outputText value="Ciudad"/>
                 <p:inputText required="false"/>
 
-                <h:outputText value="Codigo Postal"/>
+                <h:outputText value="Código Postal"/>
                 <p:inputText required="false"/>
 
-                <h:outputText value="Pais"/>
+                <h:outputText value="País"/>
                 <p:inputText required="false"/>
             </h:panelGrid>
-                <p:commandButton id="botonCrear" value="Crear"/>
+                <p:commandButton id="botonCrear" value="Registrarse"/>
                 <p:commandButton class="css-button-rounded--black" id="botonVolver" value="Volver" action="#{sesion.volver}"/>
         </p:panel>
     </h:form>

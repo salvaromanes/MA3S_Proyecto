@@ -75,7 +75,8 @@
                          paginator="true"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                          currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
-                         rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+                         rowsPerPageTemplate="5,10,{ShowAll|'All'}"
+                         paginatorPosition="bottom">
 
                 <p:column headerText="Tipo" style="width:auto;text-align: left;">
                     <h:outputText value="#{t.tipo}" />
@@ -101,10 +102,10 @@
                     <h:outputText  value="#{t.cantidad}" />
                 </p:column>
                 <p:column  headerText="Fecha de ejecución" style="width:auto;text-align: left;">
-                    <h:outputText  value="#{t.fechaEjecucion}" />
+                    <h:outputText  value="#{listaCuentas.fechaSimple(t.fechaEjecucion)}" />
                 </p:column>
                 <p:column  headerText="Fecha de instrucción" style="width:auto;text-align: left;">
-                    <h:outputText  value="#{t.fechaInstruccion}" />
+                    <h:outputText  value="#{listaCuentas.fechaSimple(t.fechaInstruccion)}" />
                 </p:column>
             </p:dataTable>
         </h:form>

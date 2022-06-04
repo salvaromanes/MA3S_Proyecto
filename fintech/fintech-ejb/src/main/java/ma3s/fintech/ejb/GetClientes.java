@@ -172,12 +172,28 @@ public class GetClientes implements GestionGetClientes{
         String fecha;
         Individual individual = em.find(Individual.class, id);
         if(individual == null){
-            fecha = "noexitente";
+            fecha = "noexistente";
         }else{
             if(individual.getFechaNacimiento() == null){
-                fecha = "noexitente";
+                fecha = "noexistente";
             }else{
                 fecha = individual.getFechaNacimiento().toString();
+            }
+        }
+        return fecha;
+    }
+
+    @Override
+    public String getFechNacPA(Long id){
+        String fecha;
+        PAutorizada paut = em.find(PAutorizada.class, id);
+        if(paut == null){
+            fecha = "noexistente";
+        }else{
+            if(paut.getFechaNacimiento() == null){
+                fecha = "noexistente";
+            }else{
+                fecha = paut.getFechaNacimiento().toString();
             }
         }
         return fecha;

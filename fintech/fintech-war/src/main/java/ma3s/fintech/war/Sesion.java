@@ -246,6 +246,12 @@ public class Sesion implements Serializable {
         return fecha;
     }
 
+    public String getFechaNacPA(Long id){
+        String fecha;
+        fecha = gestionGetClientes.getFechNacPA(id);
+        return fecha;
+    }
+
     public Boolean getEs_cliente() {
         return es_cliente;
     }

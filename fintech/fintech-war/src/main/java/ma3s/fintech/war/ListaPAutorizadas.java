@@ -40,6 +40,7 @@ public class ListaPAutorizadas {
     public String baja(PAutorizada p){
         try{
             gestionModificarPAutorizada.modificarEstado(sesion.getUsuario().getUser(), p.getId(), "Inactivo");
+            gestionModificarPAutorizada.modificarFechaFin(sesion.getUsuario().getUser(), p.getId(), new Date());
             return "ListaPAutorizadas.xhtml?faces-redirect=true";
         } catch (EstadoNoValidoException e) {
             LOGGER.info("Estado no valido");
@@ -61,6 +62,7 @@ public class ListaPAutorizadas {
     public String bloquear(PAutorizada p){
         try{
             gestionModificarPAutorizada.modificarEstado(sesion.getUsuario().getUser(), p.getId(), "Bloqueado");
+            gestionModificarPAutorizada.modificarFechaFin(sesion.getUsuario().getUser(), p.getId(), new Date());
             return "ListaPAutorizadas.xhtml?faces-redirect=true";
         } catch (EstadoNoValidoException e) {
             LOGGER.info("Estado no valido");

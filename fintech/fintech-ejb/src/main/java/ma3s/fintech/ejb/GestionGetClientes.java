@@ -34,6 +34,8 @@ public interface GestionGetClientes {
 
     String getFechNac(Long id);
 
+    String getFechNacPA(Long id);
+
     String getApellidos(Long id);
 
     String getNombre(Long id) throws DatosIncorrectosException;

@@ -62,11 +62,11 @@
                     </p:column>
 
                     <p:column headerText="Fecha apertura">
-                        <h:outputText value="#{segregada.fechaApertura}" />
+                        <h:outputText value="#{listaCuentas.fechaSimple(segregada.fechaApertura)}" />
                     </p:column>
 
                     <p:column headerText="Fecha cierre">
-                        <h:outputText value="#{segregada.fechaCierre}" />
+                        <h:outputText value="#{listaCuentas.fechaSimple(segregada.fechaApertura)}" />
                     </p:column>
 
                     <p:column headerText="Clasificación">
@@ -115,7 +115,7 @@
     <div class="card">
         <h:form id="Pooled" >
 
-            <p:dataTable var="p" value="#{historial.trans}">
+            <p:dataTable var="p" value="#{historial.trans}" emptyMessage="No hay transacciones recientes">
 
 
                 <p:column headerText="Cuenta origen">

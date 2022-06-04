@@ -77,7 +77,7 @@
                     <h:outputText value="#{sesion.usuario.pAutorizada.apellidos}"/>
 
                     <h:outputText value="Fecha de nacimiento:"/>
-                    <h:outputText value="#{sesion.usuario.pAutorizada.fechaNacimiento}"/>
+                    <h:outputText value="#{sesion.getFechaNacPA(sesion.usuario.pAutorizada.id)}"/>
                 </p:panelGrid>
             </div>
         </div>

@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.Date;
 import java.util.List;
 
 @Stateless
@@ -49,6 +50,7 @@ public class CierreCuenta implements GestionCierreCuenta{
             if(s.getReferencia().getSaldo() != 0)
                 throw new CuentaNoVacia("La cuenta no tiene saldo 0");
             s.setEstado("Cerrada");
+            s.setFechaCierre(new Date());
             em.merge(s);
         }
 

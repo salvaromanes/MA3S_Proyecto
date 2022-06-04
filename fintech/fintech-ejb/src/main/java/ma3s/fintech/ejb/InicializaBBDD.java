@@ -11,6 +11,8 @@ import ma3s.fintech.DepositadaEn;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -162,8 +164,9 @@ public class InicializaBBDD {
         Segregada segregada3 = new Segregada();
         segregada3.setEstado("Cerrada");
         segregada3.setFechaApertura(new Date());
-        Date fechaCierre = new Date(2021, Calendar.SEPTEMBER,1);
-        segregada3.setFechaCierre(fechaCierre);
+        LocalDate fechaCierre = LocalDate.of(2021, Calendar.SEPTEMBER,1);
+        Date fechaC = Date.from(fechaCierre.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        segregada3.setFechaCierre(fechaC);
         segregada3.setIban("DE31500105179261215675");
         segregada3.setSwift("12323");
         segregada3.setCliente(empresa);
