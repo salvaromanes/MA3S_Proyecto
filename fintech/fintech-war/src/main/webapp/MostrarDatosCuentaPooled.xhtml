@@ -92,11 +92,11 @@
                     </p:column>
 
                     <p:column id="apertura" headerText="Fecha apertura">
-                        <h:outputText id="valuePooled4" value="#{pooled.fechaApertura}" />
+                        <h:outputText id="valuePooled4" value="#{listaCuentas.fechaSimple(pooled.fechaApertura)}" />
                     </p:column>
 
                     <p:column id="cierre" headerText="Fecha cierre">
-                        <h:outputText id="valuePooled5" value="#{pooled.fechaCierre}" />
+                        <h:outputText id="valuePooled5" value="#{listaCuentas.fechaSimple(pooled.fechaCierre)}" />
                     </p:column>
 
                     <p:column id="clasificacion" headerText="Clasificación">

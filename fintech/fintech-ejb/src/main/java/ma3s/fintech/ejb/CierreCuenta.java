@@ -43,6 +43,7 @@ public class CierreCuenta implements GestionCierreCuenta{
                     throw new CuentaNoVacia("La cuenta no tiene saldo 0");
             }
             p.setEstado("Cerrada");
+            p.setFechaCierre(new Date());
             em.merge(p);
         }
 

@@ -6,6 +6,7 @@ import ma3s.fintech.PAutorizada;
 import ma3s.fintech.ejb.GestionGetCuentas;
 import ma3s.fintech.ejb.GestionTransferencia;
 import ma3s.fintech.ejb.excepciones.*;
+import org.primefaces.PrimeFaces;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -81,6 +82,7 @@ public class TransaccionClientes {
                 transaccion.setCuentaOrigen(cuenta);
             } catch (ClienteNoExisteException e) {
                 e.printStackTrace();
+                showMessage("Cuenta no existe");
             }
         }else if(segregada != null){
             try {
@@ -88,6 +90,7 @@ public class TransaccionClientes {
                 transaccion.setCuentaOrigen(cuenta);
             } catch (ClienteNoExisteException e) {
                 e.printStackTrace();
+                showMessage("Cuenta no existe");
             }
         }
         try{
@@ -107,6 +110,7 @@ public class TransaccionClientes {
             transaccion.setCuentaDestino(cuenta);
         } catch (ClienteNoExisteException e) {
             e.printStackTrace();
+            showMessage("Cuenta no existe");
         }
         transaccion.setCantidad(Cantidad);
         transaccion.setTipo(tipo);
@@ -117,11 +121,17 @@ public class TransaccionClientes {
             return "cuentasporUsuario.xhtml?faces-redirect=true";
         } catch (CampoVacioException e) {
             e.printStackTrace();
+            showMessage("Los campos deben ser rellenados");
         }
 
         return null;
     }
 
+    public void showMessage(String msg) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", msg);
+
+        PrimeFaces.current().dialog().showMessageDynamic(message);
+    }
 
     public String getIbanOrigen() {
         return ibanOrigen;

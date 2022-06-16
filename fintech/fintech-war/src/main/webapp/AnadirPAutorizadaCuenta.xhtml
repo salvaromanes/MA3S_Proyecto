@@ -82,10 +82,14 @@
                 <h:outputText id="idaut"  value="Identificación del autorizado:"/>
                 <p:inputText id="idaut3"  required="true" value="#{addAutorizado.iden_pAutorizada}"/>
 
-                <h:outputText id="modo" value="Modo de operación:"/>
-                <p:inputText id="modo3"  required="true" value="#{addAutorizado.operacion}"/>
+                <p:selectOneMenu id="modo" value="#{addAutorizado.operacion}" required="true" label="Modo de operación" style="width: 12rem">
+                   <f:selectItem itemLabel="Elige operación" itemValue="" noSelectionOption="true"/>
+                   <f:selectItem itemLabel="Lectura" itemValue="Lectura"/>
+                   <f:selectItem itemLabel="Escritura" itemValue="Escritura"/>
+                </p:selectOneMenu>
+
                 </h:panelGrid>
-                <p:commandButton id="modificar" value="Modificar" action="#{addAutorizado.anadirAutorizado}" />
+                <p:commandButton id="modificar" value="Autorizar" action="#{addAutorizado.anadirAutorizado}" />
                 </p:panel>
             </h:form>
         </div>

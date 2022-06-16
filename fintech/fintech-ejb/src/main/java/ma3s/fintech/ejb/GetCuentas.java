@@ -370,6 +370,14 @@ public class GetCuentas implements GestionGetCuentas{
     }
 
     @Override
+    public List<Divisa> getDivisas(){
+        Query query = em.createQuery("select d from Divisa d");
+        List<Divisa> lista = query.getResultList();
+
+        return lista;
+    }
+
+    @Override
     public Pooled getUPooled(String iban){
         Pooled pooled = em.find(Pooled.class, iban);
         if(pooled == null)

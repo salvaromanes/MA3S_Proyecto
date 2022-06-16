@@ -56,6 +56,7 @@ public class AnadirAutorizadoCuenta {
             showMessage("NoEsPAutorizadaException");
         } catch (OperacionNoValida operacionNoValida) {
             operacionNoValida.printStackTrace();
+            showMessage("NoEsValidaLaOperacion");
         }
         return null;
     }

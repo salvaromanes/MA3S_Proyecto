@@ -54,6 +54,8 @@ public interface GestionGetCuentas {
     List<Fintech> getFintech();
 
     List<Fintech> getFintechSemanal();
+
+    public List<Divisa> getDivisas();
     }
 
 

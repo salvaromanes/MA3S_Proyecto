@@ -80,8 +80,13 @@
         <h:outputText value="IBAN:" />
         <h:outputText value="#{sesion.iban}"/>
 
-        <h:outputText value="Divisa:"/>
-        <p:inputText required="true" value="#{addDivisaPooled.divisa}"/>
+
+        <p:outputLabel value="Divisa: "/>
+        <p:selectOneMenu id="Divisa" value="#{addDivisaPooled.divisa}" style="width:150px">
+           <f:selectItem itemLabel="Selecciona Divisa" itemValue="" noSelectionOption="true"/>
+           <f:selectItems value="#{enumDivisas.divisas}"/>
+        </p:selectOneMenu>
+
         </h:panelGrid>
 
         <p:commandButton id="Crear" value="Añadir" action="#{addDivisaPooled.addDivisa}" />

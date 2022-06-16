@@ -57,17 +57,24 @@
                 <p:inputText id = "cantidad_txt" value="#{transcliente.cantidad}"  required="true"/>
                 <h:message for="cantidad_txt"/>
 
-                <h:outputLabel for = "tipo_txt"  value="Tipo de transacción"/>
-                <p:inputText id = "tipo_txt" value="#{transcliente.tipo}"  required="true"/>
-                <h:message for="tipo_txt"/>
+                <p:selectOneMenu id="tipo_txt" value="#{transcliente.tipo}" required="true" label="Tipo de transacción" style="width: 12rem">
+                    <f:selectItem itemLabel="Tipo Transacción" itemValue="" noSelectionOption="true"/>
+                    <f:selectItem itemLabel="Pago" itemValue="Pago"/>
+                    <f:selectItem itemLabel="Cobro" itemValue="Cobro"/>
+                </p:selectOneMenu>
 
-                <h:outputLabel for = "divisaOrigen_txt"  value="Divisa origen"/>
-                <p:inputText id = "divisaOrigen_txt" value="#{transcliente.divisaOrigen}"  required="true"/>
-                <h:message for="divisaOrigen_txt"/>
 
-                <h:outputLabel for = "divisaDestino_txt"  value="Divisa destino"/>
-                <p:inputText id = "divisaDestino_txt" value="#{transcliente.divisaDestino}"  required="true"/>
-                <h:message for="divisaDestino_txt"/>
+                <p:outputLabel value="Divisa Origen: "/>
+                <p:selectOneMenu id="Divisa" value="#{transcliente.divisaOrigen}" style="width:150px">
+                    <f:selectItem itemLabel="Selecciona Divisa" itemValue="" noSelectionOption="true"/>
+                    <f:selectItems value="#{enumDivisas.divisas}"/>
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Divisa Destino: "/>
+                <p:selectOneMenu id="Divisa_dest" value="#{transcliente.divisaDestino}" style="width:200px">
+                    <f:selectItem itemLabel="Selecciona Divisa" itemValue="" noSelectionOption="true"/>
+                    <f:selectItems value="#{enumDivisas.divisas}"/>
+                </p:selectOneMenu>
                 </h:panelGrid>
 
                 <p:commandButton id="btnConfirmar" value="Confirmar" action="#{transcliente.realizarTransaccionCliente()}"/>

@@ -91,11 +91,11 @@
                     </p:column>
 
                     <p:column id = "Apertura" headerText="Fecha Apertura">
-                        <h:outputText id = "valueSegregado5" value="#{segregada.fechaApertura}" />
+                        <h:outputText id = "valueSegregado5" value="#{listaCuentas.fechaSimple(segregada.fechaApertura)}" />
                     </p:column>
 
                     <p:column id = "Cierre" headerText="Fecha Cierre">
-                        <h:outputText id = "valueSegregado6" value="#{segregada.fechaCierre}" />
+                        <h:outputText id = "valueSegregado6" value="#{listaCuentas.fechaSimple(segregada.fechaCierre)}" />
                     </p:column>
 
                     <p:column id = "Clasificacion" headerText="Clasificacion">

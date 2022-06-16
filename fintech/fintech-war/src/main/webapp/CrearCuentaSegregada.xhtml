@@ -72,24 +72,23 @@
     <div class="card">
         <h:form id="crearCuenta">
             <p:panel id="pnl" header="Crear cuenta segregada">
-                <h:panelGrid columns="3" cellpadding="7">
+                <h:panelGrid columns="2" cellpadding="7">
                     <h:outputLabel id="out" for="firstname" value="IBAN: *"/>
                     <p:inputText id="firstname"  required="true" label="Firstname" requiredMessage="Este campo es obligatorio" value="#{crearCuenta.IBAN}">
                         <f:validateLength minimum="2"/>
                     </p:inputText>
-                    <p:message for="firstname"/>
 
                     <h:outputLabel id="out2" for="lastname" value="SWIFT: "/>
                     <p:inputText id="lastname"  required="true" label="Lastname" requiredMessage="Este campo es obligatorio" value="#{crearCuenta.SWIFT}"/>
-                    <p:message for="lastname"/>
 
-                    <h:outputLabel id="out3"  for="divisa" value="Divisa: "/>
-                    <p:inputText id="divisa"  required="true" label="Lastname" requiredMessage="Este campo es obligatorio" value="#{crearCuenta.divisa}"/>
-                    <p:message for="divisa"/>
+                    <p:outputLabel value="Divisa: "/>
+                    <p:selectOneMenu id="Divisa" value="#{crearCuenta.divisa}" style="width:150px">
+                        <f:selectItem itemLabel="Selecciona Divisa" itemValue="" noSelectionOption="true"/>
+                        <f:selectItems value="#{enumDivisas.divisas}"/>
+                    </p:selectOneMenu>
 
                     <h:outputLabel id="out22" for="identificacion" value="Identificación: "/>
                     <p:inputText id="identificacion"  required="true" label="Lastname" requiredMessage="Este campo es obligatorio" value="#{crearCuenta.identificacion}"/>
-                    <p:message for="identificacion"/>
                 </h:panelGrid>
 
                 <p:commandButton id="saveBtn" value="Crear Segregada" icon="pi pi-check" action="#{crearCuenta.crearCuentaSegregada}" />
